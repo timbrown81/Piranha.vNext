@@ -21,14 +21,36 @@ namespace Piranha.AspNet.Web
 	public class Request : IRequest
 	{
 		#region Members
+		/// <summary>
+		/// The current HttpContext
+		/// </summary>
 		private readonly HttpContext context;
 		#endregion
 
 		#region Properties
+		/// <summary>
+		/// Gets the full raw url requested.
+		/// </summary>
 		public string RawUrl { get; private set; }
+
+		/// <summary>
+		/// Gets the absolute path of the request url.
+		/// </summary>
 		public string Path { get; private set; }
+
+		/// <summary>
+		/// Gets the optional query of the requested url.
+		/// </summary>
 		public string Query { get; private set; }
+
+		/// <summary>
+		/// Gets the segments of the absolute path.
+		/// </summary>
 		public string[] Segments { get; private set; }
+
+		/// <summary>
+		/// Gets the params of the optional query.
+		/// </summary>
 		public Param[] Params { get; private set; }
 		#endregion
 

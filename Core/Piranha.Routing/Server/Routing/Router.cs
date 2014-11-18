@@ -36,10 +36,12 @@ namespace Piranha.Server.Routing
 				using (var api = new Api()) {
 					if (request.Segments.Length == 0) {
 						// Handle startpage
-						response = App.Handlers.Pages.Handle(api, request);
+						if (App.Handlers.Pages != null)
+							response = App.Handlers.Pages.Handle(api, request);
 					} else {
 						// Handle alias redirects
-						response = App.Handlers.Aliases.Handle(api, request);
+						if (App.Handlers.Aliases != null)
+							response = App.Handlers.Aliases.Handle(api, request);
 
 						// Handle request by keyword
 						if (response == null) {
@@ -49,11 +51,11 @@ namespace Piranha.Server.Routing
 						}
 
 						// Handle posts
-						if (response == null)
+						if (response == null && App.Handlers.Posts != null)
 							response = App.Handlers.Posts.Handle(api, request);
 
 						// Handle pages
-						if (response == null)
+						if (response == null && App.Handlers.Pages != null)
 							response = App.Handlers.Pages.Handle(api, request);
 					}
 				}

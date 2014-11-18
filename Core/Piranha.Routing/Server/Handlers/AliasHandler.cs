@@ -32,8 +32,6 @@ namespace Piranha.Server.Handlers
 		/// <param name="request">The incoming route request</param>
 		/// <returns>The result</returns>
 		public IResponse Handle(Api api, IRequest request) {
-			//var context = request.HttpContext;
-
 			// First try to get the alias for the complete url
 			var alias = api.Aliases.GetSingle(request.RawUrl);
 

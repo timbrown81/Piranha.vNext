@@ -22,6 +22,9 @@ namespace Piranha.AspNet.Web
 	public class StreamResponse : IStreamResponse
 	{
 		#region Members
+		/// <summary>
+		/// The current HttpContext.
+		/// </summary>
 		private readonly HttpContext context;
 		#endregion
 

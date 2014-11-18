@@ -20,6 +20,9 @@ namespace Piranha.AspNet.Web
 	public class RedirectResponse : IRedirectResponse
 	{
 		#region Members
+		/// <summary>
+		/// The current HttpContext
+		/// </summary>
 		private readonly HttpContext context;
 		#endregion
 

@@ -21,6 +21,9 @@ namespace Piranha.AspNet.Web
 	public class RewriteResponse : IRewriteResponse
 	{
 		#region Members
+		/// <summary>
+		/// The current HttpContext.
+		/// </summary>
 		private readonly HttpContext context;
 		#endregion
 
