@@ -46,13 +46,7 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The authors</returns>
 		[Route("authors/get")]
 		public ActionResult Get() {
-			var list = Mapper.Map<IEnumerable<Piranha.Models.Author>, IEnumerable<ListItem>>(api.Authors.Get());
-			var ui = new Client.Helpers.UIHelper();
-
-			foreach (var item in list) {
-				item.GravatarUrl = ui.GravatarUrl(item.Email, 40);
-			}
-			return JsonData(true, list);
+			return JsonData(true, GetAuthors());
 		}
 
 		/// <summary>
@@ -76,7 +70,7 @@ namespace Piranha.Areas.Manager.Controllers
 		public ActionResult Save(EditModel model) {
 			if (ModelState.IsValid) {
 				model.Save(api);
-				return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Author>, IEnumerable<ListItem>>(api.Authors.Get()));
+				return JsonData(true, GetAuthors());
 			}
 			return JsonData(false);
 		}
@@ -96,5 +90,21 @@ namespace Piranha.Areas.Manager.Controllers
 			}
 			return JsonData(false);
 		}
+
+		#region Private methods
+		/// <summary>
+		/// Gets the author list.
+		/// </summary>
+		/// <returns>The list of authors</returns>
+		private IEnumerable<ListItem> GetAuthors() {
+			var authors = Mapper.Map<IEnumerable<Piranha.Models.Author>, IEnumerable<ListItem>>(api.Authors.Get());
+			var ui = new Client.Helpers.UIHelper();
+
+			foreach (var item in authors) {
+				item.GravatarUrl = ui.GravatarUrl(item.Email, 40);
+			}
+			return authors;
+		}
+		#endregion
 	}
 }
