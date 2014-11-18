@@ -68,9 +68,9 @@ namespace Piranha.Manager.Models.Author
 
 			if (author != null) {
 				var model = Mapper.Map<Piranha.Models.Author, EditModel>(author);
-				var ui = new Web.Helpers.UIHelper();
+				var ui = new Client.Helpers.UIHelper();
 
-				model.GravatarUrl = ui.GravatarUrl(model.Email, 80).ToHtmlString();
+				model.GravatarUrl = ui.GravatarUrl(model.Email, 80);
 
 				return model;
 			}

@@ -47,10 +47,10 @@ namespace Piranha.Areas.Manager.Controllers
 		[Route("authors/get")]
 		public ActionResult Get() {
 			var list = Mapper.Map<IEnumerable<Piranha.Models.Author>, IEnumerable<ListItem>>(api.Authors.Get());
-			var ui = new Web.Helpers.UIHelper();
+			var ui = new Client.Helpers.UIHelper();
 
 			foreach (var item in list) {
-				item.GravatarUrl = ui.GravatarUrl(item.Email, 40).ToHtmlString();
+				item.GravatarUrl = ui.GravatarUrl(item.Email, 40);
 			}
 			return JsonData(true, list);
 		}
