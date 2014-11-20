@@ -16,6 +16,13 @@
 // License along with this library.
 //
 
+.border-radius(@size) {
+	border-radius: @size;
+	-moz-border-radius: @size;
+	-webkit-border-radius: @size;
+	-o-border-radius: @size;
+}
+
 .gradient(@top, @bottom, @start, @stop) {
 	background-image: -o-linear-gradient(bottom, @top @start, @bottom @stop);
 	background-image: -moz-linear-gradient(bottom, @top @start, @bottom @stop);
@@ -24,9 +31,9 @@
 	background-image: linear-gradient(to bottom, @top @start, @bottom @stop);
 }
 
-.border-radius(@size) {
-	border-radius: @size;
-	-moz-border-radius: @size;
-	-webkit-border-radius: @size;
-	-o-border-radius: @size;
+.transition(@elm, @time) {
+	transition: @elm ease-in-out @time;
+	-moz-transition: @elm ease-in-out @time;
+	-webkit-transition: @elm ease-in-out @time;
+	-o-transition: @elm ease-in-out @time;
 }

@@ -106,7 +106,26 @@ manager.models.category = function (locale) {
 				success: function (result) {
 					if (result.success) {
 						self.items(result.data);
-						self.clear();
+
+						// Handle list save fx
+						setTimeout(function () {
+							$('tr.pre-saved').removeClass('pre-saved').addClass('saved');
+							setTimeout(function () {
+								$('tr.saved').removeClass('saved').addClass('post-saved');
+							}, 500)
+						}, 200);
+
+						// Handle panel save fx
+						$('.panel').addClass('pre-saved');
+						setTimeout(function () {
+							$('.panel.pre-saved').removeClass('pre-saved').addClass('saved');
+							setTimeout(function () {
+								$('.panel.saved').removeClass('saved').addClass('post-saved');
+								setTimeout(function () {
+									$('.panel.post-saved').removeClass('post-saved');
+								}, 400);
+							}, 800);
+						}, 200);
 					}
 				},
 				error: function (result) {

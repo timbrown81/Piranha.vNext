@@ -55,6 +55,11 @@ namespace Piranha.Manager.Models.Author
 		/// Gets/sets when the model was last updated.
 		/// </summary>
 		public string Updated { get; set; }
+
+		/// <summary>
+		/// Gets/sets if this item was saved during the last operation.
+		/// </summary>
+		public bool Saved { get; set; }
 		#endregion
 	}
 }
