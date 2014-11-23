@@ -73,6 +73,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					self.saveFx($('#pnlSite'));
 				}
 			},
 			error: function (result) {
@@ -95,6 +96,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					self.saveFx($('#pnlCache'));
 				}
 			},
 			error: function (result) {
@@ -117,12 +119,28 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					self.saveFx($('#pnlComments'));
 				}
 			},
 			error: function (result) {
 				console.log('error');
 			}
 		});
+	};
+
+	// Handles save UI fx for the given panel
+	self.saveFx = function (panel) {
+		// Handle panel save fx
+		panel.addClass('pre-saved');
+		setTimeout(function () {
+			panel.removeClass('pre-saved').addClass('saved');
+			setTimeout(function () {
+				panel.removeClass('saved').addClass('post-saved');
+				setTimeout(function () {
+					panel.removeClass('post-saved');
+				}, 400);
+			}, 800);
+		}, 200);
 	};
 
 	// Binds the given data to the model.

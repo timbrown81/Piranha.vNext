@@ -23,7 +23,10 @@
 				<!-- General settings -->
 				<div data-bind="if: active() == 'general'">
 					<!-- Site -->
-					<div class="panel panel-white">
+					<div id="pnlSite" class="panel panel-white">
+						<div class="notification">
+							<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
+						</div>
 						<div class="panel-body">
 							<!-- Save -->
 							<div class="btn-group pull-right">
@@ -60,7 +63,10 @@
 					</div>
 
 					<!-- Cache -->
-					<div class="panel panel-white">
+					<div id="pnlCache" class="panel panel-white">
+						<div class="notification">
+							<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
+						</div>
 						<div class="panel-body">
 							<!-- Save -->
 							<div class="btn-group pull-right">
@@ -95,7 +101,10 @@
 				<!-- Blog settings -->
 				<div data-bind="if: active() == 'blogging'">
 					<!-- Comments -->
-					<div class="panel panel-white">
+					<div id="pnlComments" class="panel panel-white">
+						<div class="notification">
+							<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
+						</div>
 						<div class="panel-body">
 							<!-- Save -->
 							<div class="btn-group pull-right">
