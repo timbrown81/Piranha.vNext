@@ -33,6 +33,18 @@ namespace Piranha.Areas.Manager.Controllers
 		/// The api.
 		/// </summary>
 		protected readonly Api api = new Api();
+
+		/// <summary>
+		/// Gets/sets if the current operation is a successfuly
+		/// save operation.
+		/// </summary>
+		protected bool IsSaved {
+			get { return ViewBag.IsSaved == true; }
+			set { 
+				ViewBag.IsSaved = value;
+				TempData["IsSaved"] = value;
+			}
+		}
 		#endregion
 
 		/// <summary>
@@ -61,6 +73,12 @@ namespace Piranha.Areas.Manager.Controllers
 			});
 		}
 
+		/// <summary>
+		/// Returns a Json object with the given status code and data.
+		/// </summary>
+		/// <param name="success">The status code</param>
+		/// <param name="data">The data</param>
+		/// <returns>The result</returns>
 		protected ActionResult JsonData(bool success, object data = null) {
 			return Json(new {
 				success = success,
@@ -84,6 +102,15 @@ namespace Piranha.Areas.Manager.Controllers
 			var viewContext = new ViewContext(ControllerContext, view, ViewData, TempData, sw) ;
 			view.Render(viewContext, sw) ;
 			return sb.ToString() ;	
+		}
+
+		/// <summary>
+		/// Do additional security checks for the manager area.
+		/// </summary>
+		/// <param name="filterContext"></param>
+		protected override void OnActionExecuting(ActionExecutingContext filterContext) {
+			ViewBag.IsSaved = TempData["IsSaved"];
+			TempData["IsSaved"] = false;
 		}
 
 		/// <summary>

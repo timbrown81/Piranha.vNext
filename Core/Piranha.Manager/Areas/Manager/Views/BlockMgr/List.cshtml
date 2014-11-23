@@ -27,15 +27,15 @@
 		</thead>
 		<tbody class="list">
 			<!-- ko foreach: { data: items, as: 'item' } -->
-				<tr data-bind="attr: { 'data-id': item.Id }">
-					<td><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.Name"></a></td>
-					<td data-bind="text: item.Description"></td>
-					<td data-bind="text: item.Updated"></td>
-					<td data-bind="text: item.Created"></td>
-					<td class="actions">
-						<a class="delete" href="#" data-bind="click: function (item) { $root.delete(item.Id); }"></a>
-					</td>
-				</tr>
+			<tr data-bind="attr: { 'data-id': item.Id }, css: { 'pre-saved': Saved }">
+				<td><a href="#" data-bind="click: function (item) { $root.edit(item.Id); }, text: item.Name"></a></td>
+				<td data-bind="text: item.Description"></td>
+				<td data-bind="text: item.Updated"></td>
+				<td data-bind="text: item.Created"></td>
+				<td class="actions">
+					<a class="delete" href="#" data-bind="click: function (item) { $root.delete(item.Id); }"></a>
+				</td>
+			</tr>
 			<!-- /ko -->
 		</tbody>
 	</table>

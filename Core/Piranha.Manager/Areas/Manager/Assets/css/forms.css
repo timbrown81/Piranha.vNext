@@ -52,6 +52,20 @@
 .table > tbody > tr.unpublished .meta {
   color: #f0ad4e;
 }
+.table > tbody > tr.saved > td {
+  background: #a3d790 !important;
+  transition: background ease-in-out 0.2s;
+  -moz-transition: background ease-in-out 0.2s;
+  -webkit-transition: background ease-in-out 0.2s;
+  -o-transition: background ease-in-out 0.2s;
+}
+.table > tbody > tr.post-saved > td {
+  background: #fff;
+  transition: background ease-in-out 0.4s;
+  -moz-transition: background ease-in-out 0.4s;
+  -webkit-transition: background ease-in-out 0.4s;
+  -o-transition: background ease-in-out 0.4s;
+}
 .table .date {
   width: 114px;
 }

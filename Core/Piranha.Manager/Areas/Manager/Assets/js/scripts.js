@@ -6636,9 +6636,35 @@ $(document).on('keyup', '.count-me', function () {
 	$(this).next().find('span').text(length);
 });
 
+//
+// Save notification
+$(document).ready(function () {
+	var body = $('body');
+
+	if (body.hasClass('pre-saved')) {
+		manager.notifySave(body);
+	}
+});
+
 // 
 // Create base object
 var manager = {};
+
+//
+// Executes a save notification on the given element.
+manager.notifySave = function (elm) {
+	// Handle save notifications
+	elm.addClass('pre-saved');
+	setTimeout(function () {
+		elm.removeClass('pre-saved').addClass('saved');
+		setTimeout(function () {
+			elm.removeClass('saved').addClass('post-saved');
+			setTimeout(function () {
+				elm.removeClass('post-saved');
+			}, 400);
+		}, 800);
+	}, 200);
+};
 
 //
 // Comment dialog handler
@@ -6810,7 +6836,17 @@ manager.models.alias = function (locale) {
 				success: function (result) {
 					if (result.success) {
 						self.items(result.data);
-						self.clear();
+
+						// Handle list save fx
+						setTimeout(function () {
+							$('tr.pre-saved').removeClass('pre-saved').addClass('saved');
+							setTimeout(function () {
+								$('tr.saved').removeClass('saved').addClass('post-saved');
+							}, 500)
+						}, 200);
+
+						// Handle panel save fx
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {
@@ -6975,7 +7011,17 @@ manager.models.author = function (locale) {
 				success: function (result) {
 					if (result.success) {
 						self.items(result.data);
-						self.clear();
+
+						// Handle list save fx
+						setTimeout(function () {
+							$('tr.pre-saved').removeClass('pre-saved').addClass('saved');
+							setTimeout(function () {
+								$('tr.saved').removeClass('saved').addClass('post-saved');
+							}, 500)
+						}, 200);
+
+						// Handle panel save fx
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {
@@ -7143,7 +7189,17 @@ manager.models.block = function (locale) {
 				success: function (result) {
 					if (result.success) {
 						self.items(result.data);
-						self.clear();
+
+						// Handle list save fx
+						setTimeout(function () {
+							$('tr.pre-saved').removeClass('pre-saved').addClass('saved');
+							setTimeout(function () {
+								$('tr.saved').removeClass('saved').addClass('post-saved');
+							}, 500)
+						}, 200);
+
+						// Handle panel save fx
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {
@@ -7296,7 +7352,17 @@ manager.models.category = function (locale) {
 				success: function (result) {
 					if (result.success) {
 						self.items(result.data);
-						self.clear();
+
+						// Handle list save fx
+						setTimeout(function () {
+							$('tr.pre-saved').removeClass('pre-saved').addClass('saved');
+							setTimeout(function () {
+								$('tr.saved').removeClass('saved').addClass('post-saved');
+							}, 500)
+						}, 200);
+
+						// Handle panel save fx
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {
@@ -7412,6 +7478,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					manager.notifySave($('#pnlSite'));
 				}
 			},
 			error: function (result) {
@@ -7434,6 +7501,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					manager.notifySave($('#pnlCache'));
 				}
 			},
 			error: function (result) {
@@ -7456,6 +7524,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					manager.notifySave($('#pnlComments'));
 				}
 			},
 			error: function (result) {

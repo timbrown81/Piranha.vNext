@@ -84,9 +84,75 @@
   position: absolute;
   top: 44px;
   right: 20px;
-  z-index: 1000;
+  z-index: 100;
   border-radius: 43px;
   -moz-border-radius: 43px;
   -webkit-border-radius: 43px;
   -o-border-radius: 43px;
+}
+.notification {
+  background: #a3d790;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+}
+.notification span {
+  color: #fff;
+  font-size: 180px;
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 50%;
+  top: 100%%;
+  margin: -90px 0 0 -90px;
+}
+.pre-saved .notification {
+  display: block;
+  opacity: 0;
+  transition: opacity ease-in-out 0.2s;
+  -moz-transition: opacity ease-in-out 0.2s;
+  -webkit-transition: opacity ease-in-out 0.2s;
+  -o-transition: opacity ease-in-out 0.2s;
+}
+.pre-saved .notification span {
+  top: 100%;
+  transition: all ease-in-out 0.4s;
+  -moz-transition: all ease-in-out 0.4s;
+  -webkit-transition: all ease-in-out 0.4s;
+  -o-transition: all ease-in-out 0.4s;
+}
+.saved .notification {
+  display: block;
+  opacity: 0.8;
+  transition: opacity ease-in-out 0.2s;
+  -moz-transition: opacity ease-in-out 0.2s;
+  -webkit-transition: opacity ease-in-out 0.2s;
+  -o-transition: opacity ease-in-out 0.2s;
+}
+.saved .notification span {
+  top: 50%;
+  transition: all ease-in-out 0.4s;
+  -moz-transition: all ease-in-out 0.4s;
+  -webkit-transition: all ease-in-out 0.4s;
+  -o-transition: all ease-in-out 0.4s;
+}
+.post-saved .notification {
+  display: block;
+  opacity: 0;
+  transition: opacity ease-in-out 0.4s;
+  -moz-transition: opacity ease-in-out 0.4s;
+  -webkit-transition: opacity ease-in-out 0.4s;
+  -o-transition: opacity ease-in-out 0.4s;
+}
+.post-saved .notification span {
+  top: 0;
+  transition: all ease-in-out 0.4s;
+  -moz-transition: all ease-in-out 0.4s;
+  -webkit-transition: all ease-in-out 0.4s;
+  -o-transition: all ease-in-out 0.4s;
 }

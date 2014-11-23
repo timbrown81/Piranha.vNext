@@ -65,6 +65,7 @@ namespace Piranha.Areas.Manager.Controllers
 		public ActionResult Save(EditModel model) {
 			if (ModelState.IsValid) {
 				model.Save(api);
+				IsSaved = true;
 				return RedirectToAction("edit", new { id = model.Id });
 			}
 			if (model.Id.HasValue)

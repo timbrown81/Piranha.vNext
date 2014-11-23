@@ -96,6 +96,19 @@
 					color: #f0ad4e;
 				}
 			}
+
+			&.saved {
+				>td {
+					background: @saved-color !important;
+					.transition(background, 0.2s);
+				}
+			}
+			&.post-saved {
+				>td {
+					background: #fff;
+					.transition(background, 0.4s);
+				}
+			}
 		}
 	}
 	.date {

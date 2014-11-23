@@ -19,6 +19,7 @@
 using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Piranha.Manager.Models.Category;
 
@@ -70,7 +71,12 @@ namespace Piranha.Areas.Manager.Controllers
 		public ActionResult Save(EditModel model) {
 			if (ModelState.IsValid) {
 				model.Save(api);
-				return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Category>, IEnumerable<ListItem>>(api.Categories.Get()));
+				var items = Mapper.Map<IEnumerable<Piranha.Models.Category>, IEnumerable<ListItem>>(api.Categories.Get());
+				var current = items.Where(c => c.Id == model.Id).SingleOrDefault();
+				if (current != null) {
+					current.Saved = true;
+				}
+				return JsonData(true, items);
 			}
 			return JsonData(false);
 		}

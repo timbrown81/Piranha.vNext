@@ -23,9 +23,35 @@ $(document).on('keyup', '.count-me', function () {
 	$(this).next().find('span').text(length);
 });
 
+//
+// Save notification
+$(document).ready(function () {
+	var body = $('body');
+
+	if (body.hasClass('pre-saved')) {
+		manager.notifySave(body);
+	}
+});
+
 // 
 // Create base object
 var manager = {};
+
+//
+// Executes a save notification on the given element.
+manager.notifySave = function (elm) {
+	// Handle save notifications
+	elm.addClass('pre-saved');
+	setTimeout(function () {
+		elm.removeClass('pre-saved').addClass('saved');
+		setTimeout(function () {
+			elm.removeClass('saved').addClass('post-saved');
+			setTimeout(function () {
+				elm.removeClass('post-saved');
+			}, 400);
+		}, 800);
+	}, 200);
+};
 
 //
 // Comment dialog handler

@@ -73,6 +73,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					manager.notifySave($('#pnlSite'));
 				}
 			},
 			error: function (result) {
@@ -95,6 +96,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					manager.notifySave($('#pnlCache'));
 				}
 			},
 			error: function (result) {
@@ -117,6 +119,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
+					manager.notifySave($('#pnlComments'));
 				}
 			},
 			error: function (result) {

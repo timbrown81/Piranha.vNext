@@ -20,7 +20,7 @@
 	}
 	@RenderSection("head", required: false)
 </head>
-<body>
+<body @(ViewBag.IsSaved == true ? "class=pre-saved" : "")>
 	<nav class="navmenu navmenu-inverse navmenu-fixed-left" role="navigation">
 		<a class="navmenu-brand" href="#">
 			<img src="@Url.Content("~/areas/manager/assets/img/logo.png")" />
@@ -40,6 +40,10 @@
 	</div>
 	<div class="body">
 		@RenderBody()
+	</div>
+
+	<div class="notification">
+		<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
 	</div>
 
 	<script type="text/javascript">

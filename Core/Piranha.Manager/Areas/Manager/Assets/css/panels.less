@@ -129,7 +129,69 @@
 		position: absolute;
 		top: 44px;
 		right: 20px;
-		z-index: 1000;
+		z-index: 100;
 		.border-radius(43px);
+	}
+}
+
+.notification {
+	background: @saved-color;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	display: none;
+	opacity: 0;
+
+	span {
+		color: #fff;
+		font-size: 180px;
+		position: absolute;
+		width: 180px;
+		height: 180px;
+		left: 50%;
+		top: 100%%;
+		margin: -90px 0 0 -90px;
+	}
+}
+
+.pre-saved {
+	.notification {
+		display: block;
+		opacity: 0;
+		.transition(opacity, 0.2s);
+
+		span {
+			top: 100%;
+			.transition(all, 0.4s);
+		}
+	}
+}
+
+.saved {
+	.notification {
+		display: block;
+		opacity: 0.8;
+		.transition(opacity, 0.2s);
+
+		span {
+			top: 50%;
+			.transition(all, 0.4s);
+		}
+	}
+}
+
+.post-saved {
+	.notification {
+		display: block;
+		opacity: 0;
+		.transition(opacity, 0.4s);
+
+		span {
+			top: 0;
+			.transition(all, 0.4s);
+		}
 	}
 }

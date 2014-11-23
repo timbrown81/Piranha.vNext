@@ -34,6 +34,7 @@ namespace Piranha.Manager
 		public void Init() {
 			// Alias
 			Mapper.CreateMap<Piranha.Models.Alias, Models.Alias.ListItem>()
+				.ForMember(a => a.Saved, o => o.Ignore())
 				.ForMember(a => a.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
 				.ForMember(a => a.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
 			Mapper.CreateMap<Piranha.Models.Alias, Models.Alias.EditModel>();
@@ -44,6 +45,7 @@ namespace Piranha.Manager
 
 			// Author
 			Mapper.CreateMap<Piranha.Models.Author, Models.Author.ListItem>()
+				.ForMember(a => a.Saved, o => o.Ignore())
 				.ForMember(a => a.GravatarUrl, o => o.Ignore())
 				.ForMember(a => a.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
 				.ForMember(a => a.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
@@ -56,6 +58,7 @@ namespace Piranha.Manager
 
 			// Block
 			Mapper.CreateMap<Piranha.Models.Block, Models.Block.ListItem>()
+				.ForMember(b => b.Saved, o => o.Ignore())
 				.ForMember(b => b.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
 				.ForMember(b => b.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
 			Mapper.CreateMap<Piranha.Models.Block, Models.Block.EditModel>();
@@ -66,6 +69,7 @@ namespace Piranha.Manager
 
 			// Category
 			Mapper.CreateMap<Piranha.Models.Category, Models.Category.ListItem>()
+				.ForMember(c => c.Saved, o => o.Ignore())
 				.ForMember(c => c.Created, o => o.MapFrom(m => m.Created.ToString("yyyy-MM-dd")))
 				.ForMember(c => c.Updated, o => o.MapFrom(m => m.Updated.ToString("yyyy-MM-dd")));
 			Mapper.CreateMap<Piranha.Models.Category, Models.Category.EditModel>();
