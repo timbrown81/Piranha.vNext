@@ -6636,9 +6636,35 @@ $(document).on('keyup', '.count-me', function () {
 	$(this).next().find('span').text(length);
 });
 
+//
+// Save notification
+$(document).ready(function () {
+	var body = $('body');
+
+	if (body.hasClass('pre-saved')) {
+		manager.notifySave(body);
+	}
+});
+
 // 
 // Create base object
 var manager = {};
+
+//
+// Executes a save notification on the given element.
+manager.notifySave = function (elm) {
+	// Handle save notifications
+	elm.addClass('pre-saved');
+	setTimeout(function () {
+		elm.removeClass('pre-saved').addClass('saved');
+		setTimeout(function () {
+			elm.removeClass('saved').addClass('post-saved');
+			setTimeout(function () {
+				elm.removeClass('post-saved');
+			}, 400);
+		}, 800);
+	}, 200);
+};
 
 //
 // Comment dialog handler
@@ -6820,16 +6846,7 @@ manager.models.alias = function (locale) {
 						}, 200);
 
 						// Handle panel save fx
-						$('.panel').addClass('pre-saved');
-						setTimeout(function () {
-							$('.panel.pre-saved').removeClass('pre-saved').addClass('saved');
-							setTimeout(function () {
-								$('.panel.saved').removeClass('saved').addClass('post-saved');
-								setTimeout(function () {
-									$('.panel.post-saved').removeClass('post-saved');
-								}, 400);
-							}, 800);
-						}, 200);
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {
@@ -7004,16 +7021,7 @@ manager.models.author = function (locale) {
 						}, 200);
 
 						// Handle panel save fx
-						$('.panel').addClass('pre-saved');
-						setTimeout(function () {
-							$('.panel.pre-saved').removeClass('pre-saved').addClass('saved');
-							setTimeout(function () {
-								$('.panel.saved').removeClass('saved').addClass('post-saved');
-								setTimeout(function () {
-									$('.panel.post-saved').removeClass('post-saved');
-								}, 400);
-							}, 800);
-						}, 200);
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {
@@ -7191,16 +7199,7 @@ manager.models.block = function (locale) {
 						}, 200);
 
 						// Handle panel save fx
-						$('.panel').addClass('pre-saved');
-						setTimeout(function () {
-							$('.panel.pre-saved').removeClass('pre-saved').addClass('saved');
-							setTimeout(function () {
-								$('.panel.saved').removeClass('saved').addClass('post-saved');
-								setTimeout(function () {
-									$('.panel.post-saved').removeClass('post-saved');
-								}, 400);
-							}, 800);
-						}, 200);
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {
@@ -7363,16 +7362,7 @@ manager.models.category = function (locale) {
 						}, 200);
 
 						// Handle panel save fx
-						$('.panel').addClass('pre-saved');
-						setTimeout(function () {
-							$('.panel.pre-saved').removeClass('pre-saved').addClass('saved');
-							setTimeout(function () {
-								$('.panel.saved').removeClass('saved').addClass('post-saved');
-								setTimeout(function () {
-									$('.panel.post-saved').removeClass('post-saved');
-								}, 400);
-							}, 800);
-						}, 200);
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {
@@ -7488,7 +7478,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
-					self.saveFx($('#pnlSite'));
+					manager.notifySave($('#pnlSite'));
 				}
 			},
 			error: function (result) {
@@ -7511,7 +7501,7 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
-					self.saveFx($('#pnlCache'));
+					manager.notifySave($('#pnlCache'));
 				}
 			},
 			error: function (result) {
@@ -7534,28 +7524,13 @@ manager.models.config = function (locale) {
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
-					self.saveFx($('#pnlComments'));
+					manager.notifySave($('#pnlComments'));
 				}
 			},
 			error: function (result) {
 				console.log('error');
 			}
 		});
-	};
-
-	// Handles save UI fx for the given panel
-	self.saveFx = function (panel) {
-		// Handle panel save fx
-		panel.addClass('pre-saved');
-		setTimeout(function () {
-			panel.removeClass('pre-saved').addClass('saved');
-			setTimeout(function () {
-				panel.removeClass('saved').addClass('post-saved');
-				setTimeout(function () {
-					panel.removeClass('post-saved');
-				}, 400);
-			}, 800);
-		}, 200);
 	};
 
 	// Binds the given data to the model.

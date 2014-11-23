@@ -116,16 +116,7 @@ manager.models.category = function (locale) {
 						}, 200);
 
 						// Handle panel save fx
-						$('.panel').addClass('pre-saved');
-						setTimeout(function () {
-							$('.panel.pre-saved').removeClass('pre-saved').addClass('saved');
-							setTimeout(function () {
-								$('.panel.saved').removeClass('saved').addClass('post-saved');
-								setTimeout(function () {
-									$('.panel.post-saved').removeClass('post-saved');
-								}, 400);
-							}, 800);
-						}, 200);
+						manager.notifySave($('.panel'));
 					}
 				},
 				error: function (result) {

@@ -7850,7 +7850,7 @@ a {
   -webkit-border-radius: 43px;
   -o-border-radius: 43px;
 }
-.panel .notification {
+.notification {
   background: #a3d790;
   position: absolute;
   top: 0;
@@ -7861,7 +7861,7 @@ a {
   display: none;
   opacity: 0;
 }
-.panel .notification span {
+.notification span {
   color: #fff;
   font-size: 180px;
   position: absolute;
@@ -7871,7 +7871,7 @@ a {
   top: 100%%;
   margin: -90px 0 0 -90px;
 }
-.panel.pre-saved .notification {
+.pre-saved .notification {
   display: block;
   opacity: 0;
   transition: opacity ease-in-out 0.2s;
@@ -7879,14 +7879,14 @@ a {
   -webkit-transition: opacity ease-in-out 0.2s;
   -o-transition: opacity ease-in-out 0.2s;
 }
-.panel.pre-saved .notification span {
+.pre-saved .notification span {
   top: 100%;
   transition: all ease-in-out 0.4s;
   -moz-transition: all ease-in-out 0.4s;
   -webkit-transition: all ease-in-out 0.4s;
   -o-transition: all ease-in-out 0.4s;
 }
-.panel.saved .notification {
+.saved .notification {
   display: block;
   opacity: 0.8;
   transition: opacity ease-in-out 0.2s;
@@ -7894,14 +7894,14 @@ a {
   -webkit-transition: opacity ease-in-out 0.2s;
   -o-transition: opacity ease-in-out 0.2s;
 }
-.panel.saved .notification span {
+.saved .notification span {
   top: 50%;
   transition: all ease-in-out 0.4s;
   -moz-transition: all ease-in-out 0.4s;
   -webkit-transition: all ease-in-out 0.4s;
   -o-transition: all ease-in-out 0.4s;
 }
-.panel.post-saved .notification {
+.post-saved .notification {
   display: block;
   opacity: 0;
   transition: opacity ease-in-out 0.4s;
@@ -7909,7 +7909,7 @@ a {
   -webkit-transition: opacity ease-in-out 0.4s;
   -o-transition: opacity ease-in-out 0.4s;
 }
-.panel.post-saved .notification span {
+.post-saved .notification span {
   top: 0;
   transition: all ease-in-out 0.4s;
   -moz-transition: all ease-in-out 0.4s;
