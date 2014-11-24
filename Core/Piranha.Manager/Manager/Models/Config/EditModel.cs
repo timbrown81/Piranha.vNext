@@ -17,6 +17,9 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
 
 namespace Piranha.Manager.Models.Config
 {
@@ -53,6 +56,22 @@ namespace Piranha.Manager.Models.Config
 			public string Description { get; set; }
 			public int ArchivePageSize { get; set; }
 		}
+
+		/// <summary>
+		/// Module specified params.
+		/// </summary>
+		public class ParamModel
+		{
+			/// <summary>
+			/// Gets/sets the unique param name.
+			/// </summary>
+			public string Name { get; set; }
+
+			/// <summary>
+			/// Gets/sets the param value.
+			/// </summary>
+			public string Value { get; set; }
+		}
 		#endregion
 
 		#region Properties
@@ -70,6 +89,11 @@ namespace Piranha.Manager.Models.Config
 		/// Gets/sets the site configuration.
 		/// </summary>
 		public SiteModel Site { get; set; }
+
+		/// <summary>
+		/// Gets/sets the config params.
+		/// </summary>
+		public IList<object> Params { get; set; }
 		#endregion
 
 		/// <summary>
@@ -79,13 +103,14 @@ namespace Piranha.Manager.Models.Config
 			Cache = new CacheModel();
 			Comments = new CommentModel();
 			Site = new SiteModel();
+			Params = new List<object>();
 		}
 
 		/// <summary>
 		/// Gets the edit model with the current configuration values.
 		/// </summary>
 		/// <returns>The model</returns>
-		public static EditModel Get() {
+		public static EditModel Get(Api api) {
 			var m = new EditModel();
 
 			m.Cache.Expires = Piranha.Config.Cache.Expires;
@@ -98,6 +123,18 @@ namespace Piranha.Manager.Models.Config
 			m.Site.Description = Piranha.Config.Site.Description;
 			m.Site.ArchivePageSize = Piranha.Config.Site.ArchivePageSize;
 
+			Manager.Config.Refresh(api);
+			foreach (var block in Manager.Config.Blocks.OrderBy(b => b.Section).ThenBy(b => b.Name)) {
+				foreach (var row in block.Rows) {
+					foreach (var col in row.Columns) {
+						foreach (var item in col.Items)
+							m.Params.Add(new ParamModel() { 
+								Name = item.Param, 
+								Value = item.Value 
+							});
+					}
+				}
+			}
 			return m;
 		}
 	}

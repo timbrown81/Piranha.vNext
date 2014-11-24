@@ -1,0 +1,39 @@
+﻿@model Piranha.Manager.Config.ConfigBlock
+
+<div id="pnl@(Model.Name)" class="panel panel-white">
+	<div class="notification">
+		<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
+	</div>
+	<div class="panel-body">
+		<!-- Save -->
+		<div class="btn-group pull-right">
+			<button type="button" class="btn btn-labeled btn-success" data-bind="click: function() { saveBlock('@Model.Name'); }">
+				<span class="btn-label">
+					<i class="glyphicon glyphicon-ok"></i>
+				</span>
+				@Piranha.Manager.Resources.Global.Save
+			</button>
+		</div>
+
+		<h3>@Model.Name</h3>
+
+		@foreach (var row in Model.Rows) {
+			<div class="row">
+				@foreach (var col in row.Columns) {
+					<div class="@(row.Columns.Count == 1 ? "col-sm-12" : "col-sm-6")">
+						@foreach (var item in col.Items) {
+							<div class="form-group">
+								<label>@item.Name</label>
+								@if (!(item is Piranha.Manager.Config.ConfigText)) {
+									<input id="@item.Param" name="@item.Param" @(item is Piranha.Manager.Config.ConfigInteger ? "type=number" : "type=text") class="form-control" value="@item.Value" />
+								} else {
+									<textarea id="@item.Param" name="@item.Param">@item.Value</textarea>
+								}
+							</div>
+						}
+					</div>
+				}
+			</div>
+		}
+	</div>
+</div>

@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Piranha.Extend;
 using Piranha.Client.Models;
@@ -52,6 +53,22 @@ namespace Piranha.Akismet
 				// Save changes
 				api.SaveChanges();
 			}
+
+			// Add configuration to the manager
+			Manager.Config.Blocks.Add(new Manager.Config.ConfigBlock("Blogging", "Akismet", new List<Manager.Config.ConfigRow>() {
+				new Manager.Config.ConfigRow(new List<Manager.Config.ConfigColumn>() {
+					new Manager.Config.ConfigColumn(new List<Manager.Config.ConfigItem>() {
+						new Manager.Config.ConfigString() {
+							Name = "API-key", Param = "akismet_apikey", Value = Config.Akismet.ApiKey
+						}
+					}),
+					new Manager.Config.ConfigColumn(new List<Manager.Config.ConfigItem>() {
+						new Manager.Config.ConfigString() {
+							Name = "Site URL", Param = "akismet_siteurl", Value = Config.Akismet.SiteUrl
+						}
+					})
+				})
+			}));
 
 			// Add model hooks
 			Hooks.Models.Comment.OnSave += (c) => {

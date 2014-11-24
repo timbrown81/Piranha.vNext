@@ -40,7 +40,7 @@ namespace Piranha.Areas.Manager.Controllers
 		/// </summary>
 		protected bool IsSaved {
 			get { return ViewBag.IsSaved == true; }
-			set { 
+			set {
 				ViewBag.IsSaved = value;
 				TempData["IsSaved"] = value;
 			}
@@ -93,15 +93,15 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>A html string</returns>
 		protected string ViewToString(ViewResult viewResult) {
 			StringBuilder sb = new StringBuilder();
-			StringWriter sw = new StringWriter(sb) ;
+			StringWriter sw = new StringWriter(sb);
 
 			//Finding rendered view
-			var view = ViewEngines.Engines.FindView(ControllerContext, viewResult.ViewName, viewResult.MasterName).View ;
+			var view = ViewEngines.Engines.FindView(ControllerContext, viewResult.ViewName, viewResult.MasterName).View;
 
 			//Creating view context
-			var viewContext = new ViewContext(ControllerContext, view, ViewData, TempData, sw) ;
-			view.Render(viewContext, sw) ;
-			return sb.ToString() ;	
+			var viewContext = new ViewContext(ControllerContext, view, ViewData, TempData, sw);
+			view.Render(viewContext, sw);
+			return sb.ToString();
 		}
 
 		/// <summary>
