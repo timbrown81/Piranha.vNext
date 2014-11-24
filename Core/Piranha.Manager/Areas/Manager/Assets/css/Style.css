@@ -7485,6 +7485,10 @@ a {
 .navmenu-inverse .navmenu-nav > li ul li:last-child a {
   padding-bottom: 10px;
 }
+.navmenu-inverse .navmenu-nav > li ul li.active a {
+  background: #080808;
+  color: #fff;
+}
 .navmenu-inverse .navmenu-nav > li.active a {
   border-bottom: 1px solid #000;
 }

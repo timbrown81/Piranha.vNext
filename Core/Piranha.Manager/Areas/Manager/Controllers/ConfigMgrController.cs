@@ -28,16 +28,18 @@ namespace Piranha.Areas.Manager.Controllers
 	/// </summary>
 	[Authorize]
 	[RouteArea("Manager", AreaPrefix = "manager")]
-    public class ConfigMgrController : ManagerController
-    {
+	public class ConfigMgrController : ManagerController
+	{
 		/// <summary>
 		/// Gets the main view for the config.
 		/// </summary>
 		/// <returns>The list view</returns>
 		[Route("config")]
-        public ActionResult List() {
-            return View();
-        }
+		public ActionResult List() {
+			Piranha.Manager.Config.Refresh(api);
+
+			return View(Piranha.Manager.Config.Blocks);
+		}
 
 		/// <summary>
 		/// Gets the list model data.
@@ -45,7 +47,7 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The model data</returns>
 		[Route("config/get")]
 		public ActionResult Get() {
-			return JsonData(true, EditModel.Get());
+			return JsonData(true, EditModel.Get(api));
 		}
 
 		/// <summary>
@@ -60,7 +62,7 @@ namespace Piranha.Areas.Manager.Controllers
 			Piranha.Config.Site.Description = model.Description;
 			Piranha.Config.Site.ArchivePageSize = model.ArchivePageSize;
 
-			return JsonData(true, EditModel.Get());
+			return JsonData(true, EditModel.Get(api));
 		}
 
 		/// <summary>
@@ -74,7 +76,7 @@ namespace Piranha.Areas.Manager.Controllers
 			Piranha.Config.Cache.Expires = model.Expires;
 			Piranha.Config.Cache.MaxAge = model.MaxAge;
 
-			return JsonData(true, EditModel.Get());
+			return JsonData(true, EditModel.Get(api));
 		}
 
 		/// <summary>
@@ -88,7 +90,25 @@ namespace Piranha.Areas.Manager.Controllers
 			Piranha.Config.Comments.ModerateAnonymous = model.ModerateAnonymous;
 			Piranha.Config.Comments.ModerateAuthorized = model.ModerateAuthorized;
 
-			return JsonData(true, EditModel.Get());
+			return JsonData(true, EditModel.Get(api));
 		}
-    }
+
+		/// <summary>
+		/// Saves the given dynamic config block.
+		/// </summary>
+		/// <param name="block">The config block</param>
+		/// <returns>The result and updated config</returns>
+		[HttpPost]
+		[Route("config/block/save")]
+		public ActionResult SaveBlock(IList<EditModel.ParamModel> block) {
+			foreach (var item in block) {
+				var param = api.Params.GetSingle(where: p => p.Name == item.Name);
+				if (param != null)
+					param.Value = item.Value;
+			}
+			api.SaveChanges();
+
+			return JsonData(true, EditModel.Get(api));
+		}
+	}
 }

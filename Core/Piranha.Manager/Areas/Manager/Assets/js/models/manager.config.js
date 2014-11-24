@@ -128,6 +128,37 @@ manager.models.config = function (locale) {
 		});
 	};
 
+	// Saves a config block
+	self.saveBlock = function (block) {
+		var panel = $('#pnl' + block);
+		var input = panel.find('input, textarea');
+		var data = [];
+
+		for (var n = 0; n < input.length; n++) {
+			data.push({
+				Name: $(input[n]).attr('name'),
+				Value: $(input[n]).val()
+			});
+		}
+
+		$.ajax({
+			url: baseUrl + 'manager/config/block/save',
+			type: 'POST',
+			dataType: 'json',
+			contentType: 'application/json',
+			data: JSON.stringify(data),
+			success: function (result) {
+				if (result.success) {
+					self.bind(result.data);
+					manager.notifySave($('#pnl' + block));
+				}
+			},
+			error: function (result) {
+				console.log('error');
+			}
+		});
+	};
+
 	// Binds the given data to the model.
 	self.bind = function (data) {
 		self.siteTitle(data.Site.Title);
@@ -137,6 +168,10 @@ manager.models.config = function (locale) {
 		self.cacheMaxAge(data.Cache.MaxAge);
 		self.commentModerateAnonymous(data.Comments.ModerateAnonymous);
 		self.commentModerateAuthorized(data.Comments.ModerateAuthorized);
+
+		for (var n = 0; n < data.Params.length; n++) {
+			$('#' + data.Params[n].Name).val(data.Params[n].Value);
+		}
 	};
 
 	// Initialze after everything is created.

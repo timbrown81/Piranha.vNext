@@ -1,5 +1,8 @@
-﻿@{
+﻿@model IList<Piranha.Manager.Config.ConfigBlock>
+@{
 	ViewBag.Title = @Piranha.Manager.Resources.Config.ListTitle;
+
+	var sections = Model.Where(b => b.Section.ToLower() != "general" && b.Section.ToLower() != "blogging").Select(b => b.Section).Distinct();
 }
 @section script {
 	<script type="text/javascript">
@@ -13,6 +16,9 @@
 			<ul class="nav nav-pills">
 				<li data-bind="css: { active: active() == 'general' }"><a href="#" data-bind="click: function() { setActive('general'); }">@Piranha.Manager.Resources.Config.General</a></li>
 				<li data-bind="css: { active: active() == 'blogging' }"><a href="#" data-bind="click: function() { setActive('blogging'); }">@Piranha.Manager.Resources.Config.Blogging</a></li>
+				@foreach (var section in sections) {
+					<li data-bind="css: { active: active() == '@(section.ToLower())' }"><a href="#" data-bind="click: function() { setActive('@(section.ToLower())'); }">@(section)</a></li>
+				}
 			</ul>
 			<br />
 		</div>
@@ -96,6 +102,11 @@
 							</div>
 						</div>
 					</div>
+
+					<!-- Params -->
+					@foreach (var block in Model.Where(b => b.Section.ToLower() == "general")) {
+						@Html.EditorFor(m => block)
+					}
 				</div>
 
 				<!-- Blog settings -->
@@ -115,6 +126,7 @@
 									@Piranha.Manager.Resources.Global.Save
 								</button>
 							</div>
+
 							<h3>@Piranha.Manager.Resources.Config.Comments</h3>
 
 							<div class="row">
@@ -135,7 +147,22 @@
 							</div>
 						</div>
 					</div>
+
+					<!-- Params -->
+					@foreach (var block in Model.Where(b => b.Section.ToLower() == "blogging")) {
+						@Html.EditorFor(m => block)
+					}
 				</div>
+
+				<!-- Custom sections -->
+				@foreach (var section in sections) {
+					<div data-bind="if: active() == '@(section.ToLower())'">
+						<!-- Blocks -->
+						@foreach (var block in Model.Where(b => b.Section.ToLower() == section.ToLower())) {
+							@Html.EditorFor(m => block)
+						}						
+					</div>
+				}
 			</form>
 		</div>
 	</div>

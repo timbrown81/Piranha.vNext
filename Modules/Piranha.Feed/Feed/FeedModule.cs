@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Piranha.Extend;
@@ -77,6 +78,31 @@ namespace Piranha.Feed
 				// Save changes
 				api.SaveChanges();
 			}
+
+			// Add configuration to the manager
+			Manager.Config.Blocks.Add(new Manager.Config.ConfigBlock("Blogging", "Feed", new List<Manager.Config.ConfigRow>() {
+				new Manager.Config.ConfigRow(new List<Manager.Config.ConfigColumn>() {
+					new Manager.Config.ConfigColumn(new List<Manager.Config.ConfigItem>() {
+						new Manager.Config.ConfigString() {
+							Name = "Site title", Param = "feed_sitefeedtitle", Value = Config.Feed.SiteFeedTitle
+						},
+						new Manager.Config.ConfigString() {
+							Name = "Archive title", Param = "feed_archivefeedtitle", Value = Config.Feed.ArchiveFeedTitle
+						},
+						new Manager.Config.ConfigInteger() {
+							Name = "Page size", Param = "feed_pagesize", Value = Config.Feed.PageSize.ToString()
+						}
+					}),
+					new Manager.Config.ConfigColumn(new List<Manager.Config.ConfigItem>() {
+						new Manager.Config.ConfigString() {
+							Name = "Comment title", Param = "feed_commentfeedtitle", Value = Config.Feed.CommentFeedTitle
+						},
+						new Manager.Config.ConfigString() {
+							Name = "Post title", Param = "feed_postfeedtitle", Value = Config.Feed.PostFeedTitle
+						}
+					})
+				})
+			}));
 
 			// Add the feed handler
 			App.Handlers.Add("feed", new FeedHandler());
