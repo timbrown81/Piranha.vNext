@@ -1,4 +1,7 @@
 ﻿@using Piranha.Manager
+@{
+	var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString().ToLower();
+}
 <ul class="nav navmenu-nav">
 	<li>
 		<a href="#" class="ico">Dashboard</a>
@@ -9,7 +12,7 @@
 				<a href="#" @(!String.IsNullOrWhiteSpace(group.Css) ? "class=" + group.Css : "")>@group.Name</a>
 				<ul>
 					@foreach (var item in group.Items) {
-						<li>
+						<li @(item.Controller.ToLower() == controller ? "class=active" : "")>
 							<a href="@Url.Action(item.Action, item.Controller)">@item.Name</a>
 						</li>
 					}
