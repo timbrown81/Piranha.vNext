@@ -497,10 +497,6 @@
       <Project>{27fc302c-b059-4c87-a146-310a1056b5d8}</Project>
       <Name>Piranha.AspNet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\Piranha.Akismet\Piranha.Akismet.csproj">
-      <Project>{dbcd4738-e675-41ee-acfe-93407c185b0a}</Project>
-      <Name>Piranha.Akismet</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Modules\Piranha.Feed\Piranha.Feed.csproj">
       <Project>{821cd5e2-95a3-4cff-9ff3-1ec595e18111}</Project>
       <Name>Piranha.Feed</Name>
