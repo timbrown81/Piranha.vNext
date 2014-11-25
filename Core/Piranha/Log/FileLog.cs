@@ -27,8 +27,8 @@ namespace Piranha.Log
 	public class FileLog : ILog
 	{
 		#region Members
-		private const string path = @"App_Data\Logs";
 		private const string msg = "{0} [{1}] {2}";
+		private readonly string path = Path.Combine("App_Data", "Logs");
 		private readonly object mutex = new object();
 		private readonly string filePath;
 		private readonly bool disabled;
@@ -39,14 +39,14 @@ namespace Piranha.Log
 		/// </summary>
 		public FileLog() {
 			if (AppDomain.CurrentDomain != null && !String.IsNullOrWhiteSpace(AppDomain.CurrentDomain.BaseDirectory)) {
-				var mapped = AppDomain.CurrentDomain.BaseDirectory + path;
+				var mapped = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, path);
 
 				// Ensure log directory
 				if (!Directory.Exists(mapped))
 					Directory.CreateDirectory(mapped);
 
 				// Store mapped file path
-				filePath = mapped + @"\Log.txt";
+				filePath = Path.Combine(mapped, "Log.txt");
 			} else {
 				disabled = true;
 			}
