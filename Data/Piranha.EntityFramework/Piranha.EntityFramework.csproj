@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201411062139141_AddArchiveView.Designer.cs">
       <DependentUpon>201411062139141_AddArchiveView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411251358306_AddRatings.cs" />
+    <Compile Include="Migrations\201411251358306_AddRatings.Designer.cs">
+      <DependentUpon>201411251358306_AddRatings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411062139141_AddArchiveView.resx">
       <DependentUpon>201411062139141_AddArchiveView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411251358306_AddRatings.resx">
+      <DependentUpon>201411251358306_AddRatings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

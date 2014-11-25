@@ -49,6 +49,8 @@
     <Compile Include="Cache\NoCache.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\ModelCache.cs" />
+    <Compile Include="Client\Models\CommentModel.cs" />
+    <Compile Include="Client\Models\RatingsModel.cs" />
     <Compile Include="Config\Cache.cs" />
     <Compile Include="Config\Comments.cs" />
     <Compile Include="Config\Site.cs" />
@@ -87,6 +89,8 @@
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PageType.cs" />
     <Compile Include="Models\PostType.cs" />
+    <Compile Include="Models\Rating.cs" />
+    <Compile Include="Models\RatingType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AliasRepository.cs" />
     <Compile Include="Repositories\BlockRepository.cs" />
@@ -99,6 +103,7 @@
     <Compile Include="Repositories\PageTypeRepository.cs" />
     <Compile Include="Repositories\PostTypeRepository.cs" />
     <Compile Include="Repositories\ParamRepository.cs" />
+    <Compile Include="Repositories\RatingRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Security\ISecurity.cs" />
     <Compile Include="Security\NoSecurity.cs" />

@@ -22,7 +22,7 @@ public static class Extensions
 	/// </summary>
 	/// <param name="comment">The comment</param>
 	/// <returns>The html content</returns>
-	public static IHtmlString Html(this Piranha.Models.Comment comment) {
+	public static IHtmlString Html(this Piranha.Client.Models.CommentModel comment) {
 		return new HtmlString(comment.Body.Replace("\n", "<br>").GenerateLinks());
 	}
 }

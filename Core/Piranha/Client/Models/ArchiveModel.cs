@@ -209,6 +209,18 @@ namespace Piranha.Client.Models
 			}
 		}
 
+		/// <summary>
+		/// Loads all available ratings for the posts in the archive.
+		/// </summary>
+		public virtual ArchiveModel WithRatings() {
+			// Get all ratings
+			using (var api = new Api()) {
+				foreach (var post in Posts)
+					post.Ratings = RatingsModel.GetByModelId(api, post.Id);
+			}
+			return this;
+		}
+
 		#region Private methods
 		/// <summary>
 		/// Maps the given post type to an archive model.

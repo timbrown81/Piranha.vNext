@@ -65,6 +65,7 @@
     <Compile Include="CategoryTests.cs" />
     <Compile Include="PageTypeTests.cs" />
     <Compile Include="ParamTests.cs" />
+    <Compile Include="RatingTests.cs" />
     <Compile Include="PostTests.cs" />
     <Compile Include="PostTypeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

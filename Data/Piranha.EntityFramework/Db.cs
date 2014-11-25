@@ -80,6 +80,11 @@ namespace Piranha.EntityFramework
 		/// Gets/sets the post type set.
 		/// </summary>
 		public DbSet<Models.PostType> PostTypes { get; set; }
+
+		/// <summary>
+		/// Gets/sets the ratings set.
+		/// </summary>
+		public DbSet<Models.Rating> Ratings { get; set; }
 		#endregion
 
 		/// <summary>
@@ -209,6 +214,22 @@ namespace Piranha.EntityFramework
 			modelBuilder.Entity<Models.PostType>().Property(t => t.Slug).HasMaxLength(128).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() {
 					IsUnique = true
+				}));
+
+			// Ratings
+			modelBuilder.Entity<Models.Rating>().ToTable("PiranhaRatings");
+			modelBuilder.Entity<Models.Rating>().Property(r => r.UserId).HasMaxLength(128).IsRequired()
+				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_UserRating") {
+					IsUnique = true,
+					Order = 1
+				}));
+			modelBuilder.Entity<Models.Rating>().Property(r => r.ModelId)
+				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_UserRating") { 
+					Order = 2
+				}));
+			modelBuilder.Entity<Models.Rating>().Property(r => r.Type)
+				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_UserRating") {
+					Order = 3
 				}));
 
 			base.OnModelCreating(modelBuilder);

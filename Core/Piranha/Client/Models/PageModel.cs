@@ -111,12 +111,24 @@ namespace Piranha.Client.Models
 		public Author Author { get; set; }
 
 		/// <summary>
+		/// Gets/sets the available ratings.
+		/// </summary>
+		public RatingsModel Ratings { get; set; }
+
+		/// <summary>
 		/// Gets if this is the startpage of the site.
 		/// </summary>
 		public bool IsStartPage {
 			get { return !ParentId.HasValue && SortOrder == 1; }
 		}
 		#endregion
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public PageModel() {
+			Ratings = new RatingsModel();
+		}
 
 		/// <summary>
 		/// Gets the page model identified by the given id.
@@ -176,6 +188,17 @@ namespace Piranha.Client.Models
 				}
 			}
 			return model;
+		}
+
+		/// <summary>
+		/// Loads all available ratings for the current page.
+		/// </summary>
+		public virtual PageModel WithRatings() {
+			// Get all ratings
+			using (var api = new Api()) {
+				Ratings = RatingsModel.GetByModelId(api, Id);
+			}
+			return this;
 		}
 
 		/// <summary>

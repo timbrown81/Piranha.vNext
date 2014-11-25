@@ -16,7 +16,7 @@ using Piranha.Client.Models;
 namespace Piranha.AspNet.Mvc
 {
 	/// <summary>
-	/// Base controller for managin comments.
+	/// Base controller for managing comments.
 	/// </summary>
 	public class CommentController : Controller
 	{
@@ -25,6 +25,7 @@ namespace Piranha.AspNet.Mvc
 		/// </summary>
 		/// <param name="model">The comment</param>
 		/// <returns>A redirect result</returns>
+		[HttpPost]
 		public virtual ActionResult Add(Piranha.Models.Comment model) {
 			if (ModelState.IsValid) {
 				using (var api = new Api()) {
