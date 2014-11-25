@@ -220,7 +220,8 @@ namespace Piranha
 						Mapper.CreateMap<Models.Page, Client.Models.PageModel>()
 							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
 							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))
-							.ForMember(m => m.View, o => o.MapFrom(p => !String.IsNullOrEmpty(p.View) ? p.View : p.Type.View));
+							.ForMember(m => m.View, o => o.MapFrom(p => !String.IsNullOrEmpty(p.View) ? p.View : p.Type.View))
+							.ForMember(m => m.Ratings, o => o.Ignore());
 						Mapper.CreateMap<Models.Post, Client.Models.PostModel>()
 							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
 							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))
