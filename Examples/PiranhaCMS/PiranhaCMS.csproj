@@ -180,7 +180,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
     <Content Include="Views\Page\Index.cshtml" />
-    <Content Include="Views\Post\DisplayTemplates\Comment.cshtml" />
+    <Content Include="Views\Post\DisplayTemplates\CommentModel.cshtml" />
     <Content Include="Views\Post\Partial\AddComment.cshtml" />
     <Content Include="Assets\Css\icons.less" />
     <Content Include="Assets\Fonts\icons.eot" />

@@ -70,6 +70,7 @@
     <Compile Include="CommentController.cs" />
     <Compile Include="PageController.cs" />
     <Compile Include="PostController.cs" />
+    <Compile Include="RatingsController.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

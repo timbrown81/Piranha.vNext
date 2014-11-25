@@ -118,7 +118,12 @@ namespace Piranha.Client.Models
 		/// <summary>
 		/// Gets/sets the available comments.
 		/// </summary>
-		public IList<Comment> Comments { get; set; }
+		public IList<CommentModel> Comments { get; set; }
+
+		/// <summary>
+		/// Gets/sets the available ratings.
+		/// </summary>
+		public RatingsModel Ratings { get; set; }
 		#endregion
 
 		/// <summary>
@@ -127,7 +132,8 @@ namespace Piranha.Client.Models
 		public PostModel() {
 			Attachments = new List<Media>();
 			Categories = new List<Category>();
-			Comments = new List<Comment>();
+			Comments = new List<CommentModel>();
+			Ratings = new RatingsModel();
 		}
 
 		/// <summary>
@@ -187,10 +193,27 @@ namespace Piranha.Client.Models
 		/// <summary>
 		/// Loads all available comments for the current post.
 		/// </summary>
-		public virtual PostModel WithComments() {
+		/// <param name="ratings">If ratings should be included</param>
+		public virtual PostModel WithComments(bool ratings = false) {
 			// Get all comments
 			using (var api = new Api()) {
-				Comments = api.Comments.Get(where: c => c.PostId == Id).ToList();
+				Comments = Mapper.Map<IEnumerable<Comment>, IEnumerable<CommentModel>>(api.Comments.Get(where: c => c.PostId == Id)).ToList();
+
+				if (ratings) {
+					foreach (var comment in Comments)
+						comment.Ratings = RatingsModel.GetByModelId(api, comment.Id);
+				}
+			}
+			return this;
+		}
+
+		/// <summary>
+		/// Loads all available ratings for the current post.
+		/// </summary>
+		public virtual PostModel WithRatings() {
+			// Get all ratings
+			using (var api = new Api()) {
+				Ratings = RatingsModel.GetByModelId(api, Id);
 			}
 			return this;
 		}

@@ -215,6 +215,8 @@ namespace Piranha
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Starting application");
 
 						// Configure auto mapper
+						Mapper.CreateMap<Models.Comment, Client.Models.CommentModel>()
+							.ForMember(m => m.Ratings, o => o.Ignore());
 						Mapper.CreateMap<Models.Page, Client.Models.PageModel>()
 							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
 							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))
@@ -222,7 +224,9 @@ namespace Piranha
 						Mapper.CreateMap<Models.Post, Client.Models.PostModel>()
 							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
 							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))
-							.ForMember(m => m.View, o => o.MapFrom(p => !String.IsNullOrEmpty(p.View) ? p.View : p.Type.View));
+							.ForMember(m => m.View, o => o.MapFrom(p => !String.IsNullOrEmpty(p.View) ? p.View : p.Type.View))
+							.ForMember(m => m.Comments, o => o.Ignore())
+							.ForMember(m => m.Ratings, o => o.Ignore());
 						Mapper.CreateMap<Models.PostType, Client.Models.ArchiveModel>()
 							.ForMember(m => m.Keywords, o => o.MapFrom(t => t.MetaKeywords))
 							.ForMember(m => m.Description, o => o.MapFrom(t => t.MetaDescription))
