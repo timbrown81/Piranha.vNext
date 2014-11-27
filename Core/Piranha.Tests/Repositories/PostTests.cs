@@ -55,7 +55,7 @@ namespace Piranha.Tests.Repositories
 				post = new Models.Post() {
 					TypeId = type.Id,
 					AuthorId = author.Id,
-					Title = "My first post",
+					Title = "My test post",
 					Excerpt = "Read my first post.",
 					Body = "<p>Lorem ipsum</p>",
 					Published = DateTime.Now
@@ -66,7 +66,7 @@ namespace Piranha.Tests.Repositories
 			
 			using (var api = new Api()) {
 				// Get model
-				var model = api.Posts.GetSingle(where: p => p.Slug == "my-first-post");
+				var model = api.Posts.GetSingle(where: p => p.Slug == "my-test-post");
 
 				Assert.IsNotNull(model);
 				Assert.AreEqual("Read my first post.", model.Excerpt);
@@ -79,7 +79,7 @@ namespace Piranha.Tests.Repositories
 			
 			using (var api = new Api()) {
 				// Verify update
-				var model = api.Posts.GetSingle(where: p => p.Slug == "my-first-post");
+				var model = api.Posts.GetSingle(where: p => p.Slug == "my-test-post");
 
 				Assert.IsNotNull(model);
 				Assert.AreEqual("Updated post", model.Excerpt);
@@ -94,9 +94,9 @@ namespace Piranha.Tests.Repositories
 
 			using (var api = new Api()) {
 				// Verify remove
-				post = api.Posts.GetSingle(where: p => p.Slug == "my-first-post");
-				type = api.PostTypes.GetSingle(where: t => t.Id == type.Id);
-				author = api.Authors.GetSingle(where: a => a.Id == author.Id);
+				post = api.Posts.GetSingle(where: p => p.Slug == "my-test-post");
+				type = api.PostTypes.GetSingle(type.Id);
+				author = api.Authors.GetSingle(author.Id);
 
 				Assert.IsNull(post);
 				Assert.IsNull(type);

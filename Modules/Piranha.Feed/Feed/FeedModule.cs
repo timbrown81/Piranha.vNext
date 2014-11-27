@@ -126,7 +126,7 @@ namespace Piranha.Feed
 
 				if (current.Type == ContentType.Archive) {
 					using (var api = new Api()) {
-						var type = api.PostTypes.GetById(current.Id);
+						var type = api.PostTypes.GetSingle(current.Id);
 
 						var title = HttpUtility.HtmlEncode(Config.Feed.ArchiveFeedTitle
 							.Replace("{SiteTitle}", Config.Site.Title)

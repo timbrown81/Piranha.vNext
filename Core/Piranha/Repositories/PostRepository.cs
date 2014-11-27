@@ -59,13 +59,13 @@ namespace Piranha.Repositories
 		/// This method uses the configured cache for performance.
 		/// </remarks>
 		/// <param name="slug">The unique slug</param>
-		/// <param name="type">The unique post type slug</param>
+		/// <param name="typeId">The unique post type id</param>
 		/// <returns>The model</returns>
-		public Models.Post GetSingle(string slug, string type) {
-			var model = App.ModelCache.Posts.Get(type + "_" + slug);
+		public Models.Post GetSingle(string slug, Guid typeId) {
+			var model = App.ModelCache.Posts.Get(typeId.ToString() + "_" + slug);
 
 			if (model == null) {
-				model = base.GetSingle(where: p => p.Slug == slug && p.Type.Slug == type);
+				model = base.GetSingle(where: p => p.Slug == slug && p.TypeId == typeId);
 
 				if (model != null)
 					App.ModelCache.Posts.Add(model);

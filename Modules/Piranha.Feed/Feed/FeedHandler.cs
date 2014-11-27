@@ -29,7 +29,7 @@ namespace Piranha.Feed
 		/// <param name="request">The incoming route request</param>
 		/// <returns>The result</returns>
 		public IResponse Handle(Api api, IRequest request) {
-			var now = DateTime.Now.ToUniversalTime();
+			var now = DateTime.Now;
 
 			if (request.Segments.Length == 1 || String.IsNullOrWhiteSpace(request.Segments[1])) {
 				// Post feed for the entire site
@@ -54,12 +54,12 @@ namespace Piranha.Feed
 
 				return response;
 			} else {
-				var type = api.PostTypes.GetBySlug(request.Segments[1]);
+				var type = api.PostTypes.GetSingle(request.Segments[1]);
 
 				if (type != null) {
 					// Comment feed for an individual post
 					if (request.Segments.Length > 2 && !String.IsNullOrWhiteSpace(request.Segments[2])) {
-						var post = PostModel.GetBySlug(request.Segments[2], type.Slug).WithComments();
+						var post = PostModel.GetBySlug(request.Segments[2], type.Id).WithComments();
 
 						if (post != null) {
 							var comments = api.Comments.Get(where: c => c.IsApproved && c.PostId == post.Id,

@@ -110,15 +110,17 @@ namespace PiranhaCMS
 
 						post.Categories.Add(cat);
 
-						post.Comments.Add(new Piranha.Models.Comment() {
+						api.Posts.Add(post);
+						api.SaveChanges();
+
+						api.Comments.Add(new Piranha.Models.Comment() {
+							PostId = post.Id,
 							Author = "Håkan Edling",
 							Email = "hakan@tidyui.com",
 							IsApproved = true,
 							WebSite = "http://piranhacms.org",
 							Body = "I hope you enjoy this new version of Piranha CMS. Remember to give me your feedback at the GitHub repo."
 						});
-
-						api.Posts.Add(post);
 						api.SaveChanges();
 					}
 
