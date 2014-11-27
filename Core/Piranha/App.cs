@@ -18,6 +18,7 @@
 
 using AutoMapper;
 using System;
+using System.Configuration;
 using System.Text.RegularExpressions;
 
 namespace Piranha
@@ -67,6 +68,18 @@ namespace Piranha
 			/// The configured slug generation algorithm.
 			/// </summary>
 			public Func<string, string> GenerateSlug;
+
+			/// <summary>
+			/// Gets the value for the specified key from the current 
+			/// AppSettings section.
+			/// </summary>
+			/// <typeparam name="T">The value type</typeparam>
+			/// <param name="key">The key</param>
+			/// <returns>The config value</returns>
+			public T FromConfig<T>(string key) {
+				var reader = new AppSettingsReader();
+				return (T)reader.GetValue(key, typeof(T));
+			}
 		}
 		#endregion
 
