@@ -33,13 +33,13 @@ namespace Piranha.Server.Handlers
 		/// <param name="request">The incoming route request</param>
 		/// <returns>The result</returns>
 		public IResponse Handle(Api api, IRequest request) {
-			var type = api.PostTypes.GetBySlug(request.Segments[0]);
+			var type = api.PostTypes.GetSingle(request.Segments[0]);
 			var route = "";
 
 			if (type != null) {
 				// First try to resolve a unique permalink
 				if (request.Segments.Length > 1) {
-					var post = Client.Models.PostModel.GetBySlug(request.Segments[1], type.Slug);
+					var post = Client.Models.PostModel.GetBySlug(request.Segments[1], type.Id);
 
 					if (post != null) {
 						route = !String.IsNullOrWhiteSpace(post.Route) ? post.Route : (!String.IsNullOrWhiteSpace(type.Route) ? type.Route : "post");

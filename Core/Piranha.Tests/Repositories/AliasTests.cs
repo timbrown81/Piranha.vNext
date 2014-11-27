@@ -46,7 +46,7 @@ namespace Piranha.Tests.Repositories
 
 			using (var api = new Api()) {
 				// Get model
-				var model = api.Aliases.GetSingle(where: a => a.Id == id);
+				var model = api.Aliases.GetSingle(id);
 				Assert.IsNotNull(model);
 				Assert.AreEqual("/oldstuff.aspx?id=thisisalongunreadableandyglyurl", model.OldUrl);
 				Assert.AreEqual("/blog/my-new-permalink", model.NewUrl);
@@ -59,7 +59,7 @@ namespace Piranha.Tests.Repositories
 
 			using (var api = new Api()) {
 				// Verify update
-				var model = api.Aliases.GetSingle(where: a => a.Id == id);
+				var model = api.Aliases.GetSingle(id);
 				Assert.IsNotNull(model);
 				Assert.AreEqual("/oldstuff.aspx?id=thisisalongunreadableandyglyurl", model.OldUrl);
 				Assert.AreEqual("/blog/welcome", model.NewUrl);
@@ -72,7 +72,7 @@ namespace Piranha.Tests.Repositories
 
 			using (var api = new Api()) {
 				// Verify remove
-				var model = api.Aliases.GetSingle(where: a => a.Id == id);
+				var model = api.Aliases.GetSingle(id);
 				Assert.IsNull(model);
 			}
 		}

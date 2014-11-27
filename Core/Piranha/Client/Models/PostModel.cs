@@ -166,21 +166,21 @@ namespace Piranha.Client.Models
 		/// Gets the post model identified by the given slug.
 		/// </summary>
 		/// <param name="slug">The unique slug</param>
-		/// <param name="posttype">The post type slug</param>
+		/// <param name="typeId">The post type slug</param>
 		/// <returns>The model</returns>
-		public static PostModel GetBySlug(string slug, string posttype) {
-			return GetBySlug<PostModel>(slug, posttype);
+		public static PostModel GetBySlug(string slug, Guid typeId) {
+			return GetBySlug<PostModel>(slug, typeId);
 		}
 
 		/// <summary>
 		/// Gets the post model identified by the given slug.
 		/// </summary>
 		/// <param name="slug">The unique slug</param>
-		/// <param name="posttype">The post type slug</param>
+		/// <param name="typeId">The post type id</param>
 		/// <returns>The model</returns>
-		public static T GetBySlug<T>(string slug, string posttype) where T : PostModel {
+		public static T GetBySlug<T>(string slug, Guid typeId) where T : PostModel {
 			using (var api = new Api()) {
-				var post = api.Posts.GetSingle(slug, posttype);
+				var post = api.Posts.GetSingle(slug, typeId);
 
 				if (post != null && post.Published <= DateTime.Now) {
 					post.CommentCount = api.Comments.Get(where: c => c.PostId == post.Id).Count();

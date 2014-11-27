@@ -177,7 +177,7 @@ namespace Piranha.Client.Models
 		/// <returns>The archive model</returns>
 		public static T GetById<T>(Guid id, int? page = 1, int? year = null, int? month = null) where T : ArchiveModel {
 			using (var api = new Api()) {
-				return Map<T>(api, api.PostTypes.GetSingle(where: t => t.Id == id), page, year, month);
+				return Map<T>(api, api.PostTypes.GetSingle(id), page, year, month);
 			}
 		}
 
@@ -243,7 +243,7 @@ namespace Piranha.Client.Models
 
 				// Build query
 				Expression<Func<Piranha.Models.Post, bool>> query = null;
-				var now = DateTime.Now.ToUniversalTime();
+				var now = DateTime.Now;
 
 				if (year.HasValue) {
 					DateTime from;

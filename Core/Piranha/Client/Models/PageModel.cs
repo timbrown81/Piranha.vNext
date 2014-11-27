@@ -149,7 +149,7 @@ namespace Piranha.Client.Models
 
 			if (model == null) {
 				using (var api = new Api()) {
-					var now = DateTime.Now.ToUniversalTime();
+					var now = DateTime.Now;
 
 					model = Map<T>(api, api.Pages.GetSingle(where: p => p.Id == id && p.Published <= now));
 
@@ -179,7 +179,7 @@ namespace Piranha.Client.Models
 
 			if (model == null) {
 				using (var api = new Api()) {
-					var now = DateTime.Now.ToUniversalTime();
+					var now = DateTime.Now;
 
 					model = Map<T>(api, api.Pages.GetSingle(where: p => p.Slug == slug && p.Published <= now));
 

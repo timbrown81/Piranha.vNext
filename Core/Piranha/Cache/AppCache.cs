@@ -84,7 +84,7 @@ namespace Piranha.Cache
 			Media = new ModelCache<Models.Media>(cache, m => m.Id, m => m.Slug);
 			Pages = new ModelCache<Client.Models.PageModel>(cache, p => p.Id, p => p.Slug);
 			Params = new ModelCache<Models.Param>(cache, p => p.Id, p => p.Name);
-			Posts = new ModelCache<Models.Post>(cache, p => p.Id, p => p.Type.Slug + "_" + p.Slug);
+			Posts = new ModelCache<Models.Post>(cache, p => p.Id, p => p.TypeId.ToString() + "_" + p.Slug);
 			PostTypes = new ModelCache<Models.PostType>(cache, p => p.Id, p => p.Slug);
 		}
 

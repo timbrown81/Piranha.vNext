@@ -23,21 +23,6 @@ namespace Piranha.EntityFramework
 		/// Processes the loaded entities before returning them.
 		/// </summary>
 		public static void OnLoad(DbContext context, ObjectMaterializedEventArgs e) {
-			if (e.Entity is Data.IChanges) {
-				var model = (Data.IChanges)e.Entity;
-
-				model.Created = DateTime.SpecifyKind(model.Created, DateTimeKind.Utc).ToLocalTime();
-				model.Updated = DateTime.SpecifyKind(model.Updated, DateTimeKind.Utc).ToLocalTime();
-			}
-
-			if (e.Entity is Data.IPublishable) {
-				var model = (Data.IPublishable)e.Entity;
-
-				if (model.Published.HasValue) {
-					model.Published = DateTime.SpecifyKind(model.Published.Value, DateTimeKind.Utc).ToLocalTime();
-				}
-			}
-
 			if (e.Entity is Models.Model) {
 				((Models.Model)e.Entity).OnLoad();
 			}
@@ -61,7 +46,7 @@ namespace Piranha.EntityFramework
 				// Track changes
 				if (entry.Entity is Data.IChanges) {
 					var model = (Data.IChanges)entry.Entity;
-					var now = DateTime.Now.ToUniversalTime();
+					var now = DateTime.Now;
 
 					// Set updated date
 					if (entry.State == EntityState.Added || entry.State == EntityState.Modified)
@@ -70,18 +55,6 @@ namespace Piranha.EntityFramework
 					// Set created date for new models
 					if (entry.State == EntityState.Added)
 						model.Created = now;
-
-					// Set created date for existing models
-					if (entry.State == EntityState.Modified)
-						model.Created = model.Created.ToUniversalTime();
-				}
-
-				// Convert published date
-				if (entry.Entity is Data.IPublishable) {
-					var model = (Data.IPublishable)entry.Entity;
-
-					if (model.Published.HasValue)
-						model.Published = model.Published.Value.ToUniversalTime();
 				}
 
 				// Call events

@@ -34,7 +34,7 @@ namespace Piranha.Server.Handlers
 		/// <returns>The result</returns>
 		public IResponse Handle(Api api, IRequest request) {
 			var slug = request.Segments.Length > 0 ? request.Segments[0] : "";
-			var now = DateTime.Now.ToUniversalTime();
+			var now = DateTime.Now;
 			var route = "";
 
 			slug = slug != "" ? slug : 

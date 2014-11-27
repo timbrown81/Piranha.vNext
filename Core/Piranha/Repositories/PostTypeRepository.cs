@@ -71,42 +71,6 @@ namespace Piranha.Repositories
 		}
 
 		/// <summary>
-		/// Method for getting a post type by id. This method is
-		/// cached for performance.
-		/// </summary>
-		/// <param name="id">The unique slug</param>
-		/// <returns>The post type</returns>
-		public Models.PostType GetById(Guid id) {
-			var model = App.ModelCache.PostTypes.Get(id);
-
-			if (model == null) {
-				model = GetSingle(where: t => t.Id == id);
-
-				if (model != null)
-					App.ModelCache.PostTypes.Add(model);
-			}
-			return model;
-		}
-
-		/// <summary>
-		/// Method for getting a post type by slug. This method is
-		/// cached for performance.
-		/// </summary>
-		/// <param name="slug">The unique slug</param>
-		/// <returns>The post type</returns>
-		public Models.PostType GetBySlug(string slug) {
-			var model = App.ModelCache.PostTypes.Get(slug);
-
-			if (model == null) {
-				model = GetSingle(where: t => t.Slug == slug);
-
-				if (model != null)
-					App.ModelCache.PostTypes.Add(model);
-			}
-			return model;
-		}
-
-		/// <summary>
 		/// Adds a new or updated model to the api.
 		/// </summary>
 		/// <param name="model">The model</param>

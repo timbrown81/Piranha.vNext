@@ -135,7 +135,7 @@ namespace Piranha.Client.Models
 				sitemap = new SiteMap();
 
 				using (var api = new Api()) {
-					var now = DateTime.Now.ToUniversalTime();
+					var now = DateTime.Now;
 
 					var items = api.Pages.Get(where: p => p.Published <= now).Select(p => new SiteMapItem() {
 						Id = p.Id,
