@@ -8,7 +8,7 @@ Piranha CMS uses two different licenses. The **core libraries** are released und
 
 > "Weak copyleft" licenses are generally used for the creation of software libraries, to allow other software to link to the library, and then be redistributed without the legal requirement for the work to be distributed under the library's copyleft license. Only changes to the weak-copylefted software itself become subject to the copyleft provisions of such a license, not changes to the software that links to it. 
 
-You can read the full article at [http://en.wikipedia.org/wiki/Copyleft#Strong_and_weak_copyleft](http://http://en.wikipedia.org/wiki/Copyleft#Strong_and_weak_copyleft).
+You can read the full article at [http://en.wikipedia.org/wiki/Copyleft#Strong_and_weak_copyleft](http://en.wikipedia.org/wiki/Copyleft#Strong_and_weak_copyleft).
 
 Everything else is released under the **MIT** license granting you permission to do pretty much anything you want.
 
