@@ -1,10 +1,8 @@
 ﻿@{
-	//var height = 340;
-	//var autoresize = true;
 	var height = ViewData.Eval("height") != null ? (int)ViewData.Eval("height") : 340;
 	var autoresize = ViewData.Eval("autoresize") != null ? (bool)ViewData.Eval("autoresize") : true;
 }
-<script type="text/javascript" src="~/areas/manager/assets/vendor/tiny_mce/tinymce.min.js"></script>
+<script type="text/javascript" src="~/manager/assets.ashx/vendor/tiny_mce/tinymce.min.js"></script>
 <script type="text/javascript">
 	tinymce.init({
 		mode: 'specific_textareas',
@@ -20,7 +18,7 @@
 		}
 		menubar: false,
 		statusbar: false,
-		content_css: "@Url.Content("~/areas/manager/assets/css/editor.min.css")",
+		content_css: "@Url.Content("~/manager/assets.ashx/css/editor.min.css")",
 		toolbar: "bold italic underline | bullist numlist hr | formatselect removeformat | cut copy paste | link | code",
 	});
 </script>

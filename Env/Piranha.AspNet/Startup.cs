@@ -8,9 +8,13 @@
  * 
  */
 
+using RazorGenerator.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Web.Mvc;
+using System.Web.WebPages;
 using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(Piranha.AspNet.Startup), "PreInit")]
@@ -33,6 +37,22 @@ namespace Piranha.AspNet
 		/// <summary>
 		/// Initializes the application.
 		/// </summary>
-		public static void Init() { }
+		public static void Init() { 
+			// Register precompiled views
+			var assemblies = new List<Assembly>();
+
+			// Check if any modules have registered for precompiled views.
+			if (Hooks.RegisterPrecompiledViews != null)
+				Hooks.RegisterPrecompiledViews(assemblies);
+
+			// Create precompiled view engines for all requested modules.
+			foreach (var assembly in assemblies) { 
+				var engine = new PrecompiledMvcEngine(assembly) {
+					UsePhysicalViewsIfNewer = true
+				};
+				ViewEngines.Engines.Add(engine);
+				VirtualPathFactoryManager.RegisterVirtualPathFactory(engine);
+			}
+		}
 	}
 }

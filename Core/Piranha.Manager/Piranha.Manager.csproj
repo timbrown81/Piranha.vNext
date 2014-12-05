@@ -40,13 +40,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+    <Reference Include="AutoMapper, Version=3.3.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+      <HintPath>..\..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper.Net4, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+    <Reference Include="AutoMapper.Net4, Version=3.3.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <HintPath>..\..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
@@ -105,7 +105,7 @@
     <Content Include="Areas\Manager\Assets\css\login.min.css">
       <DependentUpon>login.css</DependentUpon>
     </Content>
-    <Content Include="Areas\Manager\Assets\img\logo-big.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\logo-big.png" />
     <Content Include="Areas\Manager\Assets\js\models\manager.category.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.config.js" />
     <Content Include="Areas\Manager\Assets\js\models\manager.alias.js" />
@@ -121,15 +121,15 @@
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
-    <Content Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\js\bootstrap.js" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\js\bootstrap.min.js" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.less" />
     <Content Include="Areas\Manager\Assets\vendor\bootstrap\css\bootstrap.css.map" />
-    <Content Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Manager\Assets\css\colors.css">
       <DependentUpon>colors.less</DependentUpon>
     </Content>
@@ -139,9 +139,9 @@
     <Content Include="Areas\Manager\Assets\css\editor.css">
       <DependentUpon>editor.less</DependentUpon>
     </Content>
-    <Content Include="Areas\Manager\Assets\css\editor.min.css">
+    <EmbeddedResource Include="Areas\Manager\Assets\css\editor.min.css">
       <DependentUpon>editor.css</DependentUpon>
-    </Content>
+    </EmbeddedResource>
     <Content Include="Areas\Manager\Assets\css\fonts.css">
       <DependentUpon>fonts.less</DependentUpon>
     </Content>
@@ -187,66 +187,66 @@
     <Content Include="Areas\Manager\Assets\css\style.css">
       <DependentUpon>style.less</DependentUpon>
     </Content>
-    <Content Include="Areas\Manager\Assets\css\style.min.css">
+    <EmbeddedResource Include="Areas\Manager\Assets\css\style.min.css">
       <DependentUpon>style.css</DependentUpon>
-    </Content>
+    </EmbeddedResource>
     <Content Include="Areas\Manager\Assets\css\fonts.less" />
     <Content Include="Areas\Manager\Assets\css\modals.less" />
     <Content Include="Areas\Manager\Assets\css\login.less" />
     <None Include="Areas\Manager\Assets\vendor\datepicker\css\datepicker.less" />
     <Content Include="Areas\Manager\Assets\vendor\datepicker\js\bootstrap-datepicker.js" />
-    <Content Include="Areas\Manager\Assets\img\ico-add-16.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-add-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-add-after-16.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-add-below-16.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-add-folder-16.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-add-folder-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-arrow-down-16.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-arrow-up-16.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-back-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-comments-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-content-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-delete-16.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-delete-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-detach-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-doc-64.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-edit-16.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-edit-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-excel-64.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-folder-32.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-folder-96.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-folder-up-96.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-loader.gif" />
-    <Content Include="Areas\Manager\Assets\img\ico-locked-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-menu-content.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-menu-logout.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-menu-settings.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-menu-system.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-missing-ico.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-movie-64.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-pdf-64.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-ppt-64.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-preview-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-properties-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-publish-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-regions-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-reload-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-revert-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-save-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-search-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-seo-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-settings-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-sound-64.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-sync-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-unlocked-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-unpublish-24.png" />
-    <Content Include="Areas\Manager\Assets\img\ico-zip-64.png" />
-    <Content Include="Areas\Manager\Assets\img\icon.ico" />
-    <Content Include="Areas\Manager\Assets\img\icon.png" />
-    <Content Include="Areas\Manager\Assets\img\info-copy.png" />
-    <Content Include="Areas\Manager\Assets\img\info-draft.png" />
-    <Content Include="Areas\Manager\Assets\img\info-unpublished.png" />
-    <Content Include="Areas\Manager\Assets\img\logo.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-add-16.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-add-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-add-after-16.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-add-below-16.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-add-folder-16.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-add-folder-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-arrow-down-16.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-arrow-up-16.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-back-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-comments-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-content-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-delete-16.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-delete-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-detach-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-doc-64.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-edit-16.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-edit-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-excel-64.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-folder-32.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-folder-96.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-folder-up-96.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-loader.gif" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-locked-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-menu-content.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-menu-logout.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-menu-settings.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-menu-system.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-missing-ico.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-movie-64.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-pdf-64.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-ppt-64.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-preview-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-properties-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-publish-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-regions-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-reload-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-revert-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-save-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-search-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-seo-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-settings-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-sound-64.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-sync-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-unlocked-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-unpublish-24.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\ico-zip-64.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\icon.ico" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\icon.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\info-copy.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\info-draft.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\info-unpublished.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\img\logo.png" />
     <Content Include="Areas\Manager\Assets\vendor\datepicker\less\datepicker.less" />
     <None Include="Areas\Manager\Assets\vendor\jasny-bootstrap\css\jasny-bootstrap.less" />
     <Content Include="Areas\Manager\Assets\vendor\jasny-bootstrap\js\jasny-bootstrap.js" />
@@ -256,39 +256,39 @@
     <Content Include="Areas\Manager\Assets\vendor\knockout-3.2.0.js" />
     <Content Include="Areas\Manager\Assets\vendor\list.js" />
     <Content Include="Areas\Manager\Assets\vendor\tiny_mce\license.txt" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\autolink\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\autoresize\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\code\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\fullpage\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\fullscreen\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\hr\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\link\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\paste\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\piranhaimage\plugin.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\content.inline.min.css" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\content.min.css" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.svg" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.dev.svg" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.svg" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.dev.svg" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.svg" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\anchor.gif" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\loader.gif" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\object.gif" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\trans.gif" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\wline.gif" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.classic.min.css" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.ie7.min.css" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.min.css" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\themes\modern\theme.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\tinymce.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\autolink\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\autoresize\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\code\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\fullpage\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\fullscreen\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\hr\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\link\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\paste\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\plugins\piranhaimage\plugin.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\content.inline.min.css" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\content.min.css" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.svg" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.dev.svg" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.svg" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.dev.svg" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.svg" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\anchor.gif" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\loader.gif" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\object.gif" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\trans.gif" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\img\wline.gif" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.classic.min.css" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.ie7.min.css" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\skin.min.css" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\themes\modern\theme.min.js" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\tinymce.min.js" />
     <Content Include="Areas\Manager\Assets\js\manager.js" />
     <Content Include="Areas\Manager\Assets\js\scripts.js">
       <DependentUpon>scripts.js.bundle</DependentUpon>
     </Content>
-    <Content Include="Areas\Manager\Assets\js\scripts.min.js">
+    <EmbeddedResource Include="Areas\Manager\Assets\js\scripts.min.js">
       <DependentUpon>scripts.js</DependentUpon>
-    </Content>
+    </EmbeddedResource>
     <Content Include="Areas\Manager\Assets\vendor\select2\.gitignore" />
     <Content Include="Areas\Manager\Assets\vendor\select2\select2-bootstrap.css" />
     <Content Include="Areas\Manager\Assets\vendor\select2\select2-spinner.gif" />
@@ -350,6 +350,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Manager\Controllers\AccountMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\AssetsMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\CategoryMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\AliasMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\AuthorMgrController.cs" />
@@ -360,6 +361,121 @@
     <Compile Include="Areas\Manager\Controllers\PageTypeMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\PostTypeMgrController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Areas\Manager\Views\AccountMgr\Login.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\AliasMgr\List.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\AliasMgr\Partial\EditAlias.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditAlias.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\AuthorMgr\List.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\AuthorMgr\Partial\EditAuthor.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditAuthor.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\BlockMgr\List.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\BlockMgr\Partial\EditBlock.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditBlock.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\CategoryMgr\List.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\CategoryMgr\Partial\EditCategory.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditCategory.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigBlock.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\ConfigMgr\List.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\PageTypeMgr\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\PageTypeMgr\List.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\PostMgr\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\PostMgr\EditorTemplates\CommentListItem.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommentListItem.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\PostMgr\List.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\PostMgr\Partial\CommentList.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommentList.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\PostTypeMgr\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\PostTypeMgr\List.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\Shared\Partial\Editor.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Editor.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\Shared\Partial\Menu.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Menu.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\Shared\_Layout.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\_ViewStart.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -442,16 +558,39 @@
     <Content Include="Areas\Manager\Assets\css\mixins.less" />
     <Content Include="Areas\Manager\Assets\css\navigation.less" />
     <Content Include="Areas\Manager\Assets\css\style.less" />
-    <Content Include="Areas\Manager\Views\Shared\Partial\Menu.cshtml" />
-    <Content Include="Areas\Manager\Views\Shared\Partial\Tabs.cshtml" />
-    <Content Include="Areas\Manager\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Manager\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Manager\Views\PostMgr\List.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\Partial\Menu.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Menu.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\Shared\_Layout.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_Layout.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\_ViewStart.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\PostMgr\List.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>List.generated.cs</LastGenOutput>
+    </Content>
     <Content Include="Areas\Manager\Assets\css\panels.less" />
-    <Content Include="Areas\Manager\Views\PostTypeMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\PostTypeMgr\Edit.cshtml" />
-    <Content Include="Areas\Manager\Views\PostMgr\Edit.cshtml" />
-    <Content Include="Areas\Manager\Views\Shared\Partial\Editor.cshtml" />
+    <Content Include="Areas\Manager\Views\PostTypeMgr\List.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>List.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\PostTypeMgr\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\PostMgr\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\Shared\Partial\Editor.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Editor.generated.cs</LastGenOutput>
+    </Content>
     <Content Include="Areas\Manager\Assets\css\editor.less" />
     <Content Include="Areas\Manager\Assets\vendor\select2\bower.json" />
     <Content Include="Areas\Manager\Assets\vendor\select2\component.json" />
@@ -463,35 +602,80 @@
     <Content Include="Areas\Manager\Assets\vendor\select2\select2.jquery.json" />
     <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_en.js.template" />
     <Content Include="Areas\Manager\Assets\vendor\tiny_mce\langs\readme.md" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.eot" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.ttf" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.woff" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\readme.md" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.eot" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.ttf" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.woff" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.eot" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.ttf" />
-    <Content Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.woff" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.eot" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.ttf" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\icomoon.woff" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\readme.md" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.eot" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce-small.woff" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.eot" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.ttf" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\tiny_mce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Areas\Manager\Assets\js\scripts.js.bundle" />
     <Content Include="Areas\Manager\Assets\js\scripts.min.js.map">
       <DependentUpon>scripts.min.js</DependentUpon>
     </Content>
-    <Content Include="Areas\Manager\Views\PostMgr\Partial\CommentList.cshtml" />
-    <Content Include="Areas\Manager\Views\PostMgr\EditorTemplates\CommentListItem.cshtml" />
-    <Content Include="Areas\Manager\Views\BlockMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\AuthorMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml" />
-    <Content Include="Areas\Manager\Views\AliasMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\ConfigMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\AliasMgr\Partial\EditAlias.cshtml" />
-    <Content Include="Areas\Manager\Views\AuthorMgr\Partial\EditAuthor.cshtml" />
-    <Content Include="Areas\Manager\Views\BlockMgr\Partial\EditBlock.cshtml" />
-    <Content Include="Areas\Manager\Views\CategoryMgr\Partial\EditCategory.cshtml" />
-    <Content Include="Areas\Manager\Views\CategoryMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml" />
-    <Content Include="Areas\Manager\Views\PageTypeMgr\List.cshtml" />
-    <Content Include="Areas\Manager\Views\PageTypeMgr\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\PostMgr\Partial\CommentList.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CommentList.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\PostMgr\EditorTemplates\CommentListItem.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CommentListItem.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\BlockMgr\List.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>List.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\AuthorMgr\List.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>List.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\AccountMgr\Login.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Login.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\AliasMgr\List.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>List.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\ConfigMgr\List.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>List.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\AliasMgr\Partial\EditAlias.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditAlias.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\AuthorMgr\Partial\EditAuthor.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditAuthor.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\BlockMgr\Partial\EditBlock.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditBlock.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\CategoryMgr\Partial\EditCategory.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditCategory.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\CategoryMgr\List.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>List.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ConfigBlock.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\PageTypeMgr\List.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>List.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\PageTypeMgr\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -592,7 +776,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <Import Project="..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <Import Project="..\..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

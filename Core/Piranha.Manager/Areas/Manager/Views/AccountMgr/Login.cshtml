@@ -10,15 +10,15 @@
 
 	<title>@Piranha.Manager.Resources.Account.Login</title>
 
-	<link href="~/areas/manager/assets/img/icon.ico" rel="icon" type="image/x-icon">
-	<link href="~/areas/manager/assets/img/icon.ico" rel="shortcut icon" type="image/x-icon">
-	<link href="~/areas/manager/assets/css/style.min.css" rel="stylesheet" type="text/css">
+	<link href="~/manager/assets.ashx/img/icon.ico" rel="icon" type="image/x-icon">
+	<link href="~/manager/assets.ashx/img/icon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="~/manager/assets.ashx/css/style.min.css" rel="stylesheet" type="text/css">
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
 </head>
 <body id="login">
 	<div class="container">
-		<div class="panel panel-white">
-			@using (Html.BeginForm("LoginUser", "AccountMgr", FormMethod.Post, new { @role = "form", @class = "form" })) {
+		@using (Html.BeginForm("LoginUser", "AccountMgr", FormMethod.Post, new { @role = "form", @class = "form" })) {
+			<div class="panel panel-white">
 				@Html.AntiForgeryToken()
 				<div class="panel-body">
 					<div class="account-logo"></div>
@@ -34,8 +34,8 @@
 					</div>
 					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
 				</div>
-			}
-		</div>
+			</div>
+		}
 	</div>
 	<script type="text/javascript">
 		// Set focus to the first input field

@@ -25,8 +25,8 @@ namespace PiranhaCMS
 		/// Starts the MVC application.
 		/// </summary>
 		protected void Application_Start() {
-			AreaRegistration.RegisterAllAreas();
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
+			AreaRegistration.RegisterAllAreas();
 
 			// Initialize the application instance with the ASP.NET runtime
 			Piranha.App.Init(c => {

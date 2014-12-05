@@ -197,6 +197,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Piranha.Manager\Piranha.Manager.csproj">
+      <Project>{f6cdc5d7-ff0f-43d6-a461-ede30975840f}</Project>
+      <Name>Piranha.Manager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\Piranha.Routing\Piranha.Routing.csproj">
       <Project>{551009fb-1f65-48de-95ac-b70eb0a5f269}</Project>
       <Name>Piranha.Routing</Name>

@@ -18,6 +18,8 @@
 
 using AutoMapper;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using Piranha.Extend;
 
 namespace Piranha.Manager
@@ -27,6 +29,44 @@ namespace Piranha.Manager
 	/// </summary>
 	public class ManagerModule : IModule
 	{
+		#region Inner classes
+		/// <summary>
+		/// Class representing an embedded resource.
+		/// </summary>
+		internal class Resource
+		{
+			/// <summary>
+			/// Gets/sets the resource name.
+			/// </summary>
+			public string Name { get; set; }
+
+			/// <summary>
+			/// Gets/sets the content type.
+			/// </summary>
+			public string ContentType { get; set; }
+		}
+		#endregion
+
+		#region Members
+		/// <summary>
+		/// Gets the internal collection of embedded resources.
+		/// </summary>
+		internal static IDictionary<string, Resource> Resources { get; private set; }
+
+		/// <summary>
+		/// Gets the last modification date of the manager module.
+		/// </summary>
+		internal static DateTime LastModified { get; private set; }
+		#endregion
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public ManagerModule() {
+			Resources = new Dictionary<string, Resource>();
+			LastModified = new FileInfo(typeof(ManagerModule).Assembly.Location).LastWriteTime;
+		}
+
 		/// <summary>
 		/// Initializes the module. This method should be used for
 		/// ensuring runtime resources and registering hooks.
@@ -119,6 +159,50 @@ namespace Piranha.Manager
 				.ForMember(t => t.Updated, o => o.Ignore());
 
 			Mapper.AssertConfigurationIsValid();
+
+			// Register pre-compiled views
+			AspNet.Hooks.RegisterPrecompiledViews += assemblies => {
+				assemblies.Add(typeof(ManagerModule).Assembly);
+			};
+
+			// Scan precompiled resources
+			foreach (var name in typeof(ManagerModule).Assembly.GetManifestResourceNames()) {
+				Resources.Add(name.Replace("Piranha.Areas.Manager.Assets.", "").ToLower(), new Resource() {
+					Name = name, ContentType = GetContentType(name)
+				}) ;
+			}
 		}
+
+		#region Private methods
+		/// <summary>
+		/// Gets the content type from the resource name.
+		/// </summary>
+		/// <param name="name">The resource name</param>
+		/// <returns>The content type</returns>
+		private string GetContentType(string name) {
+			if (name.EndsWith(".js")) {
+				return "text/javascript" ;
+			} else if (name.EndsWith(".css")) {
+				return "text/css" ;
+			} else if (name.EndsWith(".png")) {
+				return "image/png" ;
+			} else if (name.EndsWith(".jpg")) {
+				return "image/jpg" ;
+			} else if (name.EndsWith(".gif")) {
+				return "image/gif" ;
+			} else if (name.EndsWith(".ico")) {
+				return "image/ico" ;
+			} else if (name.EndsWith(".eot")) {
+				return "application/vnd.ms-fontobject" ;
+			} else if (name.EndsWith(".ttf")) {
+				return "application/octet-stream" ;
+			} else if (name.EndsWith(".svg")) {
+				return "image/svg+xml" ;
+			} else if (name.EndsWith(".woff")) {
+				return "application/x-woff" ;
+			}
+			return "application/unknown" ;
+		}
+		#endregion
 	}
 }
