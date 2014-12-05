@@ -356,6 +356,7 @@
     <Compile Include="Areas\Manager\Controllers\AuthorMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\BlockMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\ConfigMgrController.cs" />
+    <Compile Include="Areas\Manager\Controllers\DashboardMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\ManagerController.cs" />
     <Compile Include="Areas\Manager\Controllers\PostMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\PageTypeMgrController.cs" />
