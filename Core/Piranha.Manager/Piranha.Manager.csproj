@@ -297,8 +297,8 @@
     <None Include="Areas\Manager\Assets\vendor\select2\select2.less" />
     <Content Include="Areas\Manager\Assets\vendor\select2\select2.js" />
     <Content Include="Areas\Manager\Assets\vendor\select2\select2.min.js" />
-    <Content Include="Areas\Manager\Assets\vendor\select2\select2.png" />
-    <Content Include="Areas\Manager\Assets\vendor\select2\select2x2.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\select2\select2.png" />
+    <EmbeddedResource Include="Areas\Manager\Assets\vendor\select2\select2x2.png" />
     <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_ar.js" />
     <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_az.js" />
     <Content Include="Areas\Manager\Assets\vendor\select2\select2_locale_bg.js" />
