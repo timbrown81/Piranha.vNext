@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Web;
 
 namespace Piranha.AspNet
@@ -32,14 +33,14 @@ namespace Piranha.AspNet
 		public void Init(HttpApplication context) {
 			// Register begin request 
 			context.BeginRequest += (sender, e) => {
-				if (Hooks.App.Request.OnBeginRequest != null)
-					Hooks.App.Request.OnBeginRequest(new Web.Request(((HttpApplication)sender).Context));
+				if (Piranha.Hooks.App.Request.OnBeginRequest != null)
+					Piranha.Hooks.App.Request.OnBeginRequest(new Web.Request(((HttpApplication)sender).Context));
 			};
 
 			// Register end request
 			context.EndRequest += (sender, e) => { 
-				if (Hooks.App.Request.OnEndRequest != null)
-					Hooks.App.Request.OnEndRequest(new Web.Request(((HttpApplication)sender).Context));
+				if (Piranha.Hooks.App.Request.OnEndRequest != null)
+					Piranha.Hooks.App.Request.OnEndRequest(new Web.Request(((HttpApplication)sender).Context));
 			};
 
 			// Register error event
@@ -48,8 +49,8 @@ namespace Piranha.AspNet
 
 				App.Logger.Log(Log.LogLevel.ERROR, "HttpApplication.Error: Unhandled exception.", exception);
 
-				if (Hooks.App.Request.OnError != null)
-					Hooks.App.Request.OnError(new Web.Request(((HttpApplication)sender).Context), exception);
+				if (Piranha.Hooks.App.Request.OnError != null)
+					Piranha.Hooks.App.Request.OnError(new Web.Request(((HttpApplication)sender).Context), exception);
 			};
 		}
 	}

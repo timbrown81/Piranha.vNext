@@ -96,59 +96,60 @@
     <Content Include="App_Data\Logs\index.html" />
     <Content Include="App_Data\Uploads\index.html" />
     <Content Include="App_Data\Uploads\Media\index.html" />
-    <Content Include="Assets\Css\colors.css">
+    <None Include="Assets\Css\colors.css">
       <DependentUpon>colors.less</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\colors.min.css">
+    </None>
+    <None Include="Assets\Css\colors.min.css">
       <DependentUpon>colors.css</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\icons.css">
+    </None>
+    <None Include="Assets\Css\icons.css">
       <DependentUpon>icons.less</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\icons.min.css">
+    </None>
+    <None Include="Assets\Css\icons.min.css">
       <DependentUpon>icons.css</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\mixins.css">
+    </None>
+    <None Include="Assets\Css\mixins.css">
       <DependentUpon>mixins.less</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\mixins.min.css">
+    </None>
+    <None Include="Assets\Css\mixins.min.css">
       <DependentUpon>mixins.css</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\navigation.css">
+    </None>
+    <None Include="Assets\Css\navigation.css">
       <DependentUpon>navigation.less</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\navigation.min.css">
+    </None>
+    <None Include="Assets\Css\navigation.min.css">
       <DependentUpon>navigation.css</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\normalize.css">
+    </None>
+    <None Include="Assets\Css\normalize.css">
       <DependentUpon>normalize.less</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\normalize.min.css">
+    </None>
+    <None Include="Assets\Css\normalize.min.css">
       <DependentUpon>normalize.css</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\print.css">
+    </None>
+    <None Include="Assets\Css\print.css">
       <DependentUpon>print.less</DependentUpon>
-    </Content>
+    </None>
     <Content Include="Assets\Css\print.min.css">
       <DependentUpon>print.css</DependentUpon>
     </Content>
-    <Content Include="Assets\Css\style.css">
+    <None Include="Assets\Css\style.css">
       <DependentUpon>style.less</DependentUpon>
-    </Content>
+    </None>
     <Content Include="Assets\Css\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
-    <Content Include="Assets\Css\typo.css">
+    <None Include="Assets\Css\typo.css">
       <DependentUpon>typo.less</DependentUpon>
-    </Content>
-    <Content Include="Assets\Css\typo.min.css">
+    </None>
+    <None Include="Assets\Css\typo.min.css">
       <DependentUpon>typo.css</DependentUpon>
-    </Content>
+    </None>
     <Content Include="Assets\Fonts\icons.svg" />
     <Content Include="Assets\Img\github.png" />
     <Content Include="Assets\Img\icon.ico" />
     <Content Include="Assets\Img\logo-big.png" />
     <Content Include="Assets\Img\logo.png" />
+    <Content Include="Assets\Img\start.png" />
     <Content Include="Global.asax" />
     <Content Include="App_Data\Import\startcontent.html" />
     <Content Include="Web.config" />
@@ -169,25 +170,26 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Post\Index.cshtml" />
-    <Content Include="Assets\Css\colors.less" />
-    <Content Include="Assets\Css\mixins.less" />
-    <Content Include="Assets\Css\navigation.less" />
-    <Content Include="Assets\Css\normalize.less" />
-    <Content Include="Assets\Css\print.less" />
-    <Content Include="Assets\Css\style.less" />
-    <Content Include="Assets\Css\typo.less" />
+    <None Include="Assets\Css\colors.less" />
+    <None Include="Assets\Css\mixins.less" />
+    <None Include="Assets\Css\navigation.less" />
+    <None Include="Assets\Css\normalize.less" />
+    <None Include="Assets\Css\print.less" />
+    <None Include="Assets\Css\style.less" />
+    <None Include="Assets\Css\typo.less" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
     <Content Include="Views\Page\Index.cshtml" />
     <Content Include="Views\Post\DisplayTemplates\CommentModel.cshtml" />
     <Content Include="Views\Post\Partial\AddComment.cshtml" />
-    <Content Include="Assets\Css\icons.less" />
+    <None Include="Assets\Css\icons.less" />
     <Content Include="Assets\Fonts\icons.eot" />
     <Content Include="Assets\Fonts\icons.ttf" />
     <Content Include="Assets\Fonts\icons.woff" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -197,6 +199,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Piranha.Manager\Piranha.Manager.csproj">
+      <Project>{f6cdc5d7-ff0f-43d6-a461-ede30975840f}</Project>
+      <Name>Piranha.Manager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\Piranha.Routing\Piranha.Routing.csproj">
       <Project>{551009fb-1f65-48de-95ac-b70eb0a5f269}</Project>
       <Name>Piranha.Routing</Name>
