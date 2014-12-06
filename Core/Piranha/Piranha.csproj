@@ -79,6 +79,7 @@
     <Compile Include="Extend\BuilderAttribute.cs" />
     <Compile Include="Hooks\App.cs" />
     <Compile Include="Hooks\Models.cs" />
+    <Compile Include="Hooks\Mail.cs" />
     <Compile Include="Hooks\UI.cs" />
     <Compile Include="IEnv.cs" />
     <Compile Include="IO\FileMedia.cs" />
@@ -112,6 +113,10 @@
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\RatingType.cs" />
     <Compile Include="Models\StateList.cs" />
+    <Compile Include="Mail\IMail.cs" />
+    <Compile Include="Mail\Address.cs" />
+    <Compile Include="Mail\Message.cs" />
+    <Compile Include="Mail\NoMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AliasRepository.cs" />
     <Compile Include="Repositories\BlockRepository.cs" />

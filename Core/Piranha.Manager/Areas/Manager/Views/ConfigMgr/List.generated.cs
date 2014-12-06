@@ -564,6 +564,31 @@ WriteLiteral(" class=\"row\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<div");
 
+WriteLiteral(" class=\"col-sm-12\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
+
+            
+            #line 135 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                          Write(Piranha.Manager.Resources.Config.Moderators);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t\t<input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" data-bind=\"value: commentModerators\"");
+
+WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div");
+
 WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
@@ -579,8 +604,27 @@ WriteLiteral(" data-bind=\"checked: commentModerateAnonymous\"");
 WriteLiteral(" /> <strong>");
 
             
-            #line 136 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 142 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                                                                                        Write(Piranha.Manager.Resources.Config.ModerateAnonymous);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</strong>\r\n\t\t\t\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"checkbox\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>\r\n\t\t\t\t\t\t\t\t\t\t\t<input");
+
+WriteLiteral(" type=\"checkbox\"");
+
+WriteLiteral(" data-bind=\"checked: commentNotifyAuthor\"");
+
+WriteLiteral(" /> <strong>");
+
+            
+            #line 147 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                                                                                                  Write(Piranha.Manager.Resources.Config.NotifyAuthors);
 
             
             #line default
@@ -602,8 +646,27 @@ WriteLiteral(" data-bind=\"checked: commentModerateAuthorized\"");
 WriteLiteral(" /> <strong>");
 
             
-            #line 143 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 154 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                                                                                         Write(Piranha.Manager.Resources.Config.ModerateAuthorized);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</strong>\r\n\t\t\t\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"checkbox\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>\r\n\t\t\t\t\t\t\t\t\t\t\t<input");
+
+WriteLiteral(" type=\"checkbox\"");
+
+WriteLiteral(" data-bind=\"checked: commentNotifyModerators\"");
+
+WriteLiteral(" /> <strong>");
+
+            
+            #line 159 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                                                                                                      Write(Piranha.Manager.Resources.Config.NotifyModerators);
 
             
             #line default
@@ -612,27 +675,27 @@ WriteLiteral("</strong>\r\n\t\t\t\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t\t\t</d
 "\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- Params -->\r\n");
 
             
-            #line 152 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 168 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 					
             
             #line default
             #line hidden
             
-            #line 152 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 168 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                      foreach (var block in Model.Where(b => b.Section.ToLower() == "blogging")) {
 						
             
             #line default
             #line hidden
             
-            #line 153 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 169 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                    Write(Html.EditorFor(m => block));
 
             
             #line default
             #line hidden
             
-            #line 153 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 169 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                    
 					}
 
@@ -642,13 +705,13 @@ WriteLiteral("</strong>\r\n\t\t\t\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t\t\t</d
 WriteLiteral("\t\t\t\t</div>\r\n\r\n\t\t\t\t<!-- Custom sections -->\r\n");
 
             
-            #line 158 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 174 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 				
             
             #line default
             #line hidden
             
-            #line 158 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 174 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                  foreach (var section in sections) {
 
             
@@ -659,7 +722,7 @@ WriteLiteral("\t\t\t\t\t<div");
 WriteLiteral(" data-bind=\"if: active() == \'");
 
             
-            #line 159 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 175 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                  Write(section.ToLower());
 
             
@@ -670,27 +733,27 @@ WriteLiteral("\'\"");
 WriteLiteral(">\r\n\t\t\t\t\t\t<!-- Blocks -->\r\n");
 
             
-            #line 161 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 177 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 						
             
             #line default
             #line hidden
             
-            #line 161 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 177 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                          foreach (var block in Model.Where(b => b.Section.ToLower() == section.ToLower())) {
 							
             
             #line default
             #line hidden
             
-            #line 162 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 178 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                        Write(Html.EditorFor(m => block));
 
             
             #line default
             #line hidden
             
-            #line 162 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 178 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                        
 						}						
 
@@ -700,7 +763,7 @@ WriteLiteral(">\r\n\t\t\t\t\t\t<!-- Blocks -->\r\n");
 WriteLiteral("\t\t\t\t\t</div>\r\n");
 
             
-            #line 165 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 181 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 				}
 
             

@@ -17,6 +17,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 
 namespace Piranha.Models
 {
@@ -122,6 +123,9 @@ namespace Piranha.Models
 			if (Hooks.Models.Comment.OnSave != null)
 				Hooks.Models.Comment.OnSave(this);
 
+			// Handle possible notifications
+			HandleNotifications();
+
 			// Remove parent post from model cache
 			App.ModelCache.Remove<Models.Post>(this.PostId);
 		}
@@ -136,6 +140,72 @@ namespace Piranha.Models
 
 			// Remove parent post from model cache
 			App.ModelCache.Remove<Models.Post>(this.PostId);
+		}
+		#endregion
+
+		#region Private methods
+		/// <summary>
+		/// Takes care of any mail notifications that should be sent.
+		/// </summary>
+		private void HandleNotifications() {
+			if (Config.Comments.NotifyAuthor || Config.Comments.NotifyModerators) {
+				using (var api = new Api()) {
+					var post = api.Posts.GetSingle(PostId);
+
+					if (post != null) {
+						var recipients = new List<Mail.Address>();
+						var mail = new Mail.Message();
+
+						if (Hooks.Mail.OnCommentMail != null) { 
+							mail = Hooks.Mail.OnCommentMail(post, this);
+						} else {
+							var ui = new Client.Helpers.UIHelper();
+
+							// Default formatting
+							mail.Subject = "New comment posted on " + post.Title;
+							mail.Body =
+								"<html>" +
+								"<head>" +
+								"  <style type='text/css'>" +
+								"    body { background: #eee; color: #444; padding: 20px; }" +
+								"    h1 { font-size: 24px; }" +
+								"    p { background: #fff; padding: 20px; border-radius: 3px; }" +
+								"  </style>" +
+								"</head>" +
+								"<body>" +
+								"  <div class='comment'>" +
+								"    <img src='" + ui.GravatarUrl(Email, 80) + "' />" +
+								"    <h1>New comment on " + post.Title + " </h1>" +
+								"    <p>" + Body +
+								"    </p>" +
+								"  </div>" +
+								"</body>" +
+								"</html>";
+						}
+
+						if (Config.Comments.NotifyAuthor && !String.IsNullOrWhiteSpace(post.Author.Email)) {
+							// Add author address
+							recipients.Add(new Mail.Address() {
+								Email = post.Author.Email,
+								Name = post.Author.Name
+							});
+						}
+
+						if (Config.Comments.NotifyModerators && !String.IsNullOrWhiteSpace(Config.Comments.Moderators)) {
+							// Add moderator addresses
+							foreach (var moderator in Config.Comments.Moderators.Split(new char[] { ',' })) {
+								recipients.Add(new Mail.Address() {
+									Email = moderator.Trim(),
+									Name = moderator.Trim()
+								});
+							}
+						}
+
+						// Send mail
+						App.Mail.Send(mail, recipients.ToArray());
+					}
+				}
+			}
 		}
 		#endregion
 	}

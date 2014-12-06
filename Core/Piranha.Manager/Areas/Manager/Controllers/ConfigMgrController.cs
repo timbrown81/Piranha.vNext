@@ -89,6 +89,9 @@ namespace Piranha.Areas.Manager.Controllers
 		public ActionResult SaveComments(EditModel.CommentModel model) {
 			Piranha.Config.Comments.ModerateAnonymous = model.ModerateAnonymous;
 			Piranha.Config.Comments.ModerateAuthorized = model.ModerateAuthorized;
+			Piranha.Config.Comments.NotifyAuthor = model.NotifyAuthor;
+			Piranha.Config.Comments.NotifyModerators = model.NotifyModerators;
+			Piranha.Config.Comments.Moderators = model.Moderators;
 
 			return JsonData(true, EditModel.Get(api));
 		}
