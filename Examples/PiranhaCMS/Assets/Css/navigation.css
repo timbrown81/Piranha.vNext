@@ -17,6 +17,9 @@ nav[role="navigation"] .wrapper #home {
   top: 0;
   left: 1em;
 }
+nav[role="navigation"] .wrapper #home .small {
+  display: none;
+}
 nav[role="navigation"] .wrapper #code {
   float: right;
 }
