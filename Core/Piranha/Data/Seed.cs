@@ -98,6 +98,30 @@ namespace Piranha.Data
 					Value = false.ToString()
 				});
 			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "comment_notify_author");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "comment_notify_author",
+					Value = true.ToString()
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "comment_notify_moderators");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "comment_notify_moderators",
+					Value = false.ToString()
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "comment_moderators");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "comment_moderators",
+					Value = ""
+				});
+			}
 			api.SaveChanges();
 		}
 	}

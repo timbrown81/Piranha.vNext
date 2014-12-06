@@ -40,5 +40,29 @@ namespace Piranha.Config
 			get { return Utils.GetParam<bool>("comment_moderate_anonymous", s => Convert.ToBoolean(s)); }
 			set { Utils.SetParam("comment_moderate_anonymous", value); }
 		}
+
+		/// <summary>
+		/// Gets/sets if the author should be notified by email when a comment is posted.
+		/// </summary>
+		public static bool NotifyAuthor {
+			get { return Utils.GetParam<bool>("comment_notify_author", s => Convert.ToBoolean(s)); }
+			set { Utils.SetParam("comment_notify_author", value); }
+		}
+
+		/// <summary>
+		/// Gets/sets if moderators should be notified by email when a comment is posted.
+		/// </summary>
+		public static bool NotifyModerators {
+			get { return Utils.GetParam<bool>("comment_notify_moderators", s => Convert.ToBoolean(s)); }
+			set { Utils.SetParam("comment_notify_moderators", value); }
+		}
+
+		/// <summary>
+		/// Gets/sets a comma separated list of email adresses.
+		/// </summary>
+		public static string Moderators {
+			get { return Utils.GetParam<string>("comment_moderators", s => s); }
+			set { Utils.SetParam("comment_moderators", value); }
+		}
 	}
 }
