@@ -148,6 +148,7 @@
     <Content Include="Assets\Img\github.png" />
     <Content Include="Assets\Img\icon.ico" />
     <Content Include="Assets\Img\logo-big.png" />
+    <Content Include="Assets\Img\logo-shield.png" />
     <Content Include="Assets\Img\logo.png" />
     <Content Include="Assets\Img\start.png" />
     <Content Include="Global.asax" />

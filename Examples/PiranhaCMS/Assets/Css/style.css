@@ -490,6 +490,9 @@ nav[role="navigation"] .wrapper #home {
   top: 0;
   left: 1em;
 }
+nav[role="navigation"] .wrapper #home .small {
+  display: none;
+}
 nav[role="navigation"] .wrapper #code {
   float: right;
 }
@@ -763,4 +766,29 @@ header[role="banner"] img.shield {
 }
 article.error {
   text-align: center;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 1em;
+  }
+  .wrapper,
+  #main article {
+    box-sizing: border-box;
+  }
+  nav[role="navigation"] .wrapper #home img {
+    display: none;
+  }
+  nav[role="navigation"] .wrapper #home img.small {
+    display: inline;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+  h3,
+  h4 {
+    font-size: 1.2em;
+  }
 }

@@ -169,3 +169,37 @@ article.error {
 	text-align: center;
 }
 
+// Responsive
+@media (max-width: 600px) {
+	html {
+		font-size: 1em;
+	}
+
+	.wrapper, #main article {
+		box-sizing: border-box;
+	}
+
+	nav[role="navigation"] {
+		.wrapper {
+			#home {
+				img {
+					display: none;
+
+					&.small {
+						display: inline;
+					}
+				}
+			}
+		}
+	}
+
+	h1 {
+		font-size: 2em;
+	}
+	h2 {
+		font-size: 1.4em;
+	}
+	h3, h4 {
+		font-size: 1.2em;
+	}
+} 
