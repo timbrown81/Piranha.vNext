@@ -155,7 +155,7 @@ namespace Piranha.Client.Models
 				var post = api.Posts.GetSingle(id);
 
 				if (post != null && post.Published <= DateTime.Now) {
-					post.CommentCount = api.Comments.Get(where: c => c.PostId == post.Id).Count();
+					post.CommentCount = api.Comments.Get(where: c => c.PostId == post.Id && c.IsApproved && !c.IsSpam).Count();
 					return Map<T>(post);
 				}
 			}
@@ -183,7 +183,7 @@ namespace Piranha.Client.Models
 				var post = api.Posts.GetSingle(slug, typeId);
 
 				if (post != null && post.Published <= DateTime.Now) {
-					post.CommentCount = api.Comments.Get(where: c => c.PostId == post.Id).Count();
+					post.CommentCount = api.Comments.Get(where: c => c.PostId == post.Id && c.IsApproved && !c.IsSpam).Count();
 					return Map<T>(post);
 				}
 			}
