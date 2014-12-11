@@ -31,3 +31,7 @@ You can find the roadmap under **Milestones** in this repository.
 ## Contribute
 
 Open Source is based on contributions. If you want to get involved, just **fork the repository** and get started! If you want to contribute more, team members are **more than welcome**!
+
+## Donate
+
+If you like Piranha CMS, and want me to be able to put more time into the project. Feel free to **give me a tip** on [Gratipay](https://gratipay.com/tidyui). If not, I still hope you find the project useful!
