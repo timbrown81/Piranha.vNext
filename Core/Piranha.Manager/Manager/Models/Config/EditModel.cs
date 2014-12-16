@@ -45,6 +45,9 @@ namespace Piranha.Manager.Models.Config
 		{
 			public bool ModerateAnonymous { get; set; }
 			public bool ModerateAuthorized { get; set; }
+			public bool NotifyAuthor { get; set; }
+			public bool NotifyModerators { get; set; }
+			public string Moderators { get; set; }
 		}
 
 		/// <summary>
@@ -118,6 +121,9 @@ namespace Piranha.Manager.Models.Config
 
 			m.Comments.ModerateAnonymous = Piranha.Config.Comments.ModerateAnonymous;
 			m.Comments.ModerateAuthorized = Piranha.Config.Comments.ModerateAuthorized;
+			m.Comments.NotifyAuthor = Piranha.Config.Comments.NotifyAuthor;
+			m.Comments.NotifyModerators = Piranha.Config.Comments.NotifyModerators;
+			m.Comments.Moderators = Piranha.Config.Comments.Moderators;
 
 			m.Site.Title = Piranha.Config.Site.Title;
 			m.Site.Description = Piranha.Config.Site.Description;

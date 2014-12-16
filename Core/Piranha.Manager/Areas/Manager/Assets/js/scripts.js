@@ -7441,6 +7441,9 @@ manager.models.config = function (locale) {
 	self.cacheMaxAge = ko.observable(0);
 	self.commentModerateAnonymous = ko.observable(false);
 	self.commentModerateAuthorized = ko.observable(false);
+	self.commentNotifyAuthor = ko.observable(false);
+	self.commentNotifyModerators = ko.observable(false);
+	self.commentModerators = ko.observable('');
 
 	// Initializes the model
 	self.init = function () {
@@ -7519,7 +7522,10 @@ manager.models.config = function (locale) {
 			contentType: 'application/json',
 			data: JSON.stringify({
 				ModerateAnonymous: self.commentModerateAnonymous(),
-				ModerateAuthorized: self.commentModerateAuthorized()
+				ModerateAuthorized: self.commentModerateAuthorized(),
+				NotifyAuthor: self.commentNotifyAuthor(),
+				NotifyModerators: self.commentNotifyModerators(),
+				Moderators: self.commentModerators()
 			}),
 			success: function (result) {
 				if (result.success) {
@@ -7573,6 +7579,9 @@ manager.models.config = function (locale) {
 		self.cacheMaxAge(data.Cache.MaxAge);
 		self.commentModerateAnonymous(data.Comments.ModerateAnonymous);
 		self.commentModerateAuthorized(data.Comments.ModerateAuthorized);
+		self.commentNotifyAuthor(data.Comments.NotifyAuthor);
+		self.commentNotifyModerators(data.Comments.NotifyModerators);
+		self.commentModerators(data.Comments.Moderators);
 
 		for (var n = 0; n < data.Params.length; n++) {
 			$('#' + data.Params[n].Name).val(data.Params[n].Value);

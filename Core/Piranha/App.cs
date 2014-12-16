@@ -50,6 +50,11 @@ namespace Piranha
 			public Log.ILog Log;
 
 			/// <summary>
+			/// The configured mail sender provider.
+			/// </summary>
+			public Mail.IMail Mail;
+
+			/// <summary>
 			/// The configured media provider.
 			/// </summary>
 			public IO.IMedia Media;
@@ -140,6 +145,13 @@ namespace Piranha
 		/// </summary>
 		public static Log.ILog Logger {
 			get { return Instance.config.Log; }
+		}
+
+		/// <summary>
+		/// Gets the currently mail sender provider.
+		/// </summary>
+		public static Mail.IMail Mail {
+			get { return Instance.config.Mail; }
 		}
 
 		/// <summary>
@@ -285,6 +297,15 @@ namespace Piranha
 							Logger.Log(Log.LogLevel.WARNING, "App.Init: No cache provider specified. Disabling cache");
 						} else {
 							Logger.Log(Log.LogLevel.INFO, "App.Init: Registered " + config.Cache.GetType().FullName);
+						}
+
+						// Registering the mail provider
+						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering mail provider");
+						if (config.Cache == null) {
+							config.Mail = new Mail.NoMail();
+							Logger.Log(Log.LogLevel.WARNING, "App.Init: No mail provider specified. Disabling mail");
+						} else {
+							Logger.Log(Log.LogLevel.INFO, "App.Init: Registered" + config.Log.GetType().FullName);
 						}
 
 						// Register the media provider

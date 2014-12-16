@@ -32,6 +32,7 @@ namespace PiranhaCMS
 			Piranha.App.Init(c => {
 				c.Cache = new Piranha.AspNet.Cache.HttpCache();
 				c.Env = new Piranha.AspNet.Env();
+				c.Mail = new Piranha.AspNet.Mail.SmtpMail();
 				c.Security = new Piranha.AspNet.Security.SimpleSecurity("admin", "password");
 				c.Store = new Piranha.EntityFramework.Store();
 			});

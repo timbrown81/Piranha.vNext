@@ -144,6 +144,15 @@
   <data name="ModerateAuthorized" xml:space="preserve">
     <value>Moderate comments by authenticated users</value>
   </data>
+  <data name="Moderators" xml:space="preserve">
+    <value>Moderators</value>
+  </data>
+  <data name="NotifyAuthors" xml:space="preserve">
+    <value>Notify authors when comments are posted</value>
+  </data>
+  <data name="NotifyModerators" xml:space="preserve">
+    <value>Notify moderators when comments are posted</value>
+  </data>
   <data name="Site" xml:space="preserve">
     <value>Site</value>
   </data>

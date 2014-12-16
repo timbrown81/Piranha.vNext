@@ -17,6 +17,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 
 namespace Piranha.Models
 {
@@ -122,6 +123,9 @@ namespace Piranha.Models
 			if (Hooks.Models.Comment.OnSave != null)
 				Hooks.Models.Comment.OnSave(this);
 
+			// Handle possible notifications
+			HandleNotifications();
+
 			// Remove parent post from model cache
 			App.ModelCache.Remove<Models.Post>(this.PostId);
 		}
@@ -136,6 +140,65 @@ namespace Piranha.Models
 
 			// Remove parent post from model cache
 			App.ModelCache.Remove<Models.Post>(this.PostId);
+		}
+		#endregion
+
+		#region Private methods
+		/// <summary>
+		/// Takes care of any mail notifications that should be sent.
+		/// </summary>
+		private void HandleNotifications() {
+			if (Config.Comments.NotifyAuthor || Config.Comments.NotifyModerators) {
+				if (App.Mail != null) {
+					using (var api = new Api()) {
+						var post = api.Posts.GetSingle(PostId);
+
+						if (post != null) {
+							var recipients = new List<Mail.Address>();
+							var mail = new Mail.Message();
+
+							if (Hooks.Mail.OnCommentMail != null) { 
+								// Generate custom mail
+								mail = Hooks.Mail.OnCommentMail(post, this);
+							} else {
+								// Generate default mail
+								var ui = new Client.Helpers.UIHelper();
+								mail.Subject = "New comment posted on " + post.Title;
+								mail.Body = String.Format(Mail.Defaults.NewComment,
+									ui.GravatarUrl(Email, 80),
+									App.Env.AbsoluteUrl(ui.Permalink(post)),
+									post.Title,
+									Author,
+									Created.ToString("yyyy-MM-dd HH:mm:ss"),
+									Body.Replace("\n", "<br/>"));
+							}
+
+							if (Config.Comments.NotifyAuthor && !String.IsNullOrWhiteSpace(post.Author.Email)) {
+								// Add author address
+								recipients.Add(new Mail.Address() {
+									Email = post.Author.Email,
+									Name = post.Author.Name
+								});
+							}
+
+							if (Config.Comments.NotifyModerators && !String.IsNullOrWhiteSpace(Config.Comments.Moderators)) {
+								// Add moderator addresses
+								foreach (var moderator in Config.Comments.Moderators.Split(new char[] { ',' })) {
+									recipients.Add(new Mail.Address() {
+										Email = moderator.Trim(),
+										Name = moderator.Trim()
+									});
+								}
+							}
+
+							// Send mail
+							App.Mail.Send(mail, recipients.ToArray());
+						}
+					}
+				} else {
+					App.Logger.Log(Log.LogLevel.ERROR, "Models.Comment.HandleNotifications: No mail provider configured.");
+				}
+			}
 		}
 		#endregion
 	}
