@@ -149,61 +149,54 @@ namespace Piranha.Models
 		/// </summary>
 		private void HandleNotifications() {
 			if (Config.Comments.NotifyAuthor || Config.Comments.NotifyModerators) {
-				using (var api = new Api()) {
-					var post = api.Posts.GetSingle(PostId);
+				if (App.Mail != null) {
+					using (var api = new Api()) {
+						var post = api.Posts.GetSingle(PostId);
 
-					if (post != null) {
-						var recipients = new List<Mail.Address>();
-						var mail = new Mail.Message();
+						if (post != null) {
+							var recipients = new List<Mail.Address>();
+							var mail = new Mail.Message();
 
-						if (Hooks.Mail.OnCommentMail != null) { 
-							mail = Hooks.Mail.OnCommentMail(post, this);
-						} else {
-							var ui = new Client.Helpers.UIHelper();
+							if (Hooks.Mail.OnCommentMail != null) { 
+								// Generate custom mail
+								mail = Hooks.Mail.OnCommentMail(post, this);
+							} else {
+								// Generate default mail
+								var ui = new Client.Helpers.UIHelper();
+								mail.Subject = "New comment posted on " + post.Title;
+								mail.Body = String.Format(Mail.Defaults.NewComment,
+									ui.GravatarUrl(Email, 80),
+									App.Env.AbsoluteUrl(ui.Permalink(post)),
+									post.Title,
+									Author,
+									Created.ToString("yyyy-MM-dd HH:mm:ss"),
+									Body.Replace("\n", "<br/>"));
+							}
 
-							// Default formatting
-							mail.Subject = "New comment posted on " + post.Title;
-							mail.Body =
-								"<html>" +
-								"<head>" +
-								"  <style type='text/css'>" +
-								"    body { background: #eee; color: #444; padding: 20px; }" +
-								"    h1 { font-size: 24px; }" +
-								"    p { background: #fff; padding: 20px; border-radius: 3px; }" +
-								"  </style>" +
-								"</head>" +
-								"<body>" +
-								"  <div class='comment'>" +
-								"    <img src='" + ui.GravatarUrl(Email, 80) + "' />" +
-								"    <h1>New comment on " + post.Title + " </h1>" +
-								"    <p>" + Body +
-								"    </p>" +
-								"  </div>" +
-								"</body>" +
-								"</html>";
-						}
-
-						if (Config.Comments.NotifyAuthor && !String.IsNullOrWhiteSpace(post.Author.Email)) {
-							// Add author address
-							recipients.Add(new Mail.Address() {
-								Email = post.Author.Email,
-								Name = post.Author.Name
-							});
-						}
-
-						if (Config.Comments.NotifyModerators && !String.IsNullOrWhiteSpace(Config.Comments.Moderators)) {
-							// Add moderator addresses
-							foreach (var moderator in Config.Comments.Moderators.Split(new char[] { ',' })) {
+							if (Config.Comments.NotifyAuthor && !String.IsNullOrWhiteSpace(post.Author.Email)) {
+								// Add author address
 								recipients.Add(new Mail.Address() {
-									Email = moderator.Trim(),
-									Name = moderator.Trim()
+									Email = post.Author.Email,
+									Name = post.Author.Name
 								});
 							}
-						}
 
-						// Send mail
-						App.Mail.Send(mail, recipients.ToArray());
+							if (Config.Comments.NotifyModerators && !String.IsNullOrWhiteSpace(Config.Comments.Moderators)) {
+								// Add moderator addresses
+								foreach (var moderator in Config.Comments.Moderators.Split(new char[] { ',' })) {
+									recipients.Add(new Mail.Address() {
+										Email = moderator.Trim(),
+										Name = moderator.Trim()
+									});
+								}
+							}
+
+							// Send mail
+							App.Mail.Send(mail, recipients.ToArray());
+						}
 					}
+				} else {
+					App.Logger.Log(Log.LogLevel.ERROR, "Models.Comment.HandleNotifications: No mail provider configured.");
 				}
 			}
 		}

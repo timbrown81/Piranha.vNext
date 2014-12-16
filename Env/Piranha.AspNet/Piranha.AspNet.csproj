@@ -78,7 +78,7 @@
     <Compile Include="Env.cs" />
     <Compile Include="Hooks.cs" />
     <Compile Include="Module.cs" />
-    <Compile Include="Mail\SmptMail.cs" />
+    <Compile Include="Mail\SmtpMail.cs" />
     <Compile Include="Security\SimpleSecurity.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Web\RewriteResponse.cs" />
