@@ -23,9 +23,8 @@
 <body @(ViewBag.IsSaved == true ? "class=pre-saved" : "")>
 	<nav class="navmenu navmenu-inverse navmenu-fixed-left" role="navigation">
 		<a class="navmenu-brand" href="#">
-			<img src="@Url.Content("~/manager/assets.ashx/img/logo.png")" />
+			<img src="@Url.Content("~/manager/assets.ashx/img/logo-menu.png")" />
 		</a>
-		<img class="avatar" src="http://1.gravatar.com/avatar/822bb9b48b7ecc98c5be44a74369a224" />
 
 		@Html.Partial("Partial/Menu")
 	</nav>

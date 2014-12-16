@@ -160,28 +160,22 @@ WriteLiteral(" href=\"#\"");
 
 WriteLiteral(">\r\n\t\t\t<img");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1015), Tuple.Create("\"", 1071)
+WriteAttribute("src", Tuple.Create(" src=\"", 1015), Tuple.Create("\"", 1076)
             
             #line 26 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-, Tuple.Create(Tuple.Create("", 1021), Tuple.Create<System.Object, System.Int32>(Url.Content("~/manager/assets.ashx/img/logo.png")
+, Tuple.Create(Tuple.Create("", 1021), Tuple.Create<System.Object, System.Int32>(Url.Content("~/manager/assets.ashx/img/logo-menu.png")
             
             #line default
             #line hidden
 , 1021), false)
 );
 
-WriteLiteral(" />\r\n\t\t</a>\r\n\t\t<img");
-
-WriteLiteral(" class=\"avatar\"");
-
-WriteLiteral(" src=\"http://1.gravatar.com/avatar/822bb9b48b7ecc98c5be44a74369a224\"");
-
-WriteLiteral(" />\r\n\r\n");
+WriteLiteral(" />\r\n\t\t</a>\r\n\r\n");
 
 WriteLiteral("\t\t");
 
             
-            #line 30 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 29 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
    Write(Html.Partial("Partial/Menu"));
 
             
@@ -198,7 +192,7 @@ WriteLiteral(" class=\"container-fluid\"");
 WriteLiteral(">\r\n\t\t\t<h1>");
 
             
-            #line 35 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 34 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
            Write(ViewBag.Title);
 
             
@@ -207,13 +201,13 @@ WriteLiteral(">\r\n\t\t\t<h1>");
 WriteLiteral("</h1>\r\n");
 
             
-            #line 36 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 35 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 			
             
             #line default
             #line hidden
             
-            #line 36 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 35 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
              if (!String.IsNullOrWhiteSpace(ViewBag.SubTitle)) {
 
             
@@ -226,7 +220,7 @@ WriteLiteral(" class=\"subtitle\"");
 WriteLiteral(">");
 
             
-            #line 37 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 36 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
                                Write(ViewBag.SubTitle);
 
             
@@ -235,7 +229,7 @@ WriteLiteral(">");
 WriteLiteral("</p>\r\n");
 
             
-            #line 38 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 37 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 			}
 
             
@@ -250,7 +244,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t");
 
             
-            #line 42 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 41 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
    Write(RenderBody());
 
             
@@ -275,7 +269,7 @@ WriteLiteral(" type=\"text/javascript\"");
 WriteLiteral(">\r\n\t\tvar baseUrl = \'");
 
             
-            #line 50 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 49 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
                   Write(Url.Content("~/"));
 
             
@@ -285,9 +279,9 @@ WriteLiteral("\';\r\n\t</script>\r\n\t<script");
 
 WriteLiteral(" type=\"text/javascript\"");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1721), Tuple.Create("\"", 1766)
-, Tuple.Create(Tuple.Create("", 1727), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/js/scripts.min.js")
-, 1727), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1632), Tuple.Create("\"", 1677)
+, Tuple.Create(Tuple.Create("", 1638), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/js/scripts.min.js")
+, 1638), false)
 );
 
 WriteLiteral("></script>\r\n");
@@ -295,7 +289,7 @@ WriteLiteral("></script>\r\n");
 WriteLiteral("\t");
 
             
-            #line 53 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 52 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 Write(RenderSection("script", required: false));
 
             

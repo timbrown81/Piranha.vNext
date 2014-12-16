@@ -3,13 +3,10 @@
 	var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString().ToLower();
 }
 <ul class="nav navmenu-nav">
-	<li>
-		<a href="#" class="ico">Dashboard</a>
-	</li>
 	@foreach (var group in Piranha.Manager.Menu.Items) {
 		if (group.Items.Count > 0) {
 			<li>
-				<a href="#" @(!String.IsNullOrWhiteSpace(group.Css) ? "class=" + group.Css : "")>@group.Name</a>
+				<span @(!String.IsNullOrWhiteSpace(group.Css) ? "class=" + group.Css : "")>@group.Name</span>
 				<ul>
 					@foreach (var item in group.Items) {
 						<li @(item.Controller.ToLower() == controller ? "class=active" : "")>

@@ -35,7 +35,7 @@
 }
 .table > tbody > tr > td {
   padding: 10px 20px;
-  border-top: 4px solid #f2f2f2;
+  border-top: 4px solid #ededed;
 }
 .table > tbody > tr > td.actions a {
   display: inline-block;

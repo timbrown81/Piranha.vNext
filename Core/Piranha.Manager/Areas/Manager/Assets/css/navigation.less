@@ -20,154 +20,65 @@
 @import "colors.less";
 
 //
-// Top navigation
-.navbar {
-	.gradient(#3a3a3a, #191919, 20%, 100%);
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-
-	.navbar-brand {
-		padding-top: 0;
-	}
-
-	.navbar-nav {
-		margin-top: 9px;
-		float: right;
-
-		li {
-			a {
-				color: #fff;
-				background: #1F7EA6;
-				border: 1px solid #282828;
-				border-radius: 3px;
-				display: block;
-				font-size: 13px;
-				height: 32px;
-				line-height: 30px;
-				margin: 0 0 0 4px;
-				padding: 0 12px;
-				text-transform: uppercase;
-				text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-				box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-
-				&:hover {
-					background: #1F7EA6;
-				}
-			}
-
-			&.active {
-				a {
-					background-color: #55A812;
-
-					&:hover {
-						background-color: #55A812;
-					}
-				}
-			}
-
-			&.icon {
-				a {
-					background-position: 6px 50%;
-					background-repeat: no-repeat;
-					padding-left: 36px;
-				}
-			}
-
-			&.content {
-				a {
-					background-image: url('../img/ico-menu-content.png');
-				}
-			}
-
-			&.settings {
-				a {
-					background-image: url('../img/ico-menu-settings.png');
-				}
-			}
-
-			&.system {
-				a {
-					background-image: url('../img/ico-menu-system.png');
-				}
-			}
-
-			&.logout {
-				a {
-					background-image: url('../img/ico-menu-logout.png');
-				}
-			}
-		}
-	}
-} 
-
-//
 // Main navigation
 .navmenu-inverse {
-	width: 200px;
-	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+	width: 270px;
+	border: 0 none;
 
 	.navmenu-brand {
 		position: relative;
-		padding: 0 15px;
-		margin: 0 0 -6px;
+		padding: 15px;
+		margin: 0;
+		border-bottom: 1px solid #4e4e4e;
 		z-index: 1000;
-	}
-
-	.avatar {
-		width: 36px;
-		height: 36px;
-		position: absolute;
-		right: 10px;
-		top: 8px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-		.border-radius(36px);
+		text-align: center;
 	}
 
 	.navmenu-nav {
 		>li {
-			font-size: 15px;
-			border-top: 1px solid #111;
+			color: #eee;
+			font-family: "Open Sans";
+			font-weight: 300;
+			font-size: 26px;
+			padding: 20px 0;
+			border-bottom: 1px solid #4e4e4e;
 
 			span {
-				color: #fff;
-				padding-right: 8px;
+				display: block;
+				padding-left: 60px;
+				margin-bottom: 10px;
+
+				&.ico-content {
+					background: url('../img/ico-menu-content.png') 18px 50% no-repeat;
+				}
+				&.ico-settings {
+					background: url('../img/ico-menu-settings.png') 18px 50% no-repeat;
+				}
+				&.ico-system {
+					background: url('../img/ico-menu-system.png') 18px 50% no-repeat;
+				}
 			}
 
 			a {
 				color: #ddd;
-				border-top: 1px solid #333;
-				border-bottom: 1px solid #111;
-				padding-left: 40px;
+				padding-left: 60px;
 
-				&:hover {
-					background: #2a2a2a;
-				}
-
-				&.ico-content {
-					background: url('../img/ico-menu-content.png') 12px 50% no-repeat;
-				}
-				&.ico-settings {
-					background: url('../img/ico-menu-settings.png') 12px 50% no-repeat;
-				}
-				&.ico-system {
-					background: url('../img/ico-menu-system.png') 12px 50% no-repeat;
-				}
 				&.ico-logout {
-					background: url('../img/ico-menu-logout.png') 12px 50% no-repeat;
+					background: url('../img/ico-menu-logout.png') 18px 50% no-repeat;
 				}
 			}
 
 			ul {
 				padding: 0;
-				border-left: 4px solid #55A812;
 
 				li {
-					font-size: 13px;
+					font-size: 18px;
 					list-style-type: none;
 
 					a {
-						color: #ddd;
+						color: @menu-color;
 						display: block;
-						padding: 8px 0 8px 40px;
+						padding: 3px 0 3px 60px;
 						border: 0 none;
 
 						&:hover {
@@ -175,15 +86,7 @@
 						}
 					}
 
-					&:first-child a {
-						padding-top: 10px;
-					}
-					&:last-child a {
-						padding-bottom: 10px;
-					}
 					&.active a {
-						background: #080808;
-						color: #fff;
 					}
 				}
 			}
