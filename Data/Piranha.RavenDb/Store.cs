@@ -44,6 +44,7 @@ namespace Piranha.RavenDb
 			// Add listeners
 			((DocumentStore)store).RegisterListener(new ConversionListener());
 			((DocumentStore)store).RegisterListener(new StoreListener());
+			((DocumentStore)store).RegisterListener(new DeleteListener());
 
 			// Should we wait for stale results
 			if (waitForStaleResults)
@@ -51,6 +52,9 @@ namespace Piranha.RavenDb
 
 			// Apply external config
 			ApplyExternalConfig(store);
+
+			// Allow queries on id
+			store.Conventions.AllowQueriesOnId = true;
 
 			// Initialize
 			store.Initialize();
@@ -196,6 +200,27 @@ namespace Piranha.RavenDb
 			/// <param name="entityInstance">The entity instance.</param>
 			/// <param name="metadata">The metadata.</param>
 			public void AfterStore(string key, object entityInstance, RavenJObject metadata) { }
+		}
+
+		/// <summary>
+		/// Listener to watch documents deletes and invoke model events
+		/// </summary>
+		private class DeleteListener : IDocumentDeleteListener
+		{
+			/// <summary>
+			/// Invoked before the delete request is sent to server
+			/// </summary>
+			/// <param name="key"></param>
+			/// <param name="entityInstance"></param>
+			/// <param name="metadata"></param>
+			public void BeforeDelete(string key, object entityInstance, RavenJObject metadata)
+			{
+				// Call events
+				if (entityInstance is Models.Model)
+				{
+					((Models.Model)entityInstance).OnDelete();
+				}
+			}
 		}
 		#endregion
 
