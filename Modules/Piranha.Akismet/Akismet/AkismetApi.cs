@@ -47,7 +47,7 @@ namespace Piranha.Akismet
 		/// Gets the comment check API url.
 		/// </summary>
 		public string CommentCheckUrl {
-			get { return String.Format(commentCheckUrl, Config.Akismet.ApiKey); }
+			get { return String.Format(commentCheckUrl, Config.Akismet.ApiKey.Trim()); }
 		}
 		#endregion
 
