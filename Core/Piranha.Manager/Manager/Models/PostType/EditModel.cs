@@ -127,7 +127,7 @@ namespace Piranha.Manager.Models.PostType
 		/// <param name="id">The unique id</param>
 		/// <returns>The model</returns>
 		public static EditModel GetById(Api api, Guid id) {
-			var type = api.PostTypes.GetSingle(where: t => t.Id == id);
+			var type = api.PostTypes.GetSingle(id);
 
 			if (type != null)
 				return Mapper.Map<Piranha.Models.PostType, EditModel>(type);
@@ -141,7 +141,7 @@ namespace Piranha.Manager.Models.PostType
 		public void Save(Api api) {
 			var newModel = false;
 
-			var type = api.PostTypes.GetSingle(where: t => t.Id == Id);
+			var type = Id.HasValue ? api.PostTypes.GetSingle(Id.Value) : null;
 			if (type == null) {
 				type = new Piranha.Models.PostType();
 				newModel = true;

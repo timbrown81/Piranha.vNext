@@ -53,7 +53,7 @@ namespace Piranha.Manager.Models.Category
 		/// <param name="id">The unique id</param>
 		/// <returns>The edit model</returns>
 		public static EditModel GetById(Api api, Guid id) {
-			var category = api.Categories.GetSingle(where: a => a.Id == id);
+			var category = api.Categories.GetSingle(id);
 
 			if (category != null)
 				return Mapper.Map<Piranha.Models.Category, EditModel>(category);

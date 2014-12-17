@@ -136,7 +136,7 @@ namespace Piranha.Manager.Models.PageType
 		/// <param name="id">The unique id</param>
 		/// <returns>The model</returns>
 		public static EditModel GetById(Api api, Guid id) {
-			var type = api.PageTypes.GetSingle(where: t => t.Id == id);
+			var type = api.PageTypes.GetSingle(id);
 
 			if (type != null)
 				return Mapper.Map<Piranha.Models.PageType, EditModel>(type);
@@ -150,7 +150,7 @@ namespace Piranha.Manager.Models.PageType
 		public void Save(Api api) {
 			var newModel = false;
 
-			var type = api.PageTypes.GetSingle(where: t => t.Id == Id);
+			var type = Id.HasValue ? api.PageTypes.GetSingle(Id.Value) : null;
 			if (type == null) {
 				type = new Piranha.Models.PageType() {
 					Id = Guid.NewGuid()

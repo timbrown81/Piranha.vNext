@@ -58,7 +58,7 @@ namespace Piranha.Manager.Models.Alias
 		/// <param name="id">The unique id</param>
 		/// <returns>The edit model</returns>
 		public static EditModel GetById(Api api, Guid id) {
-			var alias = api.Aliases.GetSingle(where: a => a.Id == id);
+			var alias = api.Aliases.GetSingle(id);
 
 			if (alias != null)
 				return Mapper.Map<Piranha.Models.Alias, EditModel>(alias);
@@ -72,7 +72,7 @@ namespace Piranha.Manager.Models.Alias
 			var newModel = false;
 
 			// Get or create alias
-			var alias = api.Aliases.GetSingle(where: a => a.Id == Id);
+			var alias = Id.HasValue ? api.Aliases.GetSingle(Id.Value) : null;
 			if (alias == null) {
 				alias = new Piranha.Models.Alias();
 				newModel = true;

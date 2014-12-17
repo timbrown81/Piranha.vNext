@@ -64,7 +64,7 @@ namespace Piranha.Manager.Models.Author
 		/// <param name="id">The unique id</param>
 		/// <returns>The edit model</returns>
 		public static EditModel GetById(Api api, Guid id) {
-			var author = api.Authors.GetSingle(where: a => a.Id == id);
+			var author = api.Authors.GetSingle(id);
 
 			if (author != null) {
 				var model = Mapper.Map<Piranha.Models.Author, EditModel>(author);
@@ -84,7 +84,7 @@ namespace Piranha.Manager.Models.Author
 			var newModel = false;
 
 			// Get or create author
-			var author = api.Authors.GetSingle(where: a => a.Id == Id);
+			var author = Id.HasValue ? api.Authors.GetSingle(Id.Value) : null;
 			if (author == null) {
 				author = new Piranha.Models.Author();
 				newModel = true;

@@ -179,7 +179,7 @@ namespace Piranha.Manager.Models.Post
 		/// <param name="id">The unique id</param>
 		/// <returns>The model</returns>
 		public static EditModel GetById(Api api, Guid id) {
-			var post = api.Posts.GetSingle(where: p => p.Id == id);
+			var post = api.Posts.GetSingle(id);
 
 			if (post != null) {
 				var m = Mapper.Map<Piranha.Models.Post, EditModel>(post);
@@ -212,7 +212,7 @@ namespace Piranha.Manager.Models.Post
 			var newModel = false;
 
 			// Get or create post
-			var post = api.Posts.GetSingle(where: p => p.Id == this.Id);
+			var post = Id.HasValue ? api.Posts.GetSingle(Id.Value) : null;
 			if (post == null) {
 				post = new Piranha.Models.Post();
 				newModel = true;

@@ -88,7 +88,7 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The redirect result</returns>
 		[Route("author/delete/{id:Guid}")]
 		public ActionResult Delete(Guid id) {
-			var author = api.Authors.GetSingle(where: a => a.Id == id);
+			var author = api.Authors.GetSingle(id);
 			if (author != null) {
 				api.Authors.Remove(author);
 				api.SaveChanges();

@@ -64,7 +64,7 @@ namespace Piranha.Manager.Models.Block
 		/// <param name="id">The unique id</param>
 		/// <returns>The edit model</returns>
 		public static EditModel GetById(Api api, Guid id) {
-			var block = api.Blocks.GetSingle(where: b => b.Id == id);
+			var block = api.Blocks.GetSingle(id);
 
 			if (block != null)
 				return Mapper.Map<Piranha.Models.Block, EditModel>(block);
@@ -78,7 +78,7 @@ namespace Piranha.Manager.Models.Block
 			bool newModel = false;
 
 			// Get or create block
-			var block = api.Blocks.GetSingle(where: b => b.Id == Id);
+			var block = Id.HasValue ? api.Blocks.GetSingle(Id.Value) : null;
 			if (block == null) {
 				block = new Piranha.Models.Block();
 				newModel = true;

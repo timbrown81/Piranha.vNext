@@ -90,7 +90,7 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The redirect result</returns>
 		[Route("pagetype/delete/{id:Guid}")]
 		public ActionResult Delete(Guid id) {
-			var type = api.PageTypes.GetSingle(where: t => t.Id == id);
+			var type = api.PageTypes.GetSingle(id);
 			if (type != null) {
 				api.PageTypes.Remove(type);
 				api.SaveChanges();
