@@ -34,7 +34,11 @@ namespace Piranha.RavenDb
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		public Store(string url, string defaultDatabase, bool waitForStaleResults = false) {
+		/// <param name="url">The database url</param>
+		/// <param name="defaultDatabase">The default database</param>
+		/// <param name="waitForStaleResults">If the store should wait for stale results</param>
+		/// <param name="allowQueriesOnId">If LINQ queries on Id should be allowed</param>
+		public Store(string url, string defaultDatabase, bool waitForStaleResults = false, bool allowQueriesOnId = false) {
 			// Create the store
 			store = new DocumentStore() { Url = url, DefaultDatabase = defaultDatabase }.Initialize();
 
@@ -54,7 +58,7 @@ namespace Piranha.RavenDb
 			ApplyExternalConfig(store);
 
 			// Allow queries on id
-			store.Conventions.AllowQueriesOnId = true;
+			store.Conventions.AllowQueriesOnId = allowQueriesOnId;
 
 			// Initialize
 			store.Initialize();
