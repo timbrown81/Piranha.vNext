@@ -170,7 +170,7 @@ namespace Piranha
 			using (var api = new Api()) { 
 				var param = api.Params.GetSingle(key);
 
-				param.Value = value.ToString();
+				param.Value = (value != null ? value.ToString() : null);
 
 				api.SaveChanges();
 			}
