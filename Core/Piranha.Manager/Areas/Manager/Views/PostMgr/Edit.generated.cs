@@ -540,14 +540,14 @@ WriteLiteral("\t\t\t\t\t");
 
             
             #line 122 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.DropDownListFor(m => m.AuthorId, Model.Authors, "", new { @class = "form-control meta", @placeholer = "Select author" }));
+               Write(Html.DropDownListFor(m => m.AuthorId, Model.Authors, "", new { @class = "form-control", @placeholer = "Select author" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n");
 
@@ -555,7 +555,7 @@ WriteLiteral("\t\t\t\t\t");
 
             
             #line 125 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.TextBoxFor(m => m.Keywords, new { @class = "form-control meta", @placeholder = "Meta keywords" }));
+               Write(Html.LabelFor(m => m.Keywords, @Piranha.Manager.Resources.Global.MetaKeywords));
 
             
             #line default
@@ -566,6 +566,17 @@ WriteLiteral("\t\t\t\t\t");
 
             
             #line 126 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+               Write(Html.TextBoxFor(m => m.Keywords, new { @class = "form-control", @placeholder = "Meta keywords" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("\t\t\t\t\t");
+
+            
+            #line 127 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                Write(Html.ValidationMessageFor(m => m.Keywords));
 
             
@@ -573,15 +584,26 @@ WriteLiteral("\t\t\t\t\t");
             #line hidden
 WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n");
 
 WriteLiteral("\t\t\t\t\t");
 
             
-            #line 129 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.TextAreaFor(m => m.Description, new { @rows = 4, @class = "form-control meta count-me", @placeholder = "Meta description" }));
+            #line 130 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+               Write(Html.LabelFor(m => m.Description, @Piranha.Manager.Resources.Global.MetaDescription));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("\t\t\t\t\t");
+
+            
+            #line 131 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+               Write(Html.TextAreaFor(m => m.Description, new { @rows = 4, @class = "form-control count-me", @placeholder = "Meta description" }));
 
             
             #line default
@@ -593,7 +615,7 @@ WriteLiteral(" class=\"charcount\"");
 WriteLiteral("><span>");
 
             
-            #line 130 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 132 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                                            Write(Model.Description != null ? Model.Description.Length : 0);
 
             
@@ -604,7 +626,7 @@ WriteLiteral("</span>/255 characters</p>\r\n");
 WriteLiteral("\t\t\t\t\t");
 
             
-            #line 131 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 133 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                Write(Html.ValidationMessageFor(m => m.Description));
 
             
@@ -627,7 +649,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t");
 
             
-            #line 139 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 141 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                Write(Html.HiddenFor(m => m.SelectedCategories));
 
             
@@ -642,7 +664,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t");
 
             
-            #line 142 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 144 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                Write(Html.TextAreaFor(m => m.Body, new { @rows = 14, @class = "form-control editor" }));
 
             
@@ -681,7 +703,7 @@ WriteLiteral(" id=\"myModalLabel\"");
 WriteLiteral(">");
 
             
-            #line 152 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 154 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                                                              Write(Piranha.Manager.Resources.Post.Comments);
 
             
@@ -696,7 +718,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 155 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 157 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                    Write(Html.Partial("Partial/CommentList", Model.Comments));
 
             
@@ -717,7 +739,7 @@ WriteLiteral(" data-dismiss=\"modal\"");
 WriteLiteral(">");
 
             
-            #line 158 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 160 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                                                                                       Write(Piranha.Manager.Resources.Global.Ok);
 
             
@@ -763,7 +785,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 172 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 174 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug));
 
             
@@ -778,7 +800,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 174 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 176 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.Slug, new { @class = "form-control meta", @placeholder = "A slug will be generated automatically" }));
 
             
@@ -789,7 +811,7 @@ WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 176 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 178 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.Route, Piranha.Manager.Resources.Global.Route));
 
             
@@ -804,7 +826,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 178 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 180 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.Route, new { @class = "form-control meta", @placeholder = "Add optional route" }));
 
             
@@ -815,7 +837,7 @@ WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 180 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 182 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.View, Piranha.Manager.Resources.Global.View));
 
             
@@ -830,7 +852,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 182 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 184 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.View, new { @class = "form-control meta", @placeholder = "Add optional view" }));
 
             
@@ -851,7 +873,7 @@ WriteLiteral(" data-dismiss=\"modal\"");
 WriteLiteral(">");
 
             
-            #line 186 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 188 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                                                                                       Write(Piranha.Manager.Resources.Global.Ok);
 
             
@@ -860,7 +882,7 @@ WriteLiteral(">");
 WriteLiteral("</button>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
 
             
-            #line 192 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 194 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
 }
 
             
