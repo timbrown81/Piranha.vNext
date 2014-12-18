@@ -103,7 +103,7 @@ namespace Piranha.Data
 			if (param == null) {
 				api.Params.Add(new Models.Param() {
 					Name = "comment_notify_author",
-					Value = true.ToString()
+					Value = false.ToString()
 				});
 			}
 
