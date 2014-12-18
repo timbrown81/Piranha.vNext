@@ -301,7 +301,7 @@ namespace Piranha
 
 						// Registering the mail provider
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering mail provider");
-						if (config.Cache == null) {
+						if (config.Mail == null) {
 							config.Mail = new Mail.NoMail();
 							Logger.Log(Log.LogLevel.WARNING, "App.Init: No mail provider specified. Disabling mail");
 						} else {
