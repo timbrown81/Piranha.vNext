@@ -30,39 +30,41 @@ namespace Piranha.Server.Routing
 		/// </summary>
 		/// <param name="request">The current request</param>
 		public static void OnBeginRequest(IRequest request) {
-			IResponse response = null;
+			if (!App.RoutingDisabled) {
+				IResponse response = null;
 
-			if (!request.RawUrl.StartsWith("/__browserLink/")) {
-				using (var api = new Api()) {
-					if (request.Segments.Length == 0) {
-						// Handle startpage
-						if (App.Handlers.Pages != null)
-							response = App.Handlers.Pages.Handle(api, request);
-					} else {
-						// Handle alias redirects
-						if (App.Handlers.Aliases != null)
-							response = App.Handlers.Aliases.Handle(api, request);
+				if (!request.RawUrl.StartsWith("/__browserLink/")) {
+					using (var api = new Api()) {
+						if (request.Segments.Length == 0) {
+							// Handle startpage
+							if (App.Handlers.Pages != null)
+								response = App.Handlers.Pages.Handle(api, request);
+						} else {
+							// Handle alias redirects
+							if (App.Handlers.Aliases != null)
+								response = App.Handlers.Aliases.Handle(api, request);
 
-						// Handle request by keyword
-						if (response == null) {
-							var handler = App.Handlers[request.Segments[0]];
-							if (handler != null)
-								response = handler.Handle(api, request);
+							// Handle request by keyword
+							if (response == null) {
+								var handler = App.Handlers[request.Segments[0]];
+								if (handler != null)
+									response = handler.Handle(api, request);
+							}
+
+							// Handle posts
+							if (response == null && App.Handlers.Posts != null)
+								response = App.Handlers.Posts.Handle(api, request);
+
+							// Handle pages
+							if (response == null && App.Handlers.Pages != null)
+								response = App.Handlers.Pages.Handle(api, request);
 						}
-
-						// Handle posts
-						if (response == null && App.Handlers.Posts != null)
-							response = App.Handlers.Posts.Handle(api, request);
-
-						// Handle pages
-						if (response == null && App.Handlers.Pages != null)
-							response = App.Handlers.Pages.Handle(api, request);
 					}
-				}
 
-				// Execute the response
-				if (response != null)
-					response.Execute();
+					// Execute the response
+					if (response != null)
+						response.Execute();
+				}
 			}
 		}
 	}
