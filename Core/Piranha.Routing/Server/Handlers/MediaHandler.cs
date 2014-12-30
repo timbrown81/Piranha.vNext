@@ -17,10 +17,9 @@
  */
 
 using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
-using Kaliko.ImageLibrary;
-using Kaliko.ImageLibrary.Scaling;
 
 namespace Piranha.Server.Handlers
 {
@@ -68,13 +67,16 @@ namespace Piranha.Server.Handlers
 
 						if (width.HasValue) {
 							using (var mem = new MemoryStream(data)) {
-								var image = new KalikoImage(mem);
-								var scale = height.HasValue ? 
-									(ScalingBase)new CropScaling(width.Value, height.Value) : 
-									(ScalingBase)new FitScaling(width.Value, Int32.MaxValue);
+								// Get the image
+								var image = Image.FromStream(mem);								
 
-								image = image.Scale(scale);
-								image.SavePng(response.OutputStream);
+								// Scale & resize
+								image = height.HasValue ? 
+									Drawing.ImageUtils.Resize(image, width.Value, height.Value) :
+									Drawing.ImageUtils.Resize(image, width.Value);
+
+								// Save to output stream
+								image.Save(response.OutputStream, image.RawFormat);
 							}
 						} else {
 							using (var writer = new BinaryWriter(response.OutputStream)) {

@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Data\ModelError.cs" />
     <Compile Include="Data\ModelException.cs" />
     <Compile Include="Data\Seed.cs" />
+    <Compile Include="Drawing\ImageUtils.cs" />
     <Compile Include="Extend\Builder\ContentPart.cs" />
     <Compile Include="Extend\Builder\PostType.cs" />
     <Compile Include="Extend\Builder\PageType.cs" />
