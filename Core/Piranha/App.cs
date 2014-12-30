@@ -75,6 +75,11 @@ namespace Piranha
 			public Func<string, string> GenerateSlug;
 
 			/// <summary>
+			/// If the CMS routing should be disabled.
+			/// </summary>
+			public bool RoutingDisabled;
+
+			/// <summary>
 			/// Gets the value for the specified key from the current 
 			/// AppSettings section.
 			/// </summary>
@@ -194,6 +199,13 @@ namespace Piranha
 		/// </summary>
 		internal static Cache.ModelCache ModelCache {
 			get { return Instance.modelCache; }
+		}
+
+		/// <summary>
+		/// Gets if the CMS routing is disabled or not.
+		/// </summary>
+		public static bool RoutingDisabled {
+			get { return Instance.config.RoutingDisabled;  }
 		}
 
 		/// <summary>

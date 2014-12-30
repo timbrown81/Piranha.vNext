@@ -136,6 +136,12 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Security\ISecurity.cs" />
     <Compile Include="Security\NoSecurity.cs" />
+    <Compile Include="Server\Handlers\AliasHandler.cs" />
+    <Compile Include="Server\Handlers\MediaHandler.cs" />
+    <Compile Include="Server\Handlers\PageHandler.cs" />
+    <Compile Include="Server\Handlers\PostHandler.cs" />
+    <Compile Include="Server\Routing\RouteModule.cs" />
+    <Compile Include="Server\Routing\Router.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Server\HandlerCollection.cs" />
     <Compile Include="Server\IHandler.cs" />
