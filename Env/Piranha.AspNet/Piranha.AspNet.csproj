@@ -79,6 +79,12 @@
     <Compile Include="Hooks.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Mail\SmtpMail.cs" />
+    <Compile Include="Mvc\ArchiveController.cs" />
+    <Compile Include="Mvc\CommentController.cs" />
+    <Compile Include="Mvc\PageController.cs" />
+    <Compile Include="Mvc\PostController.cs" />
+    <Compile Include="Mvc\RatingsController.cs" />
+    <Compile Include="Mvc\UI.cs" />
     <Compile Include="Security\SimpleSecurity.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Web\RewriteResponse.cs" />
