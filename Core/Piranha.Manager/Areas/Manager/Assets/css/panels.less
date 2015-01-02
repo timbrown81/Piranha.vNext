@@ -20,12 +20,38 @@
 @import "mixins.less";
 
 .panel {
-	.border-radius(0);
 	position: relative;
 	overflow: hidden;
+	.border-radius(0);
 
 	>.panel-heading {
 		.border-radius(0);
+	}
+
+	&.panel-default {
+		background: inherit;
+		border-color: @border-color;
+		width: 100%;
+		padding: 15px;
+		margin-left: -15px;
+		box-sizing: content-box;
+		box-shadow: none;
+
+		>.panel-heading {
+			background: inherit;
+			padding: 0 0 10px;
+			border: 0;
+
+			h3 {
+				font-family: "Open Sans", Arial;
+				font-weight: 300;
+				font-size: 22px;
+			}
+		}
+
+		>.panel-body {
+			padding: 15px 0 0;
+		}
 	}
 
 	&.panel-white {
