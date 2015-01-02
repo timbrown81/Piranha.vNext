@@ -119,14 +119,16 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="form-group">
-					@Html.DropDownListFor(m => m.AuthorId, Model.Authors, "", new { @class = "form-control meta", @placeholer = "Select author" })
+					@Html.DropDownListFor(m => m.AuthorId, Model.Authors, "", new { @class = "form-control", @placeholer = "Select author" })
 				</div>
-				<div class="form-group">
-					@Html.TextBoxFor(m => m.Keywords, new { @class = "form-control meta", @placeholder = "Meta keywords" })
+				<div class="form-group with-label">
+					@Html.LabelFor(m => m.Keywords, @Piranha.Manager.Resources.Global.MetaKeywords)
+					@Html.TextBoxFor(m => m.Keywords, new { @class = "form-control", @placeholder = "Meta keywords" })
 					@Html.ValidationMessageFor(m => m.Keywords)
 				</div>
-				<div class="form-group">
-					@Html.TextAreaFor(m => m.Description, new { @rows = 4, @class = "form-control meta count-me", @placeholder = "Meta description" })
+				<div class="form-group with-label">
+					@Html.LabelFor(m => m.Description, @Piranha.Manager.Resources.Global.MetaDescription)
+					@Html.TextAreaFor(m => m.Description, new { @rows = 4, @class = "form-control count-me", @placeholder = "Meta description" })
 					<p class="charcount"><span>@(Model.Description != null ? Model.Description.Length : 0)</span>/255 characters</p>
 					@Html.ValidationMessageFor(m => m.Description)
 				</div>
