@@ -50,7 +50,7 @@ WriteAttribute("id", Tuple.Create(" id=\"", 49), Tuple.Create("\"", 70)
 , 57), false)
 );
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t<div");
 
@@ -66,7 +66,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok-circle\"");
 
 WriteLiteral("></span></div>\r\n\t</div>\r\n\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t<!-- Save -->\r\n\t\t<div");
 
@@ -108,25 +108,33 @@ WriteLiteral("\t\t\t\t");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t</button>\r\n\t\t</div>\r\n\r\n\t\t<h3>");
+WriteLiteral("\r\n\t\t\t</button>\r\n\t\t</div>\r\n\r\n\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
 
             
             #line 18 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-       Write(Model.Name);
+                           Write(Model.Name);
 
             
             #line default
             #line hidden
-WriteLiteral("</h3>\r\n\r\n");
+WriteLiteral("</h3>\r\n\t</div>\r\n\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n");
 
             
-            #line 20 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 21 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 		
             
             #line default
             #line hidden
             
-            #line 20 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 21 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
          foreach (var row in Model.Rows) {
 
             
@@ -139,13 +147,13 @@ WriteLiteral(" class=\"row\"");
 WriteLiteral(">\r\n");
 
             
-            #line 22 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 23 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 				
             
             #line default
             #line hidden
             
-            #line 22 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 23 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
                  foreach (var col in row.Columns) {
 
             
@@ -153,26 +161,26 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("\t\t\t\t\t<div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 716), Tuple.Create("\"", 776)
+WriteAttribute("class", Tuple.Create(" class=\"", 775), Tuple.Create("\"", 835)
             
-            #line 23 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 724), Tuple.Create<System.Object, System.Int32>(row.Columns.Count == 1 ? "col-sm-12" : "col-sm-6"
+            #line 24 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+, Tuple.Create(Tuple.Create("", 783), Tuple.Create<System.Object, System.Int32>(row.Columns.Count == 1 ? "col-sm-12" : "col-sm-6"
             
             #line default
             #line hidden
-, 724), false)
+, 783), false)
 );
 
 WriteLiteral(">\r\n");
 
             
-            #line 24 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 25 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 						
             
             #line default
             #line hidden
             
-            #line 24 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 25 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
                          foreach (var item in col.Items) {
 
             
@@ -180,12 +188,12 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("\t\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 26 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 27 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
                                   Write(item.Name);
 
             
@@ -194,13 +202,13 @@ WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<label>");
 WriteLiteral("</label>\r\n");
 
             
-            #line 27 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 28 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 								
             
             #line default
             #line hidden
             
-            #line 27 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 28 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
                                  if (!(item is Piranha.Manager.Config.ConfigText)) {
 
             
@@ -208,30 +216,30 @@ WriteLiteral("</label>\r\n");
             #line hidden
 WriteLiteral("\t\t\t\t\t\t\t\t\t<input");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 967), Tuple.Create("\"", 983)
+WriteAttribute("id", Tuple.Create(" id=\"", 1037), Tuple.Create("\"", 1053)
             
-            #line 28 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 972), Tuple.Create<System.Object, System.Int32>(item.Param
+            #line 29 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+, Tuple.Create(Tuple.Create("", 1042), Tuple.Create<System.Object, System.Int32>(item.Param
             
             #line default
             #line hidden
-, 972), false)
+, 1042), false)
 );
 
-WriteAttribute("name", Tuple.Create(" name=\"", 984), Tuple.Create("\"", 1002)
+WriteAttribute("name", Tuple.Create(" name=\"", 1054), Tuple.Create("\"", 1072)
             
-            #line 28 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 991), Tuple.Create<System.Object, System.Int32>(item.Param
+            #line 29 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+, Tuple.Create(Tuple.Create("", 1061), Tuple.Create<System.Object, System.Int32>(item.Param
             
             #line default
             #line hidden
-, 991), false)
+, 1061), false)
 );
 
 WriteLiteral(" ");
 
             
-            #line 28 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 29 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
                                                                            Write(item is Piranha.Manager.Config.ConfigInteger ? "type=number" : "type=text");
 
             
@@ -240,7 +248,7 @@ WriteLiteral(" ");
 WriteLiteral(" class=\"form-control\" value=\"");
 
             
-            #line 28 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 29 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
                                                                                                                                                                                     Write(item.Value);
 
             
@@ -249,7 +257,7 @@ WriteLiteral(" class=\"form-control\" value=\"");
 WriteLiteral("\" />\r\n");
 
             
-            #line 29 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 30 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 								} else {
 
             
@@ -257,30 +265,30 @@ WriteLiteral("\" />\r\n");
             #line hidden
 WriteLiteral("\t\t\t\t\t\t\t\t\t<textarea");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 1163), Tuple.Create("\"", 1179)
+WriteAttribute("id", Tuple.Create(" id=\"", 1233), Tuple.Create("\"", 1249)
             
-            #line 30 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 1168), Tuple.Create<System.Object, System.Int32>(item.Param
+            #line 31 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+, Tuple.Create(Tuple.Create("", 1238), Tuple.Create<System.Object, System.Int32>(item.Param
             
             #line default
             #line hidden
-, 1168), false)
+, 1238), false)
 );
 
-WriteAttribute("name", Tuple.Create(" name=\"", 1180), Tuple.Create("\"", 1198)
+WriteAttribute("name", Tuple.Create(" name=\"", 1250), Tuple.Create("\"", 1268)
             
-            #line 30 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 1187), Tuple.Create<System.Object, System.Int32>(item.Param
+            #line 31 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+, Tuple.Create(Tuple.Create("", 1257), Tuple.Create<System.Object, System.Int32>(item.Param
             
             #line default
             #line hidden
-, 1187), false)
+, 1257), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 30 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 31 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
                                                                              Write(item.Value);
 
             
@@ -289,7 +297,7 @@ WriteLiteral(">");
 WriteLiteral("</textarea>\r\n");
 
             
-            #line 31 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 32 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 								}
 
             
@@ -298,7 +306,7 @@ WriteLiteral("</textarea>\r\n");
 WriteLiteral("\t\t\t\t\t\t\t</div>\r\n");
 
             
-            #line 33 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 34 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 						}
 
             
@@ -307,7 +315,7 @@ WriteLiteral("\t\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t</div>\r\n");
 
             
-            #line 35 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 36 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 				}
 
             
@@ -316,7 +324,7 @@ WriteLiteral("\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t</div>\r\n");
 
             
-            #line 37 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+            #line 38 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
 		}
 
             
