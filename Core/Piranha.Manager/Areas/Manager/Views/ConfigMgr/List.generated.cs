@@ -196,7 +196,7 @@ WriteLiteral(">\r\n\t\t\t\t\t<!-- Site -->\r\n\t\t\t\t\t<div");
 
 WriteLiteral(" id=\"pnlSite\"");
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t<div");
 
@@ -212,7 +212,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok-circle\"");
 
 WriteLiteral("></span></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t<!-- Save -->\r\n\t\t\t\t\t\t\t<div");
 
@@ -245,16 +245,24 @@ WriteLiteral("\t\t\t\t\t\t\t\t\t");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<h3>");
+WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
 
             
             #line 47 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                           Write(Piranha.Manager.Resources.Config.Site);
+                                               Write(Piranha.Manager.Resources.Config.Site);
 
             
             #line default
             #line hidden
-WriteLiteral("</h3>\r\n\r\n\t\t\t\t\t\t\t<div");
+WriteLiteral("</h3>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -264,12 +272,12 @@ WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 52 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 53 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                           Write(Piranha.Manager.Resources.Config.SiteTitle);
 
             
@@ -285,12 +293,12 @@ WriteLiteral(" data-bind=\"value: siteTitle\"");
 
 WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 56 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 57 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                           Write(Piranha.Manager.Resources.Config.SiteArchivePageSize);
 
             
@@ -310,12 +318,12 @@ WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 62 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 63 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                           Write(Piranha.Manager.Resources.Config.SiteDescription);
 
             
@@ -338,7 +346,7 @@ WriteLiteral(" data-bind=\"text: siteDescription().Length\"");
 WriteLiteral("></span>/255 ");
 
             
-            #line 64 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 65 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                                                                    Write(Piranha.Manager.Resources.Global.Characters);
 
             
@@ -349,7 +357,7 @@ WriteLiteral("</p>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t
 
 WriteLiteral(" id=\"pnlCache\"");
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t<div");
 
@@ -365,7 +373,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok-circle\"");
 
 WriteLiteral("></span></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t<!-- Save -->\r\n\t\t\t\t\t\t\t<div");
 
@@ -392,22 +400,30 @@ WriteLiteral("></i>\r\n\t\t\t\t\t\t\t\t\t</span>\r\n");
 WriteLiteral("\t\t\t\t\t\t\t\t\t");
 
             
-            #line 83 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 84 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                Write(Piranha.Manager.Resources.Global.Save);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t<h3>");
+WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
 
             
-            #line 87 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                           Write(Piranha.Manager.Resources.Config.Cache);
+            #line 88 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                               Write(Piranha.Manager.Resources.Config.Cache);
 
             
             #line default
             #line hidden
-WriteLiteral("</h3>\r\n\r\n\t\t\t\t\t\t\t<div");
+WriteLiteral("</h3>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -417,12 +433,12 @@ WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 92 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 94 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                           Write(Piranha.Manager.Resources.Config.CacheExpires);
 
             
@@ -442,12 +458,12 @@ WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 98 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 100 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                           Write(Piranha.Manager.Resources.Config.CacheMaxAge);
 
             
@@ -465,27 +481,27 @@ WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\
 "\n\t\t\t\t\t<!-- Params -->\r\n");
 
             
-            #line 107 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 109 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 					
             
             #line default
             #line hidden
             
-            #line 107 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 109 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                      foreach (var block in Model.Where(b => b.Section.ToLower() == "general")) {
 						
             
             #line default
             #line hidden
             
-            #line 108 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 110 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                    Write(Html.EditorFor(m => block));
 
             
             #line default
             #line hidden
             
-            #line 108 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 110 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                    
 					}
 
@@ -500,7 +516,7 @@ WriteLiteral(">\r\n\t\t\t\t\t<!-- Comments -->\r\n\t\t\t\t\t<div");
 
 WriteLiteral(" id=\"pnlComments\"");
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t<div");
 
@@ -516,7 +532,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok-circle\"");
 
 WriteLiteral("></span></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t<!-- Save -->\r\n\t\t\t\t\t\t\t<div");
 
@@ -543,22 +559,30 @@ WriteLiteral("></i>\r\n\t\t\t\t\t\t\t\t\t</span>\r\n");
 WriteLiteral("\t\t\t\t\t\t\t\t\t");
 
             
-            #line 126 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 128 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                Write(Piranha.Manager.Resources.Global.Save);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t<h3>");
+WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
 
             
-            #line 130 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                           Write(Piranha.Manager.Resources.Config.Comments);
+            #line 132 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                               Write(Piranha.Manager.Resources.Config.Comments);
 
             
             #line default
             #line hidden
-WriteLiteral("</h3>\r\n\r\n\t\t\t\t\t\t\t<div");
+WriteLiteral("</h3>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -568,12 +592,12 @@ WriteLiteral(" class=\"col-sm-12\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group with-label\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 135 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 138 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                           Write(Piranha.Manager.Resources.Config.Moderators);
 
             
@@ -604,7 +628,7 @@ WriteLiteral(" data-bind=\"checked: commentModerateAnonymous\"");
 WriteLiteral(" /> <strong>");
 
             
-            #line 142 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 145 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                                                                                        Write(Piranha.Manager.Resources.Config.ModerateAnonymous);
 
             
@@ -623,7 +647,7 @@ WriteLiteral(" data-bind=\"checked: commentNotifyAuthor\"");
 WriteLiteral(" /> <strong>");
 
             
-            #line 147 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 150 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                                                                                   Write(Piranha.Manager.Resources.Config.NotifyAuthors);
 
             
@@ -646,7 +670,7 @@ WriteLiteral(" data-bind=\"checked: commentModerateAuthorized\"");
 WriteLiteral(" /> <strong>");
 
             
-            #line 154 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 157 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                                                                                         Write(Piranha.Manager.Resources.Config.ModerateAuthorized);
 
             
@@ -665,7 +689,7 @@ WriteLiteral(" data-bind=\"checked: commentNotifyModerators\"");
 WriteLiteral(" /> <strong>");
 
             
-            #line 159 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 162 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                                                                                       Write(Piranha.Manager.Resources.Config.NotifyModerators);
 
             
@@ -675,27 +699,27 @@ WriteLiteral("</strong>\r\n\t\t\t\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t\t\t</d
 "\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- Params -->\r\n");
 
             
-            #line 168 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 171 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 					
             
             #line default
             #line hidden
             
-            #line 168 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 171 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                      foreach (var block in Model.Where(b => b.Section.ToLower() == "blogging")) {
 						
             
             #line default
             #line hidden
             
-            #line 169 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 172 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                    Write(Html.EditorFor(m => block));
 
             
             #line default
             #line hidden
             
-            #line 169 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 172 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                    
 					}
 
@@ -705,13 +729,13 @@ WriteLiteral("</strong>\r\n\t\t\t\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t\t\t</d
 WriteLiteral("\t\t\t\t</div>\r\n\r\n\t\t\t\t<!-- Custom sections -->\r\n");
 
             
-            #line 174 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 177 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 				
             
             #line default
             #line hidden
             
-            #line 174 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 177 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                  foreach (var section in sections) {
 
             
@@ -722,7 +746,7 @@ WriteLiteral("\t\t\t\t\t<div");
 WriteLiteral(" data-bind=\"if: active() == \'");
 
             
-            #line 175 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 178 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                  Write(section.ToLower());
 
             
@@ -733,27 +757,27 @@ WriteLiteral("\'\"");
 WriteLiteral(">\r\n\t\t\t\t\t\t<!-- Blocks -->\r\n");
 
             
-            #line 177 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 180 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 						
             
             #line default
             #line hidden
             
-            #line 177 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 180 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                          foreach (var block in Model.Where(b => b.Section.ToLower() == section.ToLower())) {
 							
             
             #line default
             #line hidden
             
-            #line 178 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 181 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                        Write(Html.EditorFor(m => block));
 
             
             #line default
             #line hidden
             
-            #line 178 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 181 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
                                                        
 						}						
 
@@ -763,7 +787,7 @@ WriteLiteral(">\r\n\t\t\t\t\t\t<!-- Blocks -->\r\n");
 WriteLiteral("\t\t\t\t\t</div>\r\n");
 
             
-            #line 181 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+            #line 184 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
 				}
 
             
