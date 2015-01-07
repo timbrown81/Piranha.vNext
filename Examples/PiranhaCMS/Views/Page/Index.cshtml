@@ -6,8 +6,7 @@
 	
 	if (Model.IsStartPage) {
 		using (var api = new Piranha.Api()) {
-			var now = DateTime.Now.ToUniversalTime();
-			latest = api.Posts.Get(where: p => p.Published <= now, limit: 1).FirstOrDefault();
+			latest = api.Posts.Get(where: p => p.Published <= DateTime.Now, limit: 1).FirstOrDefault();
 		}
 	}	
 }
