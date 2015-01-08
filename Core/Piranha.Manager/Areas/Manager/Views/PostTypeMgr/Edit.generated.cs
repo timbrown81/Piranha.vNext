@@ -282,15 +282,15 @@ WriteLiteral("\t\t\t\t\t");
             #line hidden
 WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div");
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t\t\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t\t\t<h3");
 
-WriteLiteral(" class=\"section-title\"");
+WriteLiteral(" class=\"panel-title\"");
 
 WriteLiteral(">\r\n\t\t\t\t\tArchive settings\r\n\t\t\t\t\t<span");
 
@@ -318,7 +318,11 @@ WriteLiteral("\t\t\t\t\t\t");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t</span>\r\n\t\t\t\t</h3>\r\n\r\n\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t\t</span>\r\n\t\t\t\t</h3>\r\n\t\t\t</div>\r\n\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n\t\t\t\t<div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -331,7 +335,7 @@ WriteLiteral(">\t\t\t\t\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 74 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 75 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.ArchiveTitle, Piranha.Manager.Resources.PostType.ArchiveTitle));
 
             
@@ -346,7 +350,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 76 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 77 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.ArchiveTitle, new { @class = "form-control meta", @placeholder = "Add archive title" }));
 
             
@@ -357,7 +361,7 @@ WriteLiteral("\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 77 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 78 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.ValidationMessageFor(m => m.ArchiveTitle));
 
             
@@ -368,7 +372,7 @@ WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 79 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 80 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug));
 
             
@@ -383,7 +387,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 81 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 82 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.Slug, new { @class = "form-control meta", @placeholder = "A slug will be generated automatically" }));
 
             
@@ -394,7 +398,7 @@ WriteLiteral("\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 82 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 83 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.ValidationMessageFor(m => m.Slug));
 
             
@@ -405,7 +409,7 @@ WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 84 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 85 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.ArchiveRoute, Piranha.Manager.Resources.PostType.ArchiveRoute));
 
             
@@ -420,7 +424,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 86 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 87 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control meta", @placeholder = "Add optional archive route" }));
 
             
@@ -431,7 +435,7 @@ WriteLiteral("\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 87 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 88 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.ValidationMessageFor(m => m.ArchiveRoute));
 
             
@@ -442,7 +446,7 @@ WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 89 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 90 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.ArchiveView, Piranha.Manager.Resources.PostType.ArchiveView));
 
             
@@ -457,7 +461,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 91 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 92 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.ArchiveView, new { @class = "form-control meta", @placeholder = "Add optional archive view" }));
 
             
@@ -468,7 +472,7 @@ WriteLiteral("\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 92 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 93 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.ValidationMessageFor(m => m.ArchiveView));
 
             
@@ -483,7 +487,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 98 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 99 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.MetaKeywords, Piranha.Manager.Resources.Global.MetaKeywords));
 
             
@@ -498,7 +502,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 100 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 101 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control meta", @placeholder = "Add archive meta keywords" }));
 
             
@@ -509,7 +513,7 @@ WriteLiteral("\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 101 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 102 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.ValidationMessageFor(m => m.MetaKeywords));
 
             
@@ -520,7 +524,7 @@ WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 103 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 104 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.MetaDescription, Piranha.Manager.Resources.Global.MetaDescription));
 
             
@@ -535,7 +539,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 105 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 106 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 7, @style = "height:164px", @placeholder = "Add archive meta description" }));
 
             
@@ -544,7 +548,7 @@ WriteLiteral("\t\t\t\t\t\t\t");
 WriteLiteral("\r\n\t\t\t\t\t\t\t<p><span>");
 
             
-            #line 106 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 107 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                                  Write(!String.IsNullOrEmpty(Model.MetaDescription) ? Model.MetaDescription.Length : 0);
 
             
@@ -555,7 +559,7 @@ WriteLiteral("</span>/255 characters</p>\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 107 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 108 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
                        Write(Html.ValidationMessageFor(m => m.MetaDescription));
 
             
@@ -564,7 +568,7 @@ WriteLiteral("\t\t\t\t\t\t\t");
 WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
 
             
-            #line 114 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 115 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
 }
             
             #line default

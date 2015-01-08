@@ -7281,18 +7281,17 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
   src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url('../fonts/opensans-bold.woff') format('woff');
 }
 body {
-  background-color: #f2f2f2;
+  background-color: #ededed;
   font-family: Arial;
   margin-left: 230px;
   min-width: 768px;
 }
 h1 {
-  color: #999;
   text-transform: uppercase;
   font-family: "Open Sans", Arial;
   font-weight: 300;
   font-size: 32px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 a {
   color: #2a8ac2;
@@ -7473,6 +7472,7 @@ a {
   background: #e2e2e2;
   padding: 12px 20px;
   font-family: "Open Sans", Arial;
+  text-transform: uppercase;
 }
 .table thead tr th.actions.one {
   width: 32px;
@@ -7506,7 +7506,7 @@ a {
 }
 .table > tbody > tr > td {
   padding: 10px 20px;
-  border-top: 4px solid #f2f2f2;
+  border-top: 4px solid #ededed;
 }
 .table > tbody > tr > td.actions a {
   display: inline-block;
@@ -7662,6 +7662,7 @@ a {
 }
 .form .form-group .select2-container {
   width: 100%;
+  padding: 1px 2px;
 }
 .form .form-group .select2-container.select2-container-multi .select2-choices {
   background-image: none;
@@ -7696,6 +7697,7 @@ a {
 .form .form-group .mce-tinymce .mce-panel {
   background: #fff;
   background-image: none;
+  padding: 1px 2px;
 }
 .form .form-group .mce-tinymce .mce-panel .mce-btn {
   background: transparent;
@@ -7790,18 +7792,39 @@ a {
   text-align: left;
 }
 .panel {
-  border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  -o-border-radius: 0;
+  border: 0 none;
   position: relative;
   overflow: hidden;
-}
-.panel > .panel-heading {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   -o-border-radius: 0;
+}
+.panel > .panel-heading {
+  background: #f8f8f8;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.panel > .panel-heading .btn {
+  margin: -2px 0 0 4px;
+}
+.panel .panel-footer {
+  background: #f8f8f8;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.panel .panel-title {
+  font-family: "Open Sans", Arial;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+.panel .form-group {
+  border-width: 1px;
 }
 .panel.panel-white {
   border: none;
@@ -7848,8 +7871,9 @@ a {
 .panel.panel-add > .panel-heading .panel-title > .glyphicon {
   padding: 10px 15px;
 }
-.panel.panel-primary .form .form-group {
-  border-width: 1px;
+.panel.panel-primary > .panel-heading {
+  background: #2a8ac2;
+  border-color: #2a8ac2;
 }
 .panel .gravatar {
   background: #fff;

@@ -485,127 +485,243 @@ WriteLiteral("\t\t\t\t\t");
             #line hidden
 WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div");
 
-WriteLiteral(" class=\"row\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t\t\t<div");
 
-WriteLiteral(" class=\"col-sm-8\"");
+WriteLiteral(" class=\"panel-heading\"");
+
+WriteLiteral(">\r\n\t\t\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
+
+            
+            #line 114 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                                   Write(Piranha.Manager.Resources.Global.Information);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h3>\r\n\t\t\t</div>\r\n\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
 
 WriteLiteral(">\r\n\t\t\t\t<div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"col-sm-8\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 115 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.TextAreaFor(m => m.Excerpt, new { @rows = 7, @class = "form-control count-me", @placeholder = "Short excerpt" }));
+            #line 120 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                       Write(Html.TextAreaFor(m => m.Excerpt, new { @rows = 7, @class = "form-control count-me", @placeholder = "Short excerpt" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t<p><span>");
+WriteLiteral("\r\n\t\t\t\t\t\t\t<p><span>");
 
             
-            #line 116 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-                         Write(Model.Excerpt != null ? Model.Excerpt.Length : 0);
+            #line 121 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                                 Write(Model.Excerpt != null ? Model.Excerpt.Length : 0);
 
             
             #line default
             #line hidden
 WriteLiteral("</span>/512 characters</p>\r\n");
 
-WriteLiteral("\t\t\t\t\t");
-
-            
-            #line 117 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Excerpt));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div");
-
-WriteLiteral(" class=\"col-sm-4\"");
-
-WriteLiteral(">\r\n\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t\t");
 
             
             #line 122 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.DropDownListFor(m => m.AuthorId, Model.Authors, "", new { @class = "form-control meta", @placeholer = "Select author" }));
+                       Write(Html.ValidationMessageFor(m => m.Excerpt));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"col-sm-4\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 125 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.TextBoxFor(m => m.Keywords, new { @class = "form-control meta", @placeholder = "Meta keywords" }));
+            #line 127 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                       Write(Html.DropDownListFor(m => m.AuthorId, Model.Authors, "", new { @class = "form-control meta", @placeholer = "Select author" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("\t\t\t\t\t\t\t");
+
+            
+            #line 130 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                       Write(Html.TextBoxFor(m => m.Keywords, new { @class = "form-control meta", @placeholder = "Meta keywords" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 126 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Keywords));
+            #line 131 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                       Write(Html.ValidationMessageFor(m => m.Keywords));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 129 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.TextAreaFor(m => m.Description, new { @rows = 4, @class = "form-control meta count-me", @placeholder = "Meta description" }));
+            #line 134 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                       Write(Html.TextAreaFor(m => m.Description, new { @rows = 4, @class = "form-control meta count-me", @placeholder = "Meta description" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t<p");
+WriteLiteral("\r\n\t\t\t\t\t\t\t<p");
 
 WriteLiteral(" class=\"charcount\"");
 
 WriteLiteral("><span>");
 
             
-            #line 130 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-                                           Write(Model.Description != null ? Model.Description.Length : 0);
+            #line 135 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                                                   Write(Model.Description != null ? Model.Description.Length : 0);
 
             
             #line default
             #line hidden
 WriteLiteral("</span>/255 characters</p>\r\n");
 
+WriteLiteral("\t\t\t\t\t\t\t");
+
+            
+            #line 136 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                       Write(Html.ValidationMessageFor(m => m.Description));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"col-sm-12\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("\t\t\t\t\t\t\t");
+
+            
+            #line 143 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+                       Write(Html.HiddenFor(m => m.SelectedCategories));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div");
+
+WriteLiteral(" class=\"panel panel-default\"");
+
+WriteLiteral(" role=\"tabpanel\"");
+
+WriteLiteral(">\r\n\t\t\t<div");
+
+WriteLiteral(" class=\"panel-heading\"");
+
+WriteLiteral(">\r\n\t\t\t\t<div");
+
+WriteLiteral(" role=\"tablist\"");
+
+WriteLiteral(">\r\n\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
+
+WriteLiteral(" class=\"btn-group pull-right\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t<button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-sm btn-labeled btn-info\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t<span");
+
+WriteLiteral(" class=\"btn-label\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-paperclip\"");
+
+WriteLiteral("></i>\r\n\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\tAttachments\r\n\t\t\t\t\t</button>\r\n\t\t\t\t</div>\r\n\t\t\t    <butt" +
+"on");
+
+WriteLiteral(" class=\"btn btn-sm btn-primary pull-right\"");
+
+WriteLiteral(">Main body</button>\r\n\t\t\t    <button");
+
+WriteLiteral(" class=\"btn btn-sm btn-primary pull-right\"");
+
+WriteLiteral(">Excerpt</button>\r\n\t\t\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">Content</h3>\r\n\t\t\t</div>\r\n\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(" style=\"padding:0\"");
+
+WriteLiteral(">\r\n\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(" style=\"border:0\"");
+
+WriteLiteral(">\r\n");
+
 WriteLiteral("\t\t\t\t\t");
 
             
-            #line 131 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Description));
+            #line 169 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+               Write(Html.TextAreaFor(m => m.Body, new { @rows = 14, @class = "form-control editor" }));
 
             
             #line default
@@ -618,37 +734,7 @@ WriteLiteral(">\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("\t\t\t\t\t");
-
-            
-            #line 139 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.HiddenFor(m => m.SelectedCategories));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("\t\t\t\t\t");
-
-            
-            #line 142 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
-               Write(Html.TextAreaFor(m => m.Body, new { @rows = 14, @class = "form-control editor" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<!-- Comments modal -->\r\n\t\t<div");
+WriteLiteral(">\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<!-- Comments modal -->\r\n\t\t<div");
 
 WriteLiteral(" class=\"modal fade\"");
 
@@ -681,7 +767,7 @@ WriteLiteral(" id=\"myModalLabel\"");
 WriteLiteral(">");
 
             
-            #line 152 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 184 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                                                              Write(Piranha.Manager.Resources.Post.Comments);
 
             
@@ -696,7 +782,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 155 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 187 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                    Write(Html.Partial("Partial/CommentList", Model.Comments));
 
             
@@ -717,7 +803,7 @@ WriteLiteral(" data-dismiss=\"modal\"");
 WriteLiteral(">");
 
             
-            #line 158 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 190 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                                                                                       Write(Piranha.Manager.Resources.Global.Ok);
 
             
@@ -763,7 +849,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 172 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 204 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug));
 
             
@@ -778,7 +864,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 174 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 206 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.Slug, new { @class = "form-control meta", @placeholder = "A slug will be generated automatically" }));
 
             
@@ -789,7 +875,7 @@ WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 176 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 208 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.Route, Piranha.Manager.Resources.Global.Route));
 
             
@@ -804,7 +890,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 178 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 210 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.Route, new { @class = "form-control meta", @placeholder = "Add optional route" }));
 
             
@@ -815,7 +901,7 @@ WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 180 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 212 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                    Write(Html.LabelFor(m => m.View, Piranha.Manager.Resources.Global.View));
 
             
@@ -830,7 +916,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 182 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 214 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                        Write(Html.TextBoxFor(m => m.View, new { @class = "form-control meta", @placeholder = "Add optional view" }));
 
             
@@ -851,7 +937,7 @@ WriteLiteral(" data-dismiss=\"modal\"");
 WriteLiteral(">");
 
             
-            #line 186 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 218 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
                                                                                       Write(Piranha.Manager.Resources.Global.Ok);
 
             
@@ -860,7 +946,7 @@ WriteLiteral(">");
 WriteLiteral("</button>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
 
             
-            #line 192 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
+            #line 224 "..\..\Areas\Manager\Views\PostMgr\Edit.cshtml"
 }
 
             

@@ -88,13 +88,10 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The redirect result</returns>
 		[Route("block/delete/{id:Guid}")]
 		public ActionResult Delete(Guid id) {
-			var author = api.Authors.GetSingle(id);
-			if (author != null) {
-				api.Authors.Remove(author);
-				api.SaveChanges();
-				return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Block>, IEnumerable<ListItem>>(api.Blocks.Get()));
-			}
-			return JsonData(false);
+			api.Authors.Remove(id);
+			api.SaveChanges();
+
+			return JsonData(true, Mapper.Map<IEnumerable<Piranha.Models.Block>, IEnumerable<ListItem>>(api.Blocks.Get()));
 		}
 	}
 }
