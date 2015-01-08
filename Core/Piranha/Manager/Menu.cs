@@ -78,9 +78,12 @@ namespace Piranha.Manager
 		/// </summary>
 		public static IList<MenuItem> Items = new List<MenuItem>() { 
 			new MenuItem() {
-				InternalId = "Content", Name = "Content", Css = "ico-content", Items = new List<MenuItem>() {
+				InternalId = "Content", Name = "Content", Css = "glyphicon glyphicon-pencil", Items = new List<MenuItem>() {
 					new MenuItem() {
 						InternalId = "Blocks", Name = "Blocks", Controller = "BlockMgr", Action = "List"
+					},
+					new MenuItem() {
+						InternalId = "Categories", Name = "Categories", Controller = "CategoryMgr", Action = "List"
 					},
 					new MenuItem() {
 						InternalId = "Posts", Name = "Posts", Controller = "PostMgr", Action = "List"
@@ -88,15 +91,12 @@ namespace Piranha.Manager
 				}
 			},
 			new MenuItem() {
-				InternalId = "Settings", Name = "Settings", Css = "ico-settings", Items = new List<MenuItem>() {
+				InternalId = "Settings", Name = "Settings", Css = "glyphicon glyphicon-wrench", Items = new List<MenuItem>() {
 					new MenuItem() {
 						InternalId = "Aliases", Name = "Aliases", Controller = "AliasMgr", Action = "List"
 					},
 					new MenuItem() {
 						InternalId = "Authors", Name = "Authors", Controller = "AuthorMgr", Action = "List"
-					},
-					new MenuItem() {
-						InternalId = "Categories", Name = "Categories", Controller = "CategoryMgr", Action = "List"
 					},
 					new MenuItem() {
 						InternalId = "PageTypes", Name = "Page types", Controller = "PageTypeMgr", Action = "List"
@@ -107,7 +107,7 @@ namespace Piranha.Manager
 				}
 			},
 			new MenuItem() {
-				InternalId = "System", Name = "System", Css = "ico-system", Items = new List<MenuItem>() {
+				InternalId = "System", Name = "System", Css = "glyphicon glyphicon-cog", Items = new List<MenuItem>() {
 					new MenuItem() {
 						InternalId = "Config", Name = "Config", Controller = "ConfigMgr", Action = "List"
 					}

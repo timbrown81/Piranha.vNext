@@ -129,6 +129,7 @@
   text-transform: uppercase;
 }
 .form .form-group {
+  background: #fff;
   border-color: #dddddd;
   border-style: solid;
   border-width: 0 0 1px 0;
@@ -160,7 +161,6 @@
   font-size: 14px;
 }
 .form .form-group .form-control.count-me + p {
-  background: #ddd;
   color: #999;
   font-size: 12px;
   padding: 4px 12px;
@@ -275,6 +275,10 @@
 }
 .form .panel-white .form-group textarea,
 .form .table .form-group textarea {
+  background: #eee;
+}
+.form .panel-white .form-group .count-me + p,
+.form .table .form-group .count-me + p {
   background: #eee;
 }
 .form .table .form-group {

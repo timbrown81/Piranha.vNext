@@ -9,7 +9,6 @@
 	<link href="~/manager/assets.ashx/img/icon.ico" rel="icon" type="image/x-icon">
 	<link href="~/manager/assets.ashx/img/icon.ico" rel="shortcut icon" type="image/x-icon">
 	<link href="~/manager/assets.ashx/css/style.min.css" rel="stylesheet" type="text/css" />
-	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
 
 	@if (!String.IsNullOrEmpty(ViewBag.Message)) {
 		<script type="text/javascript">
@@ -25,8 +24,6 @@
 		<a class="navmenu-brand" href="#">
 			<img src="@Url.Content("~/manager/assets.ashx/img/logo.png")" />
 		</a>
-		<img class="avatar" src="http://1.gravatar.com/avatar/822bb9b48b7ecc98c5be44a74369a224" />
-
 		@Html.Partial("Partial/Menu")
 	</nav>
 

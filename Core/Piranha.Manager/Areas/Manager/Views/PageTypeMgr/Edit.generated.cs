@@ -46,7 +46,7 @@ WriteLiteral(" type=\"text/javascript\"");
 WriteLiteral(">\r\n\t\tko.applyBindings(new manager.models.pagetype(\'");
 
             
-            #line 4 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
+            #line 5 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
                                                  Write(Model);
 
             
@@ -60,7 +60,7 @@ WriteLiteral("\', {\r\n\t\t\trequired: \'Field is required\',\r\n\t\t\tunique: \
 WriteLiteral("\r\n");
 
             
-            #line 11 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
+            #line 12 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
  using (var form = Html.BeginForm("Save", "PageTypeMgr", FormMethod.Post, new { @class = "form", @role = "form" })) {
 
             
@@ -101,7 +101,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok\"");
 WriteLiteral("></i>\r\n\t\t\t\t\t\t</span>");
 
             
-            #line 20 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
+            #line 21 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
                           Write(Piranha.Manager.Resources.Global.Save);
 
             
@@ -524,7 +524,7 @@ WriteLiteral(">Add</button>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t</tr>\r\n\t\t\
 "\n\t\t</div>\r\n\t</div>\r\n");
 
             
-            #line 197 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
+            #line 198 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
 }
             
             #line default

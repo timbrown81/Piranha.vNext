@@ -1,5 +1,13 @@
 ﻿@model Piranha.Manager.Models.PostType.EditModel
 
+@section script {
+	<script>
+		$(document).ready(function () {
+			$('#Name').focus();
+		});
+	</script>
+}
+
 @using (var form = Html.BeginForm("Save", "PostTypeMgr", FormMethod.Post, new { @class = "form", @role = "form" })) {
 	@Html.AntiForgeryToken()
 	@Html.HiddenFor(m => m.Id)
