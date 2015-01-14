@@ -676,6 +676,8 @@ WriteLiteral(">\r\n\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
 
 WriteLiteral(" class=\"btn-group pull-right\"");
 
+WriteLiteral(" style=\"display:none\"");
+
 WriteLiteral(">\r\n\t\t\t\t\t<button");
 
 WriteLiteral(" type=\"button\"");
@@ -698,6 +700,8 @@ WriteLiteral(" class=\"btn btn-sm btn-primary pull-right\"");
 WriteLiteral(">Main body</button>\r\n\t\t\t    <button");
 
 WriteLiteral(" class=\"btn btn-sm btn-primary pull-right\"");
+
+WriteLiteral(" style=\"display:none\"");
 
 WriteLiteral(">Excerpt</button>\r\n\t\t\t\t<h3");
 
