@@ -59,9 +59,11 @@ WriteLiteral(">\r\n\t<li>\r\n\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
-WriteLiteral(" class=\"ico\"");
+WriteLiteral("><span");
 
-WriteLiteral(">Dashboard</a>\r\n\t</li>\r\n");
+WriteLiteral(" class=\"glyphicon glyphicon-dashboard\"");
+
+WriteLiteral("></span>Dashboard</a>\r\n\t</li>\r\n");
 
             
             #line 9 "..\..\Areas\Manager\Views\Shared\Partial\Menu.cshtml"
@@ -81,20 +83,23 @@ WriteLiteral("\t\t\t<li>\r\n\t\t\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
-WriteLiteral(" ");
+WriteLiteral("><span");
 
+WriteAttribute("class", Tuple.Create(" class=\"", 388), Tuple.Create("\"", 406)
             
             #line 12 "..\..\Areas\Manager\Views\Shared\Partial\Menu.cshtml"
-                        Write(!String.IsNullOrWhiteSpace(group.Css) ? "class=" + group.Css : "");
-
+, Tuple.Create(Tuple.Create("", 396), Tuple.Create<System.Object, System.Int32>(group.Css
             
             #line default
             #line hidden
-WriteLiteral(">");
+, 396), false)
+);
+
+WriteLiteral("></span>");
 
             
             #line 12 "..\..\Areas\Manager\Views\Shared\Partial\Menu.cshtml"
-                                                                                            Write(group.Name);
+                                                       Write(group.Name);
 
             
             #line default
@@ -125,14 +130,14 @@ WriteLiteral("\t\t\t\t\t\t<li ");
             #line hidden
 WriteLiteral(">\r\n\t\t\t\t\t\t\t<a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 569), Tuple.Create("\"", 617)
+WriteAttribute("href", Tuple.Create(" href=\"", 571), Tuple.Create("\"", 619)
             
             #line 16 "..\..\Areas\Manager\Views\Shared\Partial\Menu.cshtml"
-, Tuple.Create(Tuple.Create("", 576), Tuple.Create<System.Object, System.Int32>(Url.Action(item.Action, item.Controller)
+, Tuple.Create(Tuple.Create("", 578), Tuple.Create<System.Object, System.Int32>(Url.Action(item.Action, item.Controller)
             
             #line default
             #line hidden
-, 576), false)
+, 578), false)
 );
 
 WriteLiteral(">");
@@ -165,19 +170,21 @@ WriteLiteral("\t\t\t\t</ul>\r\n\t\t\t</li>\r\n");
             #line hidden
 WriteLiteral("\t<li>\r\n\t\t<a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 697), Tuple.Create("\"", 743)
+WriteAttribute("href", Tuple.Create(" href=\"", 699), Tuple.Create("\"", 745)
             
             #line 24 "..\..\Areas\Manager\Views\Shared\Partial\Menu.cshtml"
-, Tuple.Create(Tuple.Create("", 704), Tuple.Create<System.Object, System.Int32>(Url.Action("LogoutUser", "AccountMgr")
+, Tuple.Create(Tuple.Create("", 706), Tuple.Create<System.Object, System.Int32>(Url.Action("LogoutUser", "AccountMgr")
             
             #line default
             #line hidden
-, 704), false)
+, 706), false)
 );
 
-WriteLiteral(" class=\"ico-logout\"");
+WriteLiteral("><span");
 
-WriteLiteral(">Logout</a>\r\n\t</li>\r\n</ul>\r\n");
+WriteLiteral(" class=\"glyphicon glyphicon-off\"");
+
+WriteLiteral("></span>Logout</a>\r\n\t</li>\r\n</ul>\r\n");
 
         }
     }

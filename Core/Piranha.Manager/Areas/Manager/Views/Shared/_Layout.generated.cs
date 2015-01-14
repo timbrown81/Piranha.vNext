@@ -91,24 +91,16 @@ WriteLiteral(" rel=\"stylesheet\"");
 
 WriteLiteral(" type=\"text/css\"");
 
-WriteLiteral(" />\r\n\t<link");
-
-WriteLiteral(" href=\"//fonts.googleapis.com/css?family=Open+Sans:300,400,600\"");
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(" type=\"text/css\"");
-
-WriteLiteral(">\r\n\r\n");
+WriteLiteral(" />\r\n\r\n");
 
             
-            #line 14 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 13 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 	
             
             #line default
             #line hidden
             
-            #line 14 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 13 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
      if (!String.IsNullOrEmpty(ViewBag.Message)) {
 
             
@@ -122,7 +114,7 @@ WriteLiteral(">\r\n\t\t\tsetTimeout(function () {\r\n\t\t\t\t$(\".sys-message\")
 "\t</script>\r\n");
 
             
-            #line 20 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 19 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 	}
 
             
@@ -131,7 +123,7 @@ WriteLiteral(">\r\n\t\t\tsetTimeout(function () {\r\n\t\t\t\t$(\".sys-message\")
 WriteLiteral("\t");
 
             
-            #line 21 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 20 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 Write(RenderSection("head", required: false));
 
             
@@ -140,7 +132,7 @@ Write(RenderSection("head", required: false));
 WriteLiteral("\r\n</head>\r\n<body ");
 
             
-            #line 23 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 22 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
   Write(ViewBag.IsSaved == true ? "class=pre-saved" : "");
 
             
@@ -160,28 +152,22 @@ WriteLiteral(" href=\"#\"");
 
 WriteLiteral(">\r\n\t\t\t<img");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1015), Tuple.Create("\"", 1071)
+WriteAttribute("src", Tuple.Create(" src=\"", 910), Tuple.Create("\"", 966)
             
-            #line 26 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-, Tuple.Create(Tuple.Create("", 1021), Tuple.Create<System.Object, System.Int32>(Url.Content("~/manager/assets.ashx/img/logo.png")
+            #line 25 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+, Tuple.Create(Tuple.Create("", 916), Tuple.Create<System.Object, System.Int32>(Url.Content("~/manager/assets.ashx/img/logo.png")
             
             #line default
             #line hidden
-, 1021), false)
+, 916), false)
 );
 
-WriteLiteral(" />\r\n\t\t</a>\r\n\t\t<img");
-
-WriteLiteral(" class=\"avatar\"");
-
-WriteLiteral(" src=\"http://1.gravatar.com/avatar/822bb9b48b7ecc98c5be44a74369a224\"");
-
-WriteLiteral(" />\r\n\r\n");
+WriteLiteral(" />\r\n\t\t</a>\r\n");
 
 WriteLiteral("\t\t");
 
             
-            #line 30 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 27 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
    Write(Html.Partial("Partial/Menu"));
 
             
@@ -198,7 +184,7 @@ WriteLiteral(" class=\"container-fluid\"");
 WriteLiteral(">\r\n\t\t\t<h1>");
 
             
-            #line 35 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 32 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
            Write(ViewBag.Title);
 
             
@@ -207,13 +193,13 @@ WriteLiteral(">\r\n\t\t\t<h1>");
 WriteLiteral("</h1>\r\n");
 
             
-            #line 36 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 33 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 			
             
             #line default
             #line hidden
             
-            #line 36 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 33 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
              if (!String.IsNullOrWhiteSpace(ViewBag.SubTitle)) {
 
             
@@ -226,7 +212,7 @@ WriteLiteral(" class=\"subtitle\"");
 WriteLiteral(">");
 
             
-            #line 37 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 34 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
                                Write(ViewBag.SubTitle);
 
             
@@ -235,7 +221,7 @@ WriteLiteral(">");
 WriteLiteral("</p>\r\n");
 
             
-            #line 38 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 35 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 			}
 
             
@@ -250,7 +236,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t");
 
             
-            #line 42 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 39 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
    Write(RenderBody());
 
             
@@ -275,7 +261,7 @@ WriteLiteral(" type=\"text/javascript\"");
 WriteLiteral(">\r\n\t\tvar baseUrl = \'");
 
             
-            #line 50 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 47 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
                   Write(Url.Content("~/"));
 
             
@@ -285,9 +271,9 @@ WriteLiteral("\';\r\n\t</script>\r\n\t<script");
 
 WriteLiteral(" type=\"text/javascript\"");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1721), Tuple.Create("\"", 1766)
-, Tuple.Create(Tuple.Create("", 1727), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/js/scripts.min.js")
-, 1727), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1520), Tuple.Create("\"", 1565)
+, Tuple.Create(Tuple.Create("", 1526), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/js/scripts.min.js")
+, 1526), false)
 );
 
 WriteLiteral("></script>\r\n");
@@ -295,7 +281,7 @@ WriteLiteral("></script>\r\n");
 WriteLiteral("\t");
 
             
-            #line 53 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 50 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 Write(RenderSection("script", required: false));
 
             

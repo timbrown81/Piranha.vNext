@@ -13,7 +13,7 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-12">
+		<div class="col-sm-12 @(Model.PostTypes.Count == 1 ? "buttons" : "")">
 			@if (Model.PostTypes.Count > 1 && Model.IsDefaultSelection) {
 				<div class="btn-group pull-right">
 					<button type="button" class="btn btn-labeled btn-primary" data-toggle="dropdown">
@@ -55,12 +55,6 @@
 				</ul>
 				<br />
 			}
-		</div>
-	</div>
-
-	<div class="row">
-		<!-- Actions -->
-		<div class="col-sm-12 buttons">
 		</div>
 	</div>
 

@@ -1,16 +1,37 @@
 ﻿.panel {
-  border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  -o-border-radius: 0;
+  border: 0 none;
   position: relative;
   overflow: hidden;
-}
-.panel > .panel-heading {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   -o-border-radius: 0;
+}
+.panel > .panel-heading {
+  background: #f8f8f8;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.panel > .panel-heading .btn {
+  margin: -2px 0 0 4px;
+}
+.panel .panel-footer {
+  background: #f8f8f8;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.panel .panel-title {
+  font-family: "Open Sans", Arial;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+.panel .form-group {
+  border-width: 1px;
 }
 .panel.panel-white {
   border: none;
@@ -57,8 +78,9 @@
 .panel.panel-add > .panel-heading .panel-title > .glyphicon {
   padding: 10px 15px;
 }
-.panel.panel-primary .form .form-group {
-  border-width: 1px;
+.panel.panel-primary > .panel-heading {
+  background: #2a8ac2;
+  border-color: #2a8ac2;
 }
 .panel .gravatar {
   background: #fff;

@@ -50,7 +50,7 @@ WriteAttribute("id", Tuple.Create(" id=\"", 49), Tuple.Create("\"", 70)
 , 57), false)
 );
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t<div");
 
@@ -66,7 +66,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok-circle\"");
 
 WriteLiteral("></span></div>\r\n\t</div>\r\n\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t<!-- Save -->\r\n\t\t<div");
 
@@ -76,13 +76,13 @@ WriteLiteral(">\r\n\t\t\t<button");
 
 WriteLiteral(" type=\"button\"");
 
-WriteLiteral(" class=\"btn btn-labeled btn-success\"");
+WriteLiteral(" class=\"btn btn-sm btn-labeled btn-success\"");
 
 WriteLiteral(" data-bind=\"click: function() { saveBlock(\'");
 
             
             #line 10 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-                                                                                                           Write(Model.Name);
+                                                                                                                  Write(Model.Name);
 
             
             #line default
@@ -108,16 +108,24 @@ WriteLiteral("\t\t\t\t");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t</button>\r\n\t\t</div>\r\n\r\n\t\t<h3>");
+WriteLiteral("\r\n\t\t\t</button>\r\n\t\t</div>\r\n\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
 
             
-            #line 18 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-       Write(Model.Name);
+            #line 17 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+                           Write(Model.Name);
 
             
             #line default
             #line hidden
-WriteLiteral("</h3>\r\n\r\n");
+WriteLiteral("</h3>\r\n\t</div>\r\n\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n");
 
             
             #line 20 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
@@ -153,14 +161,14 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("\t\t\t\t\t<div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 716), Tuple.Create("\"", 776)
+WriteAttribute("class", Tuple.Create(" class=\"", 780), Tuple.Create("\"", 840)
             
             #line 23 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 724), Tuple.Create<System.Object, System.Int32>(row.Columns.Count == 1 ? "col-sm-12" : "col-sm-6"
+, Tuple.Create(Tuple.Create("", 788), Tuple.Create<System.Object, System.Int32>(row.Columns.Count == 1 ? "col-sm-12" : "col-sm-6"
             
             #line default
             #line hidden
-, 724), false)
+, 788), false)
 );
 
 WriteLiteral(">\r\n");
@@ -178,20 +186,22 @@ WriteLiteral(">\r\n");
             
             #line default
             #line hidden
-WriteLiteral("\t\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<label>");
+WriteLiteral("\t\t\t\t\t\t\t<label>");
 
             
-            #line 26 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-                                  Write(item.Name);
+            #line 25 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
+                              Write(item.Name);
 
             
             #line default
             #line hidden
 WriteLiteral("</label>\r\n");
+
+WriteLiteral("\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n");
 
             
             #line 27 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
@@ -208,24 +218,24 @@ WriteLiteral("</label>\r\n");
             #line hidden
 WriteLiteral("\t\t\t\t\t\t\t\t\t<input");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 967), Tuple.Create("\"", 983)
+WriteAttribute("id", Tuple.Create(" id=\"", 1030), Tuple.Create("\"", 1046)
             
             #line 28 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 972), Tuple.Create<System.Object, System.Int32>(item.Param
+, Tuple.Create(Tuple.Create("", 1035), Tuple.Create<System.Object, System.Int32>(item.Param
             
             #line default
             #line hidden
-, 972), false)
+, 1035), false)
 );
 
-WriteAttribute("name", Tuple.Create(" name=\"", 984), Tuple.Create("\"", 1002)
+WriteAttribute("name", Tuple.Create(" name=\"", 1047), Tuple.Create("\"", 1065)
             
             #line 28 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 991), Tuple.Create<System.Object, System.Int32>(item.Param
+, Tuple.Create(Tuple.Create("", 1054), Tuple.Create<System.Object, System.Int32>(item.Param
             
             #line default
             #line hidden
-, 991), false)
+, 1054), false)
 );
 
 WriteLiteral(" ");
@@ -257,24 +267,24 @@ WriteLiteral("\" />\r\n");
             #line hidden
 WriteLiteral("\t\t\t\t\t\t\t\t\t<textarea");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 1163), Tuple.Create("\"", 1179)
+WriteAttribute("id", Tuple.Create(" id=\"", 1226), Tuple.Create("\"", 1242)
             
             #line 30 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 1168), Tuple.Create<System.Object, System.Int32>(item.Param
+, Tuple.Create(Tuple.Create("", 1231), Tuple.Create<System.Object, System.Int32>(item.Param
             
             #line default
             #line hidden
-, 1168), false)
+, 1231), false)
 );
 
-WriteAttribute("name", Tuple.Create(" name=\"", 1180), Tuple.Create("\"", 1198)
+WriteAttribute("name", Tuple.Create(" name=\"", 1243), Tuple.Create("\"", 1261)
             
             #line 30 "..\..\Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.cshtml"
-, Tuple.Create(Tuple.Create("", 1187), Tuple.Create<System.Object, System.Int32>(item.Param
+, Tuple.Create(Tuple.Create("", 1250), Tuple.Create<System.Object, System.Int32>(item.Param
             
             #line default
             #line hidden
-, 1187), false)
+, 1250), false)
 );
 
 WriteLiteral(">");

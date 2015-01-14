@@ -196,7 +196,7 @@ WriteLiteral(">\r\n\t\t\t\t\t<!-- Site -->\r\n\t\t\t\t\t<div");
 
 WriteLiteral(" id=\"pnlSite\"");
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t<div");
 
@@ -212,7 +212,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok-circle\"");
 
 WriteLiteral("></span></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t<!-- Save -->\r\n\t\t\t\t\t\t\t<div");
 
@@ -222,7 +222,7 @@ WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<button");
 
 WriteLiteral(" type=\"button\"");
 
-WriteLiteral(" class=\"btn btn-labeled btn-success\"");
+WriteLiteral(" class=\"btn btn-sm btn-labeled btn-success\"");
 
 WriteLiteral(" data-bind=\"click: saveSite\"");
 
@@ -245,16 +245,24 @@ WriteLiteral("\t\t\t\t\t\t\t\t\t");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<h3>");
+WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
 
             
-            #line 47 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                           Write(Piranha.Manager.Resources.Config.Site);
+            #line 46 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                               Write(Piranha.Manager.Resources.Config.Site);
 
             
             #line default
             #line hidden
-WriteLiteral("</h3>\r\n\r\n\t\t\t\t\t\t\t<div");
+WriteLiteral("</h3>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -262,20 +270,20 @@ WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 52 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                                          Write(Piranha.Manager.Resources.Config.SiteTitle);
+            #line 51 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                      Write(Piranha.Manager.Resources.Config.SiteTitle);
 
             
             #line default
             #line hidden
-WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -283,20 +291,20 @@ WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"value: siteTitle\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
+WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 56 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                                          Write(Piranha.Manager.Resources.Config.SiteArchivePageSize);
+            #line 55 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                      Write(Piranha.Manager.Resources.Config.SiteArchivePageSize);
 
             
             #line default
             #line hidden
-WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"number\"");
 
@@ -308,20 +316,20 @@ WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\
 
 WriteLiteral(" class=\"col-sm-6\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 62 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                                          Write(Piranha.Manager.Resources.Config.SiteDescription);
+            #line 61 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                      Write(Piranha.Manager.Resources.Config.SiteDescription);
 
             
             #line default
             #line hidden
-WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t\t<textarea");
+WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<textarea");
 
 WriteLiteral(" rows=\"3\"");
 
@@ -349,7 +357,7 @@ WriteLiteral("</p>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t
 
 WriteLiteral(" id=\"pnlCache\"");
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t<div");
 
@@ -365,7 +373,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok-circle\"");
 
 WriteLiteral("></span></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t<!-- Save -->\r\n\t\t\t\t\t\t\t<div");
 
@@ -375,7 +383,7 @@ WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<button");
 
 WriteLiteral(" type=\"button\"");
 
-WriteLiteral(" class=\"btn btn-labeled btn-success\"");
+WriteLiteral(" class=\"btn btn-sm btn-labeled btn-success\"");
 
 WriteLiteral(" data-bind=\"click: saveCache\"");
 
@@ -398,16 +406,24 @@ WriteLiteral("\t\t\t\t\t\t\t\t\t");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t<h3>");
+WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
 
             
-            #line 87 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                           Write(Piranha.Manager.Resources.Config.Cache);
+            #line 86 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                               Write(Piranha.Manager.Resources.Config.Cache);
 
             
             #line default
             #line hidden
-WriteLiteral("</h3>\r\n\r\n\t\t\t\t\t\t\t<div");
+WriteLiteral("</h3>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -415,20 +431,20 @@ WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 92 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                                          Write(Piranha.Manager.Resources.Config.CacheExpires);
+            #line 91 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                      Write(Piranha.Manager.Resources.Config.CacheExpires);
 
             
             #line default
             #line hidden
-WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"number\"");
 
@@ -440,20 +456,20 @@ WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\
 
 WriteLiteral(" class=\"col-sm-6\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 98 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                                          Write(Piranha.Manager.Resources.Config.CacheMaxAge);
+            #line 97 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                      Write(Piranha.Manager.Resources.Config.CacheMaxAge);
 
             
             #line default
             #line hidden
-WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"number\"");
 
@@ -500,7 +516,7 @@ WriteLiteral(">\r\n\t\t\t\t\t<!-- Comments -->\r\n\t\t\t\t\t<div");
 
 WriteLiteral(" id=\"pnlComments\"");
 
-WriteLiteral(" class=\"panel panel-white\"");
+WriteLiteral(" class=\"panel panel-default\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t<div");
 
@@ -516,7 +532,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-ok-circle\"");
 
 WriteLiteral("></span></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-heading\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t\t\t<!-- Save -->\r\n\t\t\t\t\t\t\t<div");
 
@@ -526,7 +542,7 @@ WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<button");
 
 WriteLiteral(" type=\"button\"");
 
-WriteLiteral(" class=\"btn btn-labeled btn-success\"");
+WriteLiteral(" class=\"btn btn-sm btn-labeled btn-success\"");
 
 WriteLiteral(" data-bind=\"click: saveComments\"");
 
@@ -549,16 +565,24 @@ WriteLiteral("\t\t\t\t\t\t\t\t\t");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t<h3>");
+WriteLiteral("\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<h3");
+
+WriteLiteral(" class=\"panel-title\"");
+
+WriteLiteral(">");
 
             
-            #line 130 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                           Write(Piranha.Manager.Resources.Config.Comments);
+            #line 129 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                               Write(Piranha.Manager.Resources.Config.Comments);
 
             
             #line default
             #line hidden
-WriteLiteral("</h3>\r\n\r\n\t\t\t\t\t\t\t<div");
+WriteLiteral("</h3>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"panel-body\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -566,20 +590,20 @@ WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<label>");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<label>");
 
             
-            #line 135 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
-                                          Write(Piranha.Manager.Resources.Config.Moderators);
+            #line 134 "..\..\Areas\Manager\Views\ConfigMgr\List.cshtml"
+                                      Write(Piranha.Manager.Resources.Config.Moderators);
 
             
             #line default
             #line hidden
-WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral("</label>\r\n\t\t\t\t\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 

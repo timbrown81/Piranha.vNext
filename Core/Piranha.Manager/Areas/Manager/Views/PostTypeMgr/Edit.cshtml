@@ -1,5 +1,13 @@
 ﻿@model Piranha.Manager.Models.PostType.EditModel
 
+@section script {
+	<script>
+		$(document).ready(function () {
+			$('#Name').focus();
+		});
+	</script>
+}
+
 @using (var form = Html.BeginForm("Save", "PostTypeMgr", FormMethod.Post, new { @class = "form", @role = "form" })) {
 	@Html.AntiForgeryToken()
 	@Html.HiddenFor(m => m.Id)
@@ -50,16 +58,17 @@
 			</div>
 		</div>
 
-		<div class="panel panel-white">
-			<div class="panel-body">
-				<h3 class="section-title">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">
 					Archive settings
 					<span class="pull-right">
 						@Html.LabelFor(m => m.EnableArchive, "Generate archive automatically", new { @class = "label-small" })
 						@Html.CheckBoxFor(m => m.EnableArchive)
 					</span>
 				</h3>
-
+			</div>
+			<div class="panel-body">
 				<div class="row">
 					<!-- Post type settings -->
 					<div class="col-sm-6">				

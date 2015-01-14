@@ -69,7 +69,16 @@ WriteLiteral(" class=\"row\"");
 
 WriteLiteral(">\r\n\t\t<div");
 
-WriteLiteral(" class=\"col-sm-12\"");
+WriteAttribute("class", Tuple.Create(" class=\"", 391), Tuple.Create("\"", 455)
+, Tuple.Create(Tuple.Create("", 399), Tuple.Create("col-sm-12", 399), true)
+            
+            #line 16 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+, Tuple.Create(Tuple.Create(" ", 408), Tuple.Create<System.Object, System.Int32>(Model.PostTypes.Count == 1 ? "buttons" : ""
+            
+            #line default
+            #line hidden
+, 409), false)
+);
 
 WriteLiteral(">\r\n");
 
@@ -154,14 +163,14 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("\t\t\t\t\t\t\t<li><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1076), Tuple.Create("\"", 1128)
+WriteAttribute("href", Tuple.Create(" href=\"", 1123), Tuple.Create("\"", 1175)
             
             #line 30 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
-, Tuple.Create(Tuple.Create("", 1083), Tuple.Create<System.Object, System.Int32>(Url.Action("Add", new { @type = type.Slug })
+, Tuple.Create(Tuple.Create("", 1130), Tuple.Create<System.Object, System.Int32>(Url.Action("Add", new { @type = type.Slug })
             
             #line default
             #line hidden
-, 1083), false)
+, 1130), false)
 );
 
 WriteLiteral(">");
@@ -199,14 +208,14 @@ WriteLiteral(" class=\"btn-group submit pull-right\"");
 
 WriteLiteral(">\r\n\t\t\t\t\t<a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1380), Tuple.Create("\"", 1432)
+WriteAttribute("href", Tuple.Create(" href=\"", 1427), Tuple.Create("\"", 1479)
             
             #line 38 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
-, Tuple.Create(Tuple.Create("", 1387), Tuple.Create<System.Object, System.Int32>(Url.Action("Add", new { @type = type.Slug })
+, Tuple.Create(Tuple.Create("", 1434), Tuple.Create<System.Object, System.Int32>(Url.Action("Add", new { @type = type.Slug })
             
             #line default
             #line hidden
-, 1387), false)
+, 1434), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary btn-labeled\"");
@@ -267,14 +276,14 @@ WriteLiteral(">\r\n\t\t\t\t\t<li ");
             #line hidden
 WriteLiteral(">\r\n\t\t\t\t\t\t<a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1805), Tuple.Create("\"", 1851)
+WriteAttribute("href", Tuple.Create(" href=\"", 1852), Tuple.Create("\"", 1898)
             
             #line 50 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
-, Tuple.Create(Tuple.Create("", 1812), Tuple.Create<System.Object, System.Int32>(Url.Action("List", new { @slug = "" })
+, Tuple.Create(Tuple.Create("", 1859), Tuple.Create<System.Object, System.Int32>(Url.Action("List", new { @slug = "" })
             
             #line default
             #line hidden
-, 1812), false)
+, 1859), false)
 );
 
 WriteLiteral(">");
@@ -312,14 +321,14 @@ WriteLiteral("\t\t\t\t\t\t<li ");
             #line hidden
 WriteLiteral("><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 2006), Tuple.Create("\"", 2059)
+WriteAttribute("href", Tuple.Create(" href=\"", 2053), Tuple.Create("\"", 2106)
             
             #line 53 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
-, Tuple.Create(Tuple.Create("", 2013), Tuple.Create<System.Object, System.Int32>(Url.Action("List", new { @slug = type.Slug })
+, Tuple.Create(Tuple.Create("", 2060), Tuple.Create<System.Object, System.Int32>(Url.Action("List", new { @slug = type.Slug })
             
             #line default
             #line hidden
-, 2013), false)
+, 2060), false)
 );
 
 WriteLiteral(">");
@@ -351,15 +360,7 @@ WriteLiteral("\t\t\t\t<br />\r\n");
             
             #line default
             #line hidden
-WriteLiteral("\t\t</div>\r\n\t</div>\r\n\r\n\t<div");
-
-WriteLiteral(" class=\"row\"");
-
-WriteLiteral(">\r\n\t\t<!-- Actions -->\r\n\t\t<div");
-
-WriteLiteral(" class=\"col-sm-12 buttons\"");
-
-WriteLiteral(">\r\n\t\t</div>\r\n\t</div>\r\n\r\n\t<!-- Post table -->\r\n\t<table");
+WriteLiteral("\t\t</div>\r\n\t</div>\r\n\r\n\t<!-- Post table -->\r\n\t<table");
 
 WriteLiteral(" id=\"post-list\"");
 
@@ -374,7 +375,7 @@ WriteLiteral(" data-sort=\"post-title\"");
 WriteLiteral(">");
 
             
-            #line 71 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 65 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                                          Write(Piranha.Manager.Resources.Global.Title);
 
             
@@ -389,7 +390,7 @@ WriteLiteral(" data-sort=\"post-type\"");
 WriteLiteral(">");
 
             
-            #line 72 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 66 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                                         Write(Piranha.Manager.Resources.Global.Type);
 
             
@@ -408,7 +409,7 @@ WriteLiteral(" data-sort=\"post-updated\"");
 WriteLiteral(">");
 
             
-            #line 73 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 67 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                                                         Write(Piranha.Manager.Resources.Global.Updated);
 
             
@@ -427,7 +428,7 @@ WriteLiteral(" data-sort=\"post-created\"");
 WriteLiteral(">");
 
             
-            #line 74 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 68 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                                                         Write(Piranha.Manager.Resources.Global.Created);
 
             
@@ -444,13 +445,13 @@ WriteLiteral(" class=\"list\"");
 WriteLiteral(">\r\n");
 
             
-            #line 79 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 73 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
 			
             
             #line default
             #line hidden
             
-            #line 79 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 73 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
              foreach (var post in Model.Items) {
 
             
@@ -459,7 +460,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("\t\t\t\t<tr ");
 
             
-            #line 80 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 74 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                 Write(!post.Published.HasValue ? "class=unpublished" : "");
 
             
@@ -469,20 +470,20 @@ WriteLiteral(">\r\n\t\t\t\t\t<td>\r\n\t\t\t\t\t\t<a");
 
 WriteLiteral(" class=\"post-title\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 3011), Tuple.Create("\"", 3059)
+WriteAttribute("href", Tuple.Create(" href=\"", 2962), Tuple.Create("\"", 3010)
             
-            #line 82 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
-, Tuple.Create(Tuple.Create("", 3018), Tuple.Create<System.Object, System.Int32>(Url.Action("Edit", new { id = post.Id })
+            #line 76 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+, Tuple.Create(Tuple.Create("", 2969), Tuple.Create<System.Object, System.Int32>(Url.Action("Edit", new { id = post.Id })
             
             #line default
             #line hidden
-, 3018), false)
+, 2969), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 82 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 76 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                                                                           Write(post.Title);
 
             
@@ -495,13 +496,13 @@ WriteLiteral(" class=\"meta\"");
 WriteLiteral(">\r\n");
 
             
-            #line 84 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 78 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
 							
             
             #line default
             #line hidden
             
-            #line 84 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 78 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                              if (post.Published.HasValue) {
 
             
@@ -512,7 +513,7 @@ WriteLiteral("\t\t\t\t\t\t\t\t");
 WriteLiteral("Published: ");
 
             
-            #line 85 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 79 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                             Write(post.Published.Value.ToString("yyyy-MM-dd"));
 
             
@@ -521,7 +522,7 @@ WriteLiteral("Published: ");
 WriteLiteral("\r\n");
 
             
-            #line 86 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 80 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
 							} else {
 
             
@@ -534,7 +535,7 @@ WriteLiteral("Unpublished");
 WriteLiteral("\r\n");
 
             
-            #line 88 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 82 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
 							}
 
             
@@ -547,7 +548,7 @@ WriteLiteral(" class=\"post-type\"");
 WriteLiteral(">");
 
             
-            #line 91 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 85 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                      Write(post.Type);
 
             
@@ -560,7 +561,7 @@ WriteLiteral(" class=\"post-updated\"");
 WriteLiteral(">");
 
             
-            #line 92 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 86 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                         Write(post.Updated.ToString("yyyy-MM-dd"));
 
             
@@ -573,7 +574,7 @@ WriteLiteral(" class=\"post-created\"");
 WriteLiteral(">");
 
             
-            #line 93 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 87 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
                                         Write(post.Created.ToString("yyyy-MM-dd"));
 
             
@@ -587,20 +588,20 @@ WriteLiteral("><a");
 
 WriteLiteral(" class=\"delete\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 3537), Tuple.Create("\"", 3588)
+WriteAttribute("href", Tuple.Create(" href=\"", 3488), Tuple.Create("\"", 3539)
             
-            #line 94 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
-, Tuple.Create(Tuple.Create("", 3544), Tuple.Create<System.Object, System.Int32>(Url.Action("Delete", new { @id = post.Id })
+            #line 88 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+, Tuple.Create(Tuple.Create("", 3495), Tuple.Create<System.Object, System.Int32>(Url.Action("Delete", new { @id = post.Id })
             
             #line default
             #line hidden
-, 3544), false)
+, 3495), false)
 );
 
 WriteLiteral("></a></td>\r\n\t\t\t\t</tr>\r\n");
 
             
-            #line 96 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
+            #line 90 "..\..\Areas\Manager\Views\PostMgr\List.cshtml"
 			}
 
             

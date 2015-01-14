@@ -29,37 +29,37 @@
 				<!-- General settings -->
 				<div data-bind="if: active() == 'general'">
 					<!-- Site -->
-					<div id="pnlSite" class="panel panel-white">
+					<div id="pnlSite" class="panel panel-default">
 						<div class="notification">
 							<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
 						</div>
-						<div class="panel-body">
+						<div class="panel-heading">
 							<!-- Save -->
 							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-labeled btn-success" data-bind="click: saveSite">
+								<button type="button" class="btn btn-sm btn-labeled btn-success" data-bind="click: saveSite">
 									<span class="btn-label">
 										<i class="glyphicon glyphicon-ok"></i>
 									</span>
 									@Piranha.Manager.Resources.Global.Save
 								</button>
 							</div>
-							
-							<h3>@Piranha.Manager.Resources.Config.Site</h3>
-
+							<h3 class="panel-title">@Piranha.Manager.Resources.Config.Site</h3>
+						</div>
+						<div class="panel-body">
 							<div class="row">
 								<div class="col-sm-6">
+									<label>@Piranha.Manager.Resources.Config.SiteTitle</label>
 									<div class="form-group">
-										<label>@Piranha.Manager.Resources.Config.SiteTitle</label>
 										<input type="text" class="form-control" data-bind="value: siteTitle" />
 									</div>
+									<label>@Piranha.Manager.Resources.Config.SiteArchivePageSize</label>
 									<div class="form-group">
-										<label>@Piranha.Manager.Resources.Config.SiteArchivePageSize</label>
 										<input type="number" class="form-control" data-bind="value: siteArchivePageSize" />
 									</div>
 								</div>
 								<div class="col-sm-6">
+									<label>@Piranha.Manager.Resources.Config.SiteDescription</label>
 									<div class="form-group">
-										<label>@Piranha.Manager.Resources.Config.SiteDescription</label>
 										<textarea rows="3" class="form-control count-me" style="height:97px" data-bind="value: siteDescription"></textarea>
 										<p><span data-bind="text: siteDescription().Length"></span>/255 @Piranha.Manager.Resources.Global.Characters</p>
 									</div>
@@ -69,33 +69,33 @@
 					</div>
 
 					<!-- Cache -->
-					<div id="pnlCache" class="panel panel-white">
+					<div id="pnlCache" class="panel panel-default">
 						<div class="notification">
 							<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
 						</div>
-						<div class="panel-body">
+						<div class="panel-heading">
 							<!-- Save -->
 							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-labeled btn-success" data-bind="click: saveCache">
+								<button type="button" class="btn btn-sm btn-labeled btn-success" data-bind="click: saveCache">
 									<span class="btn-label">
 										<i class="glyphicon glyphicon-ok"></i>
 									</span>
 									@Piranha.Manager.Resources.Global.Save
 								</button>
 							</div>
-
-							<h3>@Piranha.Manager.Resources.Config.Cache</h3>
-
+							<h3 class="panel-title">@Piranha.Manager.Resources.Config.Cache</h3>
+						</div>
+						<div class="panel-body">
 							<div class="row">
 								<div class="col-sm-6">
+									<label>@Piranha.Manager.Resources.Config.CacheExpires</label>
 									<div class="form-group">
-										<label>@Piranha.Manager.Resources.Config.CacheExpires</label>
 										<input type="number" class="form-control" data-bind="value: cacheExpires" />
 									</div>
 								</div>
 								<div class="col-sm-6">
+									<label>@Piranha.Manager.Resources.Config.CacheMaxAge</label>
 									<div class="form-group">
-										<label>@Piranha.Manager.Resources.Config.CacheMaxAge</label>
 										<input type="number" class="form-control" data-bind="value: cacheMaxAge" />
 									</div>
 								</div>
@@ -112,27 +112,27 @@
 				<!-- Blog settings -->
 				<div data-bind="if: active() == 'blogging'">
 					<!-- Comments -->
-					<div id="pnlComments" class="panel panel-white">
+					<div id="pnlComments" class="panel panel-default">
 						<div class="notification">
 							<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
 						</div>
-						<div class="panel-body">
+						<div class="panel-heading">
 							<!-- Save -->
 							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-labeled btn-success" data-bind="click: saveComments">
+								<button type="button" class="btn btn-sm btn-labeled btn-success" data-bind="click: saveComments">
 									<span class="btn-label">
 										<i class="glyphicon glyphicon-ok"></i>
 									</span>
 									@Piranha.Manager.Resources.Global.Save
 								</button>
 							</div>
-
-							<h3>@Piranha.Manager.Resources.Config.Comments</h3>
-
+							<h3 class="panel-title">@Piranha.Manager.Resources.Config.Comments</h3>
+						</div>
+						<div class="panel-body">
 							<div class="row">
 								<div class="col-sm-12">
+									<label>@Piranha.Manager.Resources.Config.Moderators</label>
 									<div class="form-group">
-										<label>@Piranha.Manager.Resources.Config.Moderators</label>
 										<input type="text" class="form-control" data-bind="value: commentModerators" />
 									</div>
 								</div>

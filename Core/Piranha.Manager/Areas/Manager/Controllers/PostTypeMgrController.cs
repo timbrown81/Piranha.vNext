@@ -82,11 +82,9 @@ namespace Piranha.Areas.Manager.Controllers
 		/// <returns>The redirect result</returns>
 		[Route("posttype/delete/{id:Guid}")]
 		public ActionResult Delete(Guid id) {
-			var type = api.PostTypes.GetSingle(id);
-			if (type != null) {
-				api.PostTypes.Remove(type);
-				api.SaveChanges();
-			}
+			api.PostTypes.Remove(id);
+			api.SaveChanges();
+
 			return RedirectToAction("List");
 		}
 	}

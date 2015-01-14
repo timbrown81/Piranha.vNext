@@ -20,12 +20,34 @@
 @import "mixins.less";
 
 .panel {
-	.border-radius(0);
+	border: 0 none;
 	position: relative;
 	overflow: hidden;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+	.border-radius(0);
 
 	>.panel-heading {
+		background: #f8f8f8;
 		.border-radius(0);
+
+		.btn {
+			margin: -2px 0 0 4px;
+		}
+	}
+
+	.panel-footer {
+		background: #f8f8f8;
+		.border-radius(0);
+	}
+
+	.panel-title {
+		font-family: "Open Sans", Arial;
+		text-transform: uppercase;
+		padding: 4px 0;
+	}
+
+	.form-group {
+		border-width: 1px;
 	}
 
 	&.panel-white {
@@ -94,10 +116,9 @@
 	}
 
 	&.panel-primary {
-		.form {
-			.form-group {
-				border-width: 1px;
-			}
+		>.panel-heading {
+			background: @link-color;
+			border-color: @link-color;
 		}
 	}
 

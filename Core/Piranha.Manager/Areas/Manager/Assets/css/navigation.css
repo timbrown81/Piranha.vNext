@@ -55,69 +55,46 @@
   background-image: url('../img/ico-menu-logout.png');
 }
 .navmenu-inverse {
-  width: 200px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  width: 220px;
 }
 .navmenu-inverse .navmenu-brand {
   position: relative;
-  padding: 0 15px;
-  margin: 0 0 -6px;
+  padding: 10px;
+  margin: 0;
+  border-bottom: 1px solid #444;
+  text-align: center;
   z-index: 1000;
-}
-.navmenu-inverse .avatar {
-  width: 36px;
-  height: 36px;
-  position: absolute;
-  right: 10px;
-  top: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  border-radius: 36px;
-  -moz-border-radius: 36px;
-  -webkit-border-radius: 36px;
-  -o-border-radius: 36px;
 }
 .navmenu-inverse .navmenu-nav > li {
   font-size: 15px;
-  border-top: 1px solid #111;
+  border-bottom: 1px solid #444;
 }
 .navmenu-inverse .navmenu-nav > li span {
-  color: #fff;
+  color: #f0ad4e;
   padding-right: 8px;
+  width: 28px;
 }
 .navmenu-inverse .navmenu-nav > li a {
   color: #ddd;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #111;
-  padding-left: 40px;
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 16px;
 }
 .navmenu-inverse .navmenu-nav > li a:hover {
   background: #2a2a2a;
 }
-.navmenu-inverse .navmenu-nav > li a.ico-content {
-  background: url('../img/ico-menu-content.png') 12px 50% no-repeat;
-}
-.navmenu-inverse .navmenu-nav > li a.ico-settings {
-  background: url('../img/ico-menu-settings.png') 12px 50% no-repeat;
-}
-.navmenu-inverse .navmenu-nav > li a.ico-system {
-  background: url('../img/ico-menu-system.png') 12px 50% no-repeat;
-}
-.navmenu-inverse .navmenu-nav > li a.ico-logout {
-  background: url('../img/ico-menu-logout.png') 12px 50% no-repeat;
-}
 .navmenu-inverse .navmenu-nav > li ul {
   padding: 0;
-  border-left: 4px solid #55A812;
 }
 .navmenu-inverse .navmenu-nav > li ul li {
   font-size: 13px;
   list-style-type: none;
 }
 .navmenu-inverse .navmenu-nav > li ul li a {
-  color: #ddd;
+  color: #2a8ac2;
   display: block;
-  padding: 8px 0 8px 40px;
-  border: 0 none;
+  padding: 8px 0 8px 44px;
+  font: normal 15px Arial;
 }
 .navmenu-inverse .navmenu-nav > li ul li a:hover {
   text-decoration: none;
@@ -126,11 +103,11 @@
   padding-top: 10px;
 }
 .navmenu-inverse .navmenu-nav > li ul li:last-child a {
-  padding-bottom: 10px;
+  padding-bottom: 14px;
 }
 .navmenu-inverse .navmenu-nav > li ul li.active a {
-  background: #080808;
-  color: #fff;
+  background: #2a2a2a;
+  color: #ccc;
 }
 .navmenu-inverse .navmenu-nav > li.active a {
   border-bottom: 1px solid #000;
