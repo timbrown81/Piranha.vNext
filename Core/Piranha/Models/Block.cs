@@ -17,6 +17,7 @@
  */
 
 using System;
+using FluentValidation;
 
 namespace Piranha.Models
 {
@@ -94,6 +95,30 @@ namespace Piranha.Models
 
 			// Remove from model cache
 			App.ModelCache.Remove<Models.Block>(this.Id);
+		}
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new BlockValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class BlockValidator : AbstractValidator<Block>
+		{
+			public BlockValidator()
+			{
+				RuleFor(m => m.Name).NotEmpty();
+				RuleFor(m => m.Name).Length(0, 128);
+				RuleFor(m => m.Description).Length(0, 255);
+				RuleFor(m => m.Slug).NotEmpty();
+				RuleFor(m => m.Slug).Length(0, 128);
+			}
 		}
 		#endregion
 	}

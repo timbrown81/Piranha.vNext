@@ -17,6 +17,7 @@
  */
 
 using System;
+using FluentValidation;
 
 namespace Piranha.Models
 {
@@ -63,6 +64,9 @@ namespace Piranha.Models
 		/// </summary>
 		/// <param name="db">The current db context</param>
 		public override void OnSave() {
+			// ensure to call the base class OnSave which will validate the model
+			base.OnSave();
+
 			// Remove from model cache
 			App.ModelCache.Remove<Models.Alias>(this.Id);
 		}
@@ -74,6 +78,29 @@ namespace Piranha.Models
 		public override void OnDelete() {
 			// Remove from model cache
 			App.ModelCache.Remove<Models.Alias>(this.Id);
+		}
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new AliasValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class AliasValidator : FluentValidation.AbstractValidator<Alias>
+		{
+			public AliasValidator()
+			{
+				RuleFor(m => m.NewUrl).NotEmpty();
+				RuleFor(m => m.NewUrl).Length(0, 255);
+				RuleFor(m => m.OldUrl).NotEmpty();
+				RuleFor(m => m.NewUrl).Length(0, 255);
+			}
 		}
 		#endregion
 	}

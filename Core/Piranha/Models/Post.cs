@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using FluentValidation;
 
 namespace Piranha.Models
 {
@@ -112,6 +113,33 @@ namespace Piranha.Models
 
 			// Remove from model cache
 			App.ModelCache.Remove<Models.Post>(this.Id);
+		}
+
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new PostValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class PostValidator : AbstractValidator<Post>
+		{
+			public PostValidator()
+			{
+				RuleFor(m => m.Title).NotEmpty();
+				RuleFor(m => m.Title).Length(0, 128);
+				RuleFor(m => m.Keywords).Length(0, 128);
+				RuleFor(m => m.Description).Length(0, 255);
+				RuleFor(m => m.Route).Length(0, 255);
+				RuleFor(m => m.View).Length(0, 255);
+				RuleFor(m => m.Excerpt).Length(0, 512);
+			}
 		}
 		#endregion
 	}

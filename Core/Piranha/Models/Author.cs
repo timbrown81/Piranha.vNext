@@ -17,13 +17,14 @@
  */
 
 using System;
+using FluentValidation;
 
 namespace Piranha.Models
 {
 	/// <summary>
 	/// Authors are used to sign content.
 	/// </summary>
-	public sealed class Author : Data.IModel, Data.IChanges
+	public sealed class Author : Model, Data.IModel, Data.IChanges
 	{
 		#region Properties
 		/// <summary>
@@ -55,6 +56,29 @@ namespace Piranha.Models
 		/// Gets/sets when the model was last updated.
 		/// </summary>
 		public DateTime Updated { get; set; }
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new AuthorValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class AuthorValidator : AbstractValidator<Author>
+		{
+			public AuthorValidator()
+			{
+				RuleFor(m => m.Name).NotEmpty();
+				RuleFor(m => m.Name).Length(0, 128);
+				RuleFor(m => m.Email).Length(0,128);
+				RuleFor(m => m.Description).Length(0,512);
+			}
+		}
 		#endregion
 	}
 }

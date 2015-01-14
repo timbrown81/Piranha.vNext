@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FluentValidation;
 
 namespace Piranha.Models
 {
@@ -58,6 +59,32 @@ namespace Piranha.Models
 			// Ensure region id
 			foreach (var reg in Regions)
 				reg.Id = reg.Id == Guid.Empty ? Guid.NewGuid() : reg.Id;
+		}
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new PageTypeValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class PageTypeValidator : AbstractValidator<PageType>
+		{
+			public PageTypeValidator()
+			{
+				RuleFor(m => m.Name).NotEmpty();
+				RuleFor(m => m.Name).Length(0, 128);
+				RuleFor(m => m.Description).Length(0, 255);
+				RuleFor(m => m.Route).Length(0, 255);
+				RuleFor(m => m.View).Length(0, 255);
+				RuleFor(m => m.Slug).NotEmpty();
+				RuleFor(m => m.Slug).Length(0, 128);
+			}
 		}
 		#endregion
 	}

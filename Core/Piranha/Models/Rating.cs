@@ -17,13 +17,14 @@
  */
 
 using System;
+using FluentValidation;
 
 namespace Piranha.Models
 {
 	/// <summary>
 	/// Ratings are used to star, like & dislike content.
 	/// </summary>
-	public sealed class Rating : Data.IModel, Data.IChanges
+	public sealed class Rating : Model, Data.IModel, Data.IChanges
 	{
 		#region Properties
 		/// <summary>
@@ -55,6 +56,27 @@ namespace Piranha.Models
 		/// Gets/sets when the model was last updated.
 		/// </summary>
 		public DateTime Updated { get; set; }
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new RatingValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class RatingValidator : AbstractValidator<Rating>
+		{
+			public RatingValidator()
+			{
+				RuleFor(m => m.UserId).NotEmpty();
+				RuleFor(m => m.UserId).Length(0, 128);
+			}
+		}
 		#endregion
 	}
 }

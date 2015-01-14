@@ -17,6 +17,7 @@
  */
 
 using System;
+using FluentValidation;
 
 namespace Piranha.Models
 {
@@ -69,6 +70,27 @@ namespace Piranha.Models
 		public override void OnDelete() {
 			// Remove from model cache
 			App.ModelCache.Remove<Models.Param>(this.Id);
+		}
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new ParamValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class ParamValidator : AbstractValidator<Param>
+		{
+			public ParamValidator()
+			{
+				RuleFor(m => m.Name).NotEmpty();
+				RuleFor(m => m.Name).Length(0, 128);
+			}
 		}
 		#endregion
 	}
