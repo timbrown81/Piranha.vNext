@@ -17,13 +17,14 @@
  */
 
 using System;
+using FluentValidation;
 
 namespace Piranha.Models
 {
 	/// <summary>
 	/// Categories are used to group posts together.
 	/// </summary>
-	public sealed class Category : Data.IModel, Data.IChanges
+	public sealed class Category : Model, Data.IModel, Data.IChanges
 	{
 		#region Properties
 		/// <summary>
@@ -50,6 +51,29 @@ namespace Piranha.Models
 		/// Gets/sets when the model was last updated.
 		/// </summary>
 		public DateTime Updated { get; set; }
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new CategoryValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class CategoryValidator : AbstractValidator<Category>
+		{
+			public CategoryValidator()
+			{
+				RuleFor(m => m.Title).NotEmpty();
+				RuleFor(m => m.Title).Length(0, 128);
+				RuleFor(m => m.Slug).NotEmpty();
+				RuleFor(m => m.Slug).Length(0, 128);
+			}
+		}
 		#endregion
 	}
 }

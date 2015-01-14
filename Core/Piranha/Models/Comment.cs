@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using FluentValidation;
 
 namespace Piranha.Models
 {
@@ -143,6 +144,16 @@ namespace Piranha.Models
 		}
 		#endregion
 
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new CommentValidator();
+			return validator.Validate(this);
+		}
+
 		#region Private methods
 		/// <summary>
 		/// Takes care of any mail notifications that should be sent.
@@ -198,6 +209,22 @@ namespace Piranha.Models
 				} else {
 					App.Logger.Log(Log.LogLevel.ERROR, "Models.Comment.HandleNotifications: No mail provider configured.");
 				}
+			}
+		}
+		#endregion
+
+		#region Validator
+		private class CommentValidator : AbstractValidator<Comment>
+		{
+			public CommentValidator()
+			{
+				RuleFor(m => m.UserId).Length(0, 128);
+				RuleFor(m => m.Author).Length(0, 128);
+				RuleFor(m => m.Email).Length(0, 128);
+				RuleFor(m => m.UserId).Length(0, 16);
+				RuleFor(m => m.UserAgent).Length(0, 128);
+				RuleFor(m => m.WebSite).Length(0, 128);
+				RuleFor(m => m.SessionID).Length(0, 64);
 			}
 		}
 		#endregion

@@ -17,6 +17,7 @@
  */
 
 using System;
+using FluentValidation;
 
 namespace Piranha.Models
 {
@@ -97,6 +98,29 @@ namespace Piranha.Models
 
 			// Remove binary data
 			App.Media.Delete(this);
+		}
+		#endregion
+
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new MediaValidator();
+			return validator.Validate(this);
+		}
+
+		#region Validator
+		private class MediaValidator : AbstractValidator<Media>
+		{
+			public MediaValidator()
+			{
+				RuleFor(m => m.Name).NotEmpty();
+				RuleFor(m => m.Name).Length(0, 128);
+				RuleFor(m => m.Slug).NotEmpty();
+				RuleFor(m => m.Slug).Length(0, 128);
+			}
 		}
 		#endregion
 	}

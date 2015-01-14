@@ -33,11 +33,34 @@ namespace Piranha.Models
 		/// <summary>
 		/// Called before the model is saved by the DbContext.
 		/// </summary>
-		public virtual void OnSave() { }
+		public virtual void OnSave() {
+			// ensure to validate the model as a first step
+			try
+			{
+				// call validate on the model
+				FluentValidation.Results.ValidationResult validationResults = this.Validate();
+
+				if (!validationResults.IsValid)
+				{
+					throw new FluentValidation.ValidationException(validationResults.Errors);
+				}
+			}
+			catch (NotImplementedException)
+			{
+				// if validate is not implemented, we ignore and move on.
+			}
+
+			
+		}
 
 		/// <summary>
 		/// Called before the model is deleted by the DbContext.
 		/// </summary>
 		public virtual void OnDelete() { }
+
+		/// <summary>
+		/// Method to validate the model
+		/// </summary>
+		protected abstract FluentValidation.Results.ValidationResult Validate();
 	}
 }

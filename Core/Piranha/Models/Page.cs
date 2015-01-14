@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FluentValidation;
 
 namespace Piranha.Models
 {
@@ -131,6 +132,16 @@ namespace Piranha.Models
 		}
 		#endregion
 
+		/// <summary>
+		/// Method to validate model
+		/// </summary>
+		/// <returns>Returns the result of validation</returns>
+		protected override FluentValidation.Results.ValidationResult Validate()
+		{
+			var validator = new PageValidator();
+			return validator.Validate(this);
+		}
+
 		#region Private methods
 		/// <summary>
 		/// Repositions the site structure.
@@ -151,6 +162,24 @@ namespace Piranha.Models
 			}
 			 */
 		//}
+		#endregion
+
+		#region Validator
+		private class PageValidator : AbstractValidator<Page>
+		{
+			public PageValidator()
+			{
+				RuleFor(m => m.Title).NotEmpty();
+				RuleFor(m => m.Title).Length(0, 128);
+				RuleFor(m => m.NavigationTitle).Length(0, 128);
+				RuleFor(m => m.Keywords).Length(0, 128);
+				RuleFor(m => m.Description).Length(0, 255);
+				RuleFor(m => m.Route).Length(0, 255);
+				RuleFor(m => m.View).Length(0, 255);
+				RuleFor(m => m.Slug).NotEmpty();
+				RuleFor(m => m.Slug).Length(0, 128);
+			}
+		}
 		#endregion
 	}
 }
