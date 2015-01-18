@@ -7283,7 +7283,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 body {
   background-color: #ededed;
   font-family: Arial;
-  margin-left: 230px;
+  margin-left: 220px;
   min-width: 768px;
 }
 h1 {
@@ -7297,7 +7297,6 @@ a {
   color: #2a8ac2;
 }
 .container-fluid {
-  max-width: 1270px;
   margin-left: 0;
 }
 .section-title {
