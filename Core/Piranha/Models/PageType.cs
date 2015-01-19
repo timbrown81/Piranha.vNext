@@ -53,6 +53,9 @@ namespace Piranha.Models
 		/// Called before the model is saved by the DbContext.
 		/// </summary>
 		public override void OnSave() {
+			// ensure to call the base class OnSave which will validate the model
+			base.OnSave();
+
 			// Order regions
 			Regions = Regions.OrderBy(r => r.Order).ToStateList();
 
