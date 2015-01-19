@@ -81,6 +81,9 @@ namespace Piranha.Models
 		/// </summary>
 		/// <param name="db">The current db context</param>
 		public override void OnSave() {
+			// ensure to call the base class OnSave which will validate the model
+			base.OnSave();
+
 			// Remove from model cache
 			App.ModelCache.Remove<PostType>(this.Id);
 		}
