@@ -142,7 +142,26 @@ namespace Piranha.Models
 				RuleFor(m => m.Route).Length(0, 255);
 				RuleFor(m => m.View).Length(0, 255);
 				RuleFor(m => m.Excerpt).Length(0, 512);
+
+				// check unique TypeId+Slug 
+				using (var api = new Api())
+				{
+					RuleFor(m => m.Slug).Must((m,slug) => { return IsTypeIdPlusSlugUnique(m, slug, api); }).WithMessage("TypeId and Slug combination should be unique");
+				}
 			}
+
+			/// <summary>
+			/// Function to validate if TypeId+Slug is unique
+			/// </summary>
+			/// <param name="slug"></param>
+			/// <param name="api"></param>
+			/// <returns></returns>
+			private bool IsTypeIdPlusSlugUnique(Post p, string slug, Api api)
+			{
+				var model = api.Posts.GetSingle(where: m => m.Slug == slug && m.TypeId == p.TypeId);
+				return model == null;
+			}
+
 		}
 		#endregion
 	}
