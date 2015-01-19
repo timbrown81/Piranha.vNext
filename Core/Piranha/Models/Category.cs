@@ -72,6 +72,24 @@ namespace Piranha.Models
 				RuleFor(m => m.Title).Length(0, 128);
 				RuleFor(m => m.Slug).NotEmpty();
 				RuleFor(m => m.Slug).Length(0, 128);
+
+				// check unique Slug 
+				using (var api = new Api())
+				{
+					RuleFor(m => m.Slug).Must((slug) => { return IsSlugUnique(slug, api); }).WithMessage("Slug should be unique");
+				}
+			}
+
+			/// <summary>
+			/// Function to validate if Slug is unique
+			/// </summary>
+			/// <param name="slug"></param>
+			/// <param name="api"></param>
+			/// <returns></returns>
+			private bool IsSlugUnique(string slug, Api api)
+			{
+				var model = api.Categories.GetSingle(where: m => m.Slug == slug);
+				return model == null;
 			}
 		}
 		#endregion

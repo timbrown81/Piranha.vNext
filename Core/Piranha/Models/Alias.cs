@@ -100,6 +100,22 @@ namespace Piranha.Models
 				RuleFor(m => m.NewUrl).Length(0, 255);
 				RuleFor(m => m.OldUrl).NotEmpty();
 				RuleFor(m => m.NewUrl).Length(0, 255);
+				
+				// check unique OldUrl 
+				using (var api = new Api()) {
+					RuleFor(m => m.OldUrl).Must((oldUrl) => { return IsOldUrlUnique(oldUrl, api); }).WithMessage("OldUrl alias already exists");
+				}
+			}
+
+			/// <summary>
+			/// Function to validate if OldUrl is unique
+			/// </summary>
+			/// <param name="url"></param>
+			/// <param name="api"></param>
+			/// <returns></returns>
+			private bool IsOldUrlUnique(string url, Api api) { 
+				var model = api.Aliases.GetSingle(where: m => m.OldUrl == url);
+				return model == null;
 			}
 		}
 		#endregion

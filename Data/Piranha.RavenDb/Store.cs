@@ -69,7 +69,12 @@ namespace Piranha.RavenDb
 		/// </summary>
 		/// <returns>The new session</returns>
 		public ISession OpenSession() {
-			return new Session(store.OpenSession());
+			var documentSection = store.OpenSession();
+
+			//use optimistic concurrency
+			documentSection.Advanced.UseOptimisticConcurrency = true;
+
+			return new Session(documentSection);
 		}
 
 		#region Resolvers
