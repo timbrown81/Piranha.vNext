@@ -6,17 +6,10 @@
 
 	<title>@ViewBag.Title</title>
 
-	<link href="~/manager/assets.ashx/img/icon.ico" rel="icon" type="image/x-icon">
-	<link href="~/manager/assets.ashx/img/icon.ico" rel="shortcut icon" type="image/x-icon">
 	<link href="~/manager/assets.ashx/css/style.min.css" rel="stylesheet" type="text/css" />
+	<link type="image/x-icon" rel="icon" href="~/manager/assets.ashx/img/icon.ico">
+	<link type="image/x-icon" rel="shortcut icon" href="~/manager/assets.ashx/img/icon.ico">
 
-	@if (!String.IsNullOrEmpty(ViewBag.Message)) {
-		<script type="text/javascript">
-			setTimeout(function () {
-				$(".sys-message").slideUp();
-			}, 2000);
-		</script>
-	}
 	@RenderSection("head", required: false)
 </head>
 <body @(ViewBag.IsSaved == true ? "class=pre-saved" : "")>
@@ -27,15 +20,16 @@
 		@Html.Partial("Partial/Menu")
 	</nav>
 
-	<div class="title">
-		<div class="container-fluid">
-			<h1>@ViewBag.Title</h1>
-			@if (!String.IsNullOrWhiteSpace(ViewBag.SubTitle)) {
-				<p class="subtitle">@ViewBag.SubTitle</p>
-			}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>@ViewBag.Title</h1>
+				@if (!String.IsNullOrWhiteSpace(ViewBag.SubTitle)) {
+					<p class="subtitle">@ViewBag.SubTitle</p>
+				}
+			</div>
 		</div>
-	</div>
-	<div class="body">
+
 		@RenderBody()
 	</div>
 

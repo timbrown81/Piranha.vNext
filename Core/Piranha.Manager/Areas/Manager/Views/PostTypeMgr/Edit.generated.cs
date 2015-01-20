@@ -84,491 +84,507 @@ Write(Html.HiddenFor(m => m.Id));
             #line hidden
 WriteLiteral("\t<div");
 
-WriteLiteral(" class=\"container-fluid\"");
+WriteLiteral(" class=\"row\"");
 
 WriteLiteral(">\r\n\t\t<div");
 
-WriteLiteral(" class=\"row\"");
-
-WriteLiteral(">\r\n\t\t\t<div");
-
 WriteLiteral(" class=\"col-sm-12 buttons\"");
 
-WriteLiteral(">\r\n\t\t\t\t<!-- Actions -->\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<!-- Actions -->\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"btn-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<button");
+WriteLiteral(">\r\n\t\t\t\t<button");
 
 WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" class=\"btn btn-labeled btn-success\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t<span");
+WriteLiteral(">\r\n\t\t\t\t\t<span");
 
 WriteLiteral(" class=\"btn-label\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t<i");
+WriteLiteral(">\r\n\t\t\t\t\t\t<i");
 
 WriteLiteral(" class=\"glyphicon glyphicon-ok\"");
 
-WriteLiteral("></i>\r\n\t\t\t\t\t\t</span>");
+WriteLiteral("></i>\r\n\t\t\t\t\t</span>");
 
             
-            #line 23 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                          Write(Piranha.Manager.Resources.Global.Save);
+            #line 22 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                      Write(Piranha.Manager.Resources.Global.Save);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t</button>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div");
+WriteLiteral("\r\n\t\t\t\t</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
+
+            
+            #line 27 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\t<div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n\t\t\t<div");
+WriteLiteral(">\r\n\t\t<div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t");
 
             
-            #line 32 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Add name" }));
+            #line 31 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+           Write(Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Add name" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t");
 
             
-            #line 33 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Name));
+            #line 32 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+           Write(Html.ValidationMessageFor(m => m.Name));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div");
+WriteLiteral("\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
+
+WriteLiteral("\t<div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n\t\t\t<div");
+WriteLiteral(">\r\n\t\t<div");
 
 WriteLiteral(" class=\"col-sm-8\"");
 
-WriteLiteral(">\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t");
 
             
-            #line 40 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.TextAreaFor(m => m.Description, new { @class = "form-control count-me", @rows = 4, @placeholder = "Add optional description" }));
+            #line 39 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+           Write(Html.TextAreaFor(m => m.Description, new { @class = "form-control count-me", @rows = 4, @placeholder = "Add optional description" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t<p><span>");
+WriteLiteral("\r\n\t\t\t\t<p><span>");
 
             
-            #line 41 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                         Write(!String.IsNullOrEmpty(Model.Description) ? Model.Description.Length : 0);
+            #line 40 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                     Write(!String.IsNullOrEmpty(Model.Description) ? Model.Description.Length : 0);
 
             
             #line default
             #line hidden
 WriteLiteral("</span>/255 characters</p>\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t");
 
             
-            #line 42 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Description));
+            #line 41 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+           Write(Html.ValidationMessageFor(m => m.Description));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div");
+WriteLiteral("\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div");
 
 WriteLiteral(" class=\"col-sm-4\"");
 
-WriteLiteral(">\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t");
+
+            
+            #line 46 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+           Write(Html.TextBoxFor(m => m.Route, new { @class = "form-control meta", @placeholder = "Add optional route" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("\t\t\t\t");
 
             
             #line 47 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.TextBoxFor(m => m.Route, new { @class = "form-control meta", @placeholder = "Add optional route" }));
+           Write(Html.ValidationMessageFor(m => m.Route));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t</div>\r\n\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("\t\t\t\t");
+
+            
+            #line 50 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+           Write(Html.TextBoxFor(m => m.View, new { @class = "form-control meta", @placeholder = "Add optional view" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t");
-
-            
-            #line 48 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Route));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t");
 
             
             #line 51 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.TextBoxFor(m => m.View, new { @class = "form-control meta", @placeholder = "Add optional view" }));
+           Write(Html.ValidationMessageFor(m => m.View));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("\t\t\t\t\t");
-
-            
-            #line 52 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.ValidationMessageFor(m => m.View));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t</div>\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t");
 
             
-            #line 55 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.TextBoxFor(m => m.CommentRoute, new { @class = "form-control meta", @placeholder = "Add optional comment route" }));
+            #line 54 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+           Write(Html.TextBoxFor(m => m.CommentRoute, new { @class = "form-control meta", @placeholder = "Add optional comment route" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t");
+WriteLiteral("\t\t\t\t");
 
             
-            #line 56 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-               Write(Html.ValidationMessageFor(m => m.CommentRoute));
+            #line 55 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+           Write(Html.ValidationMessageFor(m => m.CommentRoute));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div");
+WriteLiteral("\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
+
+            
+            #line 59 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\t<div");
 
 WriteLiteral(" class=\"panel panel-default\"");
 
-WriteLiteral(">\r\n\t\t\t<div");
+WriteLiteral(">\r\n\t\t<div");
 
 WriteLiteral(" class=\"panel-heading\"");
 
-WriteLiteral(">\r\n\t\t\t\t<h3");
+WriteLiteral(">\r\n\t\t\t<h3");
 
 WriteLiteral(" class=\"panel-title\"");
 
-WriteLiteral(">\r\n\t\t\t\t\tArchive settings\r\n\t\t\t\t\t<span");
+WriteLiteral(">\r\n\t\t\t\tArchive settings\r\n\t\t\t\t<span");
 
 WriteLiteral(" class=\"pull-right\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t");
 
             
-            #line 66 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                   Write(Html.LabelFor(m => m.EnableArchive, "Generate archive automatically", new { @class = "label-small" }));
+            #line 65 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+               Write(Html.LabelFor(m => m.EnableArchive, "Generate archive automatically", new { @class = "label-small" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t");
 
             
-            #line 67 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                   Write(Html.CheckBoxFor(m => m.EnableArchive));
+            #line 66 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+               Write(Html.CheckBoxFor(m => m.EnableArchive));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t</span>\r\n\t\t\t\t</h3>\r\n\t\t\t</div>\r\n\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t</span>\r\n\t\t\t</h3>\r\n\t\t</div>\r\n\t\t<div");
 
 WriteLiteral(" class=\"panel-body\"");
 
-WriteLiteral(">\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<!-- Post type settings -->\r\n\t\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t\t<!-- Post type settings -->\r\n\t\t\t\t<div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\t\t\t\t\r\n");
 
-WriteLiteral("\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t");
 
             
-            #line 75 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                   Write(Html.LabelFor(m => m.ArchiveTitle, Piranha.Manager.Resources.PostType.ArchiveTitle));
+            #line 74 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+               Write(Html.LabelFor(m => m.ArchiveTitle, Piranha.Manager.Resources.PostType.ArchiveTitle));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t");
+
+            
+            #line 76 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.TextBoxFor(m => m.ArchiveTitle, new { @class = "form-control meta", @placeholder = "Add archive title" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("\t\t\t\t\t\t");
 
             
             #line 77 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.TextBoxFor(m => m.ArchiveTitle, new { @class = "form-control meta", @placeholder = "Add archive title" }));
+                   Write(Html.ValidationMessageFor(m => m.ArchiveTitle));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t\t\t</div>\r\n");
+
+WriteLiteral("\t\t\t\t\t");
+
+            
+            #line 79 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+               Write(Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("\t\t\t\t\t\t");
+
+            
+            #line 81 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.TextBoxFor(m => m.Slug, new { @class = "form-control meta", @placeholder = "A slug will be generated automatically" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
-
-            
-            #line 78 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.ValidationMessageFor(m => m.ArchiveTitle));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
-
 WriteLiteral("\t\t\t\t\t\t");
-
-            
-            #line 80 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                   Write(Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("\t\t\t\t\t\t\t");
 
             
             #line 82 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.TextBoxFor(m => m.Slug, new { @class = "form-control meta", @placeholder = "A slug will be generated automatically" }));
+                   Write(Html.ValidationMessageFor(m => m.Slug));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t\t\t</div>\r\n");
+
+WriteLiteral("\t\t\t\t\t");
+
+            
+            #line 84 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+               Write(Html.LabelFor(m => m.ArchiveRoute, Piranha.Manager.Resources.PostType.ArchiveRoute));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t\t\t<div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("\t\t\t\t\t\t");
+
+            
+            #line 86 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control meta", @placeholder = "Add optional archive route" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
-
-            
-            #line 83 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.ValidationMessageFor(m => m.Slug));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
-
 WriteLiteral("\t\t\t\t\t\t");
-
-            
-            #line 85 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                   Write(Html.LabelFor(m => m.ArchiveRoute, Piranha.Manager.Resources.PostType.ArchiveRoute));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t<div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("\t\t\t\t\t\t\t");
 
             
             #line 87 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control meta", @placeholder = "Add optional archive route" }));
+                   Write(Html.ValidationMessageFor(m => m.ArchiveRoute));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
+WriteLiteral("\r\n\t\t\t\t\t</div>\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
-
-            
-            #line 88 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.ValidationMessageFor(m => m.ArchiveRoute));
+WriteLiteral("\t\t\t\t\t");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
-
-WriteLiteral("\t\t\t\t\t\t");
-
-            
-            #line 90 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                   Write(Html.LabelFor(m => m.ArchiveView, Piranha.Manager.Resources.PostType.ArchiveView));
+            #line 89 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+               Write(Html.LabelFor(m => m.ArchiveView, Piranha.Manager.Resources.PostType.ArchiveView));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 92 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.TextBoxFor(m => m.ArchiveView, new { @class = "form-control meta", @placeholder = "Add optional archive view" }));
+            #line 91 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.TextBoxFor(m => m.ArchiveView, new { @class = "form-control meta", @placeholder = "Add optional archive view" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 93 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.ValidationMessageFor(m => m.ArchiveView));
+            #line 92 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.ValidationMessageFor(m => m.ArchiveView));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- Archive settings -->\r\n\t\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<!-- Archive settings -->\r\n\t\t\t\t<div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t");
 
             
-            #line 99 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                   Write(Html.LabelFor(m => m.MetaKeywords, Piranha.Manager.Resources.Global.MetaKeywords));
+            #line 98 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+               Write(Html.LabelFor(m => m.MetaKeywords, Piranha.Manager.Resources.Global.MetaKeywords));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 101 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control meta", @placeholder = "Add archive meta keywords" }));
+            #line 100 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control meta", @placeholder = "Add archive meta keywords" }));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
-
-            
-            #line 102 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.ValidationMessageFor(m => m.MetaKeywords));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n");
-
 WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 104 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                   Write(Html.LabelFor(m => m.MetaDescription, Piranha.Manager.Resources.Global.MetaDescription));
+            #line 101 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.ValidationMessageFor(m => m.MetaKeywords));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t<div");
+WriteLiteral("\r\n\t\t\t\t\t</div>\r\n");
+
+WriteLiteral("\t\t\t\t\t");
+
+            
+            #line 103 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+               Write(Html.LabelFor(m => m.MetaDescription, Piranha.Manager.Resources.Global.MetaDescription));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 106 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 7, @style = "height:164px", @placeholder = "Add archive meta description" }));
+            #line 105 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 7, @style = "height:164px", @placeholder = "Add archive meta description" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t\t<p><span>");
+WriteLiteral("\r\n\t\t\t\t\t\t<p><span>");
 
             
-            #line 107 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                                 Write(!String.IsNullOrEmpty(Model.MetaDescription) ? Model.MetaDescription.Length : 0);
+            #line 106 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                             Write(!String.IsNullOrEmpty(Model.MetaDescription) ? Model.MetaDescription.Length : 0);
 
             
             #line default
             #line hidden
 WriteLiteral("</span>/255 characters</p>\r\n");
 
-WriteLiteral("\t\t\t\t\t\t\t");
+WriteLiteral("\t\t\t\t\t\t");
 
             
-            #line 108 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
-                       Write(Html.ValidationMessageFor(m => m.MetaDescription));
+            #line 107 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+                   Write(Html.ValidationMessageFor(m => m.MetaDescription));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
+WriteLiteral("\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
 
             
-            #line 115 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
+            #line 113 "..\..\Areas\Manager\Views\PostTypeMgr\Edit.cshtml"
 }
             
             #line default

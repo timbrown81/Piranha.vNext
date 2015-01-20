@@ -209,15 +209,11 @@ WriteLiteral(" type=\"checkbox\"");
 
 WriteLiteral(" data-bind=\"checked: isPermanent\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t<label");
-
-WriteLiteral(" class=\"label-small label-up\"");
-
-WriteLiteral(">");
+WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t<label>");
 
             
             #line 43 "..\..\Areas\Manager\Views\AliasMgr\Partial\EditAlias.cshtml"
-                                                               Write(Piranha.Manager.Resources.Alias.IsPermanent);
+                                  Write(Piranha.Manager.Resources.Alias.IsPermanent);
 
             
             #line default

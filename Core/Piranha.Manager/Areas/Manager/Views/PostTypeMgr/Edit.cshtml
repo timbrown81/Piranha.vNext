@@ -12,101 +12,99 @@
 	@Html.AntiForgeryToken()
 	@Html.HiddenFor(m => m.Id)
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12 buttons">
-				<!-- Actions -->
-				<div class="btn-group">
-					<button type="submit" class="btn btn-labeled btn-success">
-						<span class="btn-label">
-							<i class="glyphicon glyphicon-ok"></i>
-						</span>@Piranha.Manager.Resources.Global.Save
-					</button>
-				</div>
+	<div class="row">
+		<div class="col-sm-12 buttons">
+			<!-- Actions -->
+			<div class="btn-group">
+				<button type="submit" class="btn btn-labeled btn-success">
+					<span class="btn-label">
+						<i class="glyphicon glyphicon-ok"></i>
+					</span>@Piranha.Manager.Resources.Global.Save
+				</button>
 			</div>
 		</div>
+	</div>
 
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="form-group">
-					@Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Add name" })
-					@Html.ValidationMessageFor(m => m.Name)
-				</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				@Html.TextBoxFor(m => m.Name, new { @class = "form-control title", @placeholder = "Add name" })
+				@Html.ValidationMessageFor(m => m.Name)
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-8">
-				<div class="form-group">
-					@Html.TextAreaFor(m => m.Description, new { @class = "form-control count-me", @rows = 4, @placeholder = "Add optional description" })
-					<p><span>@(!String.IsNullOrEmpty(Model.Description) ? Model.Description.Length : 0)</span>/255 characters</p>
-					@Html.ValidationMessageFor(m => m.Description)
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="form-group">
-					@Html.TextBoxFor(m => m.Route, new { @class = "form-control meta", @placeholder = "Add optional route" })
-					@Html.ValidationMessageFor(m => m.Route)
-				</div>
-				<div class="form-group">
-					@Html.TextBoxFor(m => m.View, new { @class = "form-control meta", @placeholder = "Add optional view" })
-					@Html.ValidationMessageFor(m => m.View)
-				</div>
-				<div class="form-group">
-					@Html.TextBoxFor(m => m.CommentRoute, new { @class = "form-control meta", @placeholder = "Add optional comment route" })
-					@Html.ValidationMessageFor(m => m.CommentRoute)
-				</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="form-group">
+				@Html.TextAreaFor(m => m.Description, new { @class = "form-control count-me", @rows = 4, @placeholder = "Add optional description" })
+				<p><span>@(!String.IsNullOrEmpty(Model.Description) ? Model.Description.Length : 0)</span>/255 characters</p>
+				@Html.ValidationMessageFor(m => m.Description)
 			</div>
 		</div>
+		<div class="col-sm-4">
+			<div class="form-group">
+				@Html.TextBoxFor(m => m.Route, new { @class = "form-control meta", @placeholder = "Add optional route" })
+				@Html.ValidationMessageFor(m => m.Route)
+			</div>
+			<div class="form-group">
+				@Html.TextBoxFor(m => m.View, new { @class = "form-control meta", @placeholder = "Add optional view" })
+				@Html.ValidationMessageFor(m => m.View)
+			</div>
+			<div class="form-group">
+				@Html.TextBoxFor(m => m.CommentRoute, new { @class = "form-control meta", @placeholder = "Add optional comment route" })
+				@Html.ValidationMessageFor(m => m.CommentRoute)
+			</div>
+		</div>
+	</div>
 
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">
-					Archive settings
-					<span class="pull-right">
-						@Html.LabelFor(m => m.EnableArchive, "Generate archive automatically", new { @class = "label-small" })
-						@Html.CheckBoxFor(m => m.EnableArchive)
-					</span>
-				</h3>
-			</div>
-			<div class="panel-body">
-				<div class="row">
-					<!-- Post type settings -->
-					<div class="col-sm-6">				
-						@Html.LabelFor(m => m.ArchiveTitle, Piranha.Manager.Resources.PostType.ArchiveTitle)
-						<div class="form-group">
-							@Html.TextBoxFor(m => m.ArchiveTitle, new { @class = "form-control meta", @placeholder = "Add archive title" })
-							@Html.ValidationMessageFor(m => m.ArchiveTitle)
-						</div>
-						@Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug)
-						<div class="form-group">
-							@Html.TextBoxFor(m => m.Slug, new { @class = "form-control meta", @placeholder = "A slug will be generated automatically" })
-							@Html.ValidationMessageFor(m => m.Slug)
-						</div>
-						@Html.LabelFor(m => m.ArchiveRoute, Piranha.Manager.Resources.PostType.ArchiveRoute)
-						<div class="form-group">
-							@Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control meta", @placeholder = "Add optional archive route" })
-							@Html.ValidationMessageFor(m => m.ArchiveRoute)
-						</div>
-						@Html.LabelFor(m => m.ArchiveView, Piranha.Manager.Resources.PostType.ArchiveView)
-						<div class="form-group">
-							@Html.TextBoxFor(m => m.ArchiveView, new { @class = "form-control meta", @placeholder = "Add optional archive view" })
-							@Html.ValidationMessageFor(m => m.ArchiveView)
-						</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Archive settings
+				<span class="pull-right">
+					@Html.LabelFor(m => m.EnableArchive, "Generate archive automatically", new { @class = "label-small" })
+					@Html.CheckBoxFor(m => m.EnableArchive)
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<!-- Post type settings -->
+				<div class="col-sm-6">				
+					@Html.LabelFor(m => m.ArchiveTitle, Piranha.Manager.Resources.PostType.ArchiveTitle)
+					<div class="form-group">
+						@Html.TextBoxFor(m => m.ArchiveTitle, new { @class = "form-control meta", @placeholder = "Add archive title" })
+						@Html.ValidationMessageFor(m => m.ArchiveTitle)
 					</div>
+					@Html.LabelFor(m => m.Slug, Piranha.Manager.Resources.Global.Slug)
+					<div class="form-group">
+						@Html.TextBoxFor(m => m.Slug, new { @class = "form-control meta", @placeholder = "A slug will be generated automatically" })
+						@Html.ValidationMessageFor(m => m.Slug)
+					</div>
+					@Html.LabelFor(m => m.ArchiveRoute, Piranha.Manager.Resources.PostType.ArchiveRoute)
+					<div class="form-group">
+						@Html.TextBoxFor(m => m.ArchiveRoute, new { @class = "form-control meta", @placeholder = "Add optional archive route" })
+						@Html.ValidationMessageFor(m => m.ArchiveRoute)
+					</div>
+					@Html.LabelFor(m => m.ArchiveView, Piranha.Manager.Resources.PostType.ArchiveView)
+					<div class="form-group">
+						@Html.TextBoxFor(m => m.ArchiveView, new { @class = "form-control meta", @placeholder = "Add optional archive view" })
+						@Html.ValidationMessageFor(m => m.ArchiveView)
+					</div>
+				</div>
 
-					<!-- Archive settings -->
-					<div class="col-sm-6">
-						@Html.LabelFor(m => m.MetaKeywords, Piranha.Manager.Resources.Global.MetaKeywords)
-						<div class="form-group">
-							@Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control meta", @placeholder = "Add archive meta keywords" })
-							@Html.ValidationMessageFor(m => m.MetaKeywords)
-						</div>
-						@Html.LabelFor(m => m.MetaDescription, Piranha.Manager.Resources.Global.MetaDescription)
-						<div class="form-group">
-							@Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 7, @style = "height:164px", @placeholder = "Add archive meta description" })
-							<p><span>@(!String.IsNullOrEmpty(Model.MetaDescription) ? Model.MetaDescription.Length : 0)</span>/255 characters</p>
-							@Html.ValidationMessageFor(m => m.MetaDescription)
-						</div>
+				<!-- Archive settings -->
+				<div class="col-sm-6">
+					@Html.LabelFor(m => m.MetaKeywords, Piranha.Manager.Resources.Global.MetaKeywords)
+					<div class="form-group">
+						@Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control meta", @placeholder = "Add archive meta keywords" })
+						@Html.ValidationMessageFor(m => m.MetaKeywords)
+					</div>
+					@Html.LabelFor(m => m.MetaDescription, Piranha.Manager.Resources.Global.MetaDescription)
+					<div class="form-group">
+						@Html.TextAreaFor(m => m.MetaDescription, new { @class = "form-control meta count-me", @rows = 7, @style = "height:164px", @placeholder = "Add archive meta description" })
+						<p><span>@(!String.IsNullOrEmpty(Model.MetaDescription) ? Model.MetaDescription.Length : 0)</span>/255 characters</p>
+						@Html.ValidationMessageFor(m => m.MetaDescription)
 					</div>
 				</div>
 			</div>

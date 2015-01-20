@@ -60,70 +60,43 @@ WriteLiteral(">\r\n\r\n\t<title>");
             #line hidden
 WriteLiteral("</title>\r\n\r\n\t<link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 239), Tuple.Create("\"", 280)
-, Tuple.Create(Tuple.Create("", 246), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/img/icon.ico")
+WriteAttribute("href", Tuple.Create(" href=\"", 239), Tuple.Create("\"", 285)
+, Tuple.Create(Tuple.Create("", 246), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/css/style.min.css")
 , 246), false)
-);
-
-WriteLiteral(" rel=\"icon\"");
-
-WriteLiteral(" type=\"image/x-icon\"");
-
-WriteLiteral(">\r\n\t<link");
-
-WriteAttribute("href", Tuple.Create(" href=\"", 321), Tuple.Create("\"", 362)
-, Tuple.Create(Tuple.Create("", 328), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/img/icon.ico")
-, 328), false)
-);
-
-WriteLiteral(" rel=\"shortcut icon\"");
-
-WriteLiteral(" type=\"image/x-icon\"");
-
-WriteLiteral(">\r\n\t<link");
-
-WriteAttribute("href", Tuple.Create(" href=\"", 412), Tuple.Create("\"", 458)
-, Tuple.Create(Tuple.Create("", 419), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/css/style.min.css")
-, 419), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
 
 WriteLiteral(" type=\"text/css\"");
 
-WriteLiteral(" />\r\n\r\n");
+WriteLiteral(" />\r\n\t<link");
 
-            
-            #line 13 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-	
-            
-            #line default
-            #line hidden
-            
-            #line 13 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-     if (!String.IsNullOrEmpty(ViewBag.Message)) {
+WriteLiteral(" type=\"image/x-icon\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("\t\t<script");
+WriteLiteral(" rel=\"icon\"");
 
-WriteLiteral(" type=\"text/javascript\"");
+WriteAttribute("href", Tuple.Create(" href=\"", 361), Tuple.Create("\"", 402)
+, Tuple.Create(Tuple.Create("", 368), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/img/icon.ico")
+, 368), false)
+);
 
-WriteLiteral(">\r\n\t\t\tsetTimeout(function () {\r\n\t\t\t\t$(\".sys-message\").slideUp();\r\n\t\t\t}, 2000);\r\n\t" +
-"\t</script>\r\n");
+WriteLiteral(">\r\n\t<link");
 
-            
-            #line 19 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-	}
+WriteLiteral(" type=\"image/x-icon\"");
 
-            
-            #line default
-            #line hidden
+WriteLiteral(" rel=\"shortcut icon\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 452), Tuple.Create("\"", 493)
+, Tuple.Create(Tuple.Create("", 459), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/img/icon.ico")
+, 459), false)
+);
+
+WriteLiteral(">\r\n\r\n");
+
 WriteLiteral("\t");
 
             
-            #line 20 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 13 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 Write(RenderSection("head", required: false));
 
             
@@ -132,7 +105,7 @@ Write(RenderSection("head", required: false));
 WriteLiteral("\r\n</head>\r\n<body ");
 
             
-            #line 22 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 15 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
   Write(ViewBag.IsSaved == true ? "class=pre-saved" : "");
 
             
@@ -152,14 +125,14 @@ WriteLiteral(" href=\"#\"");
 
 WriteLiteral(">\r\n\t\t\t<img");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 910), Tuple.Create("\"", 966)
+WriteAttribute("src", Tuple.Create(" src=\"", 732), Tuple.Create("\"", 788)
             
-            #line 25 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-, Tuple.Create(Tuple.Create("", 916), Tuple.Create<System.Object, System.Int32>(Url.Content("~/manager/assets.ashx/img/logo.png")
+            #line 18 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+, Tuple.Create(Tuple.Create("", 738), Tuple.Create<System.Object, System.Int32>(Url.Content("~/manager/assets.ashx/img/logo.png")
             
             #line default
             #line hidden
-, 916), false)
+, 738), false)
 );
 
 WriteLiteral(" />\r\n\t\t</a>\r\n");
@@ -167,7 +140,7 @@ WriteLiteral(" />\r\n\t\t</a>\r\n");
 WriteLiteral("\t\t");
 
             
-            #line 27 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 20 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
    Write(Html.Partial("Partial/Menu"));
 
             
@@ -175,17 +148,21 @@ WriteLiteral("\t\t");
             #line hidden
 WriteLiteral("\r\n\t</nav>\r\n\r\n\t<div");
 
-WriteLiteral(" class=\"title\"");
+WriteLiteral(" class=\"container-fluid\"");
 
 WriteLiteral(">\r\n\t\t<div");
 
-WriteLiteral(" class=\"container-fluid\"");
+WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n\t\t\t<h1>");
+WriteLiteral(">\r\n\t\t\t<div");
+
+WriteLiteral(" class=\"col-sm-12\"");
+
+WriteLiteral(">\r\n\t\t\t\t<h1>");
 
             
-            #line 32 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-           Write(ViewBag.Title);
+            #line 26 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+               Write(ViewBag.Title);
 
             
             #line default
@@ -193,27 +170,27 @@ WriteLiteral(">\r\n\t\t\t<h1>");
 WriteLiteral("</h1>\r\n");
 
             
-            #line 33 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-			
+            #line 27 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+				
             
             #line default
             #line hidden
             
-            #line 33 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-             if (!String.IsNullOrWhiteSpace(ViewBag.SubTitle)) {
+            #line 27 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+                 if (!String.IsNullOrWhiteSpace(ViewBag.SubTitle)) {
 
             
             #line default
             #line hidden
-WriteLiteral("\t\t\t\t<p");
+WriteLiteral("\t\t\t\t\t<p");
 
 WriteLiteral(" class=\"subtitle\"");
 
 WriteLiteral(">");
 
             
-            #line 34 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-                               Write(ViewBag.SubTitle);
+            #line 28 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+                                   Write(ViewBag.SubTitle);
 
             
             #line default
@@ -221,22 +198,18 @@ WriteLiteral(">");
 WriteLiteral("</p>\r\n");
 
             
-            #line 35 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-			}
+            #line 29 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+				}
 
             
             #line default
             #line hidden
-WriteLiteral("\t\t</div>\r\n\t</div>\r\n\t<div");
-
-WriteLiteral(" class=\"body\"");
-
-WriteLiteral(">\r\n");
+WriteLiteral("\t\t\t</div>\r\n\t\t</div>\r\n\r\n");
 
 WriteLiteral("\t\t");
 
             
-            #line 39 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 33 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
    Write(RenderBody());
 
             
@@ -261,7 +234,7 @@ WriteLiteral(" type=\"text/javascript\"");
 WriteLiteral(">\r\n\t\tvar baseUrl = \'");
 
             
-            #line 47 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 41 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
                   Write(Url.Content("~/"));
 
             
@@ -271,9 +244,9 @@ WriteLiteral("\';\r\n\t</script>\r\n\t<script");
 
 WriteLiteral(" type=\"text/javascript\"");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1520), Tuple.Create("\"", 1565)
-, Tuple.Create(Tuple.Create("", 1526), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/js/scripts.min.js")
-, 1526), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1355), Tuple.Create("\"", 1400)
+, Tuple.Create(Tuple.Create("", 1361), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/js/scripts.min.js")
+, 1361), false)
 );
 
 WriteLiteral("></script>\r\n");
@@ -281,7 +254,7 @@ WriteLiteral("></script>\r\n");
 WriteLiteral("\t");
 
             
-            #line 50 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+            #line 44 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
 Write(RenderSection("script", required: false));
 
             
