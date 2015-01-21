@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Linq;
 using FluentValidation;
 
 namespace Piranha.Models
@@ -93,10 +94,8 @@ namespace Piranha.Models
 				RuleFor(m => m.OldUrl).NotEmpty();
 				RuleFor(m => m.NewUrl).Length(0, 255);
 				
-				// check unique OldUrl 
-				//using (var api = new Api()) {
-				//	RuleFor(m => m.OldUrl).Must((oldUrl) => { return IsOldUrlUnique(oldUrl, api); }).WithMessage("OldUrl alias already exists");
-				//}
+				// check unique OldUrl
+				RuleFor(m => m.OldUrl).Must((model, oldUrl) => { return IsOldUrlUnique(oldUrl, model.Id); }).WithMessage("OldUrl alias already exists");
 			}
 
 			/// <summary>
@@ -105,9 +104,12 @@ namespace Piranha.Models
 			/// <param name="url"></param>
 			/// <param name="api"></param>
 			/// <returns></returns>
-			private bool IsOldUrlUnique(string url, Api api) { 
-				var model = api.Aliases.GetSingle(where: m => m.OldUrl == url);
-				return model == null;
+			private bool IsOldUrlUnique(string url, Guid id) {
+				using (var api = new Api()) 
+				{ 
+					var recordCount = api.Aliases.Get(where: m => m.OldUrl == url && m.Id != id).Count();
+					return recordCount == 0;
+				}
 			}
 		}
 		#endregion
