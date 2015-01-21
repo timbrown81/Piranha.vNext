@@ -29,38 +29,45 @@ namespace Piranha.Server.Handlers
 			var now = DateTime.Now;
 			var route = "";
 
-			slug = slug != "" ? slug : 
-				api.Pages.GetSingle(where: p => !p.ParentId.HasValue && p.SortOrder == 1 && p.Published <= now).Slug;
+			// Try to get slug for the startpage if no slug is provided
+			if (String.IsNullOrWhiteSpace(slug)) {
+				var start = api.Pages.GetSingle(where: p => !p.ParentId.HasValue && p.SortOrder == 1 && p.Published <= now);
+				if (start != null)
+					slug = start.Slug;
+			}
 
-			// Get startpage or by slug.
-			var page = Client.Models.PageModel.GetBySlug(slug);
+			// Continue if we have a slug.
+			if (!String.IsNullOrWhiteSpace(slug)) {
+				// Get startpage or by slug.
+				var page = Client.Models.PageModel.GetBySlug(slug);
 
-			if (page != null) {
-				route = !String.IsNullOrWhiteSpace(page.Route) ? page.Route : "page";
+				if (page != null) {
+					route = !String.IsNullOrWhiteSpace(page.Route) ? page.Route : "page";
 
-				// Append extra url segments
-				for (var n = 1; n < request.Segments.Length; n++) {
-					route += "/" + request.Segments[n];
+					// Append extra url segments
+					for (var n = 1; n < request.Segments.Length; n++) {
+						route += "/" + request.Segments[n];
+					}
+
+					// Set current
+					App.Env.SetCurrent(new Client.Models.Content() {
+						Id = page.Id,
+						Title = page.Title,
+						Keywords = page.Keywords,
+						Description = page.Description,
+						VirtualPath = "~/" + page.Slug,
+						Type = !page.ParentId.HasValue && page.SortOrder == 1 ? Client.Models.ContentType.Start : Client.Models.ContentType.Page
+					});
+
+					var response = request.RewriteResponse();
+
+					response.Route = route;
+					response.Params = request.Params.Concat(new Param[] { 
+						new Param() { Key = "id", Value = page.Id.ToString() }
+					}).ToArray();
+
+					return response;
 				}
-
-				// Set current
-				App.Env.SetCurrent(new Client.Models.Content() {
-					Id = page.Id,
-					Title = page.Title,
-					Keywords = page.Keywords,
-					Description = page.Description,
-					VirtualPath = "~/" + page.Slug,
-					Type = !page.ParentId.HasValue && page.SortOrder == 1 ? Client.Models.ContentType.Start : Client.Models.ContentType.Page
-				});
-
-				var response = request.RewriteResponse();
-
-				response.Route = route;
-				response.Params = request.Params.Concat(new Param[] { 
-					new Param() { Key = "id", Value = page.Id.ToString() }
-				}).ToArray();
-
-				return response;
 			}
 			return null;
 		}
