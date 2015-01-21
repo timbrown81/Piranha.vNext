@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FluentValidation;
 
 namespace Piranha.Models
@@ -135,11 +136,8 @@ namespace Piranha.Models
 				RuleFor(m => m.View).Length(0, 255);
 				RuleFor(m => m.Excerpt).Length(0, 512);
 
-				// check unique TypeId+Slug 
-				//using (var api = new Api())
-				//{
-				//	RuleFor(m => m.Slug).Must((m,slug) => { return IsTypeIdPlusSlugUnique(m, slug, api); }).WithMessage("TypeId and Slug combination should be unique");
-				//}
+				// check unique TypeId+Slug
+				RuleFor(m => m.Slug).Must((m, slug) => { return IsTypeIdPlusSlugUnique(m, slug); }).WithMessage("TypeId and Slug combination should be unique");
 			}
 
 			/// <summary>
@@ -148,10 +146,13 @@ namespace Piranha.Models
 			/// <param name="slug"></param>
 			/// <param name="api"></param>
 			/// <returns></returns>
-			private bool IsTypeIdPlusSlugUnique(Post p, string slug, Api api)
+			private bool IsTypeIdPlusSlugUnique(Post p, string slug)
 			{
-				var model = api.Posts.GetSingle(where: m => m.Slug == slug && m.TypeId == p.TypeId);
-				return model == null;
+				using (var api = new Api())
+				{
+					var recordCount = api.Posts.Get(where: m => m.Slug == slug && m.TypeId == p.TypeId && m.Id != p.Id).Count();
+					return recordCount == 0;	
+				}
 			}
 
 		}

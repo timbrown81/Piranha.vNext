@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Linq;
 using FluentValidation;
 
 namespace Piranha.Models
@@ -116,11 +117,8 @@ namespace Piranha.Models
 				RuleFor(m => m.Slug).NotEmpty();
 				RuleFor(m => m.Slug).Length(0, 128);
 
-				// check unique Slug 
-				using (var api = new Api())
-				{
-					RuleFor(m => m.Slug).Must((slug) => { return IsSlugUnique(slug, api); }).WithMessage("Slug should be unique");
-				}
+				// check unique Slug
+				RuleFor(m => m.Slug).Must((model, slug) => { return IsSlugUnique(slug, model.Id); }).WithMessage("Slug should be unique");
 			}
 
 			/// <summary>
@@ -129,10 +127,13 @@ namespace Piranha.Models
 			/// <param name="slug"></param>
 			/// <param name="api"></param>
 			/// <returns></returns>
-			private bool IsSlugUnique(string slug, Api api)
+			private bool IsSlugUnique(string slug, Guid id)
 			{
-				var model = api.Media.GetSingle(where: m => m.Slug == slug);
-				return model == null;
+				using (var api = new Api()) 
+				{
+					var recordCount = api.Media.Get(where: m => m.Slug == slug && m.Id != id).Count();
+					return recordCount == 0;
+				}
 			}
 		}
 		#endregion
