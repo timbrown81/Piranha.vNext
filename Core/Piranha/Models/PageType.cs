@@ -81,10 +81,10 @@ namespace Piranha.Models
 				RuleFor(m => m.Slug).Length(0, 128);
 
 				// check unique Slug 
-				using (var api = new Api())
-				{
-					RuleFor(m => m.Slug).Must((slug) => { return IsSlugUnique(slug, api); }).WithMessage("Slug should be unique");
-				}
+				//using (var api = new Api())
+				//{
+				//	RuleFor(m => m.Slug).Must((slug) => { return IsSlugUnique(slug, api); }).WithMessage("Slug should be unique");
+				//}
 			}
 
 			/// <summary>

@@ -136,10 +136,10 @@ namespace Piranha.Models
 				RuleFor(m => m.Excerpt).Length(0, 512);
 
 				// check unique TypeId+Slug 
-				using (var api = new Api())
-				{
-					RuleFor(m => m.Slug).Must((m,slug) => { return IsTypeIdPlusSlugUnique(m, slug, api); }).WithMessage("TypeId and Slug combination should be unique");
-				}
+				//using (var api = new Api())
+				//{
+				//	RuleFor(m => m.Slug).Must((m,slug) => { return IsTypeIdPlusSlugUnique(m, slug, api); }).WithMessage("TypeId and Slug combination should be unique");
+				//}
 			}
 
 			/// <summary>

@@ -94,9 +94,9 @@ namespace Piranha.Models
 				RuleFor(m => m.NewUrl).Length(0, 255);
 				
 				// check unique OldUrl 
-				using (var api = new Api()) {
-					RuleFor(m => m.OldUrl).Must((oldUrl) => { return IsOldUrlUnique(oldUrl, api); }).WithMessage("OldUrl alias already exists");
-				}
+				//using (var api = new Api()) {
+				//	RuleFor(m => m.OldUrl).Must((oldUrl) => { return IsOldUrlUnique(oldUrl, api); }).WithMessage("OldUrl alias already exists");
+				//}
 			}
 
 			/// <summary>
