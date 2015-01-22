@@ -29,6 +29,7 @@ namespace Piranha.Server.Routing
 			App.Handlers.Aliases = new Handlers.AliasHandler();
 			App.Handlers.Pages = new Handlers.PageHandler();
 			App.Handlers.Posts = new Handlers.PostHandler();
+			App.Handlers.Add("content", new Handlers.ContentHandler());
 			App.Handlers.Add("media.ashx", new Handlers.MediaHandler());
 
 			// Attach the router

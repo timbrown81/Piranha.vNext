@@ -46,7 +46,25 @@ namespace Piranha.Extend
 			/// Internal constructor.
 			/// </summary>
 			internal Import() { }
-		}		
+		}
+
+		public sealed class BlockImport
+		{
+			/// <summary>
+			/// Gets the display name.
+			/// </summary>
+			public string Name { get; internal set; }
+
+			/// <summary>
+			/// Gets the CLR value type.
+			/// </summary>
+			public Type ValueType { get; internal set; }
+
+			/// <summary>
+			/// Internal constructor.
+			/// </summary>
+			internal BlockImport() { }
+		}
 		#endregion
 
 		#region Properties
@@ -71,6 +89,11 @@ namespace Piranha.Extend
 		public IList<Builder.PostType> PostTypes { get; private set; }
 
 		/// <summary>
+		/// Gets the available blocks.
+		/// </summary>
+		public IList<BlockImport> Blocks { get; private set; }
+
+		/// <summary>
 		/// Gets the available properties.
 		/// </summary>
 		public IList<Import> Properties {
@@ -89,6 +112,7 @@ namespace Piranha.Extend
 		/// Default internal constructor.
 		/// </summary>
 		internal ExtensionManager() {
+			Blocks = new List<BlockImport>();
 			Extensions = new List<Import>();
 			Modules = new List<IModule>();
 			PageTypes = new List<Builder.PageType>();
@@ -111,6 +135,18 @@ namespace Piranha.Extend
 									ValueType = info
 								});
 							}
+						} else if (typeof(IBlock).GetTypeInfo().IsAssignableFrom(info)) {
+							//
+							// Block
+							//
+							var attr = info.GetCustomAttribute<BlockAttribute>();
+							if (attr != null) {
+								Blocks.Add(new BlockImport() {
+									Name = attr.Name,
+									ValueType = info
+								});
+							}
+
 						} else if (typeof(IModule).GetTypeInfo().IsAssignableFrom(info)) {
 							//
 							// Modules

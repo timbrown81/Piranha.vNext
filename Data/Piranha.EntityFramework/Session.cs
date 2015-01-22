@@ -108,7 +108,13 @@ namespace Piranha.EntityFramework
 		/// <typeparam name="T">The model type</typeparam>
 		/// <returns>The query</returns>
 		private IQueryable<T> Query<T>() where T : class, Data.IModel {
-			if (typeof(Models.Post) == typeof(T)) {
+			if (typeof(Models.Content) == typeof(T)) {
+				return (IQueryable<T>)db.Content
+					.Include(c => c.Author)
+					.Include(c => c.Categories)
+					.Include(c => c.Template)
+					.Include(c => c.Rows.Select(r => r.Blocks));
+			} else if (typeof(Models.Post) == typeof(T)) {
 				return (IQueryable<T>)db.Posts
 					.Include(p => p.Author)
 					.Include(p => p.Attachments)

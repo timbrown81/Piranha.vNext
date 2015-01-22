@@ -12,12 +12,19 @@
 	min-width: 320px;
 	padding: 1em;
 	margin: 0 auto;
+	.box-sizing(content-box);
 }
 
 .border-radius(@radius) {
 	border-radius: @radius;
 	-moz-border-radius: @radius;
 	-webkit-border-radius: @radius;
+}
+
+.box-sizing(@type) {
+	box-sizing: @type;
+	-moz-box-sizing: @type;
+	-webkit-box-sizing: @type;
 }
 
 .transition(@elm, @time) {

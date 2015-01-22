@@ -9,14 +9,9 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Infrastructure.Annotations;
-using System.Linq;
-using System.Threading;
 
 namespace Piranha.EntityFramework
 {
@@ -45,6 +40,21 @@ namespace Piranha.EntityFramework
 		/// Gets/sets the comment set.
 		/// </summary>
 		public DbSet<Models.Comment> Comments { get; set; }
+
+		/// <summary>
+		/// Gets/sets the content set.
+		/// </summary>
+		public DbSet<Models.Content> Content { get; set; }
+
+		/// <summary>
+		/// Gets/sets the content block set.
+		/// </summary>
+		public DbSet<Models.ContentBlock> ContentBlocks { get; set; }
+
+		/// <summary>
+		/// Gets/sets the content row set.
+		/// </summary>
+		public DbSet<Models.ContentRow> ContentRows { get; set; }
 
 		/// <summary>
 		/// Gets/sets the block set.
@@ -95,6 +105,11 @@ namespace Piranha.EntityFramework
 		/// Gets/sets the ratings set.
 		/// </summary>
 		public DbSet<Models.Rating> Ratings { get; set; }
+
+		/// <summary>
+		/// Gets/sets the template set.
+		/// </summary>
+		public DbSet<Models.Template> Templates { get; set; }
 		#endregion
 
 		/// <summary>
@@ -147,6 +162,32 @@ namespace Piranha.EntityFramework
 			modelBuilder.Entity<Models.Comment>().Property(c => c.UserAgent).HasMaxLength(128);
 			modelBuilder.Entity<Models.Comment>().Property(c => c.WebSite).HasMaxLength(128);
 			modelBuilder.Entity<Models.Comment>().Property(c => c.SessionID).HasMaxLength(64);
+
+			// Content
+			modelBuilder.Entity<Models.Content>().ToTable("PiranhaContent");
+			modelBuilder.Entity<Models.Content>().Property(c => c.Title).HasMaxLength(128).IsRequired();
+			modelBuilder.Entity<Models.Content>().Property(c => c.MetaKeywords).HasMaxLength(128);
+			modelBuilder.Entity<Models.Content>().Property(c => c.MetaDescription).HasMaxLength(256);
+			modelBuilder.Entity<Models.Content>().Property(c => c.Type)
+				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_Slug") {
+					Order = 1,
+					IsUnique = true
+				}));
+			modelBuilder.Entity<Models.Content>().Property(c => c.Slug).HasMaxLength(128).IsRequired()
+				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_Slug") {
+					Order = 2,
+				}));
+			modelBuilder.Entity<Models.Content>().HasMany(c => c.Categories).WithMany().Map(m => m.ToTable("PiranhaContentCategories"));
+			modelBuilder.Entity<Models.Content>().Ignore(c => c.Route);
+			modelBuilder.Entity<Models.Content>().Ignore(c => c.View);
+
+			// ContentBlock
+			modelBuilder.Entity<Models.ContentBlock>().ToTable("PiranhaContentBlocks");
+			modelBuilder.Entity<Models.ContentBlock>().Property(b => b.ClrType).HasMaxLength(512).IsRequired();
+			modelBuilder.Entity<Models.ContentBlock>().Ignore(b => b.Body);
+
+			// ContentRow
+			modelBuilder.Entity<Models.ContentRow>().ToTable("PiranhaContentRows");
 
 			// Media
 			modelBuilder.Entity<Models.Media>().ToTable("PiranhaMedia");
@@ -271,6 +312,12 @@ namespace Piranha.EntityFramework
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_UserRating") {
 					Order = 3
 				}));
+
+			// Template
+			modelBuilder.Entity<Models.Template>().ToTable("PiranhaTemplates");
+			modelBuilder.Entity<Models.Template>().Property(t => t.Name).HasMaxLength(128).IsRequired();
+			modelBuilder.Entity<Models.Template>().Property(t => t.Route).HasMaxLength(255);
+			modelBuilder.Entity<Models.Template>().Property(t => t.View).HasMaxLength(255);
 
 			base.OnModelCreating(modelBuilder);
 		}

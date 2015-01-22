@@ -112,6 +112,11 @@ namespace Piranha
 		private Server.HandlerCollection handlers;
 
 		/// <summary>
+		/// The private serializer collection.
+		/// </summary>
+		public Extend.SerializerCollection serializers;
+
+		/// <summary>
 		/// The private extension manager.
 		/// </summary>
 		private Extend.ExtensionManager extensions;
@@ -173,10 +178,17 @@ namespace Piranha
 		}
 
 		/// <summary>
-		/// Gets the currently configured handlers.
+		/// Gets the currently registered handlers.
 		/// </summary>
 		public static Server.HandlerCollection Handlers {
 			get { return Instance.handlers; }
+		}
+
+		/// <summary>
+		/// Gets the currently registered serializers. 
+		/// </summary>
+		public static Extend.SerializerCollection Serializers {
+			get { return Instance.serializers; }
 		}
 
 		/// <summary>
@@ -335,6 +347,13 @@ namespace Piranha
 						modelCache.RegisterCache<Models.Param>(p => p.Id, p => p.Name);
 						modelCache.RegisterCache<Models.Post>(p => p.Id, p => p.TypeId.ToString() + "_" + p.Slug);
 						modelCache.RegisterCache<Models.PostType>(p => p.Id, p => p.Slug);
+
+						// Register serializers
+						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering default serializers");
+						serializers = new Extend.SerializerCollection();
+						serializers.Add(typeof(Piranha.Extend.Blocks.Html), new Piranha.Extend.Serializers.HtmlSerializer());
+						serializers.Add(typeof(Piranha.Extend.Blocks.Image), new Piranha.Extend.Serializers.ImageSerializer());
+						serializers.Add(typeof(Piranha.Extend.Blocks.Text), new Piranha.Extend.Serializers.TextSerializer());
 
 						// Create the handler collection
 						handlers = new Server.HandlerCollection();
