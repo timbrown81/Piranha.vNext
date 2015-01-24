@@ -60,6 +60,7 @@
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\ModelCacheSet.cs" />
     <Compile Include="Client\Models\CommentModel.cs" />
+    <Compile Include="Client\Models\ContentModel.cs" />
     <Compile Include="Client\Models\RatingsModel.cs" />
     <Compile Include="Config\Cache.cs" />
     <Compile Include="Config\Comments.cs" />
@@ -177,8 +178,8 @@
     <Compile Include="Server\IRewriteResponse.cs" />
     <Compile Include="Server\IStreamResponse.cs" />
     <Compile Include="Client\Models\ArchiveModel.cs" />
-    <Compile Include="Client\Models\ContentType.cs" />
-    <Compile Include="Client\Models\Content.cs" />
+    <Compile Include="Client\Models\CurrentType.cs" />
+    <Compile Include="Client\Models\Current.cs" />
     <Compile Include="Client\Models\PageModel.cs" />
     <Compile Include="Client\Models\PostModel.cs" />
     <Compile Include="Client\Models\SiteMap.cs" />

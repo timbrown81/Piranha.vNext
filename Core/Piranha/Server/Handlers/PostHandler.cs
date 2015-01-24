@@ -52,13 +52,13 @@ namespace Piranha.Server.Handlers
 							}
 
 							// Set current
-							App.Env.SetCurrent(new Client.Models.Content() {
+							App.Env.SetCurrent(new Client.Models.Current() {
 								Id = post.Id,
 								Title = post.Title,
 								Keywords = post.Keywords,
 								Description = post.Description,
 								VirtualPath = "~/" + type.Slug + "/" + post.Slug,
-								Type = Client.Models.ContentType.Post
+								Type = Client.Models.CurrentType.Post
 							});
 
 							var response = request.RewriteResponse();
@@ -115,13 +115,13 @@ namespace Piranha.Server.Handlers
 					}
 
 					// Set current
-					App.Env.SetCurrent(new Client.Models.Content() {
+					App.Env.SetCurrent(new Client.Models.Current() {
 						Id = type.Id,
 						Title = type.ArchiveTitle,
 						Keywords = type.MetaKeywords,
 						Description = type.MetaDescription,
 						VirtualPath = "~/" + type.Slug + (year.HasValue ? "/" + year + (month.HasValue ? "/" + month : "") : ""),
-						Type = Client.Models.ContentType.Archive
+						Type = Client.Models.CurrentType.Archive
 					});
 
 					var response = request.RewriteResponse();

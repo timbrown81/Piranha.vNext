@@ -15,7 +15,7 @@ namespace Piranha.Client.Models
 	/// <summary>
 	/// Class for defining the current content being viewed.
 	/// </summary>
-	public sealed class Content
+	public sealed class Current
 	{
 		/// <summary>
 		/// Gets/sets the unique id.
@@ -45,6 +45,6 @@ namespace Piranha.Client.Models
 		/// <summary>
 		/// Gets/sets the current content type.
 		/// </summary>
-		public ContentType Type { get; set; }
+		public CurrentType Type { get; set; }
 	}
 }

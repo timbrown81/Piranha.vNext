@@ -1,4 +1,4 @@
-﻿@model Piranha.Models.Content
+﻿@model Piranha.Client.Models.ContentModel
 @{
 	ViewBag.Title = Model.Title;
 }
@@ -7,7 +7,7 @@
 		<header>
 			<h1>@Model.Title</h1>
 			<p class="meta">
-				<span class="icon-clock"></span>@Model.Published.Value.ToLongDateString() by @Model.Author.Name
+				<span class="icon-clock"></span>@Model.Published.ToLongDateString() by @Model.Author.Name
 				@if (Model.Comments.Count == 1) {
 					<span class="icon-comment"></span><text>1 comment</text>
 				} else if (Model.Comments.Count > 1) {
@@ -24,7 +24,8 @@
 		@*@if (!String.IsNullOrEmpty(Model.Excerpt)) {
 			<p class="excerpt">@Model.Excerpt</p>
 		}*@
-		@Html.DisplayFor(m => m.Rows)
+
+		@Html.DisplayFor(m => m.Body)
 
 		@*@if (Model.Comments.Count > 0) {
 			<section class="comments">

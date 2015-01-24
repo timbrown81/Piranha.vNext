@@ -11,7 +11,7 @@
 using System;
 using System.Linq;
 using System.Web.Mvc;
-using Piranha.Models;
+using Piranha.Client.Models;
 
 namespace Piranha.AspNet.Mvc
 {
@@ -28,13 +28,20 @@ namespace Piranha.AspNet.Mvc
 		#endregion
 
 		/// <summary>
-		/// Gets the model for the currently requested post.
+		/// Gets the model for the currently requested content.
 		/// </summary>
 		/// <returns>The model</returns>
-		protected Content GetModel() {
-			using (var api = new Api()) {
-				return api.Content.GetSingle(ContentId);
-			}
+		protected ContentModel GetModel() {
+			return ContentModel.GetById(ContentId);
+		}
+
+		/// <summary>
+		/// Gets the model for the currently requested content.
+		/// </summary>
+		/// <typeparam name="T">The model type</typeparam>
+		/// <returns>The model</returns>
+		protected ContentModel GetModel<T>() where T : ContentModel {
+			return ContentModel.GetById<T>(ContentId);
 		}
 
 		/// <summary>

@@ -20,12 +20,12 @@ namespace Piranha
 		/// <summary>
 		/// Gets/sets the current item being processed.
 		/// </summary>
-		Client.Models.Content GetCurrent();
+		Client.Models.Current GetCurrent();
 
 		/// <summary>
 		/// Gets/sets the current item being processed.
 		/// </summary>
-		void SetCurrent(Client.Models.Content current);
+		void SetCurrent(Client.Models.Current current);
 
 		/// <summary>
 		/// Generates an absolute url from the given virtual path.

@@ -62,28 +62,6 @@ namespace Piranha.Models
 		public string MetaDescription { get; set; }
 
 		/// <summary>
-		/// Gets the configured route.
-		/// </summary>
-		public string Route {
-			get {
-				if (Template != null && !String.IsNullOrWhiteSpace(Template.Route))
-					return Template.Route;
-				return "content";
-			}
-		}
-
-		/// <summary>
-		/// Gets the configured view.
-		/// </summary>
-		public string View {
-			get {
-				if (Template != null && !String.IsNullOrWhiteSpace(Template.View))
-					return Template.View;
-				return "";
-			}
-		}
-
-		/// <summary>
 		/// Gets/sets when the model was initially created.
 		/// </summary>
 		public DateTime Created { get; set; }

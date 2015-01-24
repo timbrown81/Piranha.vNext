@@ -178,8 +178,6 @@ namespace Piranha.EntityFramework
 					Order = 2,
 				}));
 			modelBuilder.Entity<Models.Content>().HasMany(c => c.Categories).WithMany().Map(m => m.ToTable("PiranhaContentCategories"));
-			modelBuilder.Entity<Models.Content>().Ignore(c => c.Route);
-			modelBuilder.Entity<Models.Content>().Ignore(c => c.View);
 
 			// ContentBlock
 			modelBuilder.Entity<Models.ContentBlock>().ToTable("PiranhaContentBlocks");

@@ -63,7 +63,7 @@ namespace Piranha.Client.Helpers
 					sb.Append(String.Format(META_TAG, "og:title", current.Title));
 				if (!String.IsNullOrWhiteSpace(current.Description))
 					sb.Append(String.Format(META_TAG, "og:description", current.Description));
-				if (current.Type == Models.ContentType.Start)
+				if (current.Type == Models.CurrentType.Start)
 					sb.Append(String.Format(META_TAG, "og:type", "website"));
 				else sb.Append(String.Format(META_TAG, "og:type", "article"));
 				if (!String.IsNullOrWhiteSpace(current.VirtualPath))
@@ -148,7 +148,7 @@ namespace Piranha.Client.Helpers
 			StringBuilder str = new StringBuilder();
 			IEnumerable<Models.SiteMap.SiteMapItem> sm = null;
 			var content = App.Env.GetCurrent();
-			var current = content != null && (content.Type == Models.ContentType.Page || content.Type == Models.ContentType.Start) ? (Guid?)content.Id : null;
+			var current = content != null && (content.Type == Models.CurrentType.Page || content.Type == Models.CurrentType.Start) ? (Guid?)content.Id : null;
 
 			if (current.HasValue || start == 1) {
 				if (root != "") {

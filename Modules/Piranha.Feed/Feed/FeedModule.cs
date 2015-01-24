@@ -124,7 +124,7 @@ namespace Piranha.Feed
 				sb.Append(String.Format(LINK_TAG, "alternate", "application/rss+xml", cTitle,
 					App.Env.AbsoluteUrl("~/feed/comments")));
 
-				if (current.Type == ContentType.Archive) {
+				if (current.Type == CurrentType.Archive) {
 					using (var api = new Api()) {
 						var type = api.PostTypes.GetSingle(current.Id);
 
@@ -135,7 +135,7 @@ namespace Piranha.Feed
 						sb.Append(String.Format(LINK_TAG, "alternate", "application/rss+xml", title,
 							App.Env.AbsoluteUrl("~/feed/blog")));
 					}
-				} else if (current.Type == ContentType.Post) {
+				} else if (current.Type == CurrentType.Post) {
 					var post = Client.Models.PostModel.GetById(current.Id);
 
 					var title = HttpUtility.HtmlEncode(Config.Feed.PostFeedTitle

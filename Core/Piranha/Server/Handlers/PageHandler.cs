@@ -50,13 +50,13 @@ namespace Piranha.Server.Handlers
 					}
 
 					// Set current
-					App.Env.SetCurrent(new Client.Models.Content() {
+					App.Env.SetCurrent(new Client.Models.Current() {
 						Id = page.Id,
 						Title = page.Title,
 						Keywords = page.Keywords,
 						Description = page.Description,
 						VirtualPath = "~/" + page.Slug,
-						Type = !page.ParentId.HasValue && page.SortOrder == 1 ? Client.Models.ContentType.Start : Client.Models.ContentType.Page
+						Type = !page.ParentId.HasValue && page.SortOrder == 1 ? Client.Models.CurrentType.Start : Client.Models.CurrentType.Page
 					});
 
 					var response = request.RewriteResponse();

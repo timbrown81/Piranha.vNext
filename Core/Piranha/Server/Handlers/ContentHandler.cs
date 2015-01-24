@@ -10,6 +10,7 @@
 
 using System;
 using System.Linq;
+using Piranha.Client.Models;
 
 namespace Piranha.Server.Handlers
 {
@@ -25,7 +26,7 @@ namespace Piranha.Server.Handlers
 			var slug = request.Segments.Length > 1 ? request.Segments[1] : "";
 
 			if (!String.IsNullOrWhiteSpace(slug)) {
-				var content = api.Content.GetSingle(where: c => c.Slug == slug && c.Published <= DateTime.Now);
+				var content = ContentModel.GetBySlug(slug, Models.ContentType.Post);
 
 				if (content != null) {
 					var route = content.Route;
@@ -36,13 +37,13 @@ namespace Piranha.Server.Handlers
 					}
 
 					// Set current
-					App.Env.SetCurrent(new Client.Models.Content() {
+					App.Env.SetCurrent(new Client.Models.Current() {
 						Id = content.Id,
 						Title = content.Title,
 						Keywords = content.MetaKeywords,
 						Description = content.MetaDescription,
-						VirtualPath = "~/content/" + content.Template.Route,
-						Type = Client.Models.ContentType.Post
+						VirtualPath = "~/content/" + route,
+						Type = Client.Models.CurrentType.Post
 					});
 
 					var response = request.RewriteResponse();

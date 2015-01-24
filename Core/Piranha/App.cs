@@ -268,6 +268,13 @@ namespace Piranha
 						// Configure auto mapper
 						Mapper.CreateMap<Models.Comment, Client.Models.CommentModel>()
 							.ForMember(m => m.Ratings, o => o.Ignore());
+						Mapper.CreateMap<Models.Content, Client.Models.ContentModel>()
+							.ForMember(m => m.Template, o => o.MapFrom(c => c.Template != null ? c.Template.Name : ""))
+							.ForMember(m => m.Body, o => o.MapFrom(c => c.Rows))
+							.ForMember(m => m.Route, o => o.MapFrom(c => c.Template != null && !String.IsNullOrWhiteSpace(c.Template.Route) ? c.Template.Route : "content"))
+							.ForMember(m => m.View, o => o.MapFrom(c => c.Template != null && !String.IsNullOrWhiteSpace(c.Template.View) ? c.Template.View : ""))
+							.ForMember(m => m.Comments, o => o.Ignore())
+							.ForMember(m => m.Ratings, o => o.Ignore());
 						Mapper.CreateMap<Models.Page, Client.Models.PageModel>()
 							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
 							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))

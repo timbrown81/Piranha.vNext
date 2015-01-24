@@ -15,7 +15,7 @@ namespace Piranha.Client.Models
 	/// <summary>
 	/// The currently available types of content.
 	/// </summary>
-	public enum ContentType
+	public enum CurrentType
 	{
 		Archive,
 		Other,
