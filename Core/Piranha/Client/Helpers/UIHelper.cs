@@ -96,6 +96,15 @@ namespace Piranha.Client.Helpers
 		}
 
 		/// <summary>
+		/// Renders the permalink for the given content.
+		/// </summary>
+		/// <param name="content">The content model</param>
+		/// <returns>The generated permalink</returns>
+		public string Permalink(Models.ContentModel content) {
+			return App.Env.Url("~/content/" + content.Slug);
+		}
+
+		/// <summary>
 		/// Generates a gravatar url for the given email and size.
 		/// </summary>
 		/// <param name="email">The email address</param>
