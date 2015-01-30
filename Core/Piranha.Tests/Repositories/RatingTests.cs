@@ -24,6 +24,7 @@ namespace Piranha.Tests.Repositories
 		protected void Run() {
 			var userId = Guid.NewGuid().ToString();
 			Models.Author author = null;
+			Models.Category category = null;
 			Models.Content content = null;
 
 			using (var api = new Api()) {
@@ -33,11 +34,18 @@ namespace Piranha.Tests.Repositories
 					Email = "jim@doe.com"
 				};
 				api.Authors.Add(author);
+
+				// Add new category
+				category = new Models.Category() {
+					Title = "Uncategorized"
+				};
+				api.Categories.Add(category);
 				api.SaveChanges();
 
 				// Add new content
 				content = new Models.Content() {
 					Type = Models.ContentType.Post,
+					CategoryId = category.Id,
 					AuthorId = author.Id,
 					Title = "My rated post",
 					Published = DateTime.Now
@@ -76,6 +84,7 @@ namespace Piranha.Tests.Repositories
 				Assert.AreEqual(0, model.Ratings.Likes.Count);
 
 				// Remove
+				api.Categories.Remove(category.Id);
 				api.Content.Remove(content.Id);
 				api.Authors.Remove(author.Id);
 				api.SaveChanges();
@@ -83,9 +92,11 @@ namespace Piranha.Tests.Repositories
 			
 			using (var api = new Api()) {
 				// Verify remove
+				category = api.Categories.GetSingle(category.Id);
 				content = api.Content.GetSingle(where: p => p.Slug == "my-rated-post");
 				author = api.Authors.GetSingle(author.Id);
 
+				Assert.IsNull(category);
 				Assert.IsNull(content);
 				Assert.IsNull(author);
 			}
