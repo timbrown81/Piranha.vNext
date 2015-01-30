@@ -22,9 +22,14 @@ namespace Piranha.AspNet.Mvc
 	{
 		#region Properties
 		/// <summary>
-		/// Gets the currenly requested post type.
+		/// Gets the currently requested archive type.
 		/// </summary>
-		protected Guid PostTypeId { get; private set; }
+		protected ArchiveType Type { get; private set; }
+
+		/// <summary>
+		/// Gets the optional id of the category type data.
+		/// </summary>
+		protected Guid? Id { get; private set; }
 
 		/// <summary>
 		/// Gets the currently requested year.
@@ -55,7 +60,12 @@ namespace Piranha.AspNet.Mvc
 		/// </summary>
 		/// <returns>The model</returns>
 		protected ArchiveModel GetModel<T>() where T : ArchiveModel {
-			return ArchiveModel.GetById<T>(PostTypeId, Page, Year, Month);
+			if (Type == ArchiveType.Category) {
+				return ArchiveModel.GetCategoryArchive<T>(Id.Value, Page, Year, Month);
+			} else if (Type == ArchiveType.Post) {
+				return ArchiveModel.GetPostArchive<T>(Page, Year, Month);
+			}
+			return null;
 		}
 
 		/// <summary>
@@ -63,23 +73,28 @@ namespace Piranha.AspNet.Mvc
 		/// </summary>
 		/// <param name="filterContext">The current filter context</param>
 		protected override void OnActionExecuting(ActionExecutingContext filterContext) {
-			PostTypeId = new Guid(Request["id"]);
+			if (App.Env.GetCurrent() != null) {
+				Id = !String.IsNullOrWhiteSpace(Request["id"]) ? (Guid?)new Guid(Request["id"]) : null;
+				Type = (ArchiveType)Enum.Parse(typeof(ArchiveType), Request["type"]);
 
-			try {
-				Year = Convert.ToInt32(Request["year"]);
-			} catch { }
-
-			if (Year.HasValue) {
 				try {
-					Month = Convert.ToInt32(Request["month"]);
+					Year = Convert.ToInt32(Request["year"]);
 				} catch { }
-			}
 
-			try {
-				Page = Convert.ToInt32(Request["page"]);
-			} catch { }
+				if (Year.HasValue) {
+					try {
+						Month = Convert.ToInt32(Request["month"]);
+					} catch { }
+				}
+
+				try {
+					Page = Convert.ToInt32(Request["page"]);
+				} catch { }
 	
-			base.OnActionExecuting(filterContext);
+				base.OnActionExecuting(filterContext);
+			} else {
+				throw new System.Web.HttpException(403, "No direct access");
+			}
 		}
 	}
 }

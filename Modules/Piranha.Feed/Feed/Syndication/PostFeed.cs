@@ -26,9 +26,9 @@ namespace Piranha.Feed.Syndication
 	{
 		#region Members
 		/// <summary>
-		/// The protected post collection
+		/// The protected content collection
 		/// </summary>
-		protected readonly IEnumerable<Piranha.Models.Post> Posts;
+		protected readonly IEnumerable<Piranha.Models.Content> Content;
 		#endregion
 
 		#region Properties
@@ -41,9 +41,9 @@ namespace Piranha.Feed.Syndication
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		/// <param name="posts">The current posts</param>
-		public PostFeed(IEnumerable<Piranha.Models.Post> posts) : base() {
-			Posts = posts;
+		/// <param name="content">The current posts</param>
+		public PostFeed(IEnumerable<Piranha.Models.Content> content) : base() {
+			Content = content;
 		}
 
 		/// <summary>
@@ -60,19 +60,19 @@ namespace Piranha.Feed.Syndication
 
 			var feed = new SyndicationFeed() { 
 				Title = new TextSyndicationContent(Config.Site.Title),
-				LastUpdatedTime = Posts.First().Published.Value,
+				LastUpdatedTime = Content.First().Published.Value,
 				Description = new TextSyndicationContent(Config.Site.Description),
 			};
 			feed.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(App.Env.AbsoluteUrl("~/"))));
 
 			var items = new List<SyndicationItem>();
-			foreach (var post in Posts) {
+			foreach (var content in Content) {
 				var item = new SyndicationItem() { 
-					Title = SyndicationContent.CreatePlaintextContent(post.Title),
-					PublishDate = post.Published.Value,
-					Summary = SyndicationContent.CreateHtmlContent(post.Body)
+					Title = SyndicationContent.CreatePlaintextContent(content.Title),
+					PublishDate = content.Published.Value,
+					Summary = SyndicationContent.CreateHtmlContent("") // TODO
 				};
-				item.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(App.Env.AbsoluteUrl("~/" + post.Type.Slug + "/" + post.Slug))));
+				item.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(App.Env.AbsoluteUrl(ui.Permalink(content)))));
 				items.Add(item);
 			}
 			feed.Items = items;

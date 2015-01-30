@@ -48,8 +48,31 @@ namespace Piranha.Manager.Models.Config
 		public class SiteModel
 		{
 			public string Title { get; set; }
+			public string Tagline { get; set; }
 			public string Description { get; set; }
-			public int ArchivePageSize { get; set; }
+		}
+
+		/// <summary>
+		/// The config params available for the site archive.
+		/// </summary>
+		public class ArchiveModel
+		{
+			public string Title { get; set; }
+			public string Keywords { get; set; }
+			public string Description { get; set; }
+			public int PageSize { get; set; }
+		}
+
+		/// <summary>
+		/// The config params available for permalinks.
+		/// </summary>
+		public class PermalinkModel
+		{
+			public string PageSlug { get; set; }
+			public string PostSlug { get; set; }
+			public string PostArchiveSlug { get; set; }
+			public string CategoryArchiveSlug { get; set; }
+			public string TagArchiveSlug { get; set; }
 		}
 
 		/// <summary>
@@ -71,6 +94,11 @@ namespace Piranha.Manager.Models.Config
 
 		#region Properties
 		/// <summary>
+		/// Gets/sets the archive model.
+		/// </summary>
+		public ArchiveModel Archive { get; set; }
+
+		/// <summary>
 		/// Gets/sets the cache configuration.
 		/// </summary>
 		public CacheModel Cache { get; set; }
@@ -79,6 +107,11 @@ namespace Piranha.Manager.Models.Config
 		/// Gets/sets the comment configuration.
 		/// </summary>
 		public CommentModel Comments { get; set; }
+
+		/// <summary>
+		/// Gets/sets the permalink configuration.
+		/// </summary>
+		public PermalinkModel Permalinks { get; set; }
 
 		/// <summary>
 		/// Gets/sets the site configuration.
@@ -95,8 +128,10 @@ namespace Piranha.Manager.Models.Config
 		/// Default constructor.
 		/// </summary>
 		public EditModel() {
+			Archive = new ArchiveModel();
 			Cache = new CacheModel();
 			Comments = new CommentModel();
+			Permalinks = new PermalinkModel();
 			Site = new SiteModel();
 			Params = new List<object>();
 		}
@@ -108,6 +143,11 @@ namespace Piranha.Manager.Models.Config
 		public static EditModel Get(Api api) {
 			var m = new EditModel();
 
+			m.Archive.Title = Piranha.Config.Site.ArchiveTitle;
+			m.Archive.Keywords = Piranha.Config.Site.ArchiveKeywords;
+			m.Archive.Description = Piranha.Config.Site.ArchiveDescription;
+			m.Archive.PageSize = Piranha.Config.Site.ArchivePageSize;
+
 			m.Cache.Expires = Piranha.Config.Cache.Expires;
 			m.Cache.MaxAge = Piranha.Config.Cache.MaxAge;
 
@@ -117,9 +157,15 @@ namespace Piranha.Manager.Models.Config
 			m.Comments.NotifyModerators = Piranha.Config.Comments.NotifyModerators;
 			m.Comments.Moderators = Piranha.Config.Comments.Moderators;
 
+			m.Permalinks.PageSlug = Piranha.Config.Permalinks.PageSlug;
+			m.Permalinks.PostSlug = Piranha.Config.Permalinks.PostSlug;
+			m.Permalinks.PostArchiveSlug = Piranha.Config.Permalinks.PostArchiveSlug;
+			m.Permalinks.CategoryArchiveSlug = Piranha.Config.Permalinks.CategoryArchiveSlug;
+			m.Permalinks.TagArchiveSlug = Piranha.Config.Permalinks.TagArchiveSlug;
+
 			m.Site.Title = Piranha.Config.Site.Title;
+			m.Site.Tagline = Piranha.Config.Site.Tagline;
 			m.Site.Description = Piranha.Config.Site.Description;
-			m.Site.ArchivePageSize = Piranha.Config.Site.ArchivePageSize;
 
 			Manager.Config.Refresh(api);
 			foreach (var block in Manager.Config.Blocks.OrderBy(b => b.Section).ThenBy(b => b.Name)) {

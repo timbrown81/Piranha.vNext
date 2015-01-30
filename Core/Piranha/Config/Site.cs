@@ -26,6 +26,14 @@ namespace Piranha.Config
 		}
 
 		/// <summary>
+		/// Gets/sets the short site tagline.
+		/// </summary>
+		public static string Tagline {
+			get { return Utils.GetParam<string>("site_tagline", s => s); }
+			set { Utils.SetParam("site_tagline", value); }
+		}
+
+		/// <summary>
 		/// Gets/sets the site description.
 		/// </summary>
 		public static string Description {
@@ -48,6 +56,30 @@ namespace Piranha.Config
 		public static int ArchivePageSize {
 			get { return Utils.GetParam<int>("archive_pagesize", s => Convert.ToInt32(s)); }
 			set { Utils.SetParam("archive_pagesize", value); }
+		}
+
+		/// <summary>
+		/// Gets/sets the main archive title.
+		/// </summary>
+		public static string ArchiveTitle {
+			get { return Utils.GetParam<string>("archive_title", s => s); }
+			set { Utils.SetParam("archive_title", value); }
+		}
+
+		/// <summary>
+		/// Gets/sets the main archive meta keywords.
+		/// </summary>
+		public static string ArchiveKeywords {
+			get { return Utils.GetParam<string>("archive_keywords", s => s); }
+			set { Utils.SetParam("archive_keywords", value); }
+		}
+
+		/// <summary>
+		/// Gets/sets the main archive meta description.
+		/// </summary>
+		public static string ArchiveDescription {
+			get { return Utils.GetParam<string>("archive_description", s => s); }
+			set { Utils.SetParam("archive_description", value); }
 		}
 	}
 }

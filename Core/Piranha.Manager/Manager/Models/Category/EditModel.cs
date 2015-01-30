@@ -36,6 +36,15 @@ namespace Piranha.Manager.Models.Category
 		/// </summary>
 		[StringLength(128)]
 		public string Slug { get; set; }
+
+		[StringLength(128)]
+		public string ArchiveTitle { get; set; }
+		[StringLength(128)]
+		public string MetaKeywords { get; set; }
+		[StringLength(128)]
+		public string MetaDescription { get; set; }
+		[StringLength(255)]
+		public string ArchiveView { get; set; }
 		#endregion
 
 		/// <summary>

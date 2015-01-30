@@ -22,14 +22,14 @@ namespace Piranha.AspNet
 		/// <summary>
 		/// Gets/sets the current item being processed.
 		/// </summary>
-		public Content GetCurrent() {
-			return (Content)HttpContext.Current.Items["PiranhaCurrent"];
+		public Current GetCurrent() {
+			return (Current)HttpContext.Current.Items["PiranhaCurrent"];
 		}
 
 		/// <summary>
 		/// Gets/sets the current item being processed.
 		/// </summary>
-		public void SetCurrent(Content current) {
+		public void SetCurrent(Current current) {
 			HttpContext.Current.Items["PiranhaCurrent"] = current;
 		}
 

@@ -26,9 +26,9 @@ namespace Piranha.Models
 		public Guid Id { get; set; }
 
 		/// <summary>
-		/// Gets/sets the post id.
+		/// Gets/sets the content id.
 		/// </summary>
-		public Guid PostId { get; set; }
+		public Guid ContentId { get; set; }
 
 		/// <summary>
 		/// Gets/sets the optional user id.
@@ -93,9 +93,9 @@ namespace Piranha.Models
 
 		#region Navigation properties
 		/// <summary>
-		/// Gets/sets the post.
+		/// Gets/sets the content.
 		/// </summary>
-		public Post Post { get; set; }
+		public Content Content { get; set; }
 		#endregion
 
 		#region Internal events
@@ -122,8 +122,8 @@ namespace Piranha.Models
 			// Handle possible notifications
 			HandleNotifications();
 
-			// Remove parent post from model cache
-			App.ModelCache.Remove<Models.Post>(this.PostId);
+			// Remove parent from model cache
+			App.ModelCache.Remove<Models.Content>(this.ContentId);
 		}
 
 		/// <summary>
@@ -134,8 +134,8 @@ namespace Piranha.Models
 			if (Hooks.Models.Comment.OnDelete != null)
 				Hooks.Models.Comment.OnDelete(this);
 
-			// Remove parent post from model cache
-			App.ModelCache.Remove<Models.Post>(this.PostId);
+			// Remove parent from model cache
+			App.ModelCache.Remove<Models.Content>(this.ContentId);
 		}
 		#endregion
 
@@ -143,8 +143,7 @@ namespace Piranha.Models
 		/// Method to validate model
 		/// </summary>
 		/// <returns>Returns the result of validation</returns>
-		protected override FluentValidation.Results.ValidationResult Validate()
-		{
+		protected override FluentValidation.Results.ValidationResult Validate() {
 			var validator = new CommentValidator();
 			return validator.Validate(this);
 		}
@@ -157,33 +156,33 @@ namespace Piranha.Models
 			if (Config.Comments.NotifyAuthor || Config.Comments.NotifyModerators) {
 				if (App.Mail != null) {
 					using (var api = new Api()) {
-						var post = api.Posts.GetSingle(PostId);
+						var content = api.Content.GetSingle(ContentId);
 
-						if (post != null) {
+						if (content != null) {
 							var recipients = new List<Mail.Address>();
 							var mail = new Mail.Message();
 
-							if (Hooks.Mail.OnCommentMail != null) { 
+							if (Hooks.Mail.OnCommentMail != null) {
 								// Generate custom mail
-								mail = Hooks.Mail.OnCommentMail(post, this);
+								mail = Hooks.Mail.OnCommentMail(content, this);
 							} else {
 								// Generate default mail
 								var ui = new Client.Helpers.UIHelper();
-								mail.Subject = "New comment posted on " + post.Title;
+								mail.Subject = "New comment posted on " + content.Title;
 								mail.Body = String.Format(Mail.Defaults.NewComment,
 									ui.GravatarUrl(Email, 80),
-									App.Env.AbsoluteUrl(ui.Permalink(post)),
-									post.Title,
+									App.Env.AbsoluteUrl(ui.Permalink(content)),
+									content.Title,
 									Author,
 									Created.ToString("yyyy-MM-dd HH:mm:ss"),
 									Body.Replace("\n", "<br/>"));
 							}
 
-							if (Config.Comments.NotifyAuthor && !String.IsNullOrWhiteSpace(post.Author.Email)) {
+							if (Config.Comments.NotifyAuthor && !String.IsNullOrWhiteSpace(content.Author.Email)) {
 								// Add author address
 								recipients.Add(new Mail.Address() {
-									Email = post.Author.Email,
-									Name = post.Author.Name
+									Email = content.Author.Email,
+									Name = content.Author.Name
 								});
 							}
 
@@ -211,8 +210,7 @@ namespace Piranha.Models
 		#region Validator
 		private class CommentValidator : AbstractValidator<Comment>
 		{
-			public CommentValidator()
-			{
+			public CommentValidator() {
 				RuleFor(m => m.UserId).Length(0, 128);
 				RuleFor(m => m.Author).Length(0, 128);
 				RuleFor(m => m.Email).Length(0, 128);

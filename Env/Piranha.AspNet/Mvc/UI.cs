@@ -27,6 +27,29 @@ namespace Piranha.AspNet.Mvc
 		private static UIHelper helper = new UIHelper();
 		#endregion
 
+		#region Properties
+		/// <summary>
+		/// Gets if the current request is for a page.
+		/// </summary>
+		public static bool IsPage {
+			get { return helper.IsPage; }
+		}
+
+		/// <summary>
+		/// Gets if the current request is for a post.
+		/// </summary>
+		public static bool IsPost {
+			get { return helper.IsPost; }
+		}
+
+		/// <summary>
+		/// Gets if the current request is for the startpage.
+		/// </summary>
+		public static bool IsStart {
+			get { return helper.IsStart; }
+		}
+		#endregion
+
 		/// <summary>
 		/// Gets the block with the given slug.
 		/// </summary>
@@ -45,21 +68,30 @@ namespace Piranha.AspNet.Mvc
 		}
 
 		/// <summary>
-		/// Renders the permalink for the given post.
+		/// Renders the archive permalink for the given category.
 		/// </summary>
-		/// <param name="post">The post</param>
+		/// <param name="category">The category</param>
 		/// <returns>The generated permalink</returns>
-		public static IHtmlString Permalink(PostModel post) {
-			return new HtmlString(helper.Permalink(post));
+		public static IHtmlString Permalink(Piranha.Models.Category category) {
+			return new HtmlString(helper.Permalink(category));
 		}
 
 		/// <summary>
-		/// Renders the permalink for the given post.
+		/// Renders the permalink for the given content.
 		/// </summary>
-		/// <param name="post">The post</param>
+		/// <param name="content">The content</param>
 		/// <returns>The generated permalink</returns>
-		public static IHtmlString Permalink(Piranha.Models.Post post) {
-			return new HtmlString(helper.Permalink(post));
+		public static IHtmlString Permalink(ContentModel content) {
+			return new HtmlString(helper.Permalink(content));
+		}
+
+		/// <summary>
+		/// Renders the permalink for the given content.
+		/// </summary>
+		/// <param name="content">The content model</param>
+		/// <returns>The generated permalink</returns>
+		public static IHtmlString Permalink(Piranha.Models.Content content) {
+			return new HtmlString(helper.Permalink(content));
 		}
 
 		/// <summary>
@@ -96,11 +128,10 @@ namespace Piranha.AspNet.Mvc
 		/// <param name="start">The start level of the menu</param>
 		/// <param name="stop">The stop level of the menu</param>
 		/// <param name="levels">The number of levels. Use this if you don't know the start level</param>
-		/// <param name="root">Optional rootnode for the menu to start from</param>
 		/// <param name="css">Optional css class for the outermost container</param>
 		/// <returns>A rendered menu</returns>
-		public static IHtmlString Menu(int start = 1, int stop = Int32.MaxValue, int levels = 0, string root = "", string css = "menu") {
-			return new HtmlString(helper.Menu(start, stop, levels, root, css));
+		public static IHtmlString Menu(int start = 1, int stop = Int32.MaxValue, int levels = 0, string css = "menu") {
+			return new HtmlString(helper.Menu(start, stop, levels, css));
 		}
 	}
 }

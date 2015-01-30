@@ -15,7 +15,7 @@ namespace Piranha.Server.Handlers
 	/// <summary>
 	/// Handler for routing requests for aliases.
 	/// </summary>
-	public sealed class AliasHandler : IHandler
+	public class AliasHandler : IHandler
 	{
 		/// <summary>
 		/// Tries to handle an incoming request.

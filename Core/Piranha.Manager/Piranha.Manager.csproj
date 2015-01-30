@@ -365,9 +365,6 @@
     <Compile Include="Areas\Manager\Controllers\ConfigMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\DashboardMgrController.cs" />
     <Compile Include="Areas\Manager\Controllers\ManagerController.cs" />
-    <Compile Include="Areas\Manager\Controllers\PostMgrController.cs" />
-    <Compile Include="Areas\Manager\Controllers\PageTypeMgrController.cs" />
-    <Compile Include="Areas\Manager\Controllers\PostTypeMgrController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Areas\Manager\Views\AccountMgr\Login.generated.cs">
       <AutoGen>True</AutoGen>
@@ -410,9 +407,9 @@
       <DependentUpon>List.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Areas\Manager\Views\CategoryMgr\Partial\EditCategory.generated.cs">
+      <DependentUpon>EditCategory.cshtml</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EditCategory.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Areas\Manager\Views\ConfigMgr\EditorTemplates\ConfigBlock.generated.cs">
       <AutoGen>True</AutoGen>
@@ -420,46 +417,6 @@
       <DependentUpon>ConfigBlock.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Areas\Manager\Views\ConfigMgr\List.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>List.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Manager\Views\PageTypeMgr\Edit.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Edit.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Manager\Views\PageTypeMgr\List.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>List.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Manager\Views\PostMgr\Edit.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Edit.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Manager\Views\PostMgr\EditorTemplates\CommentListItem.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CommentListItem.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Manager\Views\PostMgr\List.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>List.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Manager\Views\PostMgr\Partial\CommentList.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CommentList.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Manager\Views\PostTypeMgr\Edit.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Edit.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Manager\Views\PostTypeMgr\List.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>List.cshtml</DependentUpon>
@@ -498,13 +455,6 @@
     <Compile Include="Manager\Models\Category\EditModel.cs" />
     <Compile Include="Manager\Models\Category\ListItem.cs" />
     <Compile Include="Manager\Models\Config\EditModel.cs" />
-    <Compile Include="Manager\Models\PageType\EditModel.cs" />
-    <Compile Include="Manager\Models\PageType\ListModel.cs" />
-    <Compile Include="Manager\Models\Post\CommentState.cs" />
-    <Compile Include="Manager\Models\Post\EditModel.cs" />
-    <Compile Include="Manager\Models\Post\ListModel.cs" />
-    <Compile Include="Manager\Models\PostType\ListModel.cs" />
-    <Compile Include="Manager\Models\PostType\EditModel.cs" />
     <Compile Include="Manager\Resources\Account.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -578,23 +528,7 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\Manager\Views\PostMgr\List.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>List.generated.cs</LastGenOutput>
-    </Content>
     <Content Include="Areas\Manager\Assets\css\panels.less" />
-    <Content Include="Areas\Manager\Views\PostTypeMgr\List.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>List.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Manager\Views\PostTypeMgr\Edit.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Edit.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Manager\Views\PostMgr\Edit.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Edit.generated.cs</LastGenOutput>
-    </Content>
     <Content Include="Areas\Manager\Views\Shared\Partial\Editor.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Editor.generated.cs</LastGenOutput>
@@ -623,14 +557,6 @@
     <Content Include="Areas\Manager\Assets\js\scripts.js.bundle" />
     <Content Include="Areas\Manager\Assets\js\scripts.min.js.map">
       <DependentUpon>scripts.min.js</DependentUpon>
-    </Content>
-    <Content Include="Areas\Manager\Views\PostMgr\Partial\CommentList.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>CommentList.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Manager\Views\PostMgr\EditorTemplates\CommentListItem.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>CommentListItem.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Areas\Manager\Views\BlockMgr\List.cshtml">
       <Generator>RazorGenerator</Generator>
@@ -664,10 +590,6 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>EditBlock.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\Manager\Views\CategoryMgr\Partial\EditCategory.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>EditCategory.generated.cs</LastGenOutput>
-    </Content>
     <Content Include="Areas\Manager\Views\CategoryMgr\List.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>List.generated.cs</LastGenOutput>
@@ -676,13 +598,9 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>ConfigBlock.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\Manager\Views\PageTypeMgr\List.cshtml">
+    <Content Include="Areas\Manager\Views\CategoryMgr\Partial\EditCategory.cshtml">
       <Generator>RazorGenerator</Generator>
-      <LastGenOutput>List.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Manager\Views\PageTypeMgr\Edit.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+      <LastGenOutput>EditCategory.generated.cs</LastGenOutput>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -699,10 +617,6 @@
     <ProjectReference Include="..\..\Env\Piranha.AspNet\Piranha.AspNet.csproj">
       <Project>{27fc302c-b059-4c87-a146-310a1056b5d8}</Project>
       <Name>Piranha.AspNet</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Modules\Piranha.Feed\Piranha.Feed.csproj">
-      <Project>{821cd5e2-95a3-4cff-9ff3-1ec595e18111}</Project>
-      <Name>Piranha.Feed</Name>
     </ProjectReference>
     <ProjectReference Include="..\Piranha\Piranha.csproj">
       <Project>{c5e2b115-51a8-46a9-90f5-49248cd34128}</Project>

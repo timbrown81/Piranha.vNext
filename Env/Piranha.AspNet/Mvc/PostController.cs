@@ -48,9 +48,13 @@ namespace Piranha.AspNet.Mvc
 		/// </summary>
 		/// <param name="filterContext">The current filter context</param>
 		protected override void OnActionExecuting(ActionExecutingContext filterContext) {
-			PostId = new Guid(Request["id"]);
+			if (App.Env.GetCurrent() != null) {
+				PostId = new Guid(Request["id"]);
 
-			base.OnActionExecuting(filterContext);
+				base.OnActionExecuting(filterContext);
+			} else {
+				throw new System.Web.HttpException(403, "No direct access");
+			}
 		}
 	}
 }

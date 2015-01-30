@@ -41,7 +41,7 @@ namespace Piranha.Areas.Manager.Controllers
 		public ActionResult LoginUser(LoginModel m) {
 			if (ModelState.IsValid) {
 				if (App.Security.SignIn(m.Username, m.Password))
-					return RedirectToAction("List", "PostMgr");
+					return RedirectToAction("List", "CategoryMgr");
 			}
 			return RedirectToAction("Login");
 		}

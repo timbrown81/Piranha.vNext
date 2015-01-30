@@ -74,12 +74,12 @@ namespace Piranha.AspNet.Web
 			// Get the segments
 			string path = context.Request.Path.Substring(context.Request.ApplicationPath.Length > 1 ?
 				context.Request.ApplicationPath.Length : 0).ToLower();
-			Segments = path.Split(new char[] { '/' }).Subset(1);
+			Segments = path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
-			if (Segments.Length > 0) {
-				if (String.IsNullOrWhiteSpace(Segments[Segments.Length - 1]))
-					Segments = Segments.Subset(0, Segments.Length - 1);
-			}
+			//if (Segments.Length > 0) {
+			//	if (String.IsNullOrWhiteSpace(Segments[Segments.Length - 1]))
+			//		Segments = Segments.Subset(0, Segments.Length - 1);
+			//}
 
 			// Get the optional params
 			var param = new List<Param>();

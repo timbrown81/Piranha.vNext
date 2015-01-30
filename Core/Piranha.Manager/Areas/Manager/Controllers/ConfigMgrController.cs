@@ -51,8 +51,41 @@ namespace Piranha.Areas.Manager.Controllers
 		[Route("config/site/save")]
 		public ActionResult SaveSite(EditModel.SiteModel model) {
 			Piranha.Config.Site.Title = model.Title;
+			Piranha.Config.Site.Tagline = model.Tagline;
 			Piranha.Config.Site.Description = model.Description;
-			Piranha.Config.Site.ArchivePageSize = model.ArchivePageSize;
+
+			return JsonData(true, EditModel.Get(api));
+		}
+
+		/// <summary>
+		/// Saves the given archive configuration.
+		/// </summary>
+		/// <param name="model">The archive model</param>
+		/// <returns>The result and updated config</returns>
+		[HttpPost]
+		[Route("config/archive/save")]
+		public ActionResult SaveSite(EditModel.ArchiveModel model) {
+			Piranha.Config.Site.ArchiveTitle = model.Title;
+			Piranha.Config.Site.ArchivePageSize = model.PageSize;
+			Piranha.Config.Site.ArchiveKeywords = model.Keywords;
+			Piranha.Config.Site.ArchiveDescription = model.Description;
+
+			return JsonData(true, EditModel.Get(api));
+		}
+
+		/// <summary>
+		/// Saves the given permalink configuration.
+		/// </summary>
+		/// <param name="model">The permalink model</param>
+		/// <returns>The result and updated config</returns>
+		[HttpPost]
+		[Route("config/permalinks/save")]
+		public ActionResult SaveSite(EditModel.PermalinkModel model) {
+			Piranha.Config.Permalinks.PageSlug = model.PageSlug;
+			Piranha.Config.Permalinks.PostSlug = model.PostSlug;
+			Piranha.Config.Permalinks.PostArchiveSlug = model.PostArchiveSlug;
+			Piranha.Config.Permalinks.CategoryArchiveSlug = model.CategoryArchiveSlug;
+			Piranha.Config.Permalinks.TagArchiveSlug = model.TagArchiveSlug;
 
 			return JsonData(true, EditModel.Get(api));
 		}

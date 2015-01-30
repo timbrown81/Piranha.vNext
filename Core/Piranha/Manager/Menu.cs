@@ -76,9 +76,6 @@ namespace Piranha.Manager
 					},
 					new MenuItem() {
 						InternalId = "Categories", Name = "Categories", Controller = "CategoryMgr", Action = "List"
-					},
-					new MenuItem() {
-						InternalId = "Posts", Name = "Posts", Controller = "PostMgr", Action = "List"
 					}
 				}
 			},
@@ -89,12 +86,6 @@ namespace Piranha.Manager
 					},
 					new MenuItem() {
 						InternalId = "Authors", Name = "Authors", Controller = "AuthorMgr", Action = "List"
-					},
-					new MenuItem() {
-						InternalId = "PageTypes", Name = "Page types", Controller = "PageTypeMgr", Action = "List"
-					},
-					new MenuItem() {
-						InternalId = "PostTypes", Name = "Post types", Controller = "PostTypeMgr", Action = "List"
 					}
 				}
 			},

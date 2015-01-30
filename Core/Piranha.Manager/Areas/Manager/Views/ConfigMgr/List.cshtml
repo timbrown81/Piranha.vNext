@@ -51,9 +51,9 @@
 								<div class="form-group">
 									<input type="text" class="form-control" data-bind="value: siteTitle" />
 								</div>
-								<label>@Piranha.Manager.Resources.Config.SiteArchivePageSize</label>
+								<label>@Piranha.Manager.Resources.Config.SiteTagline</label>
 								<div class="form-group">
-									<input type="number" class="form-control" data-bind="value: siteArchivePageSize" />
+									<input type="text" class="form-control" data-bind="value: siteTagline" />
 								</div>
 							</div>
 							<div class="col-sm-6">
@@ -61,6 +61,53 @@
 								<div class="form-group">
 									<textarea rows="3" class="form-control count-me" style="height:97px" data-bind="value: siteDescription"></textarea>
 									<p><span data-bind="text: siteDescription().Length"></span>/255 @Piranha.Manager.Resources.Global.Characters</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Permalinks -->
+				<div id="pnlPermalinks" class="panel panel-default">
+					<div class="notification">
+						<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
+					</div>
+					<div class="panel-heading">
+						<!-- Save -->
+						<div class="btn-group pull-right">
+							<button type="button" class="btn btn-sm btn-labeled btn-success" data-bind="click: savePermalinks">
+								<span class="btn-label">
+									<i class="glyphicon glyphicon-ok"></i>
+								</span>
+								@Piranha.Manager.Resources.Global.Save
+							</button>
+						</div>
+						<h3 class="panel-title">@Piranha.Manager.Resources.Config.Permalinks</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-6">
+								<label>@Piranha.Manager.Resources.Config.PermalinksPageSlug</label>
+								<div class="form-group">
+									<input type="text" class="form-control" data-bind="value: permalinkPage" />
+								</div>
+								<label>@Piranha.Manager.Resources.Config.PermalinksPostArchiveSlug</label>
+								<div class="form-group">
+									<input type="text" class="form-control" data-bind="value: permalinkPostArchive" />
+								</div>
+								<label>@Piranha.Manager.Resources.Config.PermalinksTagArchiveSlug</label>
+								<div class="form-group">
+									<input type="text" class="form-control" data-bind="value: permalinkTagArchive" />
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<label>@Piranha.Manager.Resources.Config.PermalinksPostSlug</label>
+								<div class="form-group">
+									<input type="text" class="form-control" data-bind="value: permalinkPost" />
+								</div>
+								<label>@Piranha.Manager.Resources.Config.PermalinksCategoryArchiveSlug</label>
+								<div class="form-group">
+									<input type="text" class="form-control" data-bind="value: permalinkCategoryArchive" />
 								</div>
 							</div>
 						</div>
@@ -110,6 +157,56 @@
 
 			<!-- Blog settings -->
 			<div data-bind="if: active() == 'blogging'">
+				<!-- Archive -->
+				<div id="pnlArchive" class="panel panel-default">
+					<div class="notification">
+						<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
+					</div>
+					<div class="panel-heading">
+						<!-- Save -->
+						<div class="btn-group pull-right">
+							<button type="button" class="btn btn-sm btn-labeled btn-success" data-bind="click: saveArchive">
+								<span class="btn-label">
+									<i class="glyphicon glyphicon-ok"></i>
+								</span>
+								@Piranha.Manager.Resources.Global.Save
+							</button>
+						</div>
+						<h3 class="panel-title">@Piranha.Manager.Resources.Config.Archive</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="row">
+									<div class="col-sm-6">
+										<label>@Piranha.Manager.Resources.Config.SiteArchiveTitle</label>
+										<div class="form-group">
+											<input type="text" class="form-control" data-bind="value: siteArchiveTitle" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<label>@Piranha.Manager.Resources.Config.SiteArchivePageSize</label>
+										<div class="form-group">
+											<input type="number" class="form-control" data-bind="value: siteArchivePageSize" />
+										</div>
+									</div>
+								</div>
+								<label>@Piranha.Manager.Resources.Config.SiteArchiveKeywords</label>
+								<div class="form-group">
+									<input type="text" class="form-control" data-bind="value: siteArchiveKeywords" />
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<label>@Piranha.Manager.Resources.Config.SiteArchiveDescription</label>
+								<div class="form-group">
+									<textarea rows="3" class="form-control count-me" style="height:97px" data-bind="value: siteArchiveDescription"></textarea>
+									<p><span data-bind="text: siteArchiveDescription().Length"></span>/255 @Piranha.Manager.Resources.Global.Characters</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<!-- Comments -->
 				<div id="pnlComments" class="panel panel-default">
 					<div class="notification">
@@ -175,7 +272,7 @@
 					<!-- Blocks -->
 					@foreach (var block in Model.Where(b => b.Section.ToLower() == section.ToLower())) {
 						@Html.EditorFor(m => block)
-					}						
+					}
 				</div>
 			}
 		</form>

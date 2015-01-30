@@ -33,9 +33,9 @@ namespace Piranha.Feed
 
 			if (request.Segments.Length == 1 || String.IsNullOrWhiteSpace(request.Segments[1])) {
 				// Post feed for the entire site
-				var posts = api.Posts.Get(where: p => p.Published <= now, limit: Config.Site.ArchivePageSize);
+				var content = api.Content.Get(where: c => c.Type == Models.ContentType.Post && c.Published <= now, limit: Config.Feed.PageSize);
 
-				var feed = new Syndication.PostRssFeed(posts);
+				var feed = new Syndication.PostRssFeed(content);
 				var response = request.StreamResponse();
 
 				feed.Write(response);
@@ -45,7 +45,7 @@ namespace Piranha.Feed
 				// Comment feed for the entire site
 				var comments = api.Comments.Get(where: c => c.IsApproved, 
 					order: q => q.OrderByDescending(c => c.Created),
-					limit: Config.Site.ArchivePageSize);
+					limit: Config.Feed.PageSize);
 
 				var feed = new Syndication.CommentRssFeed(comments);
 				var response = request.StreamResponse();
@@ -54,15 +54,20 @@ namespace Piranha.Feed
 
 				return response;
 			} else {
-				var type = api.PostTypes.GetSingle(request.Segments[1]);
+				// Comment feed for an individual post
+				if (request.Segments.Length > 2 && !String.IsNullOrWhiteSpace(request.Segments[2])) {
+					Models.ContentType? type = null;
 
-				if (type != null) {
-					// Comment feed for an individual post
-					if (request.Segments.Length > 2 && !String.IsNullOrWhiteSpace(request.Segments[2])) {
-						var post = PostModel.GetBySlug(request.Segments[2], type.Id).WithComments();
+					if (request.Segments[1].ToLower() == Config.Permalinks.PostSlug)
+						type = Models.ContentType.Post;
+					else if (request.Segments[1].ToLower() == Config.Permalinks.PageSlug)
+						type = Models.ContentType.Page;
 
-						if (post != null) {
-							var comments = api.Comments.Get(where: c => c.IsApproved && c.PostId == post.Id,
+					if (type.HasValue) {
+						var content = ContentModel.GetBySlug(type.Value, request.Segments[2]);
+
+						if (content != null) {
+							var comments = api.Comments.Get(where: c => c.IsApproved && c.ContentId == content.Id,
 								order: q => q.OrderByDescending(c => c.Created),
 								limit: Config.Site.ArchivePageSize);
 
@@ -73,17 +78,6 @@ namespace Piranha.Feed
 
 							return response;
 						}
-					} else {
-						// Post feed for an individual post type
-						var posts = api.Posts.Get(where: p => p.Published <= now && p.TypeId == type.Id, 
-							limit: Config.Site.ArchivePageSize);
-
-						var feed = new Syndication.PostRssFeed(posts);
-						var response = request.StreamResponse();
-
-						feed.Write(response);
-
-						return response;
 					}
 				}
 			}

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Archive" xml:space="preserve">
+    <value>Archive</value>
+  </data>
   <data name="Blogging" xml:space="preserve">
     <value>Blogging</value>
   </data>
@@ -153,14 +156,44 @@
   <data name="NotifyModerators" xml:space="preserve">
     <value>Notify moderators when comments are posted</value>
   </data>
+  <data name="Permalinks" xml:space="preserve">
+    <value>Permalinks</value>
+  </data>
+  <data name="PermalinksCategoryArchiveSlug" xml:space="preserve">
+    <value>Category archive slug</value>
+  </data>
+  <data name="PermalinksPageSlug" xml:space="preserve">
+    <value>Page slug</value>
+  </data>
+  <data name="PermalinksPostArchiveSlug" xml:space="preserve">
+    <value>Post archive slug</value>
+  </data>
+  <data name="PermalinksPostSlug" xml:space="preserve">
+    <value>Post slug</value>
+  </data>
+  <data name="PermalinksTagArchiveSlug" xml:space="preserve">
+    <value>Tag archive slug</value>
+  </data>
   <data name="Site" xml:space="preserve">
     <value>Site</value>
   </data>
+  <data name="SiteArchiveDescription" xml:space="preserve">
+    <value>Meta description</value>
+  </data>
+  <data name="SiteArchiveKeywords" xml:space="preserve">
+    <value>Meta keywords</value>
+  </data>
   <data name="SiteArchivePageSize" xml:space="preserve">
-    <value>Archive page size</value>
+    <value>Page size</value>
+  </data>
+  <data name="SiteArchiveTitle" xml:space="preserve">
+    <value>Title</value>
   </data>
   <data name="SiteDescription" xml:space="preserve">
     <value>Description</value>
+  </data>
+  <data name="SiteTagline" xml:space="preserve">
+    <value>Tagline</value>
   </data>
   <data name="SiteTitle" xml:space="preserve">
     <value>Title</value>

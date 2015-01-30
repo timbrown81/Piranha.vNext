@@ -1,0 +1,30 @@
+﻿@{
+	ViewBag.Title = "Oooops";
+
+	var error = HttpContext.Current.Server.GetLastError();
+}
+
+<header role="banner">
+	<div class="wrapper">
+		<img class="shield" src="~/assets/img/logo-big.png" alt="Piranha CMS" />
+	</div>
+</header>
+
+<div id="main">
+	<article role="main" class="error">
+		<header>
+			<h1>Oooops<small>/ 403 Forbidden</small></h1>
+			<p class="meta" style="display:none">
+				<span class="icon-clock"></span>This very second by Piranha CMS
+				<span class="icon-tag"></span>It's not your fault, We still love you
+			</p>
+		</header>
+		<p class="excerpt">
+			It's seems you've tried to go somewhere not allowed by the server.
+			Please turn around and go the opposite direction.
+		</p>
+		@if (error != null) {
+			<pre>@error.GetBaseException().ToString()</pre>
+		}
+	</article>
+</div>

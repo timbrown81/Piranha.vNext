@@ -28,6 +28,8 @@ namespace Piranha.AspNet.Mvc
 		[HttpPost]
 		public virtual ActionResult Add(Piranha.Models.Comment model) {
 			if (ModelState.IsValid) {
+				var ui = new Client.Helpers.UIHelper();
+
 				using (var api = new Api()) {
 					model.IP = HttpContext.Request.UserHostAddress;
 					model.UserAgent = HttpContext.Request.UserAgent.Substring(0, Math.Min(HttpContext.Request.UserAgent.Length, 128));
@@ -44,9 +46,9 @@ namespace Piranha.AspNet.Mvc
 					api.Comments.Add(model);
 					api.SaveChanges();
 				}
-				var post = PostModel.GetById(model.PostId);
+				var content = ContentModel.GetById(model.ContentId);
 
-				return Redirect("~/" + post.Type + "/" + post.Slug);
+				return Redirect(ui.Permalink(content));
 			}
 			return null;
 		}

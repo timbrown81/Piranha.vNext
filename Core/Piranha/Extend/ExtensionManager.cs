@@ -46,7 +46,25 @@ namespace Piranha.Extend
 			/// Internal constructor.
 			/// </summary>
 			internal Import() { }
-		}		
+		}
+
+		public sealed class BlockImport
+		{
+			/// <summary>
+			/// Gets the display name.
+			/// </summary>
+			public string Name { get; internal set; }
+
+			/// <summary>
+			/// Gets the CLR value type.
+			/// </summary>
+			public Type ValueType { get; internal set; }
+
+			/// <summary>
+			/// Internal constructor.
+			/// </summary>
+			internal BlockImport() { }
+		}
 		#endregion
 
 		#region Properties
@@ -61,14 +79,9 @@ namespace Piranha.Extend
 		public IList<IModule> Modules { get; private set; }
 
 		/// <summary>
-		/// Gets the currently imported page types.
+		/// Gets the available blocks.
 		/// </summary>
-		public IList<Builder.PageType> PageTypes { get; private set; }
-
-		/// <summary>
-		/// Gets the currently imported post types.
-		/// </summary>
-		public IList<Builder.PostType> PostTypes { get; private set; }
+		public IList<BlockImport> Blocks { get; private set; }
 
 		/// <summary>
 		/// Gets the available properties.
@@ -89,10 +102,9 @@ namespace Piranha.Extend
 		/// Default internal constructor.
 		/// </summary>
 		internal ExtensionManager() {
+			Blocks = new List<BlockImport>();
 			Extensions = new List<Import>();
 			Modules = new List<IModule>();
-			PageTypes = new List<Builder.PageType>();
-			PostTypes = new List<Builder.PostType>();
 
 			// Scan all assemblies
 			App.Logger.Log(Log.LogLevel.INFO, "ExtensionManager: Scanning assemblies");
@@ -111,63 +123,24 @@ namespace Piranha.Extend
 									ValueType = info
 								});
 							}
+						} else if (typeof(IBlock).GetTypeInfo().IsAssignableFrom(info)) {
+							//
+							// Block
+							//
+							var attr = info.GetCustomAttribute<BlockAttribute>();
+							if (attr != null) {
+								Blocks.Add(new BlockImport() {
+									Name = attr.Name,
+									ValueType = info
+								});
+							}
 						} else if (typeof(IModule).GetTypeInfo().IsAssignableFrom(info)) {
 							//
 							// Modules
 							//
 							Modules.Add((IModule)Activator.CreateInstance(info));
-						} else if (typeof(Builder.PageType).GetTypeInfo().IsAssignableFrom(info)) {
-							//
-							// Page types
-							//
-							var attr = info.GetCustomAttribute<BuilderAttribute>();
-							if (attr != null)
-								PageTypes.Add((Builder.PageType)Activator.CreateInstance(info));
-						} else if (typeof(Builder.PostType).GetTypeInfo().IsAssignableFrom(info)) {
-							//
-							// Post types
-							//
-							var attr = info.GetCustomAttribute<BuilderAttribute>();
-							if (attr != null)
-								PostTypes.Add((Builder.PostType)Activator.CreateInstance(info));
-						}
+						} 
 					} 
-				}
-			}
-
-			if (PageTypes.Count > 0) {
-				// Build page types
-				App.Logger.Log(Log.LogLevel.INFO, "ExtensionManager: Building page types");
-
-				using (var api = new Api()) {
-					foreach (var type in PageTypes) {
-						App.Logger.Log(Log.LogLevel.INFO, "ExtensionManager: > " + type.Name);
-
-						try {
-							type.Build(api);
-						} catch (Exception ex) {
-							App.Logger.Log(Log.LogLevel.ERROR, "ExtensionManager: Error building page type" + type.Name, ex);
-						}
-					}
-					api.SaveChanges();
-				}
-			}
-
-			if (PostTypes.Count > 0) {
-				// Build post types
-				App.Logger.Log(Log.LogLevel.INFO, "ExtensionManager: Building post types");
-
-				using (var api = new Api()) {
-					foreach (var type in PostTypes) {
-						App.Logger.Log(Log.LogLevel.INFO, "ExtensionManager: > " + type.Name);
-
-						try {
-							type.Build(api);
-						} catch (Exception ex) {
-							App.Logger.Log(Log.LogLevel.ERROR, "ExtensionManager: Error building post type" + type.Name, ex);
-						}
-					}
-					api.SaveChanges();
 				}
 			}
 

@@ -56,19 +56,14 @@ namespace Piranha
 		public Repositories.CommentRepository Comments { get; private set; }
 
 		/// <summary>
+		/// Gets the content repository.
+		/// </summary>
+		public Repositories.ContentRepository Content { get; private set; }
+
+		/// <summary>
 		/// Gets the media repository.
 		/// </summary>
 		public Repositories.MediaRepository Media { get; private set; }
-
-		/// <summary>
-		/// Gets the page repository.
-		/// </summary>
-		public Repositories.PageRepository Pages { get; private set; }
-
-		/// <summary>
-		/// Gets the page type repository.
-		/// </summary>
-		public Repositories.PageTypeRepository PageTypes { get; private set; }
 
 		/// <summary>
 		/// Gets the param repository.
@@ -76,19 +71,14 @@ namespace Piranha
 		public Repositories.ParamRepository Params { get; private set; }
 
 		/// <summary>
-		/// Gets the post repository.
-		/// </summary>
-		public Repositories.PostRepository Posts { get; private set; }
-
-		/// <summary>
-		/// Gets the post type repository.
-		/// </summary>
-		public Repositories.PostTypeRepository PostTypes { get; private set; }
-
-		/// <summary>
-		/// Gets the ratings reposirory
+		/// Gets the ratings repository.
 		/// </summary>
 		public Repositories.RatingRepository Ratings { get; private set; }
+
+		/// <summary>
+		/// Gets the template repository.
+		/// </summary>
+		public Repositories.TemplateRepository Templates { get; private set; }
 		#endregion
 
 		/// <summary>
@@ -109,13 +99,11 @@ namespace Piranha
 			Blocks = new Repositories.BlockRepository(this.session);
 			Categories = new Repositories.CategoryRepository(this.session);
 			Comments = new Repositories.CommentRepository(this.session);
+			Content = new Repositories.ContentRepository(this.session);
 			Media = new Repositories.MediaRepository(this.session);
-			Pages = new Repositories.PageRepository(this.session);
-			PageTypes = new Repositories.PageTypeRepository(this.session);
 			Params = new Repositories.ParamRepository(this.session);
-			Posts = new Repositories.PostRepository(this.session);
-			PostTypes = new Repositories.PostTypeRepository(this.session);
 			Ratings = new Repositories.RatingRepository(this.session);
+			Templates = new Repositories.TemplateRepository(this.session);
 		}
 
 		/// <summary>

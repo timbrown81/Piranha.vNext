@@ -23,6 +23,26 @@ namespace Piranha.Repositories
 		internal CategoryRepository(Data.ISession session) : base(session) { }
 
 		/// <summary>
+		/// Gets the model identified by the given id. 
+		/// </summary>
+		/// <remarks>
+		/// This method uses the configured cache for performance.
+		/// </remarks>
+		/// <param name="id">The unique id</param>
+		/// <returns>The model</returns>
+		public override Models.Category GetSingle(Guid id) {
+			var model = App.ModelCache.GetById<Models.Category>(id);
+
+			if (model == null) {
+				model = base.GetSingle(id);
+
+				if (model != null)
+					App.ModelCache.Add(model);
+			}
+			return model;
+		}
+
+		/// <summary>
 		/// Adds a new or updated model to the api.
 		/// </summary>
 		/// <param name="model">The model</param>

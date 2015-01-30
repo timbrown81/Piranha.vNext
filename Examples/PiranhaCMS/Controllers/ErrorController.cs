@@ -27,10 +27,20 @@ namespace PiranhaCMS.Controllers
 		}
 
 		/// <summary>
+		/// Gets the error view for a 403.
+		/// </summary>
+		/// <returns>The view result</returns>
+		public ActionResult Forbidden() {
+			Response.StatusCode = 403;
+			return View();
+		}
+
+		/// <summary>
 		/// Gets the error view for a 404.
 		/// </summary>
 		/// <returns>The view result</returns>
 		public ActionResult NotFound() {
+			Response.StatusCode = 404;
 			return View();
 		}
 	}

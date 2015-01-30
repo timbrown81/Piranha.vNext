@@ -73,45 +73,24 @@ namespace Piranha.Hooks
 		}
 
 		/// <summary>
-		/// The model hooks available for pages.
+		/// The model hooks available for content.
 		/// </summary>
-		public static class Page
+		public static class Content
 		{
 			/// <summary>
-			/// Called when the page is loaded from the database.
+			/// Called when the content is loaded from the database.
 			/// </summary>
-			public static Delegates.ModelDelegate<Piranha.Models.Page> OnLoad;
+			public static Delegates.ModelDelegate<Piranha.Models.Content> OnLoad;
 
 			/// <summary>
-			/// Called when the page is saved to the database.
+			/// Called when the content is saved to the database.
 			/// </summary>
-			public static Delegates.ModelDelegate<Piranha.Models.Page> OnSave;
+			public static Delegates.ModelDelegate<Piranha.Models.Content> OnSave;
 
 			/// <summary>
-			/// Called when the page is deleted from the database.
+			/// Called when the content is deleted from the database.
 			/// </summary>
-			public static Delegates.ModelDelegate<Piranha.Models.Page> OnDelete;
-		}
-
-		/// <summary>
-		/// The model hooks available for posts.
-		/// </summary>
-		public static class Post
-		{
-			/// <summary>
-			/// Called when the post is loaded from the database.
-			/// </summary>
-			public static Delegates.ModelDelegate<Piranha.Models.Post> OnLoad;
-
-			/// <summary>
-			/// Called when the post is saved to the database.
-			/// </summary>
-			public static Delegates.ModelDelegate<Piranha.Models.Post> OnSave;
-
-			/// <summary>
-			/// Called when the post is deleted from the database.
-			/// </summary>
-			public static Delegates.ModelDelegate<Piranha.Models.Post> OnDelete;
+			public static Delegates.ModelDelegate<Piranha.Models.Content> OnDelete;
 		}
 	}
 }

@@ -1,0 +1,55 @@
+﻿@model Piranha.Client.Models.ContentModel
+@{
+	ViewBag.Title = Model.Title;
+}
+
+@if (UI.IsStart) {
+	<header role="banner">
+		<div class="wrapper">
+			<img src="~/assets/img/start.png" alt="Piranha CMS" />
+		</div>
+	</header>
+	@*if (latest != null) {
+		<div id="latest">
+			<div class="wrapper">
+				<article role="complementary">
+					<header><strong>Latest:</strong> <a href="@UI.Permalink(latest)">@latest.Published.Value.ToLongDateString() <strong>@latest.Title</strong></a></header>
+				</article>
+			</div>
+		</div>
+	}*@
+}
+
+<div id="main">
+	<article role="main">
+		<header>
+			<h1>@Model.Title</h1>
+			@if (UI.IsPost) {
+				<p class="meta">
+					<span class="icon-clock"></span>@Model.Published.ToLongDateString() by @Model.Author.Name
+					@if (Model.CommentCount == 1) {
+						<span class="icon-comment"></span><text>1 comment</text>
+					} else if (Model.CommentCount > 1) {
+						<span class="icon-comment"></span><text>@Model.Comments.Count comments</text>
+					}
+					<span class="icon-tag"></span>@Model.Category.Title
+				</p>
+			}
+		</header>
+		@*@if (!String.IsNullOrEmpty(Model.Excerpt)) {
+			<p class="excerpt">@Model.Excerpt</p>
+		}*@
+
+		@Html.DisplayFor(m => m.Body)
+
+		@if (Model.Comments.Count > 0) {
+			<section class="comments">
+				<header><h2>Comments</h2></header>
+				@Html.DisplayFor(m => m.Comments)
+			</section>
+		}
+		<section class="add-comment">
+			@Html.Partial("Partial/AddComment", Model)
+		</section>
+	</article>
+</div>

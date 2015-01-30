@@ -20,14 +20,9 @@
 						} else if (post.CommentCount > 1) {
 							<span class="icon-comment"></span><text>@post.CommentCount comments</text>
 						}
-						@if (post.Categories.Count  > 0) {
-							<span class="icon-tag"></span>
-							for (var n = 0; n < post.Categories.Count; n++) {
-								<text>@post.Categories[n].Title@(n < (post.Categories.Count - 1) ? "," : "")</text>
-							}
-						}
+						<span class="icon-tag"></span> <a href="@UI.Permalink(post.Category)">@post.Category.Title</a>
 					</p>
-					<p>@post.Excerpt</p>
+					@*<p>@post.Excerpt</p>*@
 				</section>
 			}
 

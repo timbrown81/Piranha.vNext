@@ -32,14 +32,19 @@ namespace Piranha.Server
 		public IHandler Aliases { get; set; }
 
 		/// <summary>
-		/// Gets/sets the registered page handler.
+		/// Gets/sets the registered archive handler.
 		/// </summary>
-		public IHandler Pages { get; set; }
+		public IHandler Archives { get; set; }
 
 		/// <summary>
-		/// Gets/sets the registered post handler.
+		/// Gets/sets the registered content handler.
 		/// </summary>
-		public IHandler Posts { get; set; }
+		public IHandler Content { get; set; }
+
+		/// <summary>
+		/// Gets/sets the registered start page handler.
+		/// </summary>
+		public IHandler Start { get; set; }
 
 		/// <summary>
 		/// Gets/sets the handler with the given key.

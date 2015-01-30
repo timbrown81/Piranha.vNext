@@ -110,46 +110,6 @@ namespace Piranha.Manager
 				.ForMember(b => b.Created, o => o.Ignore())
 				.ForMember(b => b.Updated, o => o.Ignore());
 
-			// Page type
-			Mapper.CreateMap<Piranha.Models.PageType, Models.PageType.EditModel>()
-				.ForMember(t => t.PropertyTypes, o => o.Ignore())
-				.ForMember(t => t.RegionTypes, o => o.Ignore());
-			Mapper.CreateMap<Models.PageType.EditModel, Piranha.Models.PageType>()
-				.ForMember(t => t.Id, o => o.Ignore())
-				.ForMember(t => t.Properties, o => o.Ignore())
-				.ForMember(t => t.Regions, o => o.Ignore())
-				.ForMember(t => t.Created, o => o.Ignore())
-				.ForMember(t => t.Updated, o => o.Ignore());
-			Mapper.CreateMap<Piranha.Models.PageTypeProperty, Models.PageType.EditModel.PagePart>();
-			Mapper.CreateMap<Piranha.Models.PageTypeRegion, Models.PageType.EditModel.PagePart>();
-
-			// Post
-			Mapper.CreateMap<Piranha.Models.Post, Models.Post.EditModel>()
-				.ForMember(p => p.Authors, o => o.Ignore())
-				.ForMember(p => p.Categories, o => o.Ignore())
-				.ForMember(p => p.Comments, o => o.Ignore())
-				.ForMember(p => p.SelectedCategories, o => o.Ignore())
-				.ForMember(p => p.Action, o => o.Ignore());
-			Mapper.CreateMap<Models.Post.EditModel, Piranha.Models.Post>()
-				.ForMember(p => p.Id, o => o.Ignore())
-				.ForMember(p => p.Type, o => o.Ignore())
-				.ForMember(p => p.Author, o => o.Ignore())
-				.ForMember(p => p.Attachments, o => o.Ignore())
-				.ForMember(p => p.Comments, o => o.Ignore())
-				.ForMember(p => p.CommentCount, o => o.Ignore())
-				.ForMember(p => p.Categories, o => o.Ignore())
-				.ForMember(p => p.Created, o => o.Ignore())
-				.ForMember(p => p.Updated, o => o.Ignore())
-				.ForMember(p => p.Published, o => o.Ignore());
-
-			// Post type
-			Mapper.CreateMap<Piranha.Models.PostType, Models.PostType.EditModel>();
-			Mapper.CreateMap<Models.PostType.EditModel, Piranha.Models.PostType>()
-				.ForMember(t => t.Id, o => o.Ignore())
-				.ForMember(t => t.IncludeInRss, o => o.Ignore())
-				.ForMember(t => t.Created, o => o.Ignore())
-				.ForMember(t => t.Updated, o => o.Ignore());
-
 			Mapper.AssertConfigurationIsValid();
 
 			// Register pre-compiled views
