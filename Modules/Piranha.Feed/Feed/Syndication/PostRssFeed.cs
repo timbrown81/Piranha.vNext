@@ -31,8 +31,8 @@ namespace Piranha.Feed.Syndication
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		/// <param name="posts">The current posts</param>
-		public PostRssFeed(IEnumerable<Piranha.Models.Post> posts) : base(posts) { }
+		/// <param name="content">The current content</param>
+		public PostRssFeed(IEnumerable<Piranha.Models.Content> content) : base(content) { }
 
 		/// <summary>
 		/// Gets the current formatter.

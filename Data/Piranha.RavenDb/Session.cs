@@ -48,15 +48,10 @@ namespace Piranha.RavenDb
 		public T GetSingle<T>(Guid id) where T : class, IModel {
 			T model = null;
 
-			if (model is Models.Post) {
+			if (model is Models.Content) {
 				model = session
-					.Include<Models.Post, Models.Author>(p => p.AuthorId)
-					.Include<Models.PostType>(p => p.TypeId)
-					.Load<T>(id);
-			} else if (model is Models.Page) {
-				model = session
-					.Include<Models.Page, Models.Author>(p => p.AuthorId)
-					.Include<Models.PageType>(p => p.TypeId)
+					.Include<Models.Content, Models.Author>(c => c.AuthorId)
+					.Include<Models.Template>(c => c.TemplateId)
 					.Load<T>(id);
 			} else {
 				model = session.Load<T>(id);
@@ -76,18 +71,12 @@ namespace Piranha.RavenDb
 		{
 			IQueryable<T> query = session.Query<T>();
 
-			if (typeof(T) == typeof(Models.Page)) {
+			if (typeof(T) == typeof(Models.Content)) {
 				query = ((IRavenQueryable<T>)query)
-					.Customize(c => c.Include<Models.Page, Models.Author>(p => p.AuthorId))
-					.Customize(c => c.Include<Models.Page, Models.PageType>(p => p.TypeId));
-			} else if (typeof(T) == typeof(Models.Post)) {
-				query = ((IRavenQueryable<T>)query)
-					.Customize(c => c.Include<Models.Post, Models.Author>(p => p.AuthorId))
-					.Customize(c => c.Include<Models.Post, Models.PostType>(p => p.TypeId));
+					.Customize(q => q.Include<Models.Content, Models.Author>(c => c.AuthorId))
+					.Customize(q => q.Include<Models.Content, Models.Template>(c => c.TemplateId));
 			}
 	
-			// IQueryable<T> query = session.Query<T>();
-
 			if (where != null)
 				query = query.Where(where);
 			if (order != null)
@@ -150,16 +139,11 @@ namespace Piranha.RavenDb
 		/// <param name="document">The document to process</param>
 		/// <returns>The processed document</returns>
 		private T Process<T>(T document) {
-			if (document is Models.Post) {
-				var model = (Models.Post)(object)document;
+			if (document is Models.Content) {
+				var model = (Models.Content)(object)document;
 
 				model.Author = session.Load<Models.Author>(model.AuthorId);
-				model.Type = session.Load<Models.PostType>(model.TypeId);
-			} else if (document is Models.Page) {
-				var model = (Models.Page)(object)document;
-
-				model.Author = session.Load<Models.Author>(model.AuthorId);
-				model.Type = session.Load<Models.PageType>(model.TypeId);
+				model.Template = session.Load<Models.Template>(model.TemplateId);
 			}
 			return document;
 		}

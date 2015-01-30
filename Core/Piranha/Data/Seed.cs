@@ -35,6 +35,14 @@ namespace Piranha.Data
 				});
 			}
 
+			param = api.Params.GetSingle(where: p => p.Name == "site_tagline");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "site_tagline",
+					Value = "The CMS framework with an extra bite"
+				});
+			}
+
 			param = api.Params.GetSingle(where: p => p.Name == "site_description");
 			if (param == null) {
 				api.Params.Add(new Models.Param() {
@@ -56,6 +64,30 @@ namespace Piranha.Data
 				api.Params.Add(new Models.Param() {
 					Name = "archive_pagesize",
 					Value = "10"
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "archive_title");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "archive_title",
+					Value = "Blog"
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "archive_keywords");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "archive_keywords",
+					Value = ""
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "archive_description");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "archive_description",
+					Value = ""
 				});
 			}
 
@@ -112,6 +144,46 @@ namespace Piranha.Data
 				api.Params.Add(new Models.Param() {
 					Name = "comment_moderators",
 					Value = ""
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "permalink_page");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "permalink_page",
+					Value = ""
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "permalink_post");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "permalink_post",
+					Value = "blog"
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "permalink_postarchive");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "permalink_postarchive",
+					Value = "blog"
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "permalink_categoryarchive");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "permalink_categoryarchive",
+					Value = "category"
+				});
+			}
+
+			param = api.Params.GetSingle(where: p => p.Name == "permalink_tagarchive");
+			if (param == null) {
+				api.Params.Add(new Models.Param() {
+					Name = "permalink_tagarchive",
+					Value = "tag"
 				});
 			}
 			api.SaveChanges();

@@ -270,32 +270,11 @@ namespace Piranha
 							.ForMember(m => m.Ratings, o => o.Ignore());
 						Mapper.CreateMap<Models.Content, Client.Models.ContentModel>()
 							.ForMember(m => m.Template, o => o.MapFrom(c => c.Template != null ? c.Template.Name : ""))
-							.ForMember(m => m.Body, o => o.MapFrom(c => c.Rows))
 							.ForMember(m => m.Route, o => o.MapFrom(c => c.Template != null && !String.IsNullOrWhiteSpace(c.Template.Route) ? c.Template.Route : "content"))
 							.ForMember(m => m.View, o => o.MapFrom(c => c.Template != null && !String.IsNullOrWhiteSpace(c.Template.View) ? c.Template.View : ""))
+							.ForMember(m => m.CommentCount, o => o.Ignore())
 							.ForMember(m => m.Comments, o => o.Ignore())
 							.ForMember(m => m.Ratings, o => o.Ignore());
-						Mapper.CreateMap<Models.Page, Client.Models.PageModel>()
-							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
-							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))
-							.ForMember(m => m.View, o => o.MapFrom(p => !String.IsNullOrEmpty(p.View) ? p.View : p.Type.View))
-							.ForMember(m => m.Ratings, o => o.Ignore());
-						Mapper.CreateMap<Models.Post, Client.Models.PostModel>()
-							.ForMember(m => m.Type, o => o.MapFrom(p => p.Type.Slug))
-							.ForMember(m => m.Route, o => o.MapFrom(p => !String.IsNullOrEmpty(p.Route) ? p.Route : p.Type.Route))
-							.ForMember(m => m.View, o => o.MapFrom(p => !String.IsNullOrEmpty(p.View) ? p.View : p.Type.View))
-							.ForMember(m => m.Comments, o => o.Ignore())
-							.ForMember(m => m.Ratings, o => o.Ignore());
-						Mapper.CreateMap<Models.PostType, Client.Models.ArchiveModel>()
-							.ForMember(m => m.Keywords, o => o.MapFrom(t => t.MetaKeywords))
-							.ForMember(m => m.Description, o => o.MapFrom(t => t.MetaDescription))
-							.ForMember(m => m.View, o => o.MapFrom(t => t.ArchiveView))
-							.ForMember(m => m.Title, o => o.MapFrom(t => t.ArchiveTitle))
-							.ForMember(m => m.Year, o => o.Ignore())
-							.ForMember(m => m.Month, o => o.Ignore())
-							.ForMember(m => m.Page, o => o.Ignore())
-							.ForMember(m => m.TotalPages, o => o.Ignore())
-							.ForMember(m => m.Posts, o => o.Ignore());
 
 						Mapper.AssertConfigurationIsValid();
 
@@ -349,11 +328,10 @@ namespace Piranha
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering default model types in the cache");
 						modelCache.RegisterCache<Models.Alias>(a => a.Id, a => a.OldUrl);
 						modelCache.RegisterCache<Models.Block>(b => b.Id, b => b.Slug);
+						modelCache.RegisterCache<Models.Category>(c => c.Id, c => c.Slug);
+						modelCache.RegisterCache<Models.Content>(c => c.Id, c => c.Slug);
 						modelCache.RegisterCache<Models.Media>(m => m.Id, m => m.Slug);
-						modelCache.RegisterCache<Client.Models.PageModel>(p => p.Id, p => p.Slug);
 						modelCache.RegisterCache<Models.Param>(p => p.Id, p => p.Name);
-						modelCache.RegisterCache<Models.Post>(p => p.Id, p => p.TypeId.ToString() + "_" + p.Slug);
-						modelCache.RegisterCache<Models.PostType>(p => p.Id, p => p.Slug);
 
 						// Register serializers
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering default serializers");
@@ -362,8 +340,14 @@ namespace Piranha
 						serializers.Add(typeof(Piranha.Extend.Blocks.Image), new Piranha.Extend.Serializers.ImageSerializer());
 						serializers.Add(typeof(Piranha.Extend.Blocks.Text), new Piranha.Extend.Serializers.TextSerializer());
 
-						// Create the handler collection
+						// Add the default route handlers
+						App.Logger.Log(Log.LogLevel.INFO, "App.Init: Registering default handlers");
 						handlers = new Server.HandlerCollection();
+						handlers.Aliases = new Server.Handlers.AliasHandler();
+						handlers.Archives = new Server.Handlers.ArchiveHandler();
+						handlers.Content = new Server.Handlers.ContentHandler();
+						handlers.Start = new Server.Handlers.StartHandler();
+						handlers.Add("media.ashx", new Server.Handlers.MediaHandler());
 
 						// Create the extension manager
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Creating extension manager");
@@ -376,6 +360,11 @@ namespace Piranha
 								Data.Seed.Params(api);
 							}
 						}
+
+						// Attach the router
+						App.Logger.Log(Log.LogLevel.INFO, "App.Init: Attaching OnBeginRequest");
+						Hooks.App.Request.OnBeginRequest += Server.Router.OnBeginRequest;
+
 						IsInitialized = true;
 					}
 				}

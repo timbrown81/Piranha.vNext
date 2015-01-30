@@ -66,29 +66,9 @@ namespace Piranha
 		public Repositories.MediaRepository Media { get; private set; }
 
 		/// <summary>
-		/// Gets the page repository.
-		/// </summary>
-		public Repositories.PageRepository Pages { get; private set; }
-
-		/// <summary>
-		/// Gets the page type repository.
-		/// </summary>
-		public Repositories.PageTypeRepository PageTypes { get; private set; }
-
-		/// <summary>
 		/// Gets the param repository.
 		/// </summary>
 		public Repositories.ParamRepository Params { get; private set; }
-
-		/// <summary>
-		/// Gets the post repository.
-		/// </summary>
-		public Repositories.PostRepository Posts { get; private set; }
-
-		/// <summary>
-		/// Gets the post type repository.
-		/// </summary>
-		public Repositories.PostTypeRepository PostTypes { get; private set; }
 
 		/// <summary>
 		/// Gets the ratings repository.
@@ -121,11 +101,7 @@ namespace Piranha
 			Comments = new Repositories.CommentRepository(this.session);
 			Content = new Repositories.ContentRepository(this.session);
 			Media = new Repositories.MediaRepository(this.session);
-			Pages = new Repositories.PageRepository(this.session);
-			PageTypes = new Repositories.PageTypeRepository(this.session);
 			Params = new Repositories.ParamRepository(this.session);
-			Posts = new Repositories.PostRepository(this.session);
-			PostTypes = new Repositories.PostTypeRepository(this.session);
 			Ratings = new Repositories.RatingRepository(this.session);
 			Templates = new Repositories.TemplateRepository(this.session);
 		}

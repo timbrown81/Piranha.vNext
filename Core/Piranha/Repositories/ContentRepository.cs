@@ -49,14 +49,11 @@ namespace Piranha.Repositories
 		/// </summary>
 		/// <param name="model">The source model</param>
 		protected override Models.Content FromDb(Models.Content model) {
-			// Sort categories
-			model.Categories = model.Categories.OrderBy(c => c.Title).ToList();
-
-			// Sort rows
-			model.Rows = model.Rows.OrderBy(r => r.SortOrder).ToList();
+			// Sort body rows
+			model.Body = model.Body.OrderBy(r => r.SortOrder).ToList();
 
 			// Sort blocks
-			foreach (var row in model.Rows)
+			foreach (var row in model.Body)
 				row.Blocks = row.Blocks.OrderBy(b => b.SortOrder).ToList();
 			return model;
 		}

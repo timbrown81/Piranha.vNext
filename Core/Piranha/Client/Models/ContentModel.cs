@@ -16,25 +16,100 @@ using Piranha.Models;
 
 namespace Piranha.Client.Models
 {
+	/// <summary>
+	/// The main application content model.
+	/// </summary>
 	public class ContentModel
 	{
 		#region Properties
+		/// <summary>
+		/// Gets/sets the unique id.
+		/// </summary>
 		public Guid Id { get; set; }
+
+		/// <summary>
+		/// Gets/sets the content type.
+		/// </summary>
 		public ContentType Type { get; set; }
+
+		/// <summary>
+		/// Gets/sets the template name.
+		/// </summary>
 		public string Template { get; set; }
+
+		/// <summary>
+		/// Gets/sets the title.
+		/// </summary>
 		public string Title { get; set; }
+
+		/// <summary>
+		/// Gets/sets the unique slug.
+		/// </summary>
 		public string Slug { get; set; }
+
+		/// <summary>
+		/// Gets/sets the optional meta keywords.
+		/// </summary>
 		public string MetaKeywords { get; set; }
+
+		/// <summary>
+		/// Gets/sets the optional meta description.
+		/// </summary>
 		public string MetaDescription { get; set; }
+
+		/// <summary>
+		/// Gets/sets the main content body.
+		/// </summary>
 		public IList<ContentRow> Body { get; set; }
+
+		/// <summary>
+		/// Gets/sets the optional route that should handle requests.
+		/// </summary>
 		public string Route { get; set; }
+
+		/// <summary>
+		/// Gets/sets the optional view that should render requests.
+		/// </summary>
 		public string View { get; set; }
+
+		/// <summary>
+		/// Gets/sets when the model was initially created.
+		/// </summary>
 		public DateTime Created { get; set; }
+
+		/// <summary>
+		/// Gets/sets when the model was last updated.
+		/// </summary>
 		public DateTime Updated { get; set; }
+
+		/// <summary>
+		/// Gets/sets when the model was published.
+		/// </summary>
 		public DateTime Published { get; set; }
+
+		/// <summary>
+		/// Gets/sets the number of available comments.
+		/// </summary>
+		public int CommentCount { get; set; }
+
+		/// <summary>
+		/// Gets/sets the author responsible for this content.
+		/// </summary>
 		public Author Author { get; set; }
-		public IList<Category> Categories { get; set; }
-		public IList<Comment> Comments { get; set; }
+
+		/// <summary>
+		/// Gets/sets the category,
+		/// </summary>
+		public Category Category { get; set; }
+	
+		/// <summary>
+		/// Gets/sets the available comments.
+		/// </summary>
+		public IList<CommentModel> Comments { get; set; }
+
+		/// <summary>
+		/// Gets/sets the available ratings.
+		/// </summary>
 		public RatingsModel Ratings { get; set; }
 		#endregion
 
@@ -43,8 +118,7 @@ namespace Piranha.Client.Models
 		/// </summary>
 		public ContentModel() {
 			Body = new List<ContentRow>();
-			Categories = new List<Category>();
-			Comments = new List<Comment>();
+			Comments = new List<CommentModel>();
 			Ratings = new RatingsModel();
 		}
 
@@ -65,10 +139,13 @@ namespace Piranha.Client.Models
 		/// <returns>The model</returns>
 		public static T GetById<T>(Guid id) where T : ContentModel {
 			using (var api = new Api()) {
-				var model = api.Content.GetSingle(id);
+				var content = api.Content.GetSingle(id);
 
-				if (model != null && model.Published <= DateTime.Now) {
-					return Map<T>(model);
+				if (content != null && content.Published <= DateTime.Now) {
+					var model = Map<T>(content);
+					model.CommentCount = api.Comments.Get(where: c => c.ContentId == content.Id && c.IsApproved && !c.IsSpam).Count();
+
+					return model;
 				}
 			}
 			return null;
@@ -77,28 +154,48 @@ namespace Piranha.Client.Models
 		/// <summary>
 		/// Gets the content model identified by the given slug.
 		/// </summary>
-		/// <param name="slug">The unique slug</param>
 		/// <param name="type">The content type</param>
+		/// <param name="slug">The unique slug</param>
 		/// <returns>The model</returns>
-		public static ContentModel GetBySlug(string slug, ContentType type) {
-			return GetBySlug<ContentModel>(slug, type);
+		public static ContentModel GetBySlug(ContentType type, string slug) {
+			return GetBySlug<ContentModel>(type, slug);
 		}
 
 		/// <summary>
 		/// Gets the content model identified by the given slug.
 		/// </summary>
-		/// <param name="slug">The unique slug</param>
 		/// <param name="type">The content type</param>
+		/// <param name="slug">The unique slug</param>
 		/// <returns>The model</returns>
-		public static T GetBySlug<T>(string slug, ContentType type) where T : ContentModel {
+		public static T GetBySlug<T>(ContentType type, string slug) where T : ContentModel {
 			using (var api = new Api()) {
 				var content = api.Content.GetSingle(where: c => c.Type == type && c.Slug == slug);
 
 				if (content != null && content.Published <= DateTime.Now) {
-					return Map<T>(content);
+					var model = Map<T>(content);
+					model.CommentCount = api.Comments.Get(where: c => c.ContentId == content.Id && c.IsApproved && !c.IsSpam).Count();
+
+					return model;
 				}
 			}
 			return null;
+		}
+
+		/// <summary>
+		/// Loads all available comments for the current content.
+		/// </summary>
+		/// <param name="ratings">If ratings should be included</param>
+		public virtual ContentModel WithComments(bool ratings = false) {
+			// Get all comments
+			using (var api = new Api()) {
+				Comments = Mapper.Map<IEnumerable<Comment>, IEnumerable<CommentModel>>(api.Comments.Get(where: c => c.ContentId == Id)).ToList();
+
+				if (ratings) {
+					foreach (var comment in Comments)
+						comment.Ratings = RatingsModel.GetByModelId(api, comment.Id);
+				}
+			}
+			return this;
 		}
 
 		/// <summary>

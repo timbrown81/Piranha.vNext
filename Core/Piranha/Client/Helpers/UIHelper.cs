@@ -25,6 +25,36 @@ namespace Piranha.Client.Helpers
 		private const string META_TAG = "<meta name=\"{0}\" content=\"{1}\">\n";
 		#endregion
 
+		#region Properties
+		/// <summary>
+		/// Gets if the current request is for a page.
+		/// </summary>
+		public bool IsPage {
+			get {
+				var current = App.Env.GetCurrent();
+				return current.Type == Models.CurrentType.Page || current.Type == Models.CurrentType.Start;
+			}
+		}
+
+		/// <summary>
+		/// Gets if the current request is for a post.
+		/// </summary>
+		public bool IsPost {
+			get {
+				return App.Env.GetCurrent().Type == Models.CurrentType.Post;
+			}
+		}
+
+		/// <summary>
+		/// Gets if the current request is for the startpage.
+		/// </summary>
+		public bool IsStart {
+			get {
+				return App.Env.GetCurrent().Type == Models.CurrentType.Start;
+			}
+		}
+		#endregion
+
 		/// <summary>
 		/// Gets the block with the given slug.
 		/// </summary>
@@ -76,23 +106,14 @@ namespace Piranha.Client.Helpers
 		}
 
 		/// <summary>
-		/// Renders the permalink for the given post.
+		/// Renders the archive permalink for the given category.
 		/// </summary>
-		/// <param name="post">The post</param>
+		/// <param name="category">The category</param>
 		/// <returns>The generated permalink</returns>
-		public string Permalink(Models.PostModel post) {
-			return App.Env.Url("~/" + post.Type + "/" + post.Slug);
-		}
+		public string Permalink(Piranha.Models.Category category) {
+			var sb = new StringBuilder("~/");
 
-		/// <summary>
-		/// Renders the permalink for the given post.
-		/// </summary>
-		/// <param name="post">The post</param>
-		/// <returns>The generated permalink</returns>
-		public string Permalink(Piranha.Models.Post post) {
-			if (post.Type != null)
-				return App.Env.Url("~/" + post.Type.Slug + "/" + post.Slug);
-			return Permalink(Models.PostModel.GetById(post.Id));
+			return App.Env.Url(sb.Append(Config.Permalinks.CategoryArchiveSlug).Append("/").Append(category.Slug).ToString());
 		}
 
 		/// <summary>
@@ -101,7 +122,28 @@ namespace Piranha.Client.Helpers
 		/// <param name="content">The content model</param>
 		/// <returns>The generated permalink</returns>
 		public string Permalink(Models.ContentModel content) {
-			return App.Env.Url("~/content/" + content.Slug);
+			var sb = new StringBuilder("~/");
+
+			if (content.Type == Piranha.Models.ContentType.Page)
+				sb.Append(Config.Permalinks.PageSlug);
+			else sb.Append(Config.Permalinks.PostSlug);
+
+			return App.Env.Url(sb.Append("/").Append(content.Slug).ToString());
+		}
+
+		/// <summary>
+		/// Renders the permalink for the given content.
+		/// </summary>
+		/// <param name="content">The content model</param>
+		/// <returns>The generated permalink</returns>
+		public string Permalink(Piranha.Models.Content content) {
+			var sb = new StringBuilder("~/");
+
+			if (content.Type == Piranha.Models.ContentType.Page)
+				sb.Append(Config.Permalinks.PageSlug);
+			else sb.Append(Config.Permalinks.PostSlug);
+
+			return App.Env.Url(sb.Append("/").Append(content.Slug).ToString());
 		}
 
 		/// <summary>
@@ -153,20 +195,15 @@ namespace Piranha.Client.Helpers
 		/// <param name="root">Optional rootnode for the menu to start from</param>
 		/// <param name="css">Optional css class for the outermost container</param>
 		/// <returns>A rendered menu</returns>
-		public string Menu(int start = 1, int stop = Int32.MaxValue, int levels = 0, string root = "", string css = "menu") {
+		public string Menu(int start = 1, int stop = Int32.MaxValue, int levels = 0, string css = "menu") {
 			StringBuilder str = new StringBuilder();
 			IEnumerable<Models.SiteMap.SiteMapItem> sm = null;
 			var content = App.Env.GetCurrent();
 			var current = content != null && (content.Type == Models.CurrentType.Page || content.Type == Models.CurrentType.Start) ? (Guid?)content.Id : null;
 
 			if (current.HasValue || start == 1) {
-				if (root != "") {
-					var item = Models.SiteMap.GetPartial(root);
-					if (item != null)
-						sm = item.Items;
-				} else {
-					sm = Models.SiteMap.Get().GetLevel(current, start);
-				}
+				sm = Models.SiteMap.Get().GetLevel(current, start);
+
 				if (sm != null) {
 					if (stop == Int32.MaxValue && levels > 0 && sm.Count() > 0)
 						stop = sm.First().Level + Math.Max(0, levels - 1);
@@ -212,7 +249,7 @@ namespace Piranha.Client.Helpers
 		/// <param name="stop">The desired stop level</param>
 		private void RenderLI(Guid? curr, Models.SiteMap.SiteMapItem item, StringBuilder sb, int stop) {
 			//if (page.GroupId == Guid.Empty || HttpContext.Current.User.IsMember(page.GroupId)) {
-			var active = curr.HasValue && curr.Value == item.Id;
+			var active = curr.HasValue && curr.Value == item.ContentId;
 			var childactive = curr.HasValue && item.Contains(curr.Value);
 
 			// Render item start
@@ -225,12 +262,8 @@ namespace Piranha.Client.Helpers
 					(item.Items.Count() > 0 ? " class=\"has-child\"" : ""))) + ">");
 			}
 			// Render item link
-			//if (WebPages.Hooks.Menu.RenderItemLink != null) {
-			//	WebPages.Hooks.Menu.RenderItemLink(this, str, page) ;
-			//} else {
-			sb.AppendLine(String.Format("<a href=\"{0}\">{1}</a>", App.Env.Url("~/" + item.Slug),
-				!String.IsNullOrEmpty(item.NavigationTitle) ? item.NavigationTitle : item.Title));
-			//}
+			sb.AppendLine(String.Format("<a href=\"{0}\">{1}</a>", App.Env.Url("~/" + item.Slug), item.Title));
+
 			// Render subpages
 			if (item.Items.Count() > 0)
 				RenderUL(curr, item.Items, sb, stop);

@@ -27,6 +27,11 @@ namespace Piranha.Models
 		public Guid Id { get; set; }
 
 		/// <summary>
+		/// Gets/sets the category id.
+		/// </summary>
+		public Guid CategoryId { get; set; }
+
+		/// <summary>
 		/// Gets/sets the optional template id.
 		/// </summary>
 		public Guid? TemplateId { get; set; }
@@ -84,19 +89,19 @@ namespace Piranha.Models
 		public Author Author { get; set; }
 
 		/// <summary>
+		/// Gets/sets the category,
+		/// </summary>
+		public Category Category { get; set; }
+
+		/// <summary>
 		/// Gets/sets the optional template.
 		/// </summary>
 		public Template Template { get; set; }
 
 		/// <summary>
-		/// Gets/sets the available content rows.
+		/// Gets/sets the main content body.
 		/// </summary>
-		public IList<ContentRow> Rows { get; set; }
-
-		/// <summary>
-		/// Gets/sets the available categories,
-		/// </summary>
-		public IList<Category> Categories { get; set; }
+		public IList<ContentRow> Body { get; set; }
 
 		/// <summary>
 		/// Gets/sets the available comments.
@@ -108,8 +113,7 @@ namespace Piranha.Models
 		/// Default constructor.
 		/// </summary>
 		public Content() {
-			Rows = new List<ContentRow>();
-			Categories = new List<Category>();
+			Body = new List<ContentRow>();
 			Comments = new List<Comment>();
 		}
 
@@ -118,8 +122,7 @@ namespace Piranha.Models
 		/// </summary>
 		/// <returns>Returns the result of validation</returns>
 		protected override FluentValidation.Results.ValidationResult Validate() {
-			var validator = new ContentValidator();
-			return validator.Validate(this);
+			return new ContentValidator().Validate(this);
 		}
 
 		#region Validator
@@ -136,22 +139,20 @@ namespace Piranha.Models
 				RuleFor(m => m.Title).Length(0, 128).WithMessage("Title has a maximum length of 128 characters");
 				RuleFor(m => m.MetaKeywords).Length(0, 128).WithMessage("Meta keywords has a maximum length of 128 characters");
 				RuleFor(m => m.MetaDescription).Length(0, 255).WithMessage("Meta description has a maximum length of 255 characters");
-				RuleFor(m => m.Slug).Must((m, slug) => { return ValidateSlug(m, slug); }).WithMessage("Slug should be unique");
+				RuleFor(m => m.Slug).Must((m, slug) => { return ValidateSlug(m); }).WithMessage("Slug should be unique");
 			}
 
 			/// <summary>
 			/// Function to validate the slug.
 			/// </summary>
 			/// <param name="model">The model</param>
-			/// <param name="slug">The slug</param>
 			/// <returns>If the slug was unique</returns>
-			private bool ValidateSlug(Content model, string slug) {
+			private bool ValidateSlug(Content model) {
 				using (var api = new Api()) {
-					return api.Content.Get(where: c => c.Type == model.Type && c.Slug == slug && c.Id != model.Id).Count() == 0;
+					return api.Content.Get(where: c => c.Type == model.Type && c.Slug == model.Slug && c.Id != model.Id).Count() == 0;
 				}
 			}
 		}
 		#endregion
-
 	}
 }

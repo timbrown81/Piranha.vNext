@@ -15,6 +15,7 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Web;
+using Piranha.Client.Models;
 
 namespace Piranha.Akismet
 {
@@ -69,9 +70,9 @@ namespace Piranha.Akismet
 		/// <param name="comment">The comment</param>
 		/// <returns>True if the comment should be regarded as spam</returns>
 		public bool CommentCheck(Models.Comment comment) {
-			var post = Client.Models.PostModel.GetById(comment.PostId);
+			var content = ContentModel.GetById(comment.ContentId);
 
-			if (post != null) {
+			if (content != null) {
 				var ui = new Client.Helpers.UIHelper();
 
 				var value = Call(CommentCheckUrl, new {
@@ -79,7 +80,7 @@ namespace Piranha.Akismet
 					user_ip = HttpUtility.UrlEncode(comment.IP),
 					user_agent = HttpUtility.UrlEncode(comment.UserAgent),
 					referrer = "",
-					permalink = HttpUtility.UrlEncode(App.Env.AbsoluteUrl(ui.Permalink(post))),
+					permalink = HttpUtility.UrlEncode(App.Env.AbsoluteUrl(ui.Permalink(content))),
 					comment_type = "comment",
 					comment_author = HttpUtility.UrlEncode(comment.Author),
 					comment_author_email = HttpUtility.UrlEncode(comment.Email),

@@ -97,13 +97,9 @@ namespace Piranha.RavenDb
 				var members = base.GetSerializableMembers(type);
 
 				if (typeof(Models.Comment).IsAssignableFrom(type)) {
-					members.RemoveAll(m => m.Name == "Post");
-				} else if (typeof(Models.Page).IsAssignableFrom(type)) {
-					members.RemoveAll(m => m.Name == "Author" || m.Name == "Type");
-				} else if (typeof(Models.PageTypeRegion).IsAssignableFrom(type)) {
-					members.RemoveAll(m => m.Name == "TypeId");
-				} else if (typeof(Models.Post).IsAssignableFrom(type)) {
-					members.RemoveAll(m => m.Name == "Author" || m.Name == "Type" || m.Name == "Comments");
+					members.RemoveAll(m => m.Name == "Content");
+				} else if (typeof(Models.Content).IsAssignableFrom(type)) {
+					members.RemoveAll(m => m.Name == "Author" || m.Name == "Template" || m.Name == "Comments");
 				}
 				return members;
 			}

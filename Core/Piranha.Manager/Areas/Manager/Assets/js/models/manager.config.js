@@ -21,8 +21,17 @@ manager.models.config = function (locale) {
 	// Members
 	self.active = ko.observable('general');
 	self.siteTitle = ko.observable('');
+	self.siteTagline = ko.observable('');
 	self.siteDescription = ko.observable('');
 	self.siteArchivePageSize = ko.observable(0);
+	self.siteArchiveTitle = ko.observable('');
+	self.siteArchiveKeywords = ko.observable('');
+	self.siteArchiveDescription = ko.observable('');
+	self.permalinkPage = ko.observable('');
+	self.permalinkPost = ko.observable('');
+	self.permalinkPostArchive = ko.observable('');
+	self.permalinkCategoryArchive = ko.observable('');
+	self.permalinkTagArchive = ko.observable('');
 	self.cacheExpires = ko.observable(0);
 	self.cacheMaxAge = ko.observable(0);
 	self.commentModerateAnonymous = ko.observable(false);
@@ -61,13 +70,64 @@ manager.models.config = function (locale) {
 			contentType: 'application/json',
 			data: JSON.stringify({
 				Title: self.siteTitle(),
-				Description: self.siteDescription(),
-				ArchivePageSize: self.siteArchivePageSize()
+				Tagline: self.siteTagline(),
+				Description: self.siteDescription()
 			}),
 			success: function (result) {
 				if (result.success) {
 					self.bind(result.data);
 					manager.notifySave($('#pnlSite'));
+				}
+			},
+			error: function (result) {
+				console.log('error');
+			}
+		});
+	};
+
+	// Saves the archive config
+	self.saveArchive = function () {
+		$.ajax({
+			url: baseUrl + 'manager/config/archive/save',
+			type: 'POST',
+			dataType: 'json',
+			contentType: 'application/json',
+			data: JSON.stringify({
+				Title: self.siteArchiveTitle(),
+				PageSize: self.siteArchivePageSize(),
+				Keywords: self.siteArchiveKeywords(),
+				Description: self.siteArchiveDescription()
+			}),
+			success: function (result) {
+				if (result.success) {
+					self.bind(result.data);
+					manager.notifySave($('#pnlArchive'));
+				}
+			},
+			error: function (result) {
+				console.log('error');
+			}
+		});
+	};
+
+	// Saves the permalink config
+	self.savePermalinks = function () {
+		$.ajax({
+			url: baseUrl + 'manager/config/permalinks/save',
+			type: 'POST',
+			dataType: 'json',
+			contentType: 'application/json',
+			data: JSON.stringify({
+				PageSlug: self.permalinkPage(),
+				PostSlug: self.permalinkPost(),
+				PostArchiveSlug: self.permalinkPostArchive(),
+				CategoryArchiveSlug: self.permalinkCategoryArchive(),
+				TagArchiveSlug: self.permalinkTagArchive()
+			}),
+			success: function (result) {
+				if (result.success) {
+					self.bind(result.data);
+					manager.notifySave($('#pnlPermalinks'));
 				}
 			},
 			error: function (result) {
@@ -159,10 +219,23 @@ manager.models.config = function (locale) {
 	// Binds the given data to the model.
 	self.bind = function (data) {
 		self.siteTitle(data.Site.Title);
+		self.siteTagline(data.Site.Tagline);
 		self.siteDescription(data.Site.Description);
-		self.siteArchivePageSize(data.Site.ArchivePageSize);
+
+		self.siteArchiveTitle(data.Archive.Title);
+		self.siteArchiveKeywords(data.Archive.Keywords);
+		self.siteArchiveDescription(data.Archive.Description);
+		self.siteArchivePageSize(data.Archive.PageSize);
+
+		self.permalinkPage(data.Permalinks.PageSlug);
+		self.permalinkPost(data.Permalinks.PostSlug);
+		self.permalinkPostArchive(data.Permalinks.PostArchiveSlug);
+		self.permalinkCategoryArchive(data.Permalinks.CategoryArchiveSlug);
+		self.permalinkTagArchive(data.Permalinks.TagArchiveSlug);
+
 		self.cacheExpires(data.Cache.Expires);
 		self.cacheMaxAge(data.Cache.MaxAge);
+
 		self.commentModerateAnonymous(data.Comments.ModerateAnonymous);
 		self.commentModerateAuthorized(data.Comments.ModerateAuthorized);
 		self.commentNotifyAuthor(data.Comments.NotifyAuthor);

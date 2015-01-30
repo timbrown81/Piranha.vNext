@@ -17,7 +17,7 @@ namespace Piranha.Models
 	/// <summary>
 	/// Categories are used to group posts together.
 	/// </summary>
-	public sealed class Category : Model, Data.IModel, Data.IChanges
+	public sealed class Category : Model, IArchived, Data.IModel, Data.IChanges
 	{
 		#region Properties
 		/// <summary>
@@ -36,6 +36,33 @@ namespace Piranha.Models
 		public string Slug { get; set; }
 
 		/// <summary>
+		/// Gets/sets the archive title.
+		/// </summary>
+		public string ArchiveTitle { get; set; }
+
+		/// <summary>
+		/// Gets the archive slug.
+		/// </summary>
+		public string ArchiveSlug {
+			get { return Config.Permalinks.CategoryArchiveSlug + "/" + Slug; }
+		}
+
+		/// <summary>
+		/// Gets/sets the optional archive meta keywords.
+		/// </summary>
+		public string MetaKeywords { get; set; }
+
+		/// <summary>
+		/// Gets/sets the optional archive meta description.
+		/// </summary>
+		public string MetaDescription { get; set; }
+
+		/// <summary>
+		/// Gets/sets the optional archive view.
+		/// </summary>
+		public string ArchiveView { get; set; }
+
+		/// <summary>
 		/// Gets/sets when the model was initially created.
 		/// </summary>
 		public DateTime Created { get; set; }
@@ -50,38 +77,38 @@ namespace Piranha.Models
 		/// Method to validate model
 		/// </summary>
 		/// <returns>Returns the result of validation</returns>
-		protected override FluentValidation.Results.ValidationResult Validate()
-		{
-			var validator = new CategoryValidator();
-			return validator.Validate(this);
+		protected override FluentValidation.Results.ValidationResult Validate() {
+			return new CategoryValidator().Validate(this);
 		}
 
 		#region Validator
+		/// <summary>
+		///  Validator for the category
+		/// </summary>
 		private class CategoryValidator : AbstractValidator<Category>
 		{
-			public CategoryValidator()
-			{
+			public CategoryValidator() {
 				RuleFor(m => m.Title).NotEmpty();
 				RuleFor(m => m.Title).Length(0, 128);
 				RuleFor(m => m.Slug).NotEmpty();
 				RuleFor(m => m.Slug).Length(0, 128);
-
-				// check unique Slug
-				RuleFor(m => m.Slug).Must((model, slug) => { return IsSlugUnique(slug, model.Id); }).WithMessage("Slug should be unique");
+				RuleFor(m => m.ArchiveTitle).Length(0, 128);
+				RuleFor(m => m.ArchiveView).Length(0, 255);
+				RuleFor(m => m.MetaKeywords).Length(0, 255);
+				RuleFor(m => m.MetaDescription).Length(0, 255);
+				RuleFor(m => m.Slug).Must((model, slug) => { 
+					return IsSlugUnique(model); 
+				}).WithMessage("Slug should be unique");
 			}
 
 			/// <summary>
-			/// Function to validate if Slug is unique
+			/// Validates if the slug is unique in the database.
 			/// </summary>
-			/// <param name="slug"></param>
-			/// <param name="api"></param>
-			/// <returns></returns>
-			private bool IsSlugUnique(string slug, Guid id)
-			{
-				using (var api = new Api()) 
-				{
-					var recordCount = api.Categories.Get(where: m => m.Slug == slug && m.Id != id).Count();
-					return recordCount == 0;
+			/// <param name="model">The current model</param>
+			/// <returns>If it is unique</returns>
+			private bool IsSlugUnique(Category model) {
+				using (var api = new Api()) {
+					return api.Categories.Get(where: m => m.Slug == model.Slug && m.Id != model.Id).Count() == 0;
 				}
 			}
 		}

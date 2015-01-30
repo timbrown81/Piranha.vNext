@@ -27,7 +27,7 @@ namespace Piranha.Areas.Manager.Controllers
 		[HttpGet]
 		[Route("")]
 		public ActionResult Get() {
-			return RedirectToAction("List", "PostMgr");
+			return RedirectToAction("List", "CategoryMgr");
 		}
     }
 }

@@ -27,10 +27,10 @@ namespace Piranha.Hooks
 			/// <summary>
 			/// Delegate for formatting a comment mail.
 			/// </summary>
-			/// <param name="post">The current post</param>
+			/// <param name="content">The current post</param>
 			/// <param name="comment">The new comment</param>
 			/// <returns>The formatted mail message</returns>
-			public delegate Message CommentMailDelegate(Post post, Comment comment);
+			public delegate Message CommentMailDelegate(Content post, Comment comment);
 		}
 
 		/// <summary>

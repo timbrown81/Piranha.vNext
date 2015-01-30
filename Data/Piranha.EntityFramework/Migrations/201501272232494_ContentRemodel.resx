@@ -117,85 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Archive" xml:space="preserve">
-    <value>Archive</value>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEAO1d23LcuBF9T1X+gTVPScqrkWTLtVGNdkuW7M1ULEulkXbz5oKG0IhlXmZ5kaWk8mV5yCflFwKSAAgQAAmQmAs1enFZIHAal+5Go4Hp/t9//jv5+SnwnUcYJ14UnowO9vZHDgznkeuFi5NRlt7/8OPo55/++IfJRzd4cn4l9d7m9VDLMDkZPaTp8ng8TuYPMADJXuDN4yiJ7tO9eRSMgRuND/f3/zo+OBhDBDFCWI4zuc7C1Atg8Qf68ywK53CZZsC/iFzoJ7gcfZkVqM4XEMBkCebwZHTlxSB8AHsfEUL6/ClGX75H8beRc+p7AHVnBv37kQPCMEpBijp7fJvAWRpH4WK2RAXAv3leQlTvHvgJxIM4rqrrjmf/MB/PuGpIoOZZkkaBIeDBWzxB43rzTtM8ohOIprCcqHzUxTSejIqJGjl1SsdnfpzXqqa4XIy9ov4bB5e+oVyAmGDv6Gj/aO/d4dt3B2+cs8xPsxiehDBLY+CjFtmd783/Dp9vom8wPAkz32d7hvqGvnEFqOgqjpYwTp+v4T3u79QdOWO+3bjekDZj2pSD+SXz0P+/INrgzod03ceNzS999zb2CQRiHyQOI+cCPH2G4SJ9OBkdHh2NnE/eE3RJCca9DT0kPahRGmfQmO4X+H0jdKfJFYwRL8AwJcQ/RJEPQWgMdRZDkEI6/efojxsk6sY4t0u3A85kXLF7sxBk6UMUm0hB0WC3xCD/t4EZDw5/XAUzfgyA1yQDumSbqZzDZB57y1LHKmkdHRxaoDUQmfjgR/NvBiJR1H+ViNVLxMzPFuunqichujtSM60PkfvcQAT9d3fE8AzhLaL42UASSZPdEsYbL/V3RhpP4/mD9whtjbmZ2AVMAVo8dLByk7UQW6euwTP5qwe/r5zWUFROFASF7a+vccoWu6VwzqIwRYPuiXKbwLiCWJlYkRPOismsx1r/Dd7NvHT1im8tdsj0qmkc7y1QyFnsdMGc5lc2YTOY5FI/PW+g9P6djUlLTpfLOHqslGBXD8U0mS1BMGw/B8L5Ah69RaGk5Vpq5FxDv/iePHjL0jG6h799xeobbe6f4ii4jvyqHf329QbEC5izUKSoMIuyeN59z8HdNNhzihY7tudg076vrQyDJeIGWIfR2UPM2uQ1qTJgeK4sfzXx1VS31uq2sSVtXF/WcAqNkDzIkHQVLbGwGvQsqSJq2fILVaF1HYs/ExWs26XSflF36Dr6/pUqXqFTzFeV8meryNR/48ZEHRtNOxOtJNmZ8DflrNEKpvNW7Yd9N01l1+q7qm7XiOZu7FpVSewa+absGq0g65rpfo4YxHxLR412bFe3cpKcRXF6GbuQnvKmYfr2sIfpWHj0G4WgqPG1WGSB0+g3lfKoKhirjnabVl+1KeRApv36SILpdQrbbLekAc38hiShDuP9E/ZDwItr4UrRkPCvwM+ayHZ0XSglslABffWEQhJFRdJJDqtNUVsGSZPdkj+rR7bNXJFeR1mje9COO//1zqCSrgvoesBAtIr6uyVXu/RagFMZq77IL2mVEMx+nTuajZ3B0wAsaJe7eoN/81yuJ7nl0Nzib9BbPKRGTQaiGK5AnLvXtRVDUf9VMaxeRFdkIg6TS68RU+bj12bTssFu8Wkx9G257u5r1JYL2Mmm3VaezgLR7VAOcJp88sGi+p2DqRci/2aL19FCopO5/4xnn+x2/ExdwOAOxnQLybfkQl+djPaFWeXrRklK6x6IM1fOUcO8sXzRedoqkM3N2mfvm/asnXuJz1Y/aK4+S0FM6x7qTPJpkkRzr5g0nj/JnQhP7WPoOs0XJMLpFCkRNI/eEs0cEo6T0V+EIShBqX+yAiU3NTzm/t6eODNIJcMYoXnAR7gJWkIvTEX97YVzbwn8xh7UWmnq/XzOKX79yzlcQsQ5Ydo4nzqEq9tfkTylUtuQ2uZmMmYYQ4tfKk9Sy+JK3EoCz2CfrDHjSFzbAnbh7OKRD+rzPLkMz6EPU+iczstfh52BZA5ccedAQuXaYzuh/+tjPGFZdEhjj/Am+Y69T2jhDunlgg5/aHCe9E62VRduDeNJur8+1pOsiw5x5nJukwxYXYW37WrivbiVzVK4TWdh6TV9nfGs7pb1Lqxxv6xPqhbnMI+1Nss65KlC6xoL7xbWq1saeiTVdvidehsz92O62pysk+lqgx+SuqLXbW0rLD5IsaKuhGcsDGx1Fbhq+77eizUyT31edUiz70LXwD2lIyPvMGpRHUbvJCft2wTiw3aCPUB1BsihZjAlp5U8TAFMRk7lLCFHuzLggcBAtfbFaUfaHh8NWwDI4xmhPT50tDTHe4cnHUK13bah0DdqIgZRnq0QWAQlCPiLHgIyv+T9qMxhPSDlzPKnuhYwwuoyoEo/tIDgW08BAJe3tC6uOmT08Z1JS/PSySRrT7zZNQBGCoVJpW9TmUry16t1tdDqq6H9ZphJUC6tzhkGhcpm3Z7gB6g/eOZ5inL4CseDnutBnALCxO0TITobRLRStmxNB/d2TjkhyhOx7plYbxi6p+B2Lus+IcwzZLV4yM9neie0jiIiHMlYHGYDsTcPdD9pmAfpYUPvuNF1HuqHBA6HdNnaLFTbg3oW5OavngHccRYEi5fBYXY77WkgF03UPqPfJuMyEhcumIzP5CG7Jhdgucz3qKolLnFmZfyusx9m5jGtghJjPOd4rG5NUkppFIMFrH3Np82Fn7w4Sc9BCu5Afr9z5gZCNWSNKrZhQoA3OMV1IpszqZ//HxsA8uhl2EQVDXaMgCoucp4uhgbZjVHezskjpwEfxJLr4LPIz4JQffBQtyZRsVgEUqaPQmJcsSikTB+Fi1jFDYn9oI9Hb3hZLFqoj0NveFkcWijiTMa1JRbOYAI7CS4Vnjv1eBcbVFZ4V2ol6jCvouFquLd8c8NxHRB/7dWEgH/qzkLgIn0M7id3LBL34ZVvFXyLjWgbbFseGs25VtFuW5m2fA3KIpQlm2PZ8jeKLFBZ8sr0CqZnDHsbjK86tmjwvrrpatgf//ybBcBF6xQAPvQSi8R/0Ufkf+nNIvJfzBCVgip8NB57+cMHydDLD6+iqxJd9dG4g+BiB24HuVW1XI3YMjdS3DKrL6oaFho/H+XWGZcZsDH2dXIcLHXrN6HYMABpJCMWhRaucxfNwxBxa3xlui44xFB9aXCxgYqugghxeroqNjkYVnGC+HNhVW6CVsYK4pHKslelp1R6Kh9xF50nxdLSeYqWK9J5zNMPbpkbnoSo0dhrWc76abiuVaNVDzlF/WfYr+KVNNejomRoJt1wDLBN6Q4VDhM3h0ViirdNDxV3TBZ1keRGUF8dSRtvvxXGxFfgxK4q3rZVt+gp4l4ZdF75tfqN8PtpFkDxpNrumiuxisAaHExRYsDNJLAGx8ukUB8H/wiSRcFFW8PB1dWdDe5V3UtqcK666YrcPb2ti/7+UhxIgpeczOxsJnpLXt0k5WcFx5evp2xwuxRJg9UV7V6uV5/7tajEPjCVvFpMBgki+WRy+sbBGfjjNy408LmU0Rk4j0tZpI9B4jWwIKTsVa4Vco3fO9oQ7PKFpLlgK9ptq2CbmCevTFZuz/hVrA0uw+9ozdlM1XA1fEbjMnBOBlK4bud6f7PtRXKs8JquXoVSxyX0b/qaDr9ka8+KKTxtK6uMHDRBj56bP2ubPScpDPbyCnuz3/0z3yu89KTCBQi9e5ikZQSC0eF+HqaQy6m5Pfktx0niciFUVEku+cVaQ5SVLPR+z6CX/2TGu/fyM3KvzJPhI4jnD0CWp3AauvDpZPQvZ5rcFkSPnZs4g86/xYh0vZJQVl3oCSvJMXnnpX1DseSinVoIxaKJY5pfcngMWBosDWtfhOvpk9JRB7VjBkcpdBFw1Qx6IEwmcSnuLo+xYQ97680uHdDlx5ryNE1LRDD/FICnP79QxlZEPhgCb9+wGUteDnPL0g/aUuSyvCc2sVcomJJcgraghyKqsqdlg5BU5iJUhagWsBzi2Jn+4ytFeeMUt2LHzn4ubr2CJNpifj4FoC3UlRhztQR/tmCtbZxVzj55196bAgop+mwNWcjIJwXmQyV3S8DX5fjGJ997wQdAeeiwQehFUM84100xUphemlFMXNepNxWMqjf6CrVnVwhIn46UDtayE540iaJIN7chKc2DNxIbcZCmrnx8hxZs3u2xS413l80qSRFHyLYnQxIH1iX52AAV7hYZokIipUK7WN0Sh+q14rJUdVqiAmHdyyMBYbJcdWlfy3Gl43Q1z09gYK2bJ4QaHvMJG/42uFy5pEu2/B477EuRPEIbBHO+TH8+9xDOhu9dlrXozlt0Eeda2qIu52guZVGtDzrD4RMYdQAYiFBKHpANWCjXKD9dt/PBcorsDdggWKWW5qeTbZv7M0mKJPYMbskR3q0HUi9HT7bu4nqRdO1th8nZTjnonOmFv54wzcIihMPrFke6U7BnZcgrHdF2OsR2fon5Woroq+KSrTqNijzcao9kMT3TY6w7FcsLzL+y+awF+rxsl3/Wm0xlUOkI2rOn0BC/7MJp5zXZ5P7TEMJrozvQ4PKfbFRz4HD8XA/WkN9kPUyjClW1vQqjNX9JFQWaWTKjzCKb1BkNvwPfqM7YigwkYmjo+sLxmRhwSpHqQMSnGil/fYNOVncRWuHyRIV/ckbTlAisUaOAT0IiCfyhiYYiXUKdBjZwBRK4vIGCPJmBKqfJc2NGkwYyDSHtBVJEdYqUyJcmQqqY8SKZ1uQojWRME6i05E9ppyVNFKGgp+IH/nM7TU3uqFSnQLH61EBNHeK+Tqkla0sDDYO8Luq0Lg34JCNMCwGS30WgQD40kKBZY2o0Vp0chtdgbMRvUc9LNkammfX0HpbTvzByWo/1pDFUTurEiEHWBr2CJC9dM1foT9gWpHCp7WF8IOSNs7LlDC0dVpTbd7lws/YGaSkBS33H4aMcrX4tDRKsiD/9RkZvFuZ++vKvc5h4iwpigjBDOOfMXVpnGt5HxPKu9YhUkbxPdJEtfBqn3j2Yp+jzPH9Ynu81OA38x+AOutPwMkuXWYqGDIM7nxOI3Hpvol9kkeH7PLksnkMmNoaAuunlVxuX4YfM813a70+Sqw0FRH4s+AWi8nIt0SkDif0zRfoShZpAeProaYaaLpfhDDzCLn27TeBnuADzZ/ILfjVI+0Lw0z4598Ait0swRtUe/Yl42A2efvo/7pqsMT20AAA=</value>
   </data>
-  <data name="Blogging" xml:space="preserve">
-    <value>Blogging</value>
-  </data>
-  <data name="Cache" xml:space="preserve">
-    <value>Cache</value>
-  </data>
-  <data name="CacheExpires" xml:space="preserve">
-    <value>Expiration (minutes)</value>
-  </data>
-  <data name="CacheMaxAge" xml:space="preserve">
-    <value>Max age (minutes)</value>
-  </data>
-  <data name="Comments" xml:space="preserve">
-    <value>Comments</value>
-  </data>
-  <data name="General" xml:space="preserve">
-    <value>General</value>
-  </data>
-  <data name="ListTitle" xml:space="preserve">
-    <value>Configuration</value>
-  </data>
-  <data name="ModerateAnonymous" xml:space="preserve">
-    <value>Moderate comments by anonymous users</value>
-  </data>
-  <data name="ModerateAuthorized" xml:space="preserve">
-    <value>Moderate comments by authenticated users</value>
-  </data>
-  <data name="Moderators" xml:space="preserve">
-    <value>Moderators</value>
-  </data>
-  <data name="NotifyAuthors" xml:space="preserve">
-    <value>Notify authors when comments are posted</value>
-  </data>
-  <data name="NotifyModerators" xml:space="preserve">
-    <value>Notify moderators when comments are posted</value>
-  </data>
-  <data name="Permalinks" xml:space="preserve">
-    <value>Permalinks</value>
-  </data>
-  <data name="PermalinksCategoryArchiveSlug" xml:space="preserve">
-    <value>Category archive slug</value>
-  </data>
-  <data name="PermalinksPageSlug" xml:space="preserve">
-    <value>Page slug</value>
-  </data>
-  <data name="PermalinksPostArchiveSlug" xml:space="preserve">
-    <value>Post archive slug</value>
-  </data>
-  <data name="PermalinksPostSlug" xml:space="preserve">
-    <value>Post slug</value>
-  </data>
-  <data name="PermalinksTagArchiveSlug" xml:space="preserve">
-    <value>Tag archive slug</value>
-  </data>
-  <data name="Site" xml:space="preserve">
-    <value>Site</value>
-  </data>
-  <data name="SiteArchiveDescription" xml:space="preserve">
-    <value>Meta description</value>
-  </data>
-  <data name="SiteArchiveKeywords" xml:space="preserve">
-    <value>Meta keywords</value>
-  </data>
-  <data name="SiteArchivePageSize" xml:space="preserve">
-    <value>Page size</value>
-  </data>
-  <data name="SiteArchiveTitle" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="SiteDescription" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="SiteTagline" xml:space="preserve">
-    <value>Tagline</value>
-  </data>
-  <data name="SiteTitle" xml:space="preserve">
-    <value>Title</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

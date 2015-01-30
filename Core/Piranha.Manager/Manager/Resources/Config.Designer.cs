@@ -61,6 +61,15 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Archive.
+        /// </summary>
+        public static string Archive {
+            get {
+                return ResourceManager.GetString("Archive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blogging.
         /// </summary>
         public static string Blogging {
@@ -169,6 +178,60 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permalinks.
+        /// </summary>
+        public static string Permalinks {
+            get {
+                return ResourceManager.GetString("Permalinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category archive slug.
+        /// </summary>
+        public static string PermalinksCategoryArchiveSlug {
+            get {
+                return ResourceManager.GetString("PermalinksCategoryArchiveSlug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page slug.
+        /// </summary>
+        public static string PermalinksPageSlug {
+            get {
+                return ResourceManager.GetString("PermalinksPageSlug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post archive slug.
+        /// </summary>
+        public static string PermalinksPostArchiveSlug {
+            get {
+                return ResourceManager.GetString("PermalinksPostArchiveSlug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post slug.
+        /// </summary>
+        public static string PermalinksPostSlug {
+            get {
+                return ResourceManager.GetString("PermalinksPostSlug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag archive slug.
+        /// </summary>
+        public static string PermalinksTagArchiveSlug {
+            get {
+                return ResourceManager.GetString("PermalinksTagArchiveSlug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Site.
         /// </summary>
         public static string Site {
@@ -178,11 +241,38 @@ namespace Piranha.Manager.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Archive page size.
+        ///   Looks up a localized string similar to Meta description.
+        /// </summary>
+        public static string SiteArchiveDescription {
+            get {
+                return ResourceManager.GetString("SiteArchiveDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meta keywords.
+        /// </summary>
+        public static string SiteArchiveKeywords {
+            get {
+                return ResourceManager.GetString("SiteArchiveKeywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page size.
         /// </summary>
         public static string SiteArchivePageSize {
             get {
                 return ResourceManager.GetString("SiteArchivePageSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string SiteArchiveTitle {
+            get {
+                return ResourceManager.GetString("SiteArchiveTitle", resourceCulture);
             }
         }
         
@@ -192,6 +282,15 @@ namespace Piranha.Manager.Resources {
         public static string SiteDescription {
             get {
                 return ResourceManager.GetString("SiteDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tagline.
+        /// </summary>
+        public static string SiteTagline {
+            get {
+                return ResourceManager.GetString("SiteTagline", resourceCulture);
             }
         }
         

@@ -111,24 +111,10 @@ namespace Piranha.EntityFramework
 			if (typeof(Models.Content) == typeof(T)) {
 				return (IQueryable<T>)db.Content
 					.Include(c => c.Author)
-					.Include(c => c.Categories)
+					.Include(c => c.Category)
 					.Include(c => c.Template)
-					.Include(c => c.Rows.Select(r => r.Blocks));
-			} else if (typeof(Models.Post) == typeof(T)) {
-				return (IQueryable<T>)db.Posts
-					.Include(p => p.Author)
-					.Include(p => p.Attachments)
-					.Include(p => p.Categories)
-					.Include(p => p.Type);
-			} else if (typeof(Models.Page) == typeof(T)) {
-				return (IQueryable<T>)db.Pages
-					.Include(p => p.Author)
-					.Include(p => p.Type);
-			} else if (typeof(Models.PageType) == typeof(T)) {
-				return (IQueryable<T>)db.PageTypes
-					.Include(p => p.Properties)
-					.Include(p => p.Regions);
-			}
+					.Include(c => c.Body.Select(r => r.Blocks));
+			} 
 			return db.Set<T>();
 		}
 		#endregion

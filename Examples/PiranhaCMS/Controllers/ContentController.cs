@@ -24,7 +24,7 @@ namespace PiranhaCMS.Controllers
 		/// </summary>
 		/// <returns>The view result</returns>
 		public ActionResult Index() {
-			var model = GetModel();
+			var model = GetModel().WithComments();
 
 			return View(model.View, model);
 		}

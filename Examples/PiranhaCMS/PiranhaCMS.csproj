@@ -162,15 +162,15 @@
     <Content Include="Assets\Img\start.png" />
     <Content Include="Global.asax" />
     <Content Include="App_Data\Import\startcontent.html" />
+    <Content Include="Views\Content\DisplayTemplates\CommentModel.cshtml" />
+    <Content Include="Views\Content\Partial\AddComment.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
-    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,7 +180,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Post\Index.cshtml" />
     <None Include="Assets\Css\colors.less" />
     <None Include="Assets\Css\mixins.less" />
     <None Include="Assets\Css\navigation.less" />
@@ -191,9 +190,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
-    <Content Include="Views\Page\Index.cshtml" />
-    <Content Include="Views\Post\DisplayTemplates\CommentModel.cshtml" />
-    <Content Include="Views\Post\Partial\AddComment.cshtml" />
     <None Include="Assets\Css\icons.less" />
     <Content Include="Assets\Fonts\icons.eot" />
     <Content Include="Assets\Fonts\icons.ttf" />
@@ -205,6 +201,7 @@
     <Content Include="Views\Shared\DisplayTemplates\ContentBlock.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentRow.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Html.cshtml" />
+    <Content Include="Views\Error\Forbidden.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -233,6 +230,10 @@
     <ProjectReference Include="..\..\Modules\Piranha.Akismet\Piranha.Akismet.csproj">
       <Project>{dbcd4738-e675-41ee-acfe-93407c185b0a}</Project>
       <Name>Piranha.Akismet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Piranha.Feed\Piranha.Feed.csproj">
+      <Project>{821cd5e2-95a3-4cff-9ff3-1ec595e18111}</Project>
+      <Name>Piranha.Feed</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

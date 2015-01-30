@@ -8,6 +8,7 @@
  * 
  */
 
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,24 +29,9 @@ namespace Piranha.Client.Models
 		{
 			#region Properties
 			/// <summary>
-			/// Gets/sets the unique id.
+			/// Gets/sets the id of the related content.
 			/// </summary>
-			public Guid Id { get; set; }
-
-			/// <summary>
-			/// Gets/sets the internal parent id.
-			/// </summary>
-			internal Guid? ParentId { get; set; }
-
-			/// <summary>
-			/// Gets/sets the internal sort order.
-			/// </summary>
-			internal int SortOrder { get; set; }
-
-			/// <summary>
-			/// Gets/sets if the page should be hidden from navigations.
-			/// </summary>
-			public bool IsHidden { get; set; }
+			public Guid ContentId { get; set; }
 
 			/// <summary>
 			/// Gets/sets the title.
@@ -53,22 +39,17 @@ namespace Piranha.Client.Models
 			public string Title { get; set; }
 
 			/// <summary>
-			/// Gets/sets the alternate navigation title.
-			/// </summary>
-			public string NavigationTitle { get; set; }
-
-			/// <summary>
 			/// Gets/sets the unique slug.
 			/// </summary>
 			public string Slug { get; set; }
 
 			/// <summary>
-			/// Gets/sets the url.
+			/// Gets/sets if the page should be hidden from navigations.
 			/// </summary>
-			public string Url { get; set; }
+			public bool IsHidden { get; set; }
 
 			/// <summary>
-			/// Gets/sets the items level of depth in the sitemap.
+			/// Gets/sets the level of the item.
 			/// </summary>
 			public int Level { get; set; }
 
@@ -88,13 +69,13 @@ namespace Piranha.Client.Models
 			/// <summary>
 			/// Checks if the item and it's children contains the given id.
 			/// </summary>
-			/// <param name="id">The unique id</param>
+			/// <param name="contentId">The unique conent id</param>
 			/// <returns>If the id is contained within the item</returns>
-			internal bool Contains(Guid id) {
-				if (Id == id)
+			internal bool Contains(Guid contentId) {
+				if (ContentId == contentId)
 					return true;
 				foreach (var item in Items) {
-					if (item.Contains(id))
+					if (item.Contains(contentId))
 						return true;
 				}
 				return false;
@@ -124,36 +105,11 @@ namespace Piranha.Client.Models
 			var sitemap = App.ModelCache.GetSiteMap();
 
 			if (sitemap == null) {
-				sitemap = new SiteMap();
+				sitemap = Utils.GetParam<SiteMap>("sitemap", s => JsonConvert.DeserializeObject<SiteMap>(s));
 
-				using (var api = new Api()) {
-					var now = DateTime.Now;
-
-					var items = api.Pages.Get(where: p => p.Published <= now).Select(p => new SiteMapItem() {
-						Id = p.Id,
-						ParentId = p.ParentId,
-						SortOrder = p.SortOrder,
-						Title = p.Title,
-						NavigationTitle = p.NavigationTitle,
-						IsHidden = p.IsHidden,
-						Slug = p.Slug
-					}).OrderBy(p => p.ParentId).ThenBy(p => p.SortOrder).ToList();
-
-					sitemap.Items = Sort(items, null);
-				}
 				App.ModelCache.SetSiteMap(sitemap);
 			}
 			return sitemap;
-		}
-
-		/// <summary>
-		/// Gets a partial sitemap structure with the item with the
-		/// given slug as root node.
-		/// </summary>
-		/// <param name="slug">The slug</param>
-		/// <returns>The partial sitemap</returns>
-		public static SiteMapItem GetPartial(string slug) {
-			return FindItem(Get().Items, slug);
 		}
 
 		/// <summary>
@@ -167,43 +123,6 @@ namespace Piranha.Client.Models
 		}
 
 		#region Private methods
-		/// <summary>
-		/// Sorts the pages into a hierarchical structure.
-		/// </summary>
-		/// <param name="pages">The page collection</param>
-		/// <param name="parentId">The current parent id</param>
-		/// <param name="level">The current level in the sitemap</param>
-		/// <returns>The sorted structure</returns>
-		private static IEnumerable<SiteMapItem> Sort(IEnumerable<SiteMapItem> pages, Guid? parentId, int level = 1) {
-			var ret = new List<SiteMapItem>();
-
-			foreach (var page in pages.Where(p => p.ParentId == parentId)) {
-				page.Level = level;
-				page.Url = App.Env.Url("~/" + page.Slug);
-				page.Items = Sort(pages.Where(p => p.ParentId != parentId), page.Id, level + 1);
-				ret.Add(page);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// Finds the sitemap item with the given slug recursively in the given item list.
-		/// </summary>
-		/// <param name="items">The items</param>
-		/// <param name="slug">The slug to search for</param>
-		/// <returns>The item, null if not found</returns>
-		private static SiteMapItem FindItem(IEnumerable<SiteMapItem> items, string slug) {
-			foreach (var item in items) {
-				if (item.Slug == slug)
-					return item;
-
-				var node = FindItem(item.Items, slug);
-				if (node != null)
-					return node;
-			}
-			return null;
-		}
-
 		/// <summary>
 		/// Gets the level in the hierarchy with the specified parent.
 		/// </summary>
