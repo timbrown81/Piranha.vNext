@@ -107,6 +107,9 @@ namespace Piranha.Client.Models
 			if (sitemap == null) {
 				sitemap = Utils.GetParam<SiteMap>("sitemap", s => JsonConvert.DeserializeObject<SiteMap>(s));
 
+				if (sitemap == null)
+					sitemap = new SiteMap();
+
 				App.ModelCache.SetSiteMap(sitemap);
 			}
 			return sitemap;

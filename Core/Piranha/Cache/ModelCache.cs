@@ -107,7 +107,9 @@ namespace Piranha.Cache
 		/// </summary>
 		/// <param name="sitemap">The sitemap</param>
 		public void SetSiteMap(Client.Models.SiteMap sitemap) {
-			provider.Set(CACHE_SITEMAP, sitemap);
+			if (sitemap != null)
+				provider.Set(CACHE_SITEMAP, sitemap);
+			else provider.Remove(CACHE_SITEMAP);
 		}
  
 		/// <summary>
