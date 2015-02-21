@@ -38,21 +38,38 @@ namespace Piranha.RavenDb
 		/// <param name="defaultDatabase">The default database</param>
 		/// <param name="waitForStaleResults">If the store should wait for stale results</param>
 		/// <param name="allowQueriesOnId">If LINQ queries on Id should be allowed</param>
-		public Store(string url, string defaultDatabase, bool waitForStaleResults = false, bool allowQueriesOnId = false) {
+		public Store(string url, string defaultDatabase, bool waitForStaleResults = false, bool allowQueriesOnId = false, bool useEmbeddedInMemoryStore = false) {
 			// Create the store
-			store = new DocumentStore() { Url = url, DefaultDatabase = defaultDatabase }.Initialize();
+			if (!useEmbeddedInMemoryStore)
+				store = new DocumentStore() { Url = url, DefaultDatabase = defaultDatabase };
+			else
+				store = new Raven.Client.Embedded.EmbeddableDocumentStore { RunInMemory = true };
 
 			// Add resolver
 			store.Conventions.JsonContractResolver = new PiranhaResolver(true);
 
-			// Add listeners
-			((DocumentStore)store).RegisterListener(new ConversionListener());
-			((DocumentStore)store).RegisterListener(new StoreListener());
-			((DocumentStore)store).RegisterListener(new DeleteListener());
+			if (store.GetType() == typeof(DocumentStore))
+			{
+				// Add listeners
+				((DocumentStore)store).RegisterListener(new ConversionListener());
+				((DocumentStore)store).RegisterListener(new StoreListener());
+				((DocumentStore)store).RegisterListener(new DeleteListener());
 
-			// Should we wait for stale results
-			if (waitForStaleResults)
-				((DocumentStore)store).RegisterListener(new NoStaleQueriesListener());
+				// Should we wait for stale results
+				if (waitForStaleResults)
+					((DocumentStore)store).RegisterListener(new NoStaleQueriesListener());
+			}
+			else
+			{
+				// Add listeners
+				((Raven.Client.Embedded.EmbeddableDocumentStore)store).RegisterListener(new ConversionListener());
+				((Raven.Client.Embedded.EmbeddableDocumentStore)store).RegisterListener(new StoreListener());
+				((Raven.Client.Embedded.EmbeddableDocumentStore)store).RegisterListener(new DeleteListener());
+
+				// Should we wait for stale results
+				if (waitForStaleResults)
+					((Raven.Client.Embedded.EmbeddableDocumentStore)store).RegisterListener(new NoStaleQueriesListener());
+			}
 
 			// Apply external config
 			ApplyExternalConfig(store);
