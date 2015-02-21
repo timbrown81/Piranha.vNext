@@ -1,5 +1,6 @@
 # Welcome to Piranha vNext
 
+[![Build status](https://ci.appveyor.com/api/projects/status/s5b2u7nu3pn2qcee?svg=true)](https://ci.appveyor.com/project/tidyui/piranha-vnext)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PiranhaCMS/Piranha.vNext?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is a **complete rewrite** of Piranha CMS in order to achieve a more simple, flexible and future proof architecture. The framework is database & authentication agnostic with simple provider interfaces that makes sure that it can be adapted to different architectures.
