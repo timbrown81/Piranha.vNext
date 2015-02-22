@@ -10,17 +10,17 @@
 
 using System;
 
-namespace Piranha.Extend.Blocks
+namespace Piranha.Extend.Components
 {
 	/// <summary>
-	/// Unformatted string content.
+	/// Html extension.
 	/// </summary>
-	[Block(Name="Text")]
-	public class Text : IBlock
+	[Component(Name="Html", Type=ComponentType.ContentBlock|ComponentType.TemplateField)]
+	public class Html : Component<string>, IComponent
 	{
 		/// <summary>
-		/// Gets/sets the body.
+		/// Default constructor.
 		/// </summary>
-		public string Body { get; set; }
+		public Html() : base(v => v) { }
 	}
 }

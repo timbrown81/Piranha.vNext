@@ -13,7 +13,7 @@ using System;
 namespace Piranha.Extend.Serializers
 {
 	/// <summary>
-	/// Serializes html blocks.
+	/// Serializes html components.
 	/// </summary>
 	public class HtmlSerializer : ISerializer
 	{
@@ -23,8 +23,8 @@ namespace Piranha.Extend.Serializers
 		/// <param name="str">The JSON data</param>
 		/// <returns>The deserialized object</returns>
 		public object Deserialize(string str) {
-			return new Blocks.Html() { 
-				Body = str
+			return new Components.Html() { 
+				Value = str
 			};
 		}
 
@@ -34,7 +34,7 @@ namespace Piranha.Extend.Serializers
 		/// <param name="data">The model</param>
 		/// <returns>The serialized object</returns>
 		public string Serialize(object model) {
-			return ((Blocks.Html)model).Body;
+			return ((Components.Html)model).Value;
 		}
 	}
 }

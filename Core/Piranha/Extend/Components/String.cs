@@ -10,15 +10,17 @@
 
 using System;
 
-namespace Piranha.Extend
+namespace Piranha.Extend.Components
 {
 	/// <summary>
-	/// The different types of extensions available.
+	/// Single line string extension.
 	/// </summary>
-	[Flags]
-	public enum ExtensionType
+	[Component(Name="String", Type=ComponentType.TemplateField)]
+	public class String : Component<string>, IComponent
 	{
-		Property=1,
-		Region=2
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public String() : base(v => v) { }
 	}
 }

@@ -10,17 +10,17 @@
 
 using System;
 
-namespace Piranha.Extend.Blocks
+namespace Piranha.Extend.Components
 {
 	/// <summary>
-	/// Html content.
+	/// Boolean extension.
 	/// </summary>
-	[Block(Name="Html")]
-	public class Html : IBlock
+	[Component(Name="Date", Type=ComponentType.TemplateField)]
+	public class Date : Component<DateTime>, IComponent
 	{
 		/// <summary>
-		/// Gets/sets the body.
+		/// Default constructor.
 		/// </summary>
-		public string Body { get; set; }
+		public Date() : base(v => v) { }
 	}
 }

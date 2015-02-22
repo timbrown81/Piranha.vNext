@@ -10,13 +10,13 @@
 
 using System;
 
-namespace Piranha.Extend.Extensions
+namespace Piranha.Extend.Components
 {
 	/// <summary>
 	/// Base class for creating a simple extension.
 	/// </summary>
 	/// <typeparam name="T">The value type</typeparam>
-	public abstract class SimpleExtension<T> : IExtension
+	public abstract class Component<T> : IComponent
 	{
 		#region Members
 		/// <summary>
@@ -36,7 +36,7 @@ namespace Piranha.Extend.Extensions
 		/// Default constructor.
 		/// </summary>
 		/// <param name="formatter">The value formatter</param>
-		public SimpleExtension(Func<T, object> formatter) {
+		public Component(Func<T, object> formatter) {
 			FormatValue = formatter;
 		}
 

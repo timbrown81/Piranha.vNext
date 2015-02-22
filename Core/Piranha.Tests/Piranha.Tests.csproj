@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Repositories\AliasTests.cs" />
     <Compile Include="Repositories\BlockTests.cs" />
+    <Compile Include="Repositories\TagTests.cs" />
     <Compile Include="Repositories\ParamTests.cs" />
     <Compile Include="Repositories\AuthorTests.cs" />
     <Compile Include="Repositories\CategoryTests.cs" />

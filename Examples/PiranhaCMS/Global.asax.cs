@@ -104,16 +104,16 @@ namespace PiranhaCMS
 						content.Body[0].Blocks.Add(new Piranha.Models.ContentBlock() {
 							SortOrder = 1,
 							Size = 9,
-							Body = new Piranha.Extend.Blocks.Html() {
-								Body = "<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.</p>" + 
+							Body = new Piranha.Extend.Components.Html() {
+								Value = "<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.</p>" + 
 									"<p>Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.</p>"
 							}
 						});
 						content.Body[0].Blocks.Add(new Piranha.Models.ContentBlock() {
 							SortOrder = 2,
 							Size = 3,
-							Body = new Piranha.Extend.Blocks.Html() {
-								Body = "<p>Sidebar ipsum. Aside porta sem malesuada magna mollis euismod. Aenean eu leo quam.</p>"
+							Body = new Piranha.Extend.Components.Html() {
+								Value = "<p>Sidebar ipsum. Aside porta sem malesuada magna mollis euismod. Aenean eu leo quam.</p>"
 							}
 						});
 						api.Content.Add(content);
@@ -166,8 +166,8 @@ namespace PiranhaCMS
 						content.Body[0].Blocks.Add(new Piranha.Models.ContentBlock() {
 							SortOrder = 1,
 							Size = 12,
-							Body = new Piranha.Extend.Blocks.Html() {
-								Body = body
+							Body = new Piranha.Extend.Components.Html() {
+								Value = body
 							}
 						});
 						api.Content.Add(content);

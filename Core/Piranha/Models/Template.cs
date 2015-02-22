@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 
 namespace Piranha.Models
 {
@@ -53,5 +54,19 @@ namespace Piranha.Models
 		/// </summary>
 		public DateTime Updated { get; set; }
 		#endregion
+
+		#region Navigation properties
+		/// <summary>
+		/// Gets/sets the available fields.
+		/// </summary>
+		public IList<TemplateField> Fields { get; set; }
+		#endregion
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public Template() {
+			Fields = new List<TemplateField>();
+		}
 	}
 }

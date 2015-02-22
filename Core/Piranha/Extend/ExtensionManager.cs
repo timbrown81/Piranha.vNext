@@ -16,14 +16,14 @@ using System.Reflection;
 namespace Piranha.Extend
 {
 	/// <summary>
-	/// The extension manager is responsible for managing the
-	/// imported extensions.
+	/// The extension manager is responsible for managing all
+	/// composable parts of the application.
 	/// </summary>
 	public sealed class ExtensionManager
 	{
 		#region Inner classes
 		/// <summary>
-		/// An imported extension.
+		/// An imported component.
 		/// </summary>
 		public sealed class Import
 		{
@@ -38,40 +38,22 @@ namespace Piranha.Extend
 			public Type ValueType { get; internal set; }
 
 			/// <summary>
-			/// Gets the extension type.
+			/// Gets the component type.
 			/// </summary>
-			public ExtensionType Type { get; internal set; }
+			public ComponentType Type { get; internal set; }
 
 			/// <summary>
 			/// Internal constructor.
 			/// </summary>
 			internal Import() { }
 		}
-
-		public sealed class BlockImport
-		{
-			/// <summary>
-			/// Gets the display name.
-			/// </summary>
-			public string Name { get; internal set; }
-
-			/// <summary>
-			/// Gets the CLR value type.
-			/// </summary>
-			public Type ValueType { get; internal set; }
-
-			/// <summary>
-			/// Internal constructor.
-			/// </summary>
-			internal BlockImport() { }
-		}
 		#endregion
 
 		#region Properties
 		/// <summary>
-		/// Gets/sets the available extensions.
+		/// Gets/sets the available components.
 		/// </summary>
-		private IList<Import> Extensions { get; set; }
+		private IList<Import> Components { get; set; }
 
 		/// <summary>
 		/// Gets the currently imported modules.
@@ -79,22 +61,17 @@ namespace Piranha.Extend
 		public IList<IModule> Modules { get; private set; }
 
 		/// <summary>
-		/// Gets the available blocks.
+		/// Gets the available content blocks.
 		/// </summary>
-		public IList<BlockImport> Blocks { get; private set; }
-
-		/// <summary>
-		/// Gets the available properties.
-		/// </summary>
-		public IList<Import> Properties {
-			get { return Extensions.Where(i => i.Type.HasFlag(ExtensionType.Property)).OrderBy(i => i.Name).ToList(); }
+		public IList<Import> ContentBlocks {
+			get { return Components.Where(i => i.Type.HasFlag(ComponentType.ContentBlock)).OrderBy(i => i.Name).ToList(); }
 		}
 
 		/// <summary>
-		/// Gets the available regions.
+		/// Gets the available template fields.
 		/// </summary>
-		public IList<Import> Regions {
-			get { return Extensions.Where(i => i.Type.HasFlag(ExtensionType.Region)).OrderBy(i => i.Name).ToList(); }
+		public IList<Import> TemplateFields {
+			get { return Components.Where(i => i.Type.HasFlag(ComponentType.TemplateField)).OrderBy(i => i.Name).ToList(); }
 		}
 		#endregion
 
@@ -102,8 +79,7 @@ namespace Piranha.Extend
 		/// Default internal constructor.
 		/// </summary>
 		internal ExtensionManager() {
-			Blocks = new List<BlockImport>();
-			Extensions = new List<Import>();
+			Components = new List<Import>();
 			Modules = new List<IModule>();
 
 			// Scan all assemblies
@@ -111,26 +87,15 @@ namespace Piranha.Extend
 			foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
 				foreach (var info in assembly.DefinedTypes) {
 					if (info.IsClass && !info.IsAbstract) {
-						if (typeof(IExtension).GetTypeInfo().IsAssignableFrom(info)) {
+						if (typeof(IComponent).GetTypeInfo().IsAssignableFrom(info)) {
 							//
-							// Extensions
+							// Components
 							//
-							var attr = info.GetCustomAttribute<ExtensionAttribute>();
+							var attr = info.GetCustomAttribute<ComponentAttribute>();
 							if (attr != null) {
-								Extensions.Add(new Import() {
+								Components.Add(new Import() {
 									Name = attr.Name,
 									Type = attr.Type,
-									ValueType = info
-								});
-							}
-						} else if (typeof(IBlock).GetTypeInfo().IsAssignableFrom(info)) {
-							//
-							// Block
-							//
-							var attr = info.GetCustomAttribute<BlockAttribute>();
-							if (attr != null) {
-								Blocks.Add(new BlockImport() {
-									Name = attr.Name,
 									ValueType = info
 								});
 							}

@@ -10,17 +10,22 @@
 
 using System;
 
-namespace Piranha.Extend.Extensions
+namespace Piranha.Extend.Components
 {
 	/// <summary>
-	/// Html extension.
+	/// A single image from the media-library.
 	/// </summary>
-	[Extension(Name="Html", Type=ExtensionType.Region)]
-	public class HtmlExtension : SimpleExtension<string>, IExtension
+	[Component(Name="Image", Type=ComponentType.ContentBlock)]
+	public class Image :  Component<Guid?>, IComponent
 	{
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		public HtmlExtension() : base(v => v) { }
+		public Image() : base(v => v) { }
+
+		/// <summary>
+		/// Gets/sets the selected media.
+		/// </summary>
+		public Models.Media Media { get; set; }
 	}
 }

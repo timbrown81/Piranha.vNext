@@ -10,17 +10,17 @@
 
 using System;
 
-namespace Piranha.Extend.Extensions
+namespace Piranha.Extend.Components
 {
 	/// <summary>
 	/// Boolean extension.
 	/// </summary>
-	[Extension(Name="Date", Type=ExtensionType.Property)]
-	public class DateExtension : SimpleExtension<DateTime>, IExtension
+	[Component(Name="Boolean", Type=ComponentType.TemplateField)]
+	public class Boolean : Component<bool>, IComponent
 	{
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		public DateExtension() : base(v => v) { }
+		public Boolean() : base(v => v) { }
 	}
 }

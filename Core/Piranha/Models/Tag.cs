@@ -15,9 +15,9 @@ using FluentValidation;
 namespace Piranha.Models
 {
 	/// <summary>
-	/// Categories are used to group content together.
+	/// Tags are used to classify content.
 	/// </summary>
-	public sealed class Category : Model, IArchived, Data.IModel, Data.IChanges
+	public sealed class Tag : Model, IArchived, Data.IModel, Data.IChanges
 	{
 		#region Properties
 		/// <summary>
@@ -44,7 +44,7 @@ namespace Piranha.Models
 		/// Gets the archive slug.
 		/// </summary>
 		public string ArchiveSlug {
-			get { return Config.Permalinks.CategoryArchiveSlug + "/" + Slug; }
+			get { return Config.Permalinks.TagArchiveSlug + "/" + Slug; }
 		}
 
 		/// <summary>
@@ -78,16 +78,16 @@ namespace Piranha.Models
 		/// </summary>
 		/// <returns>Returns the result of validation</returns>
 		protected override FluentValidation.Results.ValidationResult Validate() {
-			return new CategoryValidator().Validate(this);
+			return new TagValidator().Validate(this);
 		}
 
 		#region Validator
 		/// <summary>
-		///  Validator for the category
+		///  Validator for the tag
 		/// </summary>
-		private class CategoryValidator : AbstractValidator<Category>
+		private class TagValidator : AbstractValidator<Tag>
 		{
-			public CategoryValidator() {
+			public TagValidator() {
 				RuleFor(m => m.Title).NotEmpty();
 				RuleFor(m => m.Title).Length(0, 128);
 				RuleFor(m => m.Slug).NotEmpty();
@@ -106,9 +106,9 @@ namespace Piranha.Models
 			/// </summary>
 			/// <param name="model">The current model</param>
 			/// <returns>If it is unique</returns>
-			private bool IsSlugUnique(Category model) {
+			private bool IsSlugUnique(Tag model) {
 				using (var api = new Api()) {
-					return api.Categories.Get(where: m => m.Slug == model.Slug && m.Id != model.Id).Count() == 0;
+					return api.Tags.Get(where: m => m.Slug == model.Slug && m.Id != model.Id).Count() == 0;
 				}
 			}
 		}

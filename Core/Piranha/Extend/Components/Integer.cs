@@ -10,10 +10,17 @@
 
 using System;
 
-namespace Piranha.Extend
+namespace Piranha.Extend.Components
 {
 	/// <summary>
-	/// Interface for content blocks.
+	/// Boolean extension.
 	/// </summary>
-	public interface IBlock { }
+	[Component(Name="Integer", Type=ComponentType.TemplateField)]
+	public class Integer : Component<int>, IComponent
+	{
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public Integer() : base(v => v) { }
+	}
 }

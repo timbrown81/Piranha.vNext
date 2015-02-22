@@ -52,6 +52,11 @@ namespace Piranha.EntityFramework
 		public DbSet<Models.ContentBlock> ContentBlocks { get; set; }
 
 		/// <summary>
+		/// Gets/sets the content field set.
+		/// </summary>
+		public DbSet<Models.ContentField> ContentFields { get; set; }
+
+		/// <summary>
 		/// Gets/sets the content row set.
 		/// </summary>
 		public DbSet<Models.ContentRow> ContentRows { get; set; }
@@ -77,9 +82,19 @@ namespace Piranha.EntityFramework
 		public DbSet<Models.Rating> Ratings { get; set; }
 
 		/// <summary>
+		/// Gets/sets the tag set.
+		/// </summary>
+		public DbSet<Models.Tag> Tags { get; set; }
+
+		/// <summary>
 		/// Gets/sets the template set.
 		/// </summary>
 		public DbSet<Models.Template> Templates { get; set; }
+
+		/// <summary>
+		/// Gets/sets the template fields.
+		/// </summary>
+		public DbSet<Models.TemplateField> TemplateFields { get; set; }
 		#endregion
 
 		/// <summary>
@@ -90,116 +105,152 @@ namespace Piranha.EntityFramework
 		/// <summary>
 		/// Configures the data model.
 		/// </summary>
-		/// <param name="modelBuilder">The current model builder</param>
-		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+		/// <param name="mb">The current model builder</param>
+		protected override void OnModelCreating(DbModelBuilder mb) {
 			// Alias
-			modelBuilder.Entity<Models.Alias>().ToTable("PiranhaAliases");
-			modelBuilder.Entity<Models.Alias>().Property(a => a.NewUrl).HasMaxLength(255).IsRequired();
-			modelBuilder.Entity<Models.Alias>().Property(a => a.OldUrl).HasMaxLength(255).IsRequired()
+			mb.Entity<Models.Alias>().ToTable("PiranhaAliases");
+			mb.Entity<Models.Alias>().Property(a => a.NewUrl).HasMaxLength(255).IsRequired();
+			mb.Entity<Models.Alias>().Property(a => a.OldUrl).HasMaxLength(255).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() {
 					IsUnique = true
 				}));
 
 			// Author
-			modelBuilder.Entity<Models.Author>().ToTable("PiranhaAuthors");
-			modelBuilder.Entity<Models.Author>().Property(a => a.Name).HasMaxLength(128).IsRequired();
-			modelBuilder.Entity<Models.Author>().Property(a => a.Email).HasMaxLength(128);
-			modelBuilder.Entity<Models.Author>().Property(a => a.Description).HasMaxLength(512);
+			mb.Entity<Models.Author>().ToTable("PiranhaAuthors");
+			mb.Entity<Models.Author>().Property(a => a.Name).HasMaxLength(128).IsRequired();
+			mb.Entity<Models.Author>().Property(a => a.Email).HasMaxLength(128);
+			mb.Entity<Models.Author>().Property(a => a.Description).HasMaxLength(512);
 
 			// Block
-			modelBuilder.Entity<Models.Block>().ToTable("PiranhaBlocks");
-			modelBuilder.Entity<Models.Block>().Property(b => b.Name).HasMaxLength(128).IsRequired();
-			modelBuilder.Entity<Models.Block>().Property(b => b.Description).HasMaxLength(255);
-			modelBuilder.Entity<Models.Block>().Property(b => b.Slug).HasMaxLength(128).IsRequired()
+			mb.Entity<Models.Block>().ToTable("PiranhaBlocks");
+			mb.Entity<Models.Block>().Property(b => b.Name).HasMaxLength(128).IsRequired();
+			mb.Entity<Models.Block>().Property(b => b.Description).HasMaxLength(255);
+			mb.Entity<Models.Block>().Property(b => b.Slug).HasMaxLength(128).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() {
 					IsUnique = true
 				}));
 	
 			// Category
-			modelBuilder.Entity<Models.Category>().ToTable("PiranhaCategories");
-			modelBuilder.Entity<Models.Category>().Property(c => c.Title).HasMaxLength(128).IsRequired();
-			modelBuilder.Entity<Models.Category>().Property(c => c.ArchiveTitle).HasMaxLength(128);
-			modelBuilder.Entity<Models.Category>().Property(c => c.MetaKeywords).HasMaxLength(128);
-			modelBuilder.Entity<Models.Category>().Property(c => c.MetaDescription).HasMaxLength(255);
-			modelBuilder.Entity<Models.Category>().Property(c => c.ArchiveView).HasMaxLength(255);
-			modelBuilder.Entity<Models.Category>().Property(c => c.Slug).HasMaxLength(128).IsRequired()
+			mb.Entity<Models.Category>().ToTable("PiranhaCategories");
+			mb.Entity<Models.Category>().Property(c => c.Title).HasMaxLength(128).IsRequired();
+			mb.Entity<Models.Category>().Property(c => c.ArchiveTitle).HasMaxLength(128);
+			mb.Entity<Models.Category>().Property(c => c.MetaKeywords).HasMaxLength(128);
+			mb.Entity<Models.Category>().Property(c => c.MetaDescription).HasMaxLength(255);
+			mb.Entity<Models.Category>().Property(c => c.ArchiveView).HasMaxLength(255);
+			mb.Entity<Models.Category>().Property(c => c.Slug).HasMaxLength(128).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() {
 					IsUnique = true
 				}));
-			modelBuilder.Entity<Models.Category>().Ignore(c => c.ArchiveSlug);
+			mb.Entity<Models.Category>().Ignore(c => c.ArchiveSlug);
 
 			// Comment
-			modelBuilder.Entity<Models.Comment>().ToTable("PiranhaComments");
-			modelBuilder.Entity<Models.Comment>().Property(c => c.UserId).HasMaxLength(128);
-			modelBuilder.Entity<Models.Comment>().Property(c => c.Author).HasMaxLength(128);
-			modelBuilder.Entity<Models.Comment>().Property(c => c.Email).HasMaxLength(128);
-			modelBuilder.Entity<Models.Comment>().Property(c => c.IP).HasMaxLength(16);
-			modelBuilder.Entity<Models.Comment>().Property(c => c.UserAgent).HasMaxLength(128);
-			modelBuilder.Entity<Models.Comment>().Property(c => c.WebSite).HasMaxLength(128);
-			modelBuilder.Entity<Models.Comment>().Property(c => c.SessionID).HasMaxLength(64);
+			mb.Entity<Models.Comment>().ToTable("PiranhaComments");
+			mb.Entity<Models.Comment>().Property(c => c.UserId).HasMaxLength(128);
+			mb.Entity<Models.Comment>().Property(c => c.Author).HasMaxLength(128);
+			mb.Entity<Models.Comment>().Property(c => c.Email).HasMaxLength(128);
+			mb.Entity<Models.Comment>().Property(c => c.IP).HasMaxLength(16);
+			mb.Entity<Models.Comment>().Property(c => c.UserAgent).HasMaxLength(128);
+			mb.Entity<Models.Comment>().Property(c => c.WebSite).HasMaxLength(128);
+			mb.Entity<Models.Comment>().Property(c => c.SessionID).HasMaxLength(64);
 
 			// Content
-			modelBuilder.Entity<Models.Content>().ToTable("PiranhaContent");
-			modelBuilder.Entity<Models.Content>().Property(c => c.Title).HasMaxLength(128).IsRequired();
-			modelBuilder.Entity<Models.Content>().Property(c => c.MetaKeywords).HasMaxLength(128);
-			modelBuilder.Entity<Models.Content>().Property(c => c.MetaDescription).HasMaxLength(256);
-			modelBuilder.Entity<Models.Content>().Property(c => c.Type)
+			mb.Entity<Models.Content>().ToTable("PiranhaContent");
+			mb.Entity<Models.Content>().Property(c => c.Title).HasMaxLength(128).IsRequired();
+			mb.Entity<Models.Content>().Property(c => c.MetaKeywords).HasMaxLength(128);
+			mb.Entity<Models.Content>().Property(c => c.MetaDescription).HasMaxLength(256);
+			mb.Entity<Models.Content>().Property(c => c.Type)
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_Slug") {
 					Order = 1,
 					IsUnique = true
 				}));
-			modelBuilder.Entity<Models.Content>().Property(c => c.Slug).HasMaxLength(128).IsRequired()
+			mb.Entity<Models.Content>().Property(c => c.Slug).HasMaxLength(128).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_Slug") {
 					Order = 2,
 				}));
-			modelBuilder.Entity<Models.Content>().HasRequired(c => c.Category).WithMany().WillCascadeOnDelete(false);
+			mb.Entity<Models.Content>().HasRequired(c => c.Category).WithMany().WillCascadeOnDelete(false);
+			mb.Entity<Models.Content>().HasMany(c => c.Tags).WithMany().Map(m => {
+				m.ToTable("PiranhaContentTags");
+				m.MapLeftKey("ContentId");
+				m.MapRightKey("TagId");
+			});
 
 			// ContentBlock
-			modelBuilder.Entity<Models.ContentBlock>().ToTable("PiranhaContentBlocks");
-			modelBuilder.Entity<Models.ContentBlock>().Property(b => b.ClrType).HasMaxLength(512).IsRequired();
-			modelBuilder.Entity<Models.ContentBlock>().Ignore(b => b.Body);
+			mb.Entity<Models.ContentBlock>().ToTable("PiranhaContentBlocks");
+			mb.Entity<Models.ContentBlock>().Property(b => b.CLRType).HasMaxLength(512).IsRequired();
+			mb.Entity<Models.ContentBlock>().Ignore(b => b.Body);
+
+			// ContentField
+			mb.Entity<Models.ContentField>().ToTable("PiranhaContentFields");
+			mb.Entity<Models.ContentField>().Property(f => f.CLRType).HasMaxLength(512).IsRequired();
 
 			// ContentRow
-			modelBuilder.Entity<Models.ContentRow>().ToTable("PiranhaContentRows");
+			mb.Entity<Models.ContentRow>().ToTable("PiranhaContentRows");
 
 			// Media
-			modelBuilder.Entity<Models.Media>().ToTable("PiranhaMedia");
-			modelBuilder.Entity<Models.Media>().Property(m => m.Name).HasMaxLength(128).IsRequired();
-			modelBuilder.Entity<Models.Media>().Property(m => m.Slug).HasMaxLength(128).IsRequired()
+			mb.Entity<Models.Media>().ToTable("PiranhaMedia");
+			mb.Entity<Models.Media>().Property(m => m.Name).HasMaxLength(128).IsRequired();
+			mb.Entity<Models.Media>().Property(m => m.Slug).HasMaxLength(128).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() {
 					IsUnique = true
 				}));
 				
 			// Param
-			modelBuilder.Entity<Models.Param>().ToTable("PiranhaParams");
-			modelBuilder.Entity<Models.Param>().Property(p => p.Name).HasMaxLength(128).IsRequired()
+			mb.Entity<Models.Param>().ToTable("PiranhaParams");
+			mb.Entity<Models.Param>().Property(p => p.Name).HasMaxLength(128).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() {
 					IsUnique = true
 				}));
 
-			// Ratings
-			modelBuilder.Entity<Models.Rating>().ToTable("PiranhaRatings");
-			modelBuilder.Entity<Models.Rating>().Property(r => r.UserId).HasMaxLength(128).IsRequired()
+			// Rating
+			mb.Entity<Models.Rating>().ToTable("PiranhaRatings");
+			mb.Entity<Models.Rating>().Property(r => r.UserId).HasMaxLength(128).IsRequired()
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_UserRating") {
 					IsUnique = true,
 					Order = 1
 				}));
-			modelBuilder.Entity<Models.Rating>().Property(r => r.ModelId)
+			mb.Entity<Models.Rating>().Property(r => r.ModelId)
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_UserRating") { 
 					Order = 2
 				}));
-			modelBuilder.Entity<Models.Rating>().Property(r => r.Type)
+			mb.Entity<Models.Rating>().Property(r => r.Type)
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_UserRating") {
 					Order = 3
 				}));
 
-			// Template
-			modelBuilder.Entity<Models.Template>().ToTable("PiranhaTemplates");
-			modelBuilder.Entity<Models.Template>().Property(t => t.Name).HasMaxLength(128).IsRequired();
-			modelBuilder.Entity<Models.Template>().Property(t => t.Route).HasMaxLength(255);
-			modelBuilder.Entity<Models.Template>().Property(t => t.View).HasMaxLength(255);
+			// Tag
+			mb.Entity<Models.Tag>().ToTable("PiranhaTags");
+			mb.Entity<Models.Tag>().Property(t => t.Title).HasMaxLength(128).IsRequired();
+			mb.Entity<Models.Tag>().Property(t => t.ArchiveTitle).HasMaxLength(128);
+			mb.Entity<Models.Tag>().Property(t => t.MetaKeywords).HasMaxLength(128);
+			mb.Entity<Models.Tag>().Property(t => t.MetaDescription).HasMaxLength(255);
+			mb.Entity<Models.Tag>().Property(t => t.ArchiveView).HasMaxLength(255);
+			mb.Entity<Models.Tag>().Property(t => t.Slug).HasMaxLength(128).IsRequired()
+				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() {
+					IsUnique = true
+				}));
+			mb.Entity<Models.Tag>().Ignore(t => t.ArchiveSlug);
 
-			base.OnModelCreating(modelBuilder);
+			// Template
+			mb.Entity<Models.Template>().ToTable("PiranhaTemplates");
+			mb.Entity<Models.Template>().Property(t => t.Name).HasMaxLength(128).IsRequired();
+			mb.Entity<Models.Template>().Property(t => t.Route).HasMaxLength(255);
+			mb.Entity<Models.Template>().Property(t => t.View).HasMaxLength(255);
+
+			// TemplateField
+			mb.Entity<Models.TemplateField>().ToTable("PiranhaTemplateFields");
+			mb.Entity<Models.TemplateField>().Property(f => f.TemplateId)
+				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_InternalId") {
+					IsUnique = true,
+					Order = 1
+				}));
+			mb.Entity<Models.TemplateField>().Property(f => f.InternalId).HasMaxLength(32).IsRequired()
+				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_InternalId") {
+					Order = 2
+				}));
+			mb.Entity<Models.TemplateField>().Property(f => f.Name).HasMaxLength(128).IsRequired();
+			mb.Entity<Models.TemplateField>().Property(f => f.CLRType).HasMaxLength(512).IsRequired();
+
+			base.OnModelCreating(mb);
 		}
 	}
 }

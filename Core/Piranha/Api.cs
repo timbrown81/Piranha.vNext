@@ -76,6 +76,11 @@ namespace Piranha
 		public Repositories.RatingRepository Ratings { get; private set; }
 
 		/// <summary>
+		/// Gets the tag repository.
+		/// </summary>
+		public Repositories.TagRepository Tags { get; private set; }
+
+		/// <summary>
 		/// Gets the template repository.
 		/// </summary>
 		public Repositories.TemplateRepository Templates { get; private set; }
@@ -103,6 +108,7 @@ namespace Piranha
 			Media = new Repositories.MediaRepository(this.session);
 			Params = new Repositories.ParamRepository(this.session);
 			Ratings = new Repositories.RatingRepository(this.session);
+			Tags = new Repositories.TagRepository(this.session);
 			Templates = new Repositories.TemplateRepository(this.session);
 		}
 

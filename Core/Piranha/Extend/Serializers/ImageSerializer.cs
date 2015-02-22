@@ -13,7 +13,7 @@ using System;
 namespace Piranha.Extend.Serializers
 {
 	/// <summary>
-	/// Serializes image blocks.
+	/// Serializes image components.
 	/// </summary>
 	public class ImageSerializer : ISerializer
 	{
@@ -23,17 +23,17 @@ namespace Piranha.Extend.Serializers
 		/// <param name="str">The JSON data</param>
 		/// <returns>The deserialized object</returns>
 		public object Deserialize(string str) {
-			var block = new Blocks.Image() { 
-				MediaId = !String.IsNullOrWhiteSpace(str) ? (Guid?)new Guid(str) : null
+			var image = new Components.Image() { 
+				Value = !String.IsNullOrWhiteSpace(str) ? (Guid?)new Guid(str) : null
 			};
-			if (block.MediaId.HasValue) {
+			if (image.Value.HasValue) {
 				using (var api = new Api()) {
-					block.Media = api.Media.GetSingle(block.MediaId.Value);
-					if (block.Media == null)
-						block.MediaId = null;
+					image.Media = api.Media.GetSingle(image.Value.Value);
+					if (image.Media == null)
+						image.Value = null;
 				}
 			}
-			return block;
+			return image;
 		}
 
 		/// <summary>
@@ -42,7 +42,7 @@ namespace Piranha.Extend.Serializers
 		/// <param name="data">The model</param>
 		/// <returns>The serialized object</returns>
 		public string Serialize(object model) {
-			return ((Blocks.Image)model).MediaId.ToString(); ;
+			return ((Components.Image)model).Value.ToString(); ;
 		}
 	}
 }

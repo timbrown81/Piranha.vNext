@@ -104,9 +104,19 @@ namespace Piranha.Models
 		public IList<ContentRow> Body { get; set; }
 
 		/// <summary>
+		/// Gets/sets the available template fields.
+		/// </summary>
+		public IList<ContentField> Fields { get; set; }
+
+		/// <summary>
 		/// Gets/sets the available comments.
 		/// </summary>
 		public IList<Comment> Comments { get; set; }
+
+		/// <summary>
+		/// Gets/sets the available tags.
+		/// </summary>
+		public IList<Tag> Tags { get; set; }
 		#endregion
 
 		/// <summary>
@@ -114,7 +124,9 @@ namespace Piranha.Models
 		/// </summary>
 		public Content() {
 			Body = new List<ContentRow>();
+			Fields = new List<ContentField>();
 			Comments = new List<Comment>();
+			Tags = new List<Tag>();
 		}
 
 		/// <summary>

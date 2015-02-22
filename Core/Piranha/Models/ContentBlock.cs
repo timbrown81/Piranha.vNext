@@ -43,7 +43,7 @@ namespace Piranha.Models
 		/// <summary>
 		/// Gets/sets the runtime type of the serialized value.
 		/// </summary>
-		public string ClrType { get; set; }
+		public string CLRType { get; set; }
 
 		/// <summary>
 		/// Gets/sets the JSON serialized value.
@@ -61,27 +61,27 @@ namespace Piranha.Models
 		/// <summary>
 		/// Gets/sets the deserialized body.
 		/// </summary>
-		public Extend.IBlock Body {
+		public Extend.IComponent Body {
 			get {
-				var type = App.Extensions.Blocks
-					.Where(r => r.ValueType.FullName == ClrType)
+				var type = App.Extensions.ContentBlocks
+					.Where(r => r.ValueType.FullName == CLRType)
 					.Select(r => r.ValueType)
 					.SingleOrDefault();
 				if (type != null) {
 					var serializer = App.Serializers[type];
 
 					if (serializer != null)
-						return (Extend.IBlock)serializer.Deserialize(Value);
-					return (Extend.IBlock)JsonConvert.DeserializeObject(Value, type);
+						return (Extend.IComponent)serializer.Deserialize(Value);
+					return (Extend.IComponent)JsonConvert.DeserializeObject(Value, type);
 				} else {
-					App.Logger.Log(Log.LogLevel.ERROR, "ContentBlock: Deserialization error. Couldn't find CLRType " + ClrType);
+					App.Logger.Log(Log.LogLevel.ERROR, "ContentBlock: Deserialization error. Couldn't find CLRType " + CLRType);
 				}
 				return null;
 			}
 			set {
 				var serializer = App.Serializers[value.GetType()];
 
-				ClrType = value.GetType().FullName;
+				CLRType = value.GetType().FullName;
 				Value = serializer != null ? serializer.Serialize(value) : JsonConvert.SerializeObject(value);
 			}
 		}

@@ -10,22 +10,24 @@
 
 using System;
 
-namespace Piranha.Extend.Blocks
+namespace Piranha.Extend
 {
 	/// <summary>
-	/// A single image from the media-library.
+	/// Attribute for marking a class as a component that should be
+	/// imported by the extension manager.
 	/// </summary>
-	[Block(Name="Single image")]
-	public class Image : IBlock
+	public sealed class ComponentAttribute : Attribute
 	{
+		#region Properties
 		/// <summary>
-		/// Gets/sets the id of the selected media.
+		/// Gets/sets the display name.
 		/// </summary>
-		public Guid? MediaId { get; set; }
+		public string Name { get; set; }
 
 		/// <summary>
-		/// Gets/sets the selected media.
+		/// Gets/sets the component type.
 		/// </summary>
-		public Models.Media Media { get; set; }
+		public ComponentType Type { get; set; }
+		#endregion
 	}
 }

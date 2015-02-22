@@ -64,6 +64,7 @@
     <Compile Include="AliasTests.cs" />
     <Compile Include="AuthorTests.cs" />
     <Compile Include="BlockTests.cs" />
+    <Compile Include="TagTests.cs" />
     <Compile Include="CategoryTests.cs" />
     <Compile Include="ParamTests.cs" />
     <Compile Include="RatingTests.cs" />

@@ -332,13 +332,18 @@ namespace Piranha
 						modelCache.RegisterCache<Models.Content>(c => c.Id, c => c.Slug);
 						modelCache.RegisterCache<Models.Media>(m => m.Id, m => m.Slug);
 						modelCache.RegisterCache<Models.Param>(p => p.Id, p => p.Name);
+						modelCache.RegisterCache<Models.Tag>(t => t.Id, t => t.Slug);
 
 						// Register serializers
 						Logger.Log(Log.LogLevel.INFO, "App.Init: Registering default serializers");
 						serializers = new Extend.SerializerCollection();
-						serializers.Add(typeof(Piranha.Extend.Blocks.Html), new Piranha.Extend.Serializers.HtmlSerializer());
-						serializers.Add(typeof(Piranha.Extend.Blocks.Image), new Piranha.Extend.Serializers.ImageSerializer());
-						serializers.Add(typeof(Piranha.Extend.Blocks.Text), new Piranha.Extend.Serializers.TextSerializer());
+						serializers.Add(typeof(Piranha.Extend.Components.Boolean), new Piranha.Extend.Serializers.BooleanSerializer());
+						serializers.Add(typeof(Piranha.Extend.Components.Date), new Piranha.Extend.Serializers.DateSerializer());
+						serializers.Add(typeof(Piranha.Extend.Components.Html), new Piranha.Extend.Serializers.HtmlSerializer());
+						serializers.Add(typeof(Piranha.Extend.Components.Image), new Piranha.Extend.Serializers.ImageSerializer());
+						serializers.Add(typeof(Piranha.Extend.Components.Integer), new Piranha.Extend.Serializers.IntegerSerializer());
+						serializers.Add(typeof(Piranha.Extend.Components.String), new Piranha.Extend.Serializers.StringSerializer());
+						serializers.Add(typeof(Piranha.Extend.Components.Text), new Piranha.Extend.Serializers.TextSerializer());
 
 						// Add the default route handlers
 						App.Logger.Log(Log.LogLevel.INFO, "App.Init: Registering default handlers");

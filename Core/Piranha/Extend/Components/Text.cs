@@ -10,17 +10,17 @@
 
 using System;
 
-namespace Piranha.Extend.Extensions
+namespace Piranha.Extend.Components
 {
 	/// <summary>
-	/// Single line string extension.
+	/// Multi line string extension.
 	/// </summary>
-	[Extension(Name="String", Type=ExtensionType.Property|ExtensionType.Region)]
-	public class StringExtension : SimpleExtension<string>, IExtension
+	[Component(Name="Text", Type=ComponentType.ContentBlock|ComponentType.TemplateField)]
+	public class Text : Component<string>, IComponent
 	{
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		public StringExtension() : base(v => v) { }
+		public Text() : base(v => v) { }
 	}
 }

@@ -13,9 +13,9 @@ using System;
 namespace Piranha.Extend.Serializers
 {
 	/// <summary>
-	/// Serializes text components.
+	/// Serializes string components.
 	/// </summary>
-	public class TextSerializer : ISerializer
+	public class StringSerializer : ISerializer
 	{
 		/// <summary>
 		/// Deserializes the given JSON data.
@@ -23,7 +23,7 @@ namespace Piranha.Extend.Serializers
 		/// <param name="str">The JSON data</param>
 		/// <returns>The deserialized object</returns>
 		public object Deserialize(string str) {
-			return new Components.Text() { 
+			return new Components.String() { 
 				Value = str
 			};
 		}
@@ -34,7 +34,7 @@ namespace Piranha.Extend.Serializers
 		/// <param name="data">The model</param>
 		/// <returns>The serialized object</returns>
 		public string Serialize(object model) {
-			return ((Components.Text)model).Value;
+			return ((Components.String)model).Value;
 		}
 	}
 }

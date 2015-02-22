@@ -12,12 +12,13 @@ using System;
 
 namespace Piranha.Extend
 {
-	[AttributeUsage(AttributeTargets.Class)]
-	public sealed class BlockAttribute : Attribute
+	/// <summary>
+	/// The different types of components available.
+	/// </summary>
+	[Flags]
+	public enum ComponentType
 	{
-		/// <summary>
-		/// Gets/sets the display name of the block type.
-		/// </summary>
-		public string Name { get; set; }
+		ContentBlock = 1,
+		TemplateField = 2
 	}
 }

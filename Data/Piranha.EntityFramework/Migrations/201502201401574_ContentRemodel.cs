@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2014 Håkan Edling
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ * 
+ * http://github.com/piranhacms/piranha.vnext
+ * 
+ */
+
 namespace Piranha.EntityFramework.Migrations
 {
 	using System;
@@ -74,12 +84,41 @@ namespace Piranha.EntityFramework.Migrations
 					RowId = c.Guid(nullable: false),
 					SortOrder = c.Int(nullable: false),
 					Size = c.Int(nullable: false),
-					ClrType = c.String(nullable: false, maxLength: 512),
+					CLRType = c.String(nullable: false, maxLength: 512),
 					Value = c.String(),
 				})
 				.PrimaryKey(t => t.Id)
 				.ForeignKey("dbo.PiranhaContentRows", t => t.RowId, cascadeDelete: true)
 				.Index(t => t.RowId);
+
+			CreateTable(
+				"dbo.PiranhaContentFields",
+				c => new {
+					Id = c.Guid(nullable: false),
+					ContentId = c.Guid(nullable: false),
+					TemplateFieldId = c.Guid(nullable: false),
+					CLRType = c.String(nullable: false, maxLength: 512),
+					Value = c.String(),
+				})
+				.PrimaryKey(t => t.Id)
+				.ForeignKey("dbo.PiranhaContent", t => t.ContentId, cascadeDelete: true)
+				.ForeignKey("dbo.PiranhaTemplateFields", t => t.TemplateFieldId, cascadeDelete: true)
+				.Index(t => t.ContentId)
+				.Index(t => t.TemplateFieldId);
+
+			CreateTable(
+				"dbo.PiranhaTemplateFields",
+				c => new {
+					Id = c.Guid(nullable: false),
+					TemplateId = c.Guid(nullable: false),
+					InternalId = c.String(nullable: false, maxLength: 32),
+					Name = c.String(nullable: false, maxLength: 128),
+					CLRType = c.String(nullable: false, maxLength: 512),
+					IsCollection = c.Boolean(nullable: false),
+				})
+				.PrimaryKey(t => t.Id)
+				.ForeignKey("dbo.PiranhaTemplates", t => t.TemplateId, cascadeDelete: true)
+				.Index(t => new { t.TemplateId, t.InternalId }, unique: true, name: "IX_InternalId");
 
 			CreateTable(
 				"dbo.PiranhaTemplates",
@@ -93,6 +132,34 @@ namespace Piranha.EntityFramework.Migrations
 					Updated = c.DateTime(nullable: false),
 				})
 				.PrimaryKey(t => t.Id);
+
+			CreateTable(
+				"dbo.PiranhaTags",
+				c => new {
+					Id = c.Guid(nullable: false),
+					Title = c.String(nullable: false, maxLength: 128),
+					Slug = c.String(nullable: false, maxLength: 128),
+					ArchiveTitle = c.String(maxLength: 128),
+					MetaKeywords = c.String(maxLength: 128),
+					MetaDescription = c.String(maxLength: 255),
+					ArchiveView = c.String(maxLength: 255),
+					Created = c.DateTime(nullable: false),
+					Updated = c.DateTime(nullable: false),
+				})
+				.PrimaryKey(t => t.Id)
+				.Index(t => t.Slug, unique: true);
+
+			CreateTable(
+				"dbo.PiranhaContentTags",
+				c => new {
+					ContentId = c.Guid(nullable: false),
+					TagId = c.Guid(nullable: false),
+				})
+				.PrimaryKey(t => new { t.ContentId, t.TagId })
+				.ForeignKey("dbo.PiranhaContent", t => t.ContentId, cascadeDelete: true)
+				.ForeignKey("dbo.PiranhaTags", t => t.TagId, cascadeDelete: true)
+				.Index(t => t.ContentId)
+				.Index(t => t.TagId);
 
 			AddColumn("dbo.PiranhaCategories", "ArchiveTitle", c => c.String(maxLength: 128));
 			AddColumn("dbo.PiranhaCategories", "MetaKeywords", c => c.String(maxLength: 128));
@@ -236,11 +303,22 @@ namespace Piranha.EntityFramework.Migrations
 
 			AddColumn("dbo.PiranhaComments", "PostId", c => c.Guid(nullable: false));
 			DropForeignKey("dbo.PiranhaContent", "TemplateId", "dbo.PiranhaTemplates");
+			DropForeignKey("dbo.PiranhaContentTags", "TagId", "dbo.PiranhaTags");
+			DropForeignKey("dbo.PiranhaContentTags", "ContentId", "dbo.PiranhaContent");
+			DropForeignKey("dbo.PiranhaContentFields", "TemplateFieldId", "dbo.PiranhaTemplateFields");
+			DropForeignKey("dbo.PiranhaTemplateFields", "TemplateId", "dbo.PiranhaTemplates");
+			DropForeignKey("dbo.PiranhaContentFields", "ContentId", "dbo.PiranhaContent");
 			DropForeignKey("dbo.PiranhaComments", "ContentId", "dbo.PiranhaContent");
 			DropForeignKey("dbo.PiranhaContent", "CategoryId", "dbo.PiranhaCategories");
 			DropForeignKey("dbo.PiranhaContentRows", "ContentId", "dbo.PiranhaContent");
 			DropForeignKey("dbo.PiranhaContentBlocks", "RowId", "dbo.PiranhaContentRows");
 			DropForeignKey("dbo.PiranhaContent", "AuthorId", "dbo.PiranhaAuthors");
+			DropIndex("dbo.PiranhaContentTags", new[] { "TagId" });
+			DropIndex("dbo.PiranhaContentTags", new[] { "ContentId" });
+			DropIndex("dbo.PiranhaTags", new[] { "Slug" });
+			DropIndex("dbo.PiranhaTemplateFields", "IX_InternalId");
+			DropIndex("dbo.PiranhaContentFields", new[] { "TemplateFieldId" });
+			DropIndex("dbo.PiranhaContentFields", new[] { "ContentId" });
 			DropIndex("dbo.PiranhaContentBlocks", new[] { "RowId" });
 			DropIndex("dbo.PiranhaContentRows", new[] { "ContentId" });
 			DropIndex("dbo.PiranhaContent", "IX_Slug");
@@ -253,7 +331,11 @@ namespace Piranha.EntityFramework.Migrations
 			DropColumn("dbo.PiranhaCategories", "MetaDescription");
 			DropColumn("dbo.PiranhaCategories", "MetaKeywords");
 			DropColumn("dbo.PiranhaCategories", "ArchiveTitle");
+			DropTable("dbo.PiranhaContentTags");
+			DropTable("dbo.PiranhaTags");
 			DropTable("dbo.PiranhaTemplates");
+			DropTable("dbo.PiranhaTemplateFields");
+			DropTable("dbo.PiranhaContentFields");
 			DropTable("dbo.PiranhaContentBlocks");
 			DropTable("dbo.PiranhaContentRows");
 			DropTable("dbo.PiranhaContent");

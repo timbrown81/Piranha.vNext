@@ -27,21 +27,21 @@ namespace Piranha.Tests
 		}
 
 		/// <summary>
-		/// Checks that all of the properties have been imported properly
-		/// </summary>
-		[TestMethod]
-		[TestCategory("Extensions")]
-		public void Properties() {
-			Assert.AreEqual(5, App.Extensions.Properties.Count);
-		}
-
-		/// <summary>
 		/// Checks that all of the regions have been imported properly
 		/// </summary>
 		[TestMethod]
 		[TestCategory("Extensions")]
-		public void Regions() {
-			Assert.AreEqual(3, App.Extensions.Regions.Count);
+		public void ContentBlocks() {
+			Assert.AreEqual(3, App.Extensions.ContentBlocks.Count);
+		}
+
+		/// <summary>
+		/// Checks that all of the properties have been imported properly
+		/// </summary>
+		[TestMethod]
+		[TestCategory("Extensions")]
+		public void TemplateFields() {
+			Assert.AreEqual(6, App.Extensions.TemplateFields.Count);
 		}
 	}
 }
