@@ -38,7 +38,11 @@ namespace Piranha.RavenDb
 		/// <param name="defaultDatabase">The default database</param>
 		/// <param name="waitForStaleResults">If the store should wait for stale results</param>
 		/// <param name="allowQueriesOnId">If LINQ queries on Id should be allowed</param>
-		public Store(string url, string defaultDatabase, bool waitForStaleResults = false, bool allowQueriesOnId = false, bool useEmbeddedInMemoryStore = false) {
+		/// <param name="maxNumberOfRequestsPerSession">Set the maximum number of requests per session to override safe defaults</param>
+		/// <param name="useOptimisticConcurrency">Flag to set whether optimistic concurrency should be used</param>
+		/// <param name="useEmbeddedInMemoryStore">Flag to set whether embedded in memory store should be used. This primarily used for unit tests</param>
+		public Store(string url, string defaultDatabase, bool waitForStaleResults = false, bool allowQueriesOnId = false, int maxNumberOfRequestsPerSession = Int32.MaxValue, bool useOptimisticConcurrency = false, bool useEmbeddedInMemoryStore = false)
+		{
 			// Create the store
 			if (!useEmbeddedInMemoryStore)
 				store = new DocumentStore() { Url = url, DefaultDatabase = defaultDatabase };
@@ -71,12 +75,18 @@ namespace Piranha.RavenDb
 					((Raven.Client.Embedded.EmbeddableDocumentStore)store).RegisterListener(new NoStaleQueriesListener());
 			}
 
-			// Apply external config
-			ApplyExternalConfig(store);
-
 			// Allow queries on id
 			store.Conventions.AllowQueriesOnId = allowQueriesOnId;
 
+			// Max number of requests per session
+			store.Conventions.MaxNumberOfRequestsPerSession = maxNumberOfRequestsPerSession;
+
+			// Use optimistic concurrency 
+			store.Conventions.DefaultUseOptimisticConcurrency = useOptimisticConcurrency;
+
+			// Apply external config
+			ApplyExternalConfig(store);
+			
 			// Initialize
 			store.Initialize();
 		}
