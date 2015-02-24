@@ -243,37 +243,70 @@ WriteLiteral("></textarea>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n
 
 WriteLiteral(" class=\"panel-footer\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<button");
+WriteLiteral(">\r\n\t\t\t\t\t<!-- Save -->\r\n\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"btn btn-primary\"");
+WriteLiteral(" class=\"btn-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t<button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-labeled btn-success\"");
 
 WriteLiteral(" data-bind=\"click: save\"");
 
-WriteLiteral(">");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<span");
+
+WriteLiteral(" class=\"btn-label\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-ok\"");
+
+WriteLiteral("></i>\r\n\t\t\t\t\t\t\t</span>\r\n");
+
+WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 54 "..\..\Areas\Manager\Views\BlockMgr\Partial\EditBlock.cshtml"
-                                                                       Write(Piranha.Manager.Resources.Global.Save);
+            #line 60 "..\..\Areas\Manager\Views\BlockMgr\Partial\EditBlock.cshtml"
+                       Write(Piranha.Manager.Resources.Global.Save);
 
             
             #line default
             #line hidden
-WriteLiteral("</button>\r\n\t\t\t\t\t<button");
+WriteLiteral("\r\n\t\t\t\t\t\t</button>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<!-- Cancel -->\r\n\t\t\t\t\t<div");
 
-WriteLiteral(" class=\"btn btn-danger\"");
+WriteLiteral(" class=\"btn-group\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t<button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-labeled btn-danger\"");
 
 WriteLiteral(" data-bind=\"click: clear\"");
 
-WriteLiteral(">");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<span");
+
+WriteLiteral(" class=\"btn-label\"");
+
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-remove\"");
+
+WriteLiteral("></i>\r\n\t\t\t\t\t\t\t</span>\r\n");
+
+WriteLiteral("\t\t\t\t\t\t\t");
 
             
-            #line 55 "..\..\Areas\Manager\Views\BlockMgr\Partial\EditBlock.cshtml"
-                                                                       Write(Piranha.Manager.Resources.Global.Cancel);
+            #line 69 "..\..\Areas\Manager\Views\BlockMgr\Partial\EditBlock.cshtml"
+                       Write(Piranha.Manager.Resources.Global.Cancel);
 
             
             #line default
             #line hidden
-WriteLiteral("</button>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n");
+WriteLiteral("\r\n\t\t\t\t\t\t</button>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r" +
+"\n");
 
         }
     }

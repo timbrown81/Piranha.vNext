@@ -37,8 +37,24 @@
 					</form>
 				</div>
 				<div class="panel-footer">
-					<button class="btn btn-primary" data-bind="click: save">@Piranha.Manager.Resources.Global.Save</button>
-					<button class="btn btn-danger" data-bind="click: clear">@Piranha.Manager.Resources.Global.Cancel</button>
+					<!-- Save -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-labeled btn-success" data-bind="click: save">
+							<span class="btn-label">
+								<i class="glyphicon glyphicon-ok"></i>
+							</span>
+							@Piranha.Manager.Resources.Global.Save
+						</button>
+					</div>
+					<!-- Cancel -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-labeled btn-danger" data-bind="click: clear">
+							<span class="btn-label">
+								<i class="glyphicon glyphicon-remove"></i>
+							</span>
+							@Piranha.Manager.Resources.Global.Cancel
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
