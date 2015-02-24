@@ -8,13 +8,13 @@
 		@Html.Hidden("PostId", Model.Id)
 
 		<label for="Author">Name*</label>
-		<input id="Author" name="Author" type="text" />
+		<input id="Author" name="Author" type="text" placeholder="Your name" />
 		<label for="Email">Email*</label>
-		<input id="Email" name="Email" type="text" />
+		<input id="Email" name="Email" type="text" placeholder="Your email (will not be shown to others)" />
 		<label for="WebSite">Website</label>
 		<input id="WebSite" name="WebSite" type="text" />
 		<label for="Body">Message*</label>
-		<textarea id="Body" name="Body" rows="10"></textarea>
+		<textarea id="Body" name="Body" rows="10" placeholder="Share your thoughts"></textarea>
 		<button type="submit">Submit comment</button>
 	</form>
 </section>

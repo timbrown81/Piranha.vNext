@@ -86,46 +86,53 @@ WriteLiteral("\'\r\n\t\t}));\r\n\t</script>\r\n");
 
 });
 
-WriteLiteral("\r\n<div");
-
-WriteLiteral(" class=\"container-fluid\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("\t");
+WriteLiteral("\r\n");
 
             
-            #line 16 "..\..\Areas\Manager\Views\AuthorMgr\List.cshtml"
+            #line 15 "..\..\Areas\Manager\Views\AuthorMgr\List.cshtml"
 Write(Html.Partial("Partial/EditAuthor"));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n\t<table");
+WriteLiteral("\r\n\r\n<table");
 
 WriteLiteral(" id=\"authorList\"");
 
 WriteLiteral(" class=\"table table-striped table-main\"");
 
-WriteLiteral(">\r\n\t\t<thead>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>");
+WriteLiteral(">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>");
+
+            
+            #line 20 "..\..\Areas\Manager\Views\AuthorMgr\List.cshtml"
+           Write(Piranha.Manager.Resources.Global.Name);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</th>\r\n\t\t\t<th>");
 
             
             #line 21 "..\..\Areas\Manager\Views\AuthorMgr\List.cshtml"
-               Write(Piranha.Manager.Resources.Global.Name);
+           Write(Piranha.Manager.Resources.Global.Email);
 
             
             #line default
             #line hidden
-WriteLiteral("</th>\r\n\t\t\t\t<th>");
+WriteLiteral("</th>\r\n\t\t\t<th");
+
+WriteLiteral(" class=\"date\"");
+
+WriteLiteral(">");
 
             
             #line 22 "..\..\Areas\Manager\Views\AuthorMgr\List.cshtml"
-               Write(Piranha.Manager.Resources.Global.Email);
+                        Write(Piranha.Manager.Resources.Global.Updated);
 
             
             #line default
             #line hidden
-WriteLiteral("</th>\r\n\t\t\t\t<th");
+WriteLiteral("</th>\r\n\t\t\t<th");
 
 WriteLiteral(" class=\"date\"");
 
@@ -133,65 +140,52 @@ WriteLiteral(">");
 
             
             #line 23 "..\..\Areas\Manager\Views\AuthorMgr\List.cshtml"
-                            Write(Piranha.Manager.Resources.Global.Updated);
+                        Write(Piranha.Manager.Resources.Global.Created);
 
             
             #line default
             #line hidden
-WriteLiteral("</th>\r\n\t\t\t\t<th");
-
-WriteLiteral(" class=\"date\"");
-
-WriteLiteral(">");
-
-            
-            #line 24 "..\..\Areas\Manager\Views\AuthorMgr\List.cshtml"
-                            Write(Piranha.Manager.Resources.Global.Created);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</th>\r\n\t\t\t\t<th");
+WriteLiteral("</th>\r\n\t\t\t<th");
 
 WriteLiteral(" class=\"actions one\"");
 
-WriteLiteral("></th>\r\n\t\t\t</tr>\r\n\t\t</thead>\r\n\t\t<tbody");
+WriteLiteral("></th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody");
 
 WriteLiteral(" class=\"list\"");
 
-WriteLiteral(">\r\n\t\t\t<!-- ko foreach: { data: items, as: \'item\' } -->\r\n\t\t\t<tr");
+WriteLiteral(">\r\n\t\t<!-- ko foreach: { data: items, as: \'item\' } -->\r\n\t\t<tr");
 
 WriteLiteral(" data-bind=\"attr: { \'data-id\': item.Id }, css: { \'pre-saved\': Saved }\"");
 
-WriteLiteral(">\r\n\t\t\t\t<td>\r\n\t\t\t\t\t<img");
+WriteLiteral(">\r\n\t\t\t<td>\r\n\t\t\t\t<img");
 
 WriteLiteral(" class=\"gravatar\"");
 
 WriteLiteral(" data-bind=\"attr: { src: item.GravatarUrl }\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t<a");
+WriteLiteral(" />\r\n\t\t\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
 WriteLiteral(" data-bind=\"click: function (item) { $root.edit(item.Id); }, text: item.Name\"");
 
-WriteLiteral("></a>\r\n\t\t\t\t</td>\r\n\t\t\t\t<td");
+WriteLiteral("></a>\r\n\t\t\t</td>\r\n\t\t\t<td");
 
 WriteLiteral(" data-bind=\"text: item.Email\"");
 
-WriteLiteral("></td>\r\n\t\t\t\t<td");
+WriteLiteral("></td>\r\n\t\t\t<td");
 
 WriteLiteral(" data-bind=\"text: item.Updated\"");
 
-WriteLiteral("></td>\r\n\t\t\t\t<td");
+WriteLiteral("></td>\r\n\t\t\t<td");
 
 WriteLiteral(" data-bind=\"text: item.Created\"");
 
-WriteLiteral("></td>\r\n\t\t\t\t<td");
+WriteLiteral("></td>\r\n\t\t\t<td");
 
 WriteLiteral(" class=\"actions\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<a");
+WriteLiteral(">\r\n\t\t\t\t<a");
 
 WriteLiteral(" class=\"delete\"");
 
@@ -199,7 +193,7 @@ WriteLiteral(" href=\"#\"");
 
 WriteLiteral(" data-bind=\"click: function (item) { $root.delete(item.Id); }\"");
 
-WriteLiteral("></a>\r\n\t\t\t\t</td>\r\n\t\t\t</tr>\r\n\t\t\t<!-- /ko -->\r\n\t\t</tbody>\r\n\t</table>\r\n</div>\r\n");
+WriteLiteral("></a>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<!-- /ko -->\r\n\t</tbody>\r\n</table>\r\n");
 
         }
     }

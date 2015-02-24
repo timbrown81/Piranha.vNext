@@ -1,103 +1,14 @@
 ﻿//
-// Piranha CMS
-// Copyright (c) 2014, Håkan Edling, All rights reserved.
+// Copyright (c) 2014-2015 Håkan Edling
 //
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 3.0 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library.
-//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
 
 @import "mixins.less";
 @import "colors.less";
-
-//
-// Top navigation
-.navbar {
-	.gradient(#3a3a3a, #191919, 20%, 100%);
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-
-	.navbar-brand {
-		padding-top: 0;
-	}
-
-	.navbar-nav {
-		margin-top: 9px;
-		float: right;
-
-		li {
-			a {
-				color: #fff;
-				background: #1F7EA6;
-				border: 1px solid #282828;
-				border-radius: 3px;
-				display: block;
-				font-size: 13px;
-				height: 32px;
-				line-height: 30px;
-				margin: 0 0 0 4px;
-				padding: 0 12px;
-				text-transform: uppercase;
-				text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-				box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-
-				&:hover {
-					background: #1F7EA6;
-				}
-			}
-
-			&.active {
-				a {
-					background-color: #55A812;
-
-					&:hover {
-						background-color: #55A812;
-					}
-				}
-			}
-
-			&.icon {
-				a {
-					background-position: 6px 50%;
-					background-repeat: no-repeat;
-					padding-left: 36px;
-				}
-			}
-
-			&.content {
-				a {
-					background-image: url('../img/ico-menu-content.png');
-				}
-			}
-
-			&.settings {
-				a {
-					background-image: url('../img/ico-menu-settings.png');
-				}
-			}
-
-			&.system {
-				a {
-					background-image: url('../img/ico-menu-system.png');
-				}
-			}
-
-			&.logout {
-				a {
-					background-image: url('../img/ico-menu-logout.png');
-				}
-			}
-		}
-	}
-} 
 
 //
 // Main navigation
@@ -105,12 +16,9 @@
 	width: 220px;
 
 	.navmenu-brand {
-		position: relative;
-		padding: 10px;
-		margin: 0;
-		border-bottom: 1px solid #444;
 		text-align: center;
-		z-index: 1000;
+		border-bottom: 1px solid #444;
+		margin: 0;
 	}
 
 	.navmenu-nav {
@@ -172,42 +80,6 @@
 				}
 			}
 		}
-	}
-}
-
-//
-// Sidebar
-.with-sidebar {
-	.sidebar {
-		float: right;
-		width: 80px;
-		margin-right: 15px;
-
-		a {
-			background: #fff;
-			color: #444;
-			display: block;
-			padding: 10px;
-			font-size: 13px;
-			text-align: center;
-			margin-bottom: 15px;
-
-			span {
-				display: block;
-				margin-bottom: 10px;
-				font-size: 24px;
-			}
-
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
-
-	.col-sm-12 {
-		float: none;
-		width: auto;
-		margin-right: 110px;
 	}
 }
 

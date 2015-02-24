@@ -24,7 +24,8 @@ namespace Piranha.RavenDb.Tests
 		/// </summary>
 		public BlockTests() {
 			App.Init(c => {
-				c.Store = new RavenDb.Store("http://localhost:8080", "piranha.tests", true);
+				// embedded in memory store does not require url and database name
+				c.Store = new RavenDb.Store("", "", waitForStaleResults: true, useEmbeddedInMemoryStore: true);
 			});
 		}
 

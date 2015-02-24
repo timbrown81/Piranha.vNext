@@ -1,22 +1,15 @@
 ﻿/*
- * Piranha CMS
- * Copyright (c) 2014, Håkan Edling, All rights reserved.
+ * Copyright (c) 2014-2015 Håkan Edling
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3.0 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library.
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ * 
+ * http://github.com/piranhacms/piranha.vnext
+ * 
  */
 
 using System;
+using System.Linq;
 using FluentValidation;
 
 namespace Piranha.Models
@@ -72,6 +65,24 @@ namespace Piranha.Models
 				RuleFor(m => m.Title).Length(0, 128);
 				RuleFor(m => m.Slug).NotEmpty();
 				RuleFor(m => m.Slug).Length(0, 128);
+
+				// check unique Slug
+				RuleFor(m => m.Slug).Must((model, slug) => { return IsSlugUnique(slug, model.Id); }).WithMessage("Slug should be unique");
+			}
+
+			/// <summary>
+			/// Function to validate if Slug is unique
+			/// </summary>
+			/// <param name="slug"></param>
+			/// <param name="api"></param>
+			/// <returns></returns>
+			private bool IsSlugUnique(string slug, Guid id)
+			{
+				using (var api = new Api()) 
+				{
+					var recordCount = api.Categories.Get(where: m => m.Slug == slug && m.Id != id).Count();
+					return recordCount == 0;
+				}
 			}
 		}
 		#endregion

@@ -6612,22 +6612,13 @@ the specific language governing permissions and limitations under the Apache Lic
 
 ///#source 1 1 /areas/manager/assets/js/manager.js
 //
-// Piranha CMS
-// Copyright (c) 2014, Håkan Edling, All rights reserved.
+// Copyright (c) 2014-2015 Håkan Edling
 //
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 3.0 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library.
-//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
 
 //
 // Char counter
@@ -6720,22 +6711,13 @@ manager.commentDialog = function (domElm, baseUrl, postId) {
 };
 ///#source 1 1 /areas/manager/assets/js/models/manager.alias.js
 //
-// Piranha CMS
-// Copyright (c) 2014, Håkan Edling, All rights reserved.
+// Copyright (c) 2014-2015 Håkan Edling
 //
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 3.0 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library.
-//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
 
 if (!manager.models)
 	manager.models = {};
@@ -6890,22 +6872,13 @@ manager.models.alias = function (locale) {
 };
 ///#source 1 1 /areas/manager/assets/js/models/manager.author.js
 //
-// Piranha CMS
-// Copyright (c) 2014, Håkan Edling, All rights reserved.
+// Copyright (c) 2014-2015 Håkan Edling
 //
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 3.0 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library.
-//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
 
 if (!manager.models)
 	manager.models = {};
@@ -7067,22 +7040,13 @@ manager.models.author = function (locale) {
 };
 ///#source 1 1 /areas/manager/assets/js/models/manager.block.js
 //
-// Piranha CMS
-// Copyright (c) 2014, Håkan Edling, All rights reserved.
+// Copyright (c) 2014-2015 Håkan Edling
 //
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 3.0 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library.
-//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
 
 if (!manager.models)
 	manager.models = {};
@@ -7245,22 +7209,13 @@ manager.models.block = function (locale) {
 };
 ///#source 1 1 /areas/manager/assets/js/models/manager.category.js
 //
-// Piranha CMS
-// Copyright (c) 2014, Håkan Edling, All rights reserved.
+// Copyright (c) 2014-2015 Håkan Edling
 //
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 3.0 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library.
-//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
 
 if (!manager.models)
 	manager.models = {};
@@ -7404,22 +7359,13 @@ manager.models.category = function (locale) {
 };
 ///#source 1 1 /areas/manager/assets/js/models/manager.config.js
 //
-// Piranha CMS
-// Copyright (c) 2014, Håkan Edling, All rights reserved.
+// Copyright (c) 2014-2015 Håkan Edling
 //
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 3.0 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library.
-//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
 
 if (!manager.models)
 	manager.models = {};
@@ -7593,22 +7539,13 @@ manager.models.config = function (locale) {
 };
 ///#source 1 1 /areas/manager/assets/js/models/manager.pagetype.js
 //
-// Piranha CMS
-// Copyright (c) 2014, Håkan Edling, All rights reserved.
+// Copyright (c) 2014-2015 Håkan Edling
 //
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 3.0 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library.
-//
+// This software may be modified and distributed under the terms
+// of the MIT license.  See the LICENSE file for details.
+// 
+// http://github.com/piranhacms/piranha.vnext
+// 
 
 if (!manager.models)
 	manager.models = {};

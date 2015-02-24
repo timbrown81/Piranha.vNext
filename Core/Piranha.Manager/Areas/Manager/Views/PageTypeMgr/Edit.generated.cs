@@ -68,21 +68,17 @@ WriteLiteral("\r\n");
             #line hidden
 WriteLiteral("\t<div");
 
-WriteLiteral(" class=\"container-fluid\"");
+WriteLiteral(" class=\"row\"");
 
 WriteLiteral(">\r\n\t\t<div");
 
-WriteLiteral(" class=\"row\"");
-
-WriteLiteral(">\r\n\t\t\t<div");
-
 WriteLiteral(" class=\"col-sm-12 buttons\"");
 
-WriteLiteral(">\r\n\t\t\t\t<!-- Actions -->\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<!-- Actions -->\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"btn-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<button");
+WriteLiteral(">\r\n\t\t\t\t<button");
 
 WriteLiteral(" type=\"submit\"");
 
@@ -90,36 +86,45 @@ WriteLiteral(" class=\"btn btn-labeled btn-success\"");
 
 WriteLiteral(" data-bind=\"click: save\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t<span");
+WriteLiteral(">\r\n\t\t\t\t\t<span");
 
 WriteLiteral(" class=\"btn-label\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t<i");
+WriteLiteral(">\r\n\t\t\t\t\t\t<i");
 
 WriteLiteral(" class=\"glyphicon glyphicon-ok\"");
 
-WriteLiteral("></i>\r\n\t\t\t\t\t\t</span>");
+WriteLiteral("></i>\r\n\t\t\t\t\t</span>");
 
             
-            #line 21 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
-                          Write(Piranha.Manager.Resources.Global.Save);
+            #line 20 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
+                      Write(Piranha.Manager.Resources.Global.Save);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t</button>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div");
+WriteLiteral("\r\n\t\t\t\t</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
+
+            
+            #line 25 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
+
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\t<div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n\t\t\t<div");
+WriteLiteral(">\r\n\t\t<div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<input");
+WriteLiteral(">\r\n\t\t\t\t<input");
 
 WriteLiteral(" name=\"Name\"");
 
@@ -131,19 +136,21 @@ WriteLiteral(" placeholder=\"Add name\"");
 
 WriteLiteral(" data-bind=\"value: name\"");
 
-WriteLiteral(" />\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div");
+WriteLiteral(" />\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
+
+WriteLiteral("\t<div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n\t\t\t<div");
+WriteLiteral(">\r\n\t\t<div");
 
 WriteLiteral(" class=\"col-sm-8\"");
 
-WriteLiteral(">\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<textarea");
+WriteLiteral(">\r\n\t\t\t\t<textarea");
 
 WriteLiteral(" name=\"Description\"");
 
@@ -155,19 +162,19 @@ WriteLiteral(" placeholder=\"Add optional description\"");
 
 WriteLiteral(" data-bind=\"value: description\"");
 
-WriteLiteral("></textarea>\r\n\t\t\t\t\t<p><span");
+WriteLiteral("></textarea>\r\n\t\t\t\t<p><span");
 
 WriteLiteral(" data-bind=\"text: descriptionLength\"");
 
-WriteLiteral("></span>/255 characters</p>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div");
+WriteLiteral("></span>/255 characters</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div");
 
 WriteLiteral(" class=\"col-sm-4\"");
 
-WriteLiteral(">\r\n\t\t\t\t<div");
+WriteLiteral(">\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<input");
+WriteLiteral(">\r\n\t\t\t\t<input");
 
 WriteLiteral(" name=\"Slug\"");
 
@@ -179,11 +186,11 @@ WriteLiteral(" placeholder=\"Slug will be generated automatically\"");
 
 WriteLiteral(" data-bind=\"value: slug\"");
 
-WriteLiteral(" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
+WriteLiteral(" />\r\n\t\t\t</div>\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<input");
+WriteLiteral(">\r\n\t\t\t\t<input");
 
 WriteLiteral(" name=\"Route\"");
 
@@ -195,11 +202,11 @@ WriteLiteral(" placeholder=\"Add optional route\"");
 
 WriteLiteral(" data-bind=\"value: route\"");
 
-WriteLiteral(" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div");
+WriteLiteral(" />\r\n\t\t\t</div>\r\n\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<input");
+WriteLiteral(">\r\n\t\t\t\t<input");
 
 WriteLiteral(" name=\"View\"");
 
@@ -211,45 +218,34 @@ WriteLiteral(" placeholder=\"Add optional view\"");
 
 WriteLiteral(" data-bind=\"value: view\"");
 
-WriteLiteral(" />\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div");
+WriteLiteral(" />\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n");
+
+            
+            #line 52 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
+
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\t<div");
 
 WriteLiteral(" class=\"row with-sidebar\"");
 
-WriteLiteral(">\r\n\t\t\t<div");
-
-WriteLiteral(" class=\"sidebar\"");
-
-WriteLiteral(">\r\n\t\t\t\t<a");
-
-WriteLiteral(" href=\"#\"");
-
-WriteLiteral("><span");
-
-WriteLiteral(" class=\"glyphicon glyphicon-leaf\"");
-
-WriteLiteral("></span>Regions</a>\r\n\t\t\t\t<a");
-
-WriteLiteral(" href=\"#\"");
-
-WriteLiteral("><span");
-
-WriteLiteral(" class=\"glyphicon glyphicon-leaf\"");
-
-WriteLiteral("></span>Properties</a>\r\n\t\t\t</div>\r\n\t\t\t<div");
+WriteLiteral(">\r\n\t\t<div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\t\r\n\t\t\t\t<!-- Regions -->\r\n\t\t\t\t<table");
+WriteLiteral(">\t\r\n\t\t\t<!-- Regions -->\r\n\t\t\t<table");
 
 WriteLiteral(" class=\"table table-striped\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t\t<th>Internal id</th>\r\n\t" +
-"\t\t\t\t\t\t<th>Collection</th>\r\n\t\t\t\t\t\t\t<th>Type</th>\r\n\t\t\t\t\t\t\t<th");
+WriteLiteral(">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t<th>Internal id</th>\r\n\t\t\t\t\t" +
+"\t<th>Collection</th>\r\n\t\t\t\t\t\t<th>Type</th>\r\n\t\t\t\t\t\t<th");
 
 WriteLiteral(" class=\"actions three\"");
 
-WriteLiteral("></th>\r\n\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t</thead>\r\n\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t<!-- ko foreach: { data: " +
-"regions, as: \'region\' } -->\r\n\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<input");
+WriteLiteral("></th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<!-- ko foreach: { data: regi" +
+"ons, as: \'region\' } -->\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -257,7 +253,7 @@ WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"value: region.Name\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<input");
+WriteLiteral(" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -265,24 +261,24 @@ WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"value: region.InternalId\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<input");
+WriteLiteral(" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"checkbox\"");
 
 WriteLiteral(" data-bind=\"checked: region.IsCollection\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<select");
+WriteLiteral(" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<select");
 
 WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"options: $root.regionTypes, optionsText: \'Text\', value: region.CLRTyp" +
 "e\"");
 
-WriteLiteral("></select>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td");
+WriteLiteral("></select>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td");
 
 WriteLiteral(" class=\"actions\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<a");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -290,7 +286,7 @@ WriteLiteral(" class=\"up\"");
 
 WriteLiteral(" data-bind=\"click: function() { $root.regionUp(region); }\"");
 
-WriteLiteral("></a>\r\n\t\t\t\t\t\t\t\t<a");
+WriteLiteral("></a>\r\n\t\t\t\t\t\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -298,7 +294,7 @@ WriteLiteral(" class=\"down\"");
 
 WriteLiteral(" data-bind=\"click: function() { $root.regionDown(region); }\"");
 
-WriteLiteral("></a>\r\n\t\t\t\t\t\t\t\t<a");
+WriteLiteral("></a>\r\n\t\t\t\t\t\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -306,12 +302,12 @@ WriteLiteral(" class=\"delete\"");
 
 WriteLiteral(" data-bind=\"click: function() { $root.regionDelete(region); }\"");
 
-WriteLiteral("></a>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t" +
-"\t\t\t\t\t\t<div");
+WriteLiteral("></a>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t" +
+"<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -321,18 +317,18 @@ WriteLiteral(" data-bind=\"value: newRegionName\"");
 
 WriteLiteral(" placeholder=\"Display name\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t<!-- ko if: newRegionNameError -->\r\n\t\t\t\t\t\t\t\t\t<span");
+WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t<!-- ko if: newRegionNameError -->\r\n\t\t\t\t\t\t\t\t<span");
 
 WriteLiteral(" class=\"field-validation-error\"");
 
 WriteLiteral(" data-bind=\"text: newRegionNameError\"");
 
-WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t" +
-"\t\t\t<div");
+WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<d" +
+"iv");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -342,55 +338,55 @@ WriteLiteral(" data-bind=\"value: newRegionId\"");
 
 WriteLiteral(" placeholder=\"Internal id\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t<!-- ko if: newRegionIdError -->\r\n\t\t\t\t\t\t\t\t\t<span");
+WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t<!-- ko if: newRegionIdError -->\r\n\t\t\t\t\t\t\t\t<span");
 
 WriteLiteral(" class=\"field-validation-error\"");
 
 WriteLiteral(" data-bind=\"text: newRegionIdError\"");
 
-WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t" +
-"\t\t\t<input");
+WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<i" +
+"nput");
 
 WriteLiteral(" type=\"checkbox\"");
 
 WriteLiteral(" data-bind=\"checked: newRegionCollection\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<div");
+WriteLiteral(" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<select");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<select");
 
 WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"options: $root.regionTypes, optionsText: \'Text\', value: newRegionType" +
 ", optionsCaption: \'Choose type\'\"");
 
-WriteLiteral("></select>\r\n\t\t\t\t\t\t\t\t\t<!-- ko if: newRegionTypeError -->\r\n\t\t\t\t\t\t\t\t\t<span");
+WriteLiteral("></select>\r\n\t\t\t\t\t\t\t\t<!-- ko if: newRegionTypeError -->\r\n\t\t\t\t\t\t\t\t<span");
 
 WriteLiteral(" class=\"field-validation-error\"");
 
 WriteLiteral(" data-bind=\"text: newRegionTypeError\"");
 
-WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t" +
-"\t\t\t<button");
+WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<b" +
+"utton");
 
 WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" data-bind=\"click: regionAdd\"");
 
-WriteLiteral(">Add</button>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t</tbody>\r\n\t\t\t\t</table>\r\n\r\n\t\t\t\t<!--" +
-" Properties -->\r\n\t\t\t\t<table");
+WriteLiteral(">Add</button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\r\n\t\t\t<!-- Prop" +
+"erties -->\r\n\t\t\t<table");
 
 WriteLiteral(" class=\"table table-striped\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t\t<th>Internal id</th>\r\n\t" +
-"\t\t\t\t\t\t<th>Collection</th>\r\n\t\t\t\t\t\t\t<th>Type</th>\r\n\t\t\t\t\t\t\t<th");
+WriteLiteral(">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t<th>Internal id</th>\r\n\t\t\t\t\t" +
+"\t<th>Collection</th>\r\n\t\t\t\t\t\t<th>Type</th>\r\n\t\t\t\t\t\t<th");
 
 WriteLiteral(" class=\"actions three\"");
 
-WriteLiteral("></th>\r\n\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t</thead>\r\n\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t<!-- ko foreach: { data: " +
-"properties, as: \'property\' } -->\r\n\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<input");
+WriteLiteral("></th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<!-- ko foreach: { data: prop" +
+"erties, as: \'property\' } -->\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -398,7 +394,7 @@ WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"value: property.Name\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<input");
+WriteLiteral(" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -406,24 +402,24 @@ WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"value: property.InternalId\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<input");
+WriteLiteral(" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"checkbox\"");
 
 WriteLiteral(" data-bind=\"checked: property.IsCollection\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<select");
+WriteLiteral(" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<select");
 
 WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"options: $root.propertyTypes, optionsText: \'Text\', value: property.CL" +
 "RType\"");
 
-WriteLiteral("></select>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td");
+WriteLiteral("></select>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td");
 
 WriteLiteral(" class=\"actions\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<a");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -431,7 +427,7 @@ WriteLiteral(" class=\"up\"");
 
 WriteLiteral(" data-bind=\"click: function() { $root.propertyUp(property); }\"");
 
-WriteLiteral("></a>\r\n\t\t\t\t\t\t\t\t<a");
+WriteLiteral("></a>\r\n\t\t\t\t\t\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -439,7 +435,7 @@ WriteLiteral(" class=\"down\"");
 
 WriteLiteral(" data-bind=\"click: function() { $root.propertyDown(property); }\"");
 
-WriteLiteral("></a>\r\n\t\t\t\t\t\t\t\t<a");
+WriteLiteral("></a>\r\n\t\t\t\t\t\t\t<a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -447,12 +443,12 @@ WriteLiteral(" class=\"delete\"");
 
 WriteLiteral(" data-bind=\"click: function() { $root.propertyDelete(property); }\"");
 
-WriteLiteral("></a>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t" +
-"\t\t\t\t\t\t<div");
+WriteLiteral("></a>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t" +
+"<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -462,18 +458,18 @@ WriteLiteral(" data-bind=\"value: newPropertyName\"");
 
 WriteLiteral(" placeholder=\"Display name\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t<!-- ko if: newPropertyNameError -->\r\n\t\t\t\t\t\t\t\t\t<span");
+WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t<!-- ko if: newPropertyNameError -->\r\n\t\t\t\t\t\t\t\t<span");
 
 WriteLiteral(" class=\"field-validation-error\"");
 
 WriteLiteral(" data-bind=\"text: newPropertyNameError\"");
 
-WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t" +
-"\t\t\t<div");
+WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<d" +
+"iv");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<input");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -483,48 +479,48 @@ WriteLiteral(" data-bind=\"value: newPropertyId\"");
 
 WriteLiteral(" placeholder=\"Internal id\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t\t<!-- ko if: newPropertyIdError -->\r\n\t\t\t\t\t\t\t\t\t<span");
+WriteLiteral(" />\r\n\t\t\t\t\t\t\t\t<!-- ko if: newPropertyIdError -->\r\n\t\t\t\t\t\t\t\t<span");
 
 WriteLiteral(" class=\"field-validation-error\"");
 
 WriteLiteral(" data-bind=\"text: newPropertyIdError\"");
 
-WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t" +
-"\t\t\t<input");
+WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<i" +
+"nput");
 
 WriteLiteral(" type=\"checkbox\"");
 
 WriteLiteral(" data-bind=\"checked: newPropertyCollection\"");
 
-WriteLiteral(" />\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t<div");
+WriteLiteral(" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<select");
+WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<select");
 
 WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" data-bind=\"options: $root.propertyTypes, optionsText: \'Text\', value: newProperty" +
 "Type, optionsCaption: \'Choose type\'\"");
 
-WriteLiteral("></select>\r\n\t\t\t\t\t\t\t\t\t<!-- ko if: newPropertyTypeError -->\r\n\t\t\t\t\t\t\t\t\t<span");
+WriteLiteral("></select>\r\n\t\t\t\t\t\t\t\t<!-- ko if: newPropertyTypeError -->\r\n\t\t\t\t\t\t\t\t<span");
 
 WriteLiteral(" class=\"field-validation-error\"");
 
 WriteLiteral(" data-bind=\"text: newPropertyTypeError\"");
 
-WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t" +
-"\t\t\t<button");
+WriteLiteral("></span>\r\n\t\t\t\t\t\t\t\t<!-- /ko -->\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<b" +
+"utton");
 
 WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" data-bind=\"click: propertyAdd\"");
 
-WriteLiteral(">Add</button>\r\n\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t</tbody>\r\n\t\t\t\t</table>\r\n\t\t\t</div>\r" +
-"\n\t\t</div>\r\n\t</div>\r\n");
+WriteLiteral(">Add</button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t</d" +
+"iv>\r\n");
 
             
-            #line 198 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
+            #line 192 "..\..\Areas\Manager\Views\PageTypeMgr\Edit.cshtml"
 }
             
             #line default
