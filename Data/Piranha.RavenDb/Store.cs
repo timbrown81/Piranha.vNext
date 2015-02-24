@@ -38,6 +38,9 @@ namespace Piranha.RavenDb
 		/// <param name="defaultDatabase">The default database</param>
 		/// <param name="waitForStaleResults">If the store should wait for stale results</param>
 		/// <param name="allowQueriesOnId">If LINQ queries on Id should be allowed</param>
+		/// <param name="maxNumberOfRequestsPerSession">Set the maximum number of requests per session to override safe defaults</param>
+		/// <param name="useOptimisticConcurrency">Flag to set whether optimistic concurrency should be used</param>
+		/// <param name="useEmbeddedInMemoryStore">Flag to set whether embedded in memory store should be used. This primarily used for unit tests</param>
 		public Store(string url, string defaultDatabase, bool waitForStaleResults = false, bool allowQueriesOnId = false, int maxNumberOfRequestsPerSession = Int32.MaxValue, bool useOptimisticConcurrency = false, bool useEmbeddedInMemoryStore = false)
 		{
 			// Create the store
