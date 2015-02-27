@@ -32,13 +32,13 @@
 					} else if (Model.CommentCount > 1) {
 						<span class="icon-comment"></span><text>@Model.Comments.Count comments</text>
 					}
-					<span class="icon-tag"></span>@Model.Category.Title
+					<span class="icon-tag"></span><a href="@UI.Permalink(Model.Category)">@Model.Category.Title</a>
 				</p>
 			}
 		</header>
-		@*@if (!String.IsNullOrEmpty(Model.Excerpt)) {
+		@if (!String.IsNullOrEmpty(Model.Excerpt)) {
 			<p class="excerpt">@Model.Excerpt</p>
-		}*@
+		}
 
 		@Html.DisplayFor(m => m.Body)
 

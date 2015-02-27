@@ -280,9 +280,9 @@ namespace Piranha.Client.Models
 					from = new DateTime(year.Value, 1, 1);
 					to = from.AddYears(1);
 				}
-				query = p => p.Type == ContentType.Post && p.Published <= now && p.Published >= from && p.Published < to;
+				query = p => p.Type == ContentType.Post && p.Category.IncludeInDefaultArchive && p.Published <= now && p.Published >= from && p.Published < to;
 			} else {
-				query = p => p.Type == ContentType.Post && p.Published <= now;
+				query = p => p.Type == ContentType.Post && p.Category.IncludeInDefaultArchive && p.Published <= now;
 			}
 			return query;
 		}

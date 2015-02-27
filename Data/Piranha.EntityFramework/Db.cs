@@ -167,6 +167,7 @@ namespace Piranha.EntityFramework
 				.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_Slug") {
 					Order = 2,
 				}));
+			mb.Entity<Models.Content>().Property(c => c.Excerpt).HasMaxLength(512);
 			mb.Entity<Models.Content>().HasRequired(c => c.Category).WithMany().WillCascadeOnDelete(false);
 			mb.Entity<Models.Content>().HasMany(c => c.Tags).WithMany().Map(m => {
 				m.ToTable("PiranhaContentTags");

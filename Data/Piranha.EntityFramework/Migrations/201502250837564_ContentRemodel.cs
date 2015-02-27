@@ -53,6 +53,7 @@ namespace Piranha.EntityFramework.Migrations
 					Slug = c.String(nullable: false, maxLength: 128),
 					MetaKeywords = c.String(maxLength: 128),
 					MetaDescription = c.String(maxLength: 256),
+					Excerpt = c.String(maxLength: 512),
 					Created = c.DateTime(nullable: false),
 					Updated = c.DateTime(nullable: false),
 					Published = c.DateTime(),
@@ -112,6 +113,7 @@ namespace Piranha.EntityFramework.Migrations
 					Id = c.Guid(nullable: false),
 					TemplateId = c.Guid(nullable: false),
 					InternalId = c.String(nullable: false, maxLength: 32),
+					SortOrder = c.Int(nullable: false),
 					Name = c.String(nullable: false, maxLength: 128),
 					CLRType = c.String(nullable: false, maxLength: 512),
 					IsCollection = c.Boolean(nullable: false),
@@ -165,6 +167,7 @@ namespace Piranha.EntityFramework.Migrations
 			AddColumn("dbo.PiranhaCategories", "MetaKeywords", c => c.String(maxLength: 128));
 			AddColumn("dbo.PiranhaCategories", "MetaDescription", c => c.String(maxLength: 255));
 			AddColumn("dbo.PiranhaCategories", "ArchiveView", c => c.String(maxLength: 255));
+			AddColumn("dbo.PiranhaCategories", "IncludeInDefaultArchive", c => c.Boolean(nullable: false));
 			AddColumn("dbo.PiranhaComments", "ContentId", c => c.Guid(nullable: false));
 			CreateIndex("dbo.PiranhaComments", "ContentId");
 			AddForeignKey("dbo.PiranhaComments", "ContentId", "dbo.PiranhaContent", "Id", cascadeDelete: true);
@@ -327,6 +330,7 @@ namespace Piranha.EntityFramework.Migrations
 			DropIndex("dbo.PiranhaContent", new[] { "CategoryId" });
 			DropIndex("dbo.PiranhaComments", new[] { "ContentId" });
 			DropColumn("dbo.PiranhaComments", "ContentId");
+			DropColumn("dbo.PiranhaCategories", "IncludeInDefaultArchive");
 			DropColumn("dbo.PiranhaCategories", "ArchiveView");
 			DropColumn("dbo.PiranhaCategories", "MetaDescription");
 			DropColumn("dbo.PiranhaCategories", "MetaKeywords");

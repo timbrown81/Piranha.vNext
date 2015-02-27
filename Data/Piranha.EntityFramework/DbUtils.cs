@@ -64,6 +64,14 @@ namespace Piranha.EntityFramework
 					else if (entry.State == EntityState.Deleted)
 						((Models.Model)entry.Entity).OnDelete();
 				}
+
+				// Handle state lists
+				if (entry.Entity is Models.Template) {
+					var template = (Models.Template)entry.Entity;
+
+					if (template.Fields.GetRemoved().Count > 0)
+						context.Set<Models.TemplateField>().RemoveRange(template.Fields.GetRemoved());
+				}
 			}
 		}
 	}

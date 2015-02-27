@@ -86,6 +86,9 @@ namespace Piranha.Manager
 					},
 					new MenuItem() {
 						InternalId = "Authors", Name = "Authors", Controller = "AuthorMgr", Action = "List"
+					},
+					new MenuItem() {
+						InternalId = "Templates", Name = "Templates", Controller = "TemplateMgr", Action = "List"
 					}
 				}
 			},

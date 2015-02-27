@@ -23,6 +23,39 @@ namespace Piranha.Repositories
 		internal TemplateRepository(Data.ISession session) : base(session) { }
 
 		/// <summary>
+		/// Adds a new model to the current session.
+		/// </summary>
+		/// <param name="model">The model</param>
+		public override void Add(Models.Template model) {
+			// Ensure id
+			if (model.Id == Guid.Empty)
+				model.Id = Guid.NewGuid();
+
+			// Ensure field id, foreign keys & sort order
+			for (var n = 0; n < model.Fields.Count; n++) {
+				var field = model.Fields[n];
+
+				if (field.Id == Guid.Empty)
+					field.Id = Guid.NewGuid();
+				field.TemplateId = model.Id;
+				field.SortOrder = n + 1;
+			}
+			base.Add(model);
+		}
+
+		/// <summary>
+		/// Maps the source model to the destination.
+		/// </summary>
+		/// <param name="model">The source model</param>
+		protected override Models.Template FromDb(Models.Template model) {
+			// Sort the fields
+			model.Fields = model.Fields.OrderBy(f => f.SortOrder).ToStateList();
+
+			// Return the model
+			return model;
+		}
+
+		/// <summary>
 		/// Orders the template query by name.
 		/// </summary>
 		/// <param name="query">The query</param>

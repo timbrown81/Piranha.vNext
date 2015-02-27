@@ -58,7 +58,8 @@ namespace PiranhaCMS
 					var cat = api.Categories.GetSingle(@where: c => c.Slug == "development");
 					if (cat == null) {
 						cat = new Piranha.Models.Category() {
-							Title = "Development"
+							Title = "Development",
+							ArchiveTitle = "Development archives"
 						};
 						api.Categories.Add(cat);
 						api.SaveChanges();
@@ -95,6 +96,7 @@ namespace PiranhaCMS
 							Title = "My first content",
 							MetaKeywords = "Piranha CMS, Blog, First",
 							MetaDescription = "The first post of the blog",
+							Excerpt = "Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
 							Published = DateTime.Now
 						};
 						content.Category = cat;

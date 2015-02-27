@@ -63,6 +63,12 @@ namespace Piranha.Models
 		public string ArchiveView { get; set; }
 
 		/// <summary>
+		/// Gets/sets if content of this category should be included
+		/// in the default archive.
+		/// </summary>
+		public bool IncludeInDefaultArchive { get; set; }
+
+		/// <summary>
 		/// Gets/sets when the model was initially created.
 		/// </summary>
 		public DateTime Created { get; set; }
@@ -72,6 +78,13 @@ namespace Piranha.Models
 		/// </summary>
 		public DateTime Updated { get; set; }
 		#endregion
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public Category() {
+			IncludeInDefaultArchive = true;
+		}
 
 		/// <summary>
 		/// Method to validate model

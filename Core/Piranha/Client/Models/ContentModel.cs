@@ -58,6 +58,11 @@ namespace Piranha.Client.Models
 		public string MetaDescription { get; set; }
 
 		/// <summary>
+		/// Gets/sets the short excerpt.
+		/// </summary>
+		public string Excerpt { get; set; }
+
+		/// <summary>
 		/// Gets/sets the main content body.
 		/// </summary>
 		public IList<ContentRow> Body { get; set; }

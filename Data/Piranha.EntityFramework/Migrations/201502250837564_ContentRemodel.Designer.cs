@@ -13,7 +13,7 @@ namespace Piranha.EntityFramework.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201502201401574_ContentRemodel"; }
+            get { return "201502250837564_ContentRemodel"; }
         }
         
         string IMigrationMetadata.Source

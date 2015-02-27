@@ -114,7 +114,10 @@ namespace Piranha.EntityFramework
 					.Include(c => c.Category)
 					.Include(c => c.Template)
 					.Include(c => c.Body.Select(r => r.Blocks));
-			} 
+			} else if (typeof(Models.Template) == typeof(T)) {
+				return (IQueryable<T>)db.Templates
+					.Include(t => t.Fields);
+			}
 			return db.Set<T>();
 		}
 		#endregion

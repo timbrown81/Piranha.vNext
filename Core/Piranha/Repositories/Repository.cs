@@ -41,8 +41,12 @@ namespace Piranha.Repositories
 		/// </summary>
 		/// <param name="id">The unique id</param>
 		/// <returns>The model</returns>
-		public virtual T GetSingle(Guid id) { 
-			return FromDb(session.GetSingle<T>(id));
+		public virtual T GetSingle(Guid id) {
+			var model = session.GetSingle<T>(id);
+
+			if (model != null)
+				return FromDb(model);
+			return null;
 		}
 
 		/// <summary>

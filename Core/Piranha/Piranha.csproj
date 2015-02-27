@@ -73,6 +73,7 @@
     <Compile Include="Data\ModelError.cs" />
     <Compile Include="Data\ModelException.cs" />
     <Compile Include="Data\Seed.cs" />
+    <Compile Include="Data\StateList.cs" />
     <Compile Include="Drawing\ImageUtils.cs" />
     <Compile Include="Extend\Components\Image.cs" />
     <Compile Include="Extend\ComponentAttribute.cs" />

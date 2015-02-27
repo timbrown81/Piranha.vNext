@@ -59,14 +59,14 @@ namespace Piranha.Models
 		/// <summary>
 		/// Gets/sets the available fields.
 		/// </summary>
-		public IList<TemplateField> Fields { get; set; }
+		public Data.StateList<TemplateField> Fields { get; set; }
 		#endregion
 
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
 		public Template() {
-			Fields = new List<TemplateField>();
+			Fields = new Data.StateList<TemplateField>();
 		}
 	}
 }

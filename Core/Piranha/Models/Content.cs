@@ -67,6 +67,11 @@ namespace Piranha.Models
 		public string MetaDescription { get; set; }
 
 		/// <summary>
+		/// Gets/sets the short excerpt.
+		/// </summary>
+		public string Excerpt { get; set; }
+
+		/// <summary>
 		/// Gets/sets when the model was initially created.
 		/// </summary>
 		public DateTime Created { get; set; }

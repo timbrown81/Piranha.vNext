@@ -70,9 +70,9 @@
     <Compile Include="Migrations\201412030715277_AddPageTypeProperties.Designer.cs">
       <DependentUpon>201412030715277_AddPageTypeProperties.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502201401574_ContentRemodel.cs" />
-    <Compile Include="Migrations\201502201401574_ContentRemodel.Designer.cs">
-      <DependentUpon>201502201401574_ContentRemodel.cs</DependentUpon>
+    <Compile Include="Migrations\201502250837564_ContentRemodel.cs" />
+    <Compile Include="Migrations\201502250837564_ContentRemodel.Designer.cs">
+      <DependentUpon>201502250837564_ContentRemodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,8 +105,8 @@
     <EmbeddedResource Include="Migrations\201412030715277_AddPageTypeProperties.resx">
       <DependentUpon>201412030715277_AddPageTypeProperties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502201401574_ContentRemodel.resx">
-      <DependentUpon>201502201401574_ContentRemodel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201502250837564_ContentRemodel.resx">
+      <DependentUpon>201502250837564_ContentRemodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

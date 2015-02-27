@@ -20,9 +20,9 @@
 						} else if (post.CommentCount > 1) {
 							<span class="icon-comment"></span><text>@post.CommentCount comments</text>
 						}
-						<span class="icon-tag"></span> <a href="@UI.Permalink(post.Category)">@post.Category.Title</a>
+						<span class="icon-tag"></span><a href="@UI.Permalink(post.Category)">@post.Category.Title</a>
 					</p>
-					@*<p>@post.Excerpt</p>*@
+					<p>@post.Excerpt</p>
 				</section>
 			}
 

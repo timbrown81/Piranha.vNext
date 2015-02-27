@@ -35,6 +35,11 @@ namespace Piranha.Models
 		public string InternalId { get; set; }
 
 		/// <summary>
+		/// Gets/sets the sort order of the field.
+		/// </summary>
+		public int SortOrder { get; set; }
+
+		/// <summary>
 		/// Gets/sets the display name.
 		/// </summary>
 		public string Name { get; set; }
@@ -56,5 +61,12 @@ namespace Piranha.Models
 		/// </summary>
 		public Template Template { get; set; }
 		#endregion
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public TemplateField() {
+			SortOrder = 1;
+		}
 	}
 }
