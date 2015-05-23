@@ -42,14 +42,16 @@
 
 		@Html.DisplayFor(m => m.Body)
 
-		@if (Model.Comments.Count > 0) {
-			<section class="comments">
-				<header><h2>Comments</h2></header>
-				@Html.DisplayFor(m => m.Comments)
+		@if (Piranha.App.Env.GetCurrent().Type == Piranha.Client.Models.CurrentType.Post) {
+			if (Model.Comments.Count > 0) {
+				<section class="comments">
+					<header><h2>Comments</h2></header>
+					@Html.DisplayFor(m => m.Comments)
+				</section>
+			}
+			<section class="add-comment">
+				@Html.Partial("Partial/AddComment", Model)
 			</section>
 		}
-		<section class="add-comment">
-			@Html.Partial("Partial/AddComment", Model)
-		</section>
 	</article>
 </div>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 Håkan Edling
+ * Copyright (c) 2015 Håkan Edling
  *
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
@@ -169,6 +169,7 @@ namespace Piranha.EntityFramework.Migrations
 			AddColumn("dbo.PiranhaCategories", "ArchiveView", c => c.String(maxLength: 255));
 			AddColumn("dbo.PiranhaCategories", "IncludeInDefaultArchive", c => c.Boolean(nullable: false));
 			AddColumn("dbo.PiranhaComments", "ContentId", c => c.Guid(nullable: false));
+			AddColumn("dbo.PiranhaMedia", "Type", c => c.Int(nullable: false));
 			CreateIndex("dbo.PiranhaComments", "ContentId");
 			AddForeignKey("dbo.PiranhaComments", "ContentId", "dbo.PiranhaContent", "Id", cascadeDelete: true);
 			DropColumn("dbo.PiranhaComments", "PostId");
@@ -329,6 +330,7 @@ namespace Piranha.EntityFramework.Migrations
 			DropIndex("dbo.PiranhaContent", new[] { "TemplateId" });
 			DropIndex("dbo.PiranhaContent", new[] { "CategoryId" });
 			DropIndex("dbo.PiranhaComments", new[] { "ContentId" });
+			DropColumn("dbo.PiranhaMedia", "Type");
 			DropColumn("dbo.PiranhaComments", "ContentId");
 			DropColumn("dbo.PiranhaCategories", "IncludeInDefaultArchive");
 			DropColumn("dbo.PiranhaCategories", "ArchiveView");

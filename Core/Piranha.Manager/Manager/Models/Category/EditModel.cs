@@ -45,6 +45,7 @@ namespace Piranha.Manager.Models.Category
 		public string MetaDescription { get; set; }
 		[StringLength(255)]
 		public string ArchiveView { get; set; }
+		public bool IncludeInDefaultArchive { get; set; }
 		#endregion
 
 		/// <summary>

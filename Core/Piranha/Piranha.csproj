@@ -114,6 +114,7 @@
     <Compile Include="Models\Alias.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Block.cs" />
+    <Compile Include="Models\MediaType.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />

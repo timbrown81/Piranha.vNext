@@ -26,6 +26,11 @@ namespace Piranha.Models
 		public Guid Id { get; set; }
 
 		/// <summary>
+		/// Gets/sets the media type.
+		/// </summary>
+		public MediaType Type { get; set; }
+
+		/// <summary>
 		/// Gets/sets the display name.
 		/// </summary>
 		public string Name { get; set; }

@@ -1,0 +1,119 @@
+﻿@{
+	Layout = "";
+}
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-primary panel-add" >
+			<div class="notification">
+				<div class="icon"><span class="glyphicon glyphicon-ok-circle"></span></div>
+			</div>
+			<div id="addCategoryTitle" class="panel-heading">
+				<h3 class="panel-title">
+					<span class="glyphicon glyphicon-plus pull-right"></span>
+					<a data-toggle="collapse" href="#addTemplate" aria-expanded="false" aria-controls="addTemplate" data-bind="text: panelTitle">
+						Add new template
+					</a>
+				</h3>
+			</div>
+			<div id="addTemplate" class="panel-collapse collapse" role="tabpanel" aria-labelledby="addTemplateTitle">
+				<div class="panel-body">
+					<form role="form" class="form">
+						<div class="row">
+							<div class="col-sm-6">
+								<label>Name</label>
+								<div class="form-group" data-bind="css: { 'has-error has-feedback': nameValid() != true }">
+									<input type="text" class="form-control" placeholder="Add template name" data-bind="value: name" />
+									<!-- ko if: !nameValid() -->
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<!-- /ko -->
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<label>Content types</label>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" /> Available to pages
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<label>&nbsp;</label>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" /> Available to posts
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<label>Route</label>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Add optional template route" data-bind="value: route" />
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<label>View</label>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Add optional template view" data-bind="value: view" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<label>Custom fields</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<table class="table table-striped table-main">
+									<thead>
+										<tr>
+											<th>Display name</th>
+											<th>Internal id</th>
+											<th>Field type</th>
+											<th>Multiple values</th>
+											<th class="actions three"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><input type="text" class="form-control" /></td>
+											<td><input type="text" class="form-control" /></td>
+											<td><input type="text" class="form-control" /></td>
+											<td><input type="text" class="form-control" /></td>
+											<td class="actions">
+												<a class="delete" href="#"></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<!-- Save -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-labeled btn-success" data-bind="click: save">
+							<span class="btn-label">
+								<i class="glyphicon glyphicon-ok"></i>
+							</span>
+							@Piranha.Manager.Resources.Global.Save
+						</button>
+					</div>
+					<!-- Cancel -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-labeled btn-danger" data-bind="click: clear">
+							<span class="btn-label">
+								<i class="glyphicon glyphicon-remove"></i>
+							</span>
+							@Piranha.Manager.Resources.Global.Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
